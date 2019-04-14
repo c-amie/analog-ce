@@ -1,0 +1,110 @@
+/* This is the style sheet placed at the top of XHTML output.*/
+/* Created by J.C. Reeves on 02-Jun-2003 */
+/* Updated by J.C. Reeves on 02-Jun-2003 */
+
+body                     { background-color: #FFFFFF; 
+                           color: #333333; 
+                           font-family: Verdana, Arial;
+                           font-size: 10pt;
+                           margin: 2em }
+hr                       { color: #55554B;
+                           border: 1px inset;
+                           noshade }
+pre, tt, code, kbd, samp { font-family: 'Lucida Console', 'Courier New'; 
+                           background-color: #E1E1C8; 
+                           font-size: 9pt;
+                           font-variant: normal }
+
+h1 {
+	border-bottom:3px double #FFFFFF; width: 100%; text-align: center;
+	font-family:Times New Roman; font-style:italic; font-weight:bold; padding-left:6px; padding-right:6px; padding-top:3px; padding-bottom:3px; letter-spacing:2pt; background-color:#FFFFFF; color:#000000
+}
+
+h2 {
+	border-top:3px double #000080; background-color: #000080;
+	width: 100%;
+	color:#FFFFFF; font-family:Times New Roman; letter-spacing:4pt; font-style:italic; font-weight:bold; padding-left:6px; padding-right:6px; padding-top:2px; padding-bottom:6px; border-bottom-style:solid
+}
+
+table {
+	text-align: right;
+	margin-left: 30px;
+	background-color: #D0E0F0;
+        border-collapse: collapse; font-size:8pt
+}
+th {
+	border-top:3px double #000080; border-bottom:3px double #000080; border-right:1px solid #C0C0FF; font-weight: bold;
+	background-color: #000080;color:#FFFFFF; border-left-width:medium; padding-left:5px; padding-right:5px; padding-top:2px; padding-bottom:6px; letter-spacing:-1pt
+}
+td {
+	border-right: 1px solid #606070;
+        border-left-width:medium; border-top-width:medium; border-bottom-width:medium; padding-left:5px; padding-right:5px; padding-top:0px; padding-bottom:1px
+}
+td.x {
+	font-family: Lucida Console;
+        white-space: pre
+}
+
+.header {
+	border-top:3px double #000080; border-bottom:3px double #000080; text-align: left;
+	; font-size:10pt; border-right-width:medium; background-color:#000080; color:#FFFFFF; padding-left:6; padding-right:6; padding-top:3 
+}
+
+.xl {
+	text-align: left;
+	border-right: medium none;; font-size:8pt
+}
+.xr {
+	text-align: right;
+	border-right: medium none;; font-size:8pt
+}
+.bar {
+	text-align: left;
+	border-right: medium none;; font-size:8pt
+}
+tr.sub {background-color: #C0C0FF;
+	font-size:8pt
+}
+.repdesc {
+	font-style: italic;
+}
+.repspan {
+	font-style: italic;
+}
+.goto {
+	border:1px solid #000080; font-size: 8pt; font-variant:small-caps; letter-spacing:-1pt; background-color:#D0E0F0; padding-left:6; padding-right:6; padding-top:4; padding-bottom:4
+}
+.gensumtitle {
+	font-weight: bold; font-variant:small-caps; 
+}
+.gototitle {
+	font-weight: bold; font-variant:small-caps; letter-spacing:-1pt
+}
+.runtimetitle {
+	font-weight: bold;
+}
+img {
+	border-style: none;
+}
+a:link {
+	color: blue;
+	text-decoration: none;
+}
+a:visited {
+	color: purple;
+	text-decoration: none;
+}
+a:link:hover {
+	text-decoration: underline;
+}
+a:visited:hover {
+	text-decoration: underline;
+}
+a:link:active {
+	color: red;
+	text-decoration: underline;
+}
+a:visited:active {
+	color: red;
+	text-decoration: underline;
+}

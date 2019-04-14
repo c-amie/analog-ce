@@ -1,0 +1,90 @@
+/* This is the style sheet placed at the top of XHTML output.*/
+/* Created by J.C. Reeves on 02-Jun-2003 */
+/* Updated by J.C. Reeves on 03-Jun-2003 */
+
+body         { background-color: #FFFFFF; color: #505050; font-family: Verdana, Arial; 
+               font-size: 10pt; margin: 2em }
+hr           { color: #505050; border-style: inset; border-width: 1px }
+pre, tt, code, kbd, samp { font-family: 'Lucida Console', 'Courier New'; background-color: #E2E2E2; 
+               font-size: 9pt; font-variant: normal }
+h1 {
+	border-bottom:3px double #FFFFFF; width: 100%; text-align: center;
+	font-family:Times New Roman; font-style:italic; font-weight:bold; padding-left:6px; padding-right:6px; padding-top:3px; padding-bottom:3px; letter-spacing:2pt; background-color:#FFFFFF; color:#000000
+}
+
+h2           { background-color: #505050; width: 100%; color: #FFFFFF; font-family: 
+               Times New Roman; letter-spacing: 4pt; font-style: italic; 
+               font-weight: bold; border-top: 3px double #000080; 
+               border-bottom-style: solid; padding-left: 6px; padding-right: 
+               6px; padding-top: 2px; padding-bottom: 6px }
+table        { text-align: right; background-color: #E2E2E2; border-collapse: collapse; 
+               font-size: 8pt; margin-left: 30px }
+th           { font-weight: bold; background-color: #505050; color: #FFFFFF; letter-spacing: 
+               -1pt; border-left-width: medium; 
+               border-right: 1px solid #C0C0C0; border-top: 2px double #505050; 
+               border-bottom: 2px double #505050; padding-left: 5px; 
+               padding-right: 5px; padding-top: 2px; padding-bottom: 6px }
+td {
+	border-right: 1px solid #606070;
+        border-left-width:medium; border-top-width:medium; border-bottom-width:medium; padding-left:5px; padding-right:5px; padding-top:0px; padding-bottom:1px
+}
+td.x {
+	font-family: Lucida Console;
+        white-space: pre
+}
+
+.header      { text-align: left; font-size: 10pt; background-color: #505050; color: #FFFFFF; 
+               border-right-width: medium; border-top-style: double; 
+               border-top-color: #505050; border-bottom-style: double; 
+               border-bottom-color: #505050; padding-left: 6; padding-right: 6; 
+               padding-top: 3 }
+.xl {
+	text-align: left;
+	border-right: medium none;; font-size:8pt
+}
+.xr {
+	text-align: right;
+	border-right: medium none;; font-size:8pt
+}
+.bar {
+	text-align: left;
+	border-right: medium none;; font-size:8pt
+}
+tr.sub       { background-color: #C0C0C0; font-size: 8pt }
+.repdesc {
+	font-style: italic;
+}
+.repspan {
+	font-style: italic;
+}
+.goto        { font-size: 8pt; font-variant: small-caps; background-color: #E2E2E2; 
+               padding-left: 6; padding-right: 6; padding-top: 4; 
+               padding-bottom: 4 }
+.gensumtitle {
+	font-weight: bold; font-variant:small-caps; 
+}
+.gototitle   { font-variant: small-caps; font-weight: bold }
+.runtimetitle {
+	font-weight: bold;
+}
+img {
+	border-style: none;
+}
+a:link {
+	color: blue;
+	text-decoration: none;
+}
+a:visited {
+	color: purple;
+	text-decoration: none;
+}
+a:link:hover {
+	text-decoration: underline;
+}
+a:visited:hover {
+	text-decoration: underline;
+}
+a:link:active {
+	color: red;
+	text-decoration: underline;
+}

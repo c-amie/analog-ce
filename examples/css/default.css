@@ -1,0 +1,93 @@
+/* This is the default style sheet placed at the top of XHTML output.
+   If you declare your own style sheet, you don't get the default one,
+   so you might like to use this one as a starting point. */
+/* If you make a good style sheet and want to share it, please send it to me!*/
+h2 {
+	background-color: #A0C0F0;
+	width: 98%;
+	padding: 3px 6px;
+}
+table {
+	text-align: right;
+	margin-left: 30px;
+	background-color: #D0E0F0;
+        border-collapse: collapse;
+}
+th {
+	border-bottom: 1px solid #404050;
+	border-right: 1px dotted #606070;
+        border-top: none;
+        border-left: none;
+	padding: 0px 5px 1px 5px;
+	font-weight: bold;
+	background-color: #A0C0F0;
+}
+td {
+	padding: 0px 5px 1px 5px;
+	border-right: 1px dotted #606070;
+        border-left: none;
+        border-bottom: none;
+        border-top: none;
+}
+td.x {
+	font-family: monospace;
+        white-space: pre;
+}
+.xl {
+	text-align: left;
+	border-right: none;
+}
+.xr {
+	text-align: right;
+	border-right: none;
+}
+.bar {
+	text-align: left;
+	border-right: none;
+}
+tr.sub {background-color: #C0C0FF;
+	font-style: italic;
+}
+.repdesc {
+	font-style: italic;
+}
+.repspan {
+	font-style: italic;
+}
+.goto {
+	font-size: small;
+}
+.gensumtitle {
+	font-weight: bold;
+}
+.gototitle {
+	font-weight: bold;
+}
+.runtimetitle {
+	font-weight: bold;
+}
+img {
+	border-style: none;
+}
+a:link {
+	color: blue;
+	text-decoration: none;
+}
+a:visited {
+	color: purple;
+	text-decoration: none;
+}
+a:link:hover {
+	text-decoration: underline;
+}
+a:visited:hover {
+	text-decoration: underline;
+}
+a:link:active {
+	color: red;
+	text-decoration: underline;
+}
+a:visited:active {
+	color: red;
+	text-decoration: underline;
+}

@@ -1,0 +1,166 @@
+/* This is the style sheet placed at the top of XHTML output */
+/* and was specifically written for the Analog product.      */
+/* Created by J.C. Reeves on 02-Jun-2003                     */
+/* Updated by J.C. Reeves on 07-Dec-2004                     */
+
+
+/* COMMON HTML TAGS                                          */
+
+body         { color: #000000; font-family: Verdana; Arial; font-size: 10pt; 
+               background-color: #969696; margin: 2em }
+hr           { color: #505050; border-style: inset; border-width: 2px }
+pre, tt, code, kbd, samp { font-family: 'Lucida Console', 'Courier New'; background-color: #E2E2E2; 
+                           font-size: 8pt; font-variant: normal }
+h1           { width: 100%; text-align: center; font-family: Times New Roman; 
+               letter-spacing: 2pt; background-color: #505050; color: #FFFFC8; 
+               font-style: italic; font-weight: bold; 
+               border-bottom: 3px double #FFFFFF; padding-left: 6px; 
+               padding-right: 6px; padding-top: 4px; padding-bottom: 4px; margin-top:6; margin-bottom:6 }
+h2           { background-color: #505050; width: 100%; color: #FFFFC8; font-family: 
+               Times New Roman; letter-spacing: 3pt; font-style: italic; 
+               font-weight: bold; padding-left: 6px; padding-right: 6px; 
+               padding-top: 2px; padding-bottom: 6px; margin-top:6; margin-bottom:6 }
+table        { background-color: #E1E1E1; border-collapse: collapse; font-size: 8pt; 
+               position: relative; text-align: right; font-family: 
+               'Lucida Console', 'Courier New'; letter-spacing: -1; 
+               border: 2px solid #000000; margin-left: 30px; margin-right: 30px; margin-top:0; margin-bottom:12 }
+th           { font-size: 9pt; background-color: #505050; color: #FFFFC8; border-left-width: medium; 
+               border-right: 1px solid #C0C0C0; border-top: 2px double #505050; 
+               border-bottom: 2px double #505050; padding-left: 5px; 
+               padding-right: 5px; padding-top: 2px; padding-bottom: 6px; font-variant:small-caps; font-family:Arial }
+td           { border-left-width: medium; border-right: 1px solid #606070; border-top-width: 
+               medium; padding-left: 2px; padding-right: 2px; padding-top: 1px; 
+               padding-bottom: 1px }
+tr.sub       { background-color: #D2D2D2 }
+img          { }
+
+/* HYPERLINK TAGS                                           */
+
+a:link          { color: blue; text-decoration: none }
+a:visited       { color: purple; text-decoration: none }
+a:link:hover    { text-decoration: underline }
+a:visited:hover { text-decoration: underline }
+a:link:active   { color: red; text-decoration: underline }
+
+/* XHTML CLASSES                                            */
+/*  INFORMATION LINES CLASSES                                */
+
+.analysisspan { margin:6 30; text-align: center; background-color: #E1E1E1; border: 2px solid #000000; 
+               padding-left: 6; 
+               padding-right: 5; padding-top: 4; padding-bottom: 4 }
+.busiesttime { color: #FF0000; font-size: 10pt; text-transform: uppercase; font-weight: bold; 
+               margin-left: 30 }
+.lastseven   { margin-left: 30 }   
+.eachunit    { margin-left: 30 }
+.xl          { text-align: left; border-right: medium none }
+.xr          { text-align: right; border-right: medium none }
+.bar         { text-align: left; font-size: 9pt; border-right-style: none; 
+               border-right-width: medium }
+.repdesc     { font-style: italic }
+.whatinc     { font-style: italic; margin-left: 30 }
+.repspan     { font-style: italic }
+.goto        { margin:6 30; font-size: 8pt; background-color: #E2E2E2; background-attachment: scroll; 
+               border: 2px solid #000000; padding-left: 6; padding-right: 6; padding-top: 4; 
+               padding-bottom: 4 }
+.gototitle   { font-size: 10pt; color: #FF0000; font-weight: bold; text-decoration:underline; text-transform:uppercase }
+.gensumtitle { letter-spacing: -1pt; font-weight: bold; margin-right: 6 }
+.gensumlines { margin:3 30; background-color: #E1E1E1; border: 2px solid #000000; padding-left: 6; padding-right: 6; 
+               padding-top: 4; padding-bottom: 4 }
+.credit      { margin:6 30; background-color: #E1E1E1; border: 2px solid #000000; padding-left: 6; padding-right: 6; 
+               padding-top: 4; padding-bottom: 4 }
+.runtimetitle   { font-weight: bold }
+
+/*  MAIN SECTIONS CLASSES     */
+
+.header      { padding:6; text-align: center; font-size: 10pt; background-color: #FFFFFF; border-style: 
+               solid; border-width: 1;  }
+.year        { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.quartly     { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.month       { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.week        { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.hourrep     { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 } 
+.quartrep    { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 } 
+.fiverep     { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.weekhour    { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 } 
+.quartsum    { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 } 
+.fivesum     { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.dayrep      { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.daysum      { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.hoursum     { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.org         { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.dom         { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.host        { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.ref         { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.refsite     { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.searchw     { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.searchq     { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.isearchq    { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.isearchw    { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.browrep     { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.browsum     { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.os          { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.dir         { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.req         { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.type        { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.size        { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.code        { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.redir       { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.redirvh     { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.redihost    { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.redirref    { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.rediuser    { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.vhost       { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.fail        { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.failhost    { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.failref     { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.failuser    { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.failvh      { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.user        { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.proctime    { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.gensum      { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
+.footer      { background-color: #FFFFFF; border: 1px solid #000000; margin-top: 6; 
+               margin-bottom: 6; padding: 6 }
