@@ -1,0 +1,4 @@
+This directory contains an anlghead.h and Makefile for analog on RISC OS.
+
+Note: these files worked with version 5.90beta2, but haven't been updated
+for version 5.91beta1.
