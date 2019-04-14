@@ -1,0 +1,264 @@
+aero    2   ilmakuljetus
+arpa    1   Arpanetin vanha tunnus
+biz     2   liiketoiminta
+com     2   kaupalliset yritykset
+coop    2   osuustoiminta
+edu     2   USA:n tutkimus ja koulutus
+gov     2   USA:n hallinto
+info    2   informaatio
+int     2   kansainväliset järjestöt
+mil     2   USA:n puolustushallinto
+museum  2   museot
+name    3   yksityishenkilöt
+net     2   tietoverkot
+org     2   järjestöt
+pro     3   ammatinharjoittajat
+
+ac  1   Ascension
+ad  2   Andorra
+ae  3   Arabiemiirikunnat
+af  1   Afganistan
+ag  2   Antigua ja Barbuda
+ai  1   Anguilla
+al  1   Albania
+am  2   Armenia
+an  1   Alankomaiden Antillit
+ao  1   Angola
+aq  1   Antarktis
+ar  3   Argentiina
+as  1   Amerikan Samoa
+at  3   Itävalta
+au  3   Australia
+aw  1   Aruba
+az  1   Azerbaidzhan
+ba  3   Bosnia-Hertsegovina
+bb  2   Barbados
+bd  1   Bangladesh
+be  3   Belgia
+bf  1   Burkina Faso
+bg  2   Bulgaria
+bh  1   Bahrain
+bi  1   Burundi
+bj  1   Benin
+bm  1   Bermuda
+bn  1   Brunei
+bo  3   Bolivia
+br  3   Brasilia
+bs  1   Bahama
+bt  1   Bhutan
+bv  1   Bouvet'nsaari
+bw  1   Botswana
+by  1   Valko-Venäjä
+bz  1   Belize
+ca  3   Kanada
+cc  1   Kookossaaret
+cd  1   Kongon demokraattinen tasavalta
+cf  1   Keski-Afrikka
+cg  1   Kongo
+ch  2   Sveitsi
+ci  1   Norsunluurannikko
+ck  1   Cookin saaret
+cl  2   Chile
+cm  1   Kamerun
+cn  3   Kiina
+co  3   Kolumbia
+cr  3   Costa Rica
+cu  2   Kuuba
+cv  1   Kap Verde
+cx  2   Joulusaari
+cy  3   Kypros
+cz  2   Tshekki
+de  2   Saksa
+dj  1   Djibouti
+dk  2   Tanska
+dm  2   Dominica
+do  3   Dominikaaninen tasavalta
+dz  1   Algeria
+ec  3   Ecuador
+ee  2   Viro
+eg  3   Egypti
+eh  1   Länsi-Sahara
+er  1   Eritrea
+es  2   Espanja
+et  1   Etiopia
+fi  2   Suomi
+fj  3   Fidzhi
+fk  1   Falklandinsaaret
+fm  1   Mikronesia
+fo  1   Färsaaret
+fr  2   Ranska
+fx  1   Ranska (emämaa)
+ga  1   Gabon
+gb  1   Yhdistynyt kuningaskunta
+gd  1   Grenada
+ge  1   Georgia
+gf  1   Ranskan Guayana
+gg  1   Guernsey
+gh  3   Ghana
+gi  1   Gibraltar
+gl  1   Grönlanti
+gm  1   Gambia
+gn  1   Guinea
+gp  1   Guadeloupe
+gq  1   Päiväntasaajan Guinea
+gr  2   Kreikka
+gs  1   Etelä-Georgia ja Etelä-Sandwichsaaret
+gt  3   Guatemala
+gu  1   Guam
+gw  1   Guinea-Bissau
+gy  1   Guyana
+hk  3   Hongkong
+hm  1   Heard- ja McDonaldsaaret
+hn  2   Honduras
+hr  2   Kroatia
+ht  1   Haiti
+hu  2   Unkari
+id  3   Indonesia
+ie  2   Irlanti
+il  3   Israel
+im  1   Mansaari
+in  3   Intia
+io  1   Brittiläinen Intian valtameren alue
+iq  1   Irak
+ir  1   Iran
+is  2   Islanti
+it  2   Italia
+je  1   Jersey
+jm  3   Jamaika
+jo  3   Jordania
+jp  3   Japani
+ke  3   Kenia
+kg  1   Kirgisia
+kh  1   Kambodzha
+ki  1   Kiribati
+km  1   Komorit
+kn  1   Saint Kitts ja Nevis
+kp  1   Korean kansantasavalta
+kr  3   Korean tasavalta
+kw  3   Kuwait
+ky  1   Caymansaaret
+kz  1   Kazakstan
+la  1   Laos
+lb  3   Libanon
+lc  1   Saint Lucia
+li  2   Liechtenstein
+lk  1   Sri Lanka
+lr  1   Liberia
+ls  1   Lesotho
+lt  2   Liettua
+lu  2   Luxemburg
+lv  2   Latvia
+ly  1   Libya
+ma  1   Marokko
+mc  2   Monaco
+md  1   Moldova
+mg  1   Madagaskar
+mh  1   Marshallsaaret
+mk  3   Makedonia (entinen Jugoslavian tasavalta)
+ml  1   Mali
+mm  1   Myanmar
+mn  1   Mongolia
+mo  1   Macao
+mp  1   Pohjois-Mariaanit
+mq  1   Martinique
+mr  1   Mauritania
+ms  1   Montserrat
+mt  3   Malta
+mu  1   Mauritius
+mv  1   Malediivit
+mw  1   Malawi
+mx  3   Meksiko
+my  3   Malesia
+mz  1   Mosambik
+na  1   Namibia
+nc  1   Uusi-Kaledonia
+ne  1   Niger
+nf  1   Norfolkinsaari
+ng  1   Nigeria
+ni  3   Nicaragua
+nl  2   Alankomaat
+no  2   Norja
+np  1   Nepal
+nr  1   Nauru
+nu  2   Niue
+nz  3   Uusi-Seelanti
+om  1   Oman
+pa  3   Panama
+pe  3   Peru
+pf  1   Ranskan Polynesia
+pg  3   Papua-Uusi-Guinea
+ph  3   Filippiinit
+pk  3   Pakistan
+pl  3   Puola
+pm  1   Saint-Pierre ja Miquelon
+pn  1   Pitcairn
+pr  1   Puerto Rico
+ps  3   Palestiinan itsehallintoalue
+pt  2   Portugali
+pw  1   Palau
+py  3   Paraguay
+qa  1   Qatar
+re  1   Réunion
+ro  2   Romania
+ru  2   Venäjä
+rw  1   Ruanda
+sa  3   Saudi-Arabia
+sb  1   Salomonsaaret
+sc  1   Seychellit
+sd  1   Sudan
+se  2   Ruotsi
+sg  3   Singapore
+sh  1   Saint Helena
+si  2   Slovenia
+sj  1   Huippuvuoret ja Jan Mayen
+sk  2   Slovakia
+sl  1   Sierra Leone
+sm  1   San Marino
+sn  1   Senegal
+so  1   Somalia
+sr  1   Suriname
+st  1   São Tomé ja Príncipe
+su  2   entinen Neuvostoliitto
+sv  3   El Salvador
+sy  1   Syyria
+sz  1   Swazimaa
+tc  1   Turks- ja Caicossaaret
+td  1   Tshad
+tf  1   Ranskan eteläiset alueet
+tg  1   Togo
+th  3   Thaimaa
+tj  1   Tadzhikistan
+tk  1   Tokelau
+tl  1   Itä-Timor
+tm  1   Turkmenistan
+tn  1   Tunisia
+to  1   Tonga
+tp  1   Itä-Timor
+tr  3   Turkki
+tt  3   Trinidad ja Tobago
+tv  1   Tuvalu
+tw  3   Taiwan
+tz  1   Tansania
+ua  3   Ukraina
+ug  3   Uganda
+uk  3   Yhdistynyt kuningaskunta
+um  1   Yhdysvaltain Tyynenmeren erillissaaret
+us  4   Yhdysvallat
+uy  3   Uruguay
+uz  1   Uzbekistan
+va  1   Vatikaani
+vc  1   Saint Vincent ja Grenadiinit
+ve  3   Venezuela
+vg  1   Brittiläiset Neitsytsaaret
+vi  1   Yhdysvaltain Neitsytsaaret
+vn  1   Vietnam
+vu  1   Vanuatu
+wf  1   Wallis- ja Futunasaaret
+ws  1   Samoa
+ye  1   Jemen
+yt  1   Mayotte
+yu  3   Jugoslavia
+za  3   Etelä-Afrikka
+zm  1   Sambia
+zr  1   Kongon kansantasavalta
+zw  3   Zimbabwe

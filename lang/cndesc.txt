@@ -1,0 +1,92 @@
+# Report descriptions file for analog 6.0.
+#
+# This file contains descriptions of each report. Lines starting with a
+# hash (#) are comments. Otherwise, each report must take EXACTLY ONE LINE.
+# Yearly Report
+这部份的报告以年为单位作统计.
+# Quarterly Report
+这部份的报告以季为单位作统计.
+# Monthly Report
+这部份的报告以月为单位作统计.
+# Weekly Report
+这部份的报告以周为单位作统计.
+# Daily Report
+这部份的报告以天为单位作统计.
+# Hourly Report
+这部份的报告以小时为单位作统计.
+# Quarter-Hour Report
+这部份的报告以刻(15分钟)为单位作统计.
+# Five-Minute Report
+这部份的报告以五分钟为单位作统计.
+# Daily Summary
+这部份的报告将所有记录以每周各日区分作加总统计.
+# Hourly Summary
+这部份的报告将所有记录以每天各个小时区分作加总统计.
+# Hour of the Week Summary
+这部份的报告将本周所有记录以每天各个小时区分作加总统计.
+# Quarter-Hour Summary
+这部份的报告将所有记录以每天中的每15分钟区分作加总统计.
+# Five-Minute Summary
+这部份的报告将所有记录以每天中的每5分钟区分作加总统计.
+# General Summary
+这部份的报告显示总体统计信息.
+# Request Report
+这部份的报告列出本网站上的档案.
+# Redirection Report
+这部份的报告列出造成请求被导向另一档案的档案. (通常造成的原因有: 目录最后面少了斜线/, 或是强迫重新导向的 CGI 程序)
+# Failure Report
+这部份的报告列出造成请求失败的文件名称, 例如找不到档案.
+# File Type Report
+这部份的报告列出被请求的档案的扩展名.
+# Directory Report
+这部份的报告列出被请求档案所属的目录. (列出的目录包括其子目录的记录)
+# Host Report
+这部份的报告列出送出请求的主机地址.
+# Host Redirection Report
+这部份的报告列出被重新导向的主机地址.
+# Host Failure Report
+这部份的报告列出送出失败请求的主机.
+# Domain Report
+这部份的报告列出网站参访者的来源国家.
+# Referrer Report
+这部份的报告列出本网站的连结点. (Referrer, 即连至本网站内档案的网页其位置, 或是本网站上有包括图片的网页等)
+# Referring Site Report
+这部份的报告列出连结至本站内档案的主机统计.
+# Redirected Referrer Report
+这部份的报告列出造成被重新导向的请求的来源.
+# Failed Referrer Report
+这部份的报告列出连结至本站内已不存在档案的连结点统计.
+# Browser Report
+这部份的报告列出参访者所使用的浏览器.
+# Virtual Host Report
+这部份的报告列出个别虚拟主机的记录统计.
+# Virtual Host Redirection Report
+这部份的报告列出个别虚拟主机被重新导向的请求统计.
+# Virtual Host Failure Report
+这部份的报告列出个别虚拟主机的失败请求统计.
+# User Report
+这部份的报告列出送出请求的使用者(如果可以由认证或 cookie 得到).
+# User Redirection Report
+这部份的报告列出被重新导向的使用者.
+# User Failure Report
+这部份的报告列出送出失败请求的使用者.
+# Organisation Report
+这部份的报告列出参访者地址所属的组织.
+# Search Query Report
+这部份的报告列出参访者在搜寻引擎中连到此站所使用的检索条件.
+# Search Word Report
+这部份的报告列出参访者在搜寻引擎中连到此站所使用的检索关键词.
+# Internal Search Query Report
+这部份的报告列出参访者在站内所使用的检索条件.
+# Internal Search Word Report
+这部份的报告列出参访者在站内所使用的检索关键词.
+# Browser Summary
+这部份的报告列出参访者所使用的浏览器统计.
+# Operating System Report
+这部份的报告列出参访者所使用的操作系统统计.
+# File Size Report
+这部份的报告列出被请求的档案大小统计.
+# Status Code Report
+这部份的报告列出 HTTP 状态代码的统计.
+# Processing Time Report
+这部份的报告列出成功的请求处理所花的时间.

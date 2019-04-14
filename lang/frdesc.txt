@@ -1,0 +1,92 @@
+# Report descriptions file for analog 6.0.
+#
+# This file contains descriptions of each report. Lines starting with a
+# hash (#) are comments. Otherwise, each report must take EXACTLY ONE LINE.
+# Yearly Report
+Ce rapport liste l'activité de chaque année.
+# Quarterly Report
+Ce rapport liste l'activité de chaque trimestre.
+# Monthly Report
+Ce rapport liste l'activité de chaque mois.
+# Weekly Report
+Ce rapport liste l'activité de chaque semaine.
+# Daily Report
+Ce rapport liste l'activité de chaque jour.
+# Hourly Report
+Ce rapport liste l'activité de chaque heure.
+# Quarter-Hour Report
+Ce rapport liste l'activité par périodes de 4 heures.
+# Five-Minute Report
+Ce rapport liste l'activité par périodes de 5 minutes.
+# Daily Summary
+Ce rapport liste l'activité totale par jour de la semaine, additionnée sur toutes les semaines du rapport.
+# Hourly Summary
+Ce rapport liste l'activité totale par heure du jour, additionnée sur tous les jours du rapport.
+# Hour of the Week Summary
+Ce rapport liste l'activité totale par heure de la semaine, additionnée sur toutes les semaines du rapport.
+# Quarter-Hour Summary
+Ce rapport liste l'activité totale par périodes quotidiennes de 4 heures, additionnée sur tous les jours du rapport.
+# Five-Minute Summary
+Ce rapport liste l'activité totale par périodes quotidiennes de 5 minutes, additionnée sur tous les jours du rapport.
+# General Summary
+Ce rapport contient des statistiques générales.
+# Request Report
+Ce rapport liste les fichiers du site.
+# Redirection Report
+Ce rapport liste les fichiers pour lesquelles les requêtes ont été redirigées vers un autre fichier. (En général des répertoires auxquels manque le slash '/' final, ou des scripts CGI qui forcent des redirections.)
+# Failure Report
+Ce rapport liste les fichiers qui ont causé des erreurs, par exemple les fichiers non trouvés. 
+# File Type Report
+Ce rapport liste les extensions des fichiers demandés.
+# Directory Report
+Ce rapport liste les répertoires contenant les fichiers demandés. (Les chiffres de chaque répertoire incluent tous ceux de ses sous-répertoires).
+# Host Report
+Ce rapport liste les ordinateurs qui ont demandé des fichiers.
+# Host Redirection Report
+Ce rapport liste les ordinateurs qui ont été redirigés vers d'autres fichiers.
+# Host Failure Report
+Ce rapport liste les ordinateurs qui ont vu des requêtes d'échec.
+# Domain Report
+Ce rapport liste les pays des ordinateurs qui ont demandé des fichiers.
+# Referrer Report
+Ce rapport liste les référents (liens que les gens ont suivis ou pages qui incluaient des images de ce site).
+# Referring Site Report
+Ce rapport liste les serveurs à partir desquels les gens ont suivi des liens.
+# Redirected Referrer Report
+Ce rapport liste les référents qui ont provoqué des requêtes de redirection.
+# Failed Referrer Report
+Ce rapport liste les référents qui contenaient des liens brisés vers ce site.
+# Browser Report
+Ce rapport liste les navigateurs utilisés par les visiteurs.
+# Virtual Host Report
+Ce rapport liste l'activité de chaque domaine virtuel de ce site.
+# Virtual Host Redirection Report
+Ce rapport liste les requêtes de redirection de chaque domaine virtuel.
+# Virtual Host Failure Report
+Ce rapport liste les requêtes d'échec de chaque domaine virtuel.
+# User Report
+Ce rapport liste les utilisateurs qui ont demandé des fichiers, s'ils ont été authentifiés ou s'ils ont pu être identifiés par des cookies.
+# User Redirection Report
+Ce rapport liste les utilisateurs qui ont été redirigés vers un autre fichier.
+# User Failure Report
+Ce rapport liste les utilisateurs ayant rencontré des requêtes d'échec.
+# Organisation Report
+Ce rapport liste les organisations des ordinateurs ayant demandé des fichiers.
+# Search Query Report
+Ce rapport liste les termes de recherche que les gens ont utilisés dans les moteurs de recherche pour trouver ce site.
+# Search Word Report
+Ce rapport liste quels mots les gens ont utilisés dans les moteurs de recherche pour trouver ce site.
+# Internal Search Query Report
+Ce rapport liste quels termes de recherche les gens ont utilisés dans les scripts de ce site.
+# Internal Search Word Report
+Ce rapport liste quels mots les gens ont utilisés dans les scripts de ce site.
+# Browser Summary
+Ce rapport liste les fournisseurs des navigateurs utilisés par les visiteurs.
+# Operating System Report
+Ce rapport liste les systèmes d'exploitation utilisés par les visiteurs.
+# File Size Report
+Ce rapport liste les tailles des fichiers.
+# Status Code Report
+Ce rapport liste les codes de statut HTTP pour toutes les requêtes.
+# Processing Time Report
+Ce rapport liste les temps pris pour traiter les requêtes réussies.

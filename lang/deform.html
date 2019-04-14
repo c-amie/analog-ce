@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>Analog Berichtsformular</TITLE>
+</HEAD>
+
+<BODY>
+<H1><IMG SRC="/images/analogo.gif" ALT="" > Analog Berichtsformular</H1>
+
+<!-- Fuer alle Plattformen sollte obiges img tag entkommentiert und angepasst werden. -->
+<!-- Deutsche Uebersetzung von Thomas Frings, eMail:  thomas.frings@bsz-bw.de -->
+<!-- Initial comments edited by Stephen Turner 7.Okt 99, 3.Jan 01 -->
+
+<!-- Die folgende Zeile muss entkommentiert werden und die richtigen ...-->
+<!-- ...Pfade fuer anlgform.pl eingetragen werden. -->
+<!-- FORM ACTION="/cgi-bin/anlgform.pl" METHOD="POST" -->
+
+<!--     Bei vielen Systemen muss der Eintrag IMAGEDIR im Formular sich von dem ... -->
+<!--     sonst benutzten unterscheiden, weil dieser nicht innerhalb von /cgi-bin/ liegen darf. -->
+<!-- INPUT TYPE=HIDDEN NAME="IMAGEDIR" VALUE="/images/" -->
+
+<!--     Falls gewuenscht, speziellen Pfad fuer das Logfile setzen: -->
+<!--     INPUT TYPE=HIDDEN NAME="LOGFILE" VALUE="/usr/local/etc/httpd/logs/access_log" -->
+
+<!-- Man muss auch anlgform.pl jetzt anpassen -->
+
+<input type=hidden name="LANGUAGE" value="GERMAN">
+
+<HR>
+<H2>1. Auswahl der Berichte</H2>
+<I>Die Bedeutung der einzelnen Berichte sind auf der
+<A HREF="http://www.analog.cx/">analog Homepage</A> beschrieben.</I>
+
+<P>
+<H3>Welche Berichte sollen erstellt werden?</H3>
+<BR><INPUT TYPE=radio NAME=GENERAL VALUE=ON CHECKED > [Ein] <INPUT TYPE=radio NAME=GENERAL VALUE=OFF> [Aus] Allgemeine &Uuml;bersicht
+<BR><INPUT TYPE=radio NAME=MONTHLY VALUE=ON CHECKED > [Ein] <INPUT TYPE=radio NAME=MONTHLY VALUE=OFF> [Aus] Monatsbericht
+<BR><INPUT TYPE=radio NAME=WEEKLY VALUE=ON> [Ein] <INPUT TYPE=radio NAME=WEEKLY VALUE=OFF CHECKED > [Aus] Wochenbericht
+<BR><INPUT TYPE=radio NAME=DAILYSUM VALUE=ON CHECKED > [Ein] <INPUT TYPE=radio NAME=DAILYSUM VALUE=OFF> [Aus] Tages&uuml;bersicht
+<BR><INPUT TYPE=radio NAME=DAILYREP VALUE=ON> [Ein] <INPUT TYPE=radio NAME=DAILYREP VALUE=OFF CHECKED > [Aus] Tagesbericht
+<BR><INPUT TYPE=radio NAME=HOURLYSUM VALUE=ON CHECKED > [Ein] <INPUT TYPE=radio NAME=HOURLYSUM VALUE=OFF> [Aus] St&uuml;ndliche &Uuml;bersicht
+<BR><INPUT TYPE=radio NAME=DOMAIN VALUE=ON CHECKED > [Ein] <INPUT TYPE=radio NAME=DOMAIN VALUE=OFF> [Aus] Dom&auml;nenbericht
+<BR><INPUT TYPE=radio NAME=HOST VALUE=ON> [Ein] <INPUT TYPE=radio NAME=HOST VALUE=OFF CHECKED > [Aus] Hostsbericht
+<BR><INPUT TYPE=radio NAME=DIRECTORY VALUE=ON CHECKED > [Ein] <INPUT TYPE=radio NAME=DIRECTORY VALUE=OFF> [Aus] Verzeichnisbericht
+<BR><INPUT TYPE=radio NAME=FILETYPE VALUE=ON> [Ein] <INPUT TYPE=radio NAME=FILETYPE VALUE=OFF CHECKED> [Aus] Dateitypenbericht
+<BR><INPUT TYPE=radio NAME=REQUEST VALUE=ON CHECKED > [Ein] <INPUT TYPE=radio NAME=REQUEST VALUE=OFF> [Aus] Anfragenbericht
+<BR><INPUT TYPE=radio NAME=SIZE VALUE=ON> [Ein] <INPUT TYPE=radio NAME=SIZE VALUE=OFF> [Aus]  Dateigr&ouml;&szlig;enbericht
+<BR><INPUT TYPE=radio NAME=REFERRER VALUE=ON> [Ein] <INPUT TYPE=radio NAME=REFERRER VALUE=OFF CHECKED > [Aus] Anfragerbericht
+<BR><INPUT TYPE=radio NAME=BROWSERSUM VALUE=ON> [Ein] <INPUT TYPE=radio NAME=BROWSERSUM VALUE=OFF CHECKED > [Aus] Browser &Uuml;bersicht
+<BR><INPUT TYPE=radio NAME=FULLBROWSER VALUE=ON> [Ein] <INPUT TYPE=radio NAME=FULLBROWSER VALUE=OFF CHECKED > [Aus] Browserbericht
+<BR><INPUT TYPE=radio NAME=STATUS VALUE=ON> [Ein] <INPUT TYPE=radio NAME=STATUS VALUE=OFF CHECKED > [Aus] Statuscodebericht
+<P><I>Jetzt kann man das Programm starten: <INPUT TYPE=SUBMIT VALUE="Statistik erstellen">
+<BR>
+<BR>
+oder die folgenden Felder ausf&uuml;llen, um individuelle Berichte zu erstellen.
+<BR>
+<BR>
+Folgende Eingaben werden akzeptiert:<BR>
+<INPUT TYPE=TEXT NAME="ignore1" MAXLENGTH=4 SIZE=4 VALUE="10M">
+<SELECT NAME=ignore2> 
+  <OPTION VALUE=b SELECTED >Bytes
+</SELECT>
+bedeutet: 10 Megabytes<BR>
+<INPUT TYPE=TEXT NAME="ignore3" MAXLENGTH=4 SIZE=4 VALUE="-50">
+<SELECT NAME=ignore4>
+  <OPTION VALUE=b SELECTED >Bytes
+</SELECT>
+bedeutet: die 50 (nach Bytes) gr&ouml;&szlig;ten Elemente <BR>
+</I>
+<HR>
+<H2>2. Optionen f&uuml;r detaillierte Berichte</H2>
+
+<H3>Optionen f&uuml;r den Dom&auml;nenbericht</H3>
+
+Sortierung des Dom&auml;nen Berichts
+<SELECT NAME=DOMSORTBY SIZE=1>
+  <OPTION VALUE=REQUESTS>nach Anzahl der Anfragen
+  <OPTION VALUE=PAGES>nach Anzahl der Seitenanfragen
+  <OPTION VALUE=BYTES SELECTED >nach Durchsatz
+  <OPTION VALUE=DATE>nach Datum des letzten Zugriffs
+  <OPTION VALUE=ALPHABETICAL>alphabetisch
+</SELECT>
+<BR>Ber&uuml;cksichtigung aller Dom&auml;nen mit mindestens
+<INPUT TYPE=TEXT NAME="DOMFLOORA" MAXLENGTH=6 SIZE=6>
+<SELECT NAME=DOMFLOORB>
+  <OPTION VALUE=r>Anfragen
+  <OPTION VALUE=p>Seiten
+  <OPTION VALUE=b SELECTED >Bytes
+</SELECT>
+
+<H3>Optionen f&uuml;r den Hostbericht</H3>
+
+Sortierung des Hostberichts
+<SELECT NAME=HOSTSORTBY SIZE=1>
+  <OPTION VALUE=REQUESTS>nach Anzahl der Anfragen
+  <OPTION VALUE=PAGES>nach Anzahl der Seitenanfragen
+  <OPTION VALUE=BYTES SELECTED >nach Durchsatz
+  <OPTION VALUE=DATE>nach Datum des letzten Zugriffs
+  <OPTION VALUE=ALPHABETICAL>alphabetisch
+</SELECT>
+<BR>Ber&uuml;cksichtigung aller Hosts mit mindestens
+<INPUT TYPE=text NAME=HOSTFLOORA MAXLENGTH=6 SIZE=6>
+<SELECT NAME=HOSTFLOORB>
+  <OPTION VALUE=r SELECTED >Anfragen
+  <OPTION VALUE=p>Seitenanfragen
+  <OPTION VALUE=b>Bytes
+</SELECT>
+
+<H3>Optionen f&uuml;r den Verzeichnisbericht</H3>
+
+Sortierung des Verzeichnisberichts
+<SELECT NAME=DIRSORTBY SIZE=1>
+  <OPTION VALUE=REQUESTS>nach Anzahl der Anfragen
+  <OPTION VALUE=PAGES>nach Anzahl der Seitenanfragen
+  <OPTION VALUE=BYTES SELECTED >nach Durchsatz
+  <OPTION VALUE=DATE>nach Datum des letzten Zugriffs
+  <OPTION VALUE=ALPHABETICAL>alphabetisch
+</SELECT>
+
+<BR>Ber&uuml;cksichtigung aller Verzeichnisse mit mindestens
+<INPUT TYPE=TEXT NAME=DIRFLOORA MAXLENGTH=6 SIZE=6>
+<SELECT NAME=DIRFLOORB>
+  <OPTION VALUE=r>Anfragen
+  <OPTION VALUE=p>Seitenanfragen
+  <OPTION VALUE=b SELECTED >Bytes
+</SELECT>
+
+<H3>Optionen f&uuml;r den Anfragenbericht </H3>
+
+Sortierung des Anfragenberichts
+<SELECT NAME=REQSORTBY SIZE=1>
+  <OPTION VALUE=REQUESTS SELECTED >nach Anzahl der Anfragen
+  <!-- Anzahl der Seitenanfragen ist hier nicht gueltig  -->
+  <OPTION VALUE=BYTES>nach Durchsatz
+  <OPTION VALUE=DATE>nach Datum des letzten Zugriffs
+  <OPTION VALUE=ALPHABETICAL>alphabetisch
+</SELECT>
+
+<BR>Ber&uuml;cksichtigung aller Dateien mit mindestens
+<INPUT TYPE=TEXT NAME=REQFLOORA MAXLENGTH=6 SIZE=6>
+<SELECT NAME=REQFLOORB>
+  <OPTION VALUE=r SELECTED >Anfragen
+  <OPTION VALUE=b>Bytes
+</SELECT>
+
+<BR>Anzeigen:
+<SELECT NAME=REQINCLUDE SIZE=1>
+<OPTION VALUE="*" SELECTED >alle Dateien
+<OPTION VALUE="pages">nur Seiten
+</SELECT>
+
+<H2>3. Teilauswertung der Logdatei</H2>
+<B>nach Datum:</B>
+<BR>Auswertung eines Zeitraums.Dabei das Anfangs- und Enddatum im Format <B><I>yymmdd</I></B> eingeben;
+<BR>z.B. 980301 f&uuml;r den 1.M&auml;rz 1998 <BR>
+oder nur ein Feld zur Begrenzung des Zeitraums ausf&uuml;llen.
+<BR>Von <INPUT TYPE=TEXT NAME=FROM MAXLENGTH=16 SIZE=6>
+bis <INPUT TYPE=TEXT NAME=TO MAXLENGTH=16 SIZE=6>
+
+<P><B>nach Dateien:</B>
+<BR>Nur nach folgenden Dateien suchen (Liste, getrennt durch Kommata; darf Platzhalter, z.B. * , enthalten):
+<BR><INPUT TYPE=TEXT NAME=FILEINCLUDE SIZE=60>
+<BR>folgende Dateien nicht ber&uuml;cksichtigen:
+<BR><INPUT TYPE=TEXT NAME=FILEEXCLUDE SIZE=60>
+
+<HR><H2>4. Darststellung</H2>
+<B>Name ihrer Organisation</B> (F&uuml;r die &Uuml;berschrift bzw. Seitentitel)
+<INPUT TYPE=TEXT NAME=HOSTNAME SIZE=60>
+<P><B>Adresse der Homepage Ihrer Organisation</B> (falls keine vorhanden, bitte leer lassen)
+<BR>URL: <INPUT TYPE=TEXT NAME=HOSTURL SIZE=60>
+<HR>
+<INPUT TYPE=SUBMIT VALUE="Statistik erstellen">
+<INPUT TYPE=RESET VALUE="Felder zur&uuml;cksetzen">
+</FORM></BODY></HTML>

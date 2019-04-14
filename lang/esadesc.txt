@@ -1,0 +1,92 @@
+# Report descriptions file for analog 6.0.
+#
+# This file contains descriptions of each report. Lines starting with a
+# hash (#) are comments. Otherwise, each report must take EXACTLY ONE LINE.
+# Yearly Report
+Este reporte enlista la actividad en cada ano.
+# Quarterly Report
+Este reporte enlista la actividad en cada trimestre.
+# Monthly Report
+Este reporte enlista la actividad en cada mes.
+# Weekly Report
+Este reporte enlista la actividad en cada semana.
+# Daily Report
+Este reporte enlista la actividad en cada dia.
+# Hourly Report
+Este reporte enlista la actividad en cada hora.
+# Quarter-Hour Report
+Este reporte enlista la actividad en periodos de cuarto de hora.
+# Five-Minute Report
+Este reporte enlista la actividad en periodos de cada cinco minutos.
+# Daily Summary
+Este reporte enlista la actividad total por cada dia de la semana, sumados por todas las semanas en el reporte.
+# Hourly Summary
+Este reporte enlista la actividad total por cada hora de la semana, sumados por todos los dias en el reporte.
+# Hour of the Week Summary
+Este reporte enlista la actividad total por cada hora de la semana, sumando todas las semanas en el reporte.
+# Quarter-Hour Summary
+Este reporte enlista la actividad total por periodos de cuarto de hora del dia, sumados por todos los dias en el reporte.
+# Five-Minute Summary
+Este reporte enlista la actividad en periodos de cada cinco minutos, sumados por todos los dias en el reporte.
+# General Summary
+Este reporte contiene estadisticas globales.
+# Request Report
+Este reporte enlista los archivos en el sitio.
+# Redirection Report
+Este reporte enlista los archivos causantes que peticiones fueran redireccionadas a otro archivo. ( Usualmente directorios sin la diagonal final, o scripts CGI que forzaron redireccionamientos.)
+# Failure Report
+Este reporte enlista los acrchivos que causaron peticiones no logradas, por ejemplo archivos no encontrados.
+# File Type Report
+Este reporte enlista las extensiones de los archivos pedidos.
+# Directory Report
+Este reporte enlista los directorios desde los cuales fueron pedidos los archivos. (Los numeros por cada directorio incluyen el total de sus subdirectorios.)
+# Host Report
+Este reporte enlista las computadoras desde las cuales se pidieron archivos.
+# Host Redirection Report
+Este reporte enlista las computadoras que fueron redireccionadas a otro archivo.
+# Host Failure Report
+Este reporte enlista las computadoras que encontraron peticiones no logradas.
+# Domain Report
+Este reporte enlista los paises de las computadoras que pidieron archivos.
+# Referrer Report
+Este reporte enlista los remitentes (de donde la gente siguio el enlace, o paginas que incluyen imagenes de este sitio).
+# Referring Site Report
+Este reporte enlista de que servidores siguio el enlace la gente.
+# Redirected Referrer Report
+este reporte enlista los remitentes que causaron peticiones redireccionadas.
+# Failed Referrer Report
+Este reporte enlista los remitentes que contienen enlaces rotos al sitio.
+# Browser Report
+Este reporte enlista los naegadores usados por los visitantes.
+# Virtual Host Report
+Este reporte enlista la actividad en cada uno de los dominios virtuales en el sitio.
+# Virtual Host Redirection Report
+Este reporte enlista las peticiones redireccionadas a cada uno de los dominios virtuales.
+# Virtual Host Failure Report
+Este reporte enlista las peticiones no logradas a cada uno de los dominios virtuales.
+# User Report
+Este reporte enlista a los usuarios que pidieron archivos, si los usuarios han sido autenticados o pueden ser identificados por galletas.
+# User Redirection Report
+Este reporte enlista a los usuarios quienes fueron redireccionados a otro archivo.
+# User Failure Report
+Este reporte enlista a los usuarios quienes encontraron peticiones no logradas.
+# Organisation Report
+Este reporte enlista las organizaciones de las computadoras quienes pidieron archivos.
+# Search Query Report
+Este reporte enlista cuales preguntas la gente uso en los motores de busqueda para encontrar el sitio.
+# Search Word Report
+Este reporte enlista cuales palabras la gente uso en los motores de busqueda para encontrar el sitio.
+# Internal Search Query Report
+Este reporte enlista cuales preguntas la gente uso en scripts dentro del sitio.
+# Internal Search Word Report
+Este reporte enlista cuales palabras la gente uso en scripts dentro del sitio.
+# Browser Summary
+Este reporte enlista los proveedores de los navegadores de los visitantes.
+# Operating System Report
+Este reporte enlista los sistemas operativos usados por los visitantes.
+# File Size Report
+Este reporte enlista los tamanos de los archivos.
+# Status Code Report
+Este reporte enlista los codigos de estado HTTP de todas las peticiones.
+# Processing Time Report
+Este reporte enlista los tiempos tomados para procesar peticiones exitosas.

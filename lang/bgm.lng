@@ -1,0 +1,581 @@
+## Language file for analog 6.0. May not work with any other version.
+##
+## This is a language file for analog. Lines beginning with ## are comments.
+## Each language should have one language file in its own character set,
+## and can have an additional one for ASCII (7 bit) output.
+##
+## If your language doesn't seem to fit into this pattern, explain the problem
+## to me, and I can adjust the source code if necessary.
+##
+## Bulgarian translation on 2.VI.2000, Luchezar Georgiev <lucho@mbox.digsys.bg>
+##                                                    http://midifiler.tsx.org
+##      DOS / Linux version
+##
+## The character set of this language file. Prefix with a * to indicate a
+## multibyte character set: e.g. *ISO-2022-JP
+MIK-16
+## Abbreviations for the day and month names.
+нед
+пон
+в▓░
+▒░д
+╖▓в
+п▓к
+▒б▓
+┐н│
+┤ев
+ма░
+ап░
+май
+╛ни
+╛ли
+авг
+▒еп
+ок▓
+ное
+дек
+## Next some standard common words.
+## Abbreviation for "week beginning"
+на╖. на ▒едм.
+година
+## Quarter of a year
+▓░име▒е╖ие
+ме▒е╢
+ден
+дни
+╖а▒
+мин│▓а
+мин│▓и
+▒ек│нда
+▒ек│нди
+бай▓
+бай▓а
+## ?bytes represents kbytes, Mbytes etc.
+?бай▓а
+за┐вка
+за┐вки
+да▓а
+## This has the right spacing for a column like 23/Mar/98 15:00-15:05
+да▓а       в░еме
+в░еме
+п║░ва да▓а
+п║░во в░еме
+по▒ледна да▓а
+по▒ледно в░еме
+┤айл
+┤айлове
+╡о▒▓
+╡о▒▓ове
+ви░▓│ален ╡о▒▓
+ви░▓│ални ╡о▒▓ове
+ди░ек▓о░и┐
+ди░ек▓о░ии
+обла▒▓
+обла▒▓и
+о░ганиза╢и┐
+о░ганиза╢ии
+░аз╕и░ение
+░аз╕и░ени┐
+УРЛ
+УРЛ-▓а
+б░а│зе░
+б░а│зе░и
+ОС
+ОС-ми
+## (= operating system, operating systems)
+░азме░
+▓║░▒ен из░аз
+▓║░▒ени из░ази
+▒ай▓
+▒ай▓ове
+по▓░еби▓ел
+по▓░еби▓ели
+код на ▒║▒▓о┐ние▓о
+кодове на ▒║▒▓о┐ние▓о
+С▓а▓и▒▓ика на WWW ▒║░ве░а за
+## Prefixes kilo, mega etc. to make kilobytes, megabytes etc.
+kilo
+mega
+giga
+tera
+peta
+exa
+zeta
+yotta
+## Shorter versions of the same prefixes for column headings
+k
+M
+G
+T
+P
+E
+Z
+Y
+## Names for the rows in the File Size Report. Note that changing these will
+## NOT change the boundaries! These are just labels for predetermined buckets.
+## They should line up nicely when right-aligned.
+          0
+   1B-  10B
+  11B- 100B
+ 101B-  1kB
+  1kB- 10kB
+ 10kB-100kB
+100kB-  1MB
+  1MB- 10MB
+ 10MB-100MB
+100MB-  1GB
+      > 1GB
+## Now the names of reports
+Об╣а ▒водка
+## The time reports, plus "busiest" strings (at the bottom of each report)
+Годи╕ен о▓╖е▓
+Най-на▓ова░ена година:
+Т░име▒е╖ен о▓╖е▓
+Най-на▓ова░ено ▓░име▒е╖ие:
+О▓╖е▓ по ме▒е╢и
+Най-на▓ова░ен ме▒е╢:
+О▓╖е▓ по ▒едми╢и
+Най-на▓ова░ена ▒едми╢а: на╖ало на ▒едми╢а▓а
+Дневна ▒водка
+О▓╖е▓ по дни
+Най-на▓ова░ен ден:
+О▓╖е▓ по ╖а▒ове
+Ча▒ова ▒водка
+Сводка по ╖а▒ на ▒едми╢а▓а
+Най-на▓ова░ен ╖а▒:
+Че▓в║░▓╖а▒ов о▓╖е▓
+Че▓в║░▓╖а▒ова ▒водка
+Най-на▓ова░ени 15 мин. в ╖а▒а:
+Пе▓мин│▓ен о▓╖е▓
+Пе▓мин│▓на ▒водка
+Най-на▓ова░ени 5 мин. в ╖а▒а:
+## The non-time reports. In each case, we have the name of the report,
+## followed by the type of item in the report, once in the singular and once
+## in the plural. These are used in phrases like "including all ??? with at
+## least 200 requests". (The words higher up are used for column headings.)
+## Finally we have the gender of this type of object, which can be m, f or n.
+##
+## So for example, in German a directory is Verzeichnis (neuter gender), which
+## was given above. But "listing the top directory" is "Ausgabe des ersten
+## Verzeichnisses" and "listing the top two directories" is "Ausgabe der
+## ersten zwei Verzeichnisse". So here, we would have for the directory report:
+##
+## Verzeichnis-Bericht
+## Verzeichnisses
+## Verzeichnisse
+## n
+##
+## I hope that makes sense!
+О▓╖е▓ по ╡о▒▓ове
+╡о▒▓
+╡о▒▓ове
+n
+О▓╖е▓ по п░ена▒о╖вани┐ на ╡о▒▓а
+╡о▒▓
+╡о▒▓ове
+n
+О▓╖е▓ по г░е╕ки▓е на ╡о▒▓а
+╡о▒▓
+╡о▒▓ове
+n
+О▓╖е▓ по ди░ек▓о░ии
+ди░ек▓о░и┐
+ди░ек▓о░ии
+n
+О▓╖е▓ по ▓ип ┤айл
+░аз╕и░ение
+░аз╕и░ени┐
+n
+О▓╖е▓ по за┐вки
+┤айл
+┤айлове
+n
+О▓╖е▓ по п░ена▒о╖вани┐
+┤айл
+┤айлове
+n
+О▓╖е▓ по пов░еди
+┤айл
+┤айлове
+n
+О▓╖е▓ по о▓п░а╣ани┐
+о▓п░а╣а╣ УРЛ
+о▓п░а╣а╣и УРЛ-▓а
+n
+О▓╖е▓ по о▓п░а╣а╣и ▒ай▓ове
+о▓п░а╣а╣ ▒ай▓
+о▓п░а╣а╣и ▒ай▓ове
+n
+О▓╖е▓ по п░ена▒о╖ени о▓п░а╣а╣и ▒ай▓ове
+о▓п░а╣а╣ УРЛ
+о▓п░а╣а╣и УРЛ-▓а
+n
+О▓╖е▓ по не│▒пе╕ни п░еп░а╣ани┐
+о▓п░а╣а╣ УРЛ
+о▓п░а╣а╣и УРЛ-▓а
+n
+О▓╖е▓ по ▓║░▒ени ┤░ази
+┤░аза
+┤░ази
+n
+О▓╖е▓ по ▓║░▒ени д│ми
+▓║░▒ена д│ма
+▓║░▒ени д│ми
+n
+В║▓░е╕ен о▓╖е▓ по ▓║░▒ена ┤░аза
+┤░аза
+┤░ази
+n
+В║▓░е╕ен о▓╖е▓ по ▓║░▒ена д│ма
+▓║░▒ена д│ма
+▓║░▒ени д│ми
+n
+О▓╖е▓ по ви░▓│ални ╡о▒▓ове
+ви░▓│ален ╡о▒▓
+ви░▓│ални ╡о▒▓ове
+n
+О▓╖е▓ по п░ена▒о╖вани┐ на ви░▓│ални┐ ╡о▒▓
+ви░▓│ален ╡о▒▓
+ви░▓│ални ╡о▒▓ове
+n
+О▓╖е▓ по г░е╕ки на ви░▓│ални┐ ╡о▒▓
+ви░▓│ален ╡о▒▓
+ви░▓│ални ╡о▒▓ове
+n
+О▓╖е▓ по по▓░еби▓ели
+по▓░еби▓ел
+по▓░еби▓ели
+n
+О▓╖е▓ по п░ена▒о╖вани┐ на по▓░еби▓ели▓е
+по▓░еби▓ел
+по▓░еби▓ели
+n
+О▓╖е▓ на пов░еди▓е по по▓░еби▓ели
+по▓░еби▓ел
+по▓░еби▓ели
+n
+Сводка на б░а│зе░и▓е
+б░а│зе░
+б░а│зе░и
+n
+О▓╖е▓ по б░а│зе░и
+б░а│зе░
+б░а│зе░и
+n
+О▓╖е▓ по опе░а╢ионни ▒и▒▓еми
+опе░а╢ионна ▒и▒▓ема
+опе░а╢ионни ▒и▒▓еми
+n
+О▓╖е▓ по обла▒▓и
+обла▒▓
+обла▒▓и
+n
+О▓╖е▓ по о░ганиза╢ии
+о░ганиза╢и┐
+о░ганиза╢ии
+n
+О▓╖е▓ по код на ▒║▒▓о┐ние▓о
+код на ▒║▒▓о┐ние▓о
+кодове на ▒║▒▓о┐ние▓о
+n
+О▓╖е▓ по в░еме на об░або▓ка
+О▓╖е▓ по ░азме░ на ┤айла
+## Used at the bottom of the report
+Този анализ е нап░авен о▓
+В░еме за изп║лнение
+По-малко о▓ 1
+## Used in the time reports
+В▒┐ка едини╢а
+п░ед▒▓авл┐ва
+или ╖а▒▓ о▓ не┐
+за┐вка за ▒▓░ани╢а
+за┐вки за ▒▓░ани╢и
+## Used at the bottom of each non-time report: need m, f & n genders
+*
+*
+не е дадено
+## Used on the pie charts: again need m, f & n genders
+*
+*
+Д░│ги
+## Used at the top of the report
+П░ог░ама▓а е ▒▓а░▓и░ана в
+Анализи░ани за┐вки о▓
+до
+## Used in the General Summary
+У▒пе╕ни за┐вки
+С░еден б░ой │▒пе╕ни за┐вки на ден
+У▒пе╕ни за┐вки за ▒▓░ани╢и
+С░еден б░ой │▒пе╕ни за┐вки за ▒▓░ани╢и на ден
+Редове на ┤айла данни без код на ▒║▒▓о┐ние▓о
+Не│▒пе╕ни за┐вки
+П░ена▒о╖ени за┐вки
+За┐вки ▒ ин┤о░ми░а╣ код на ▒║▒▓о┐ние▓о
+О▓делни за┐вени ┤айлове
+О▓делни об▒л│жени ╡о▒▓ове
+Пов░едени ░едове в║в ┤айла данни
+Нежелани поле▓а в║в ┤айла данни
+П░е╡в║░лени данни
+С░едно коли╖е▒▓во п░е╡в║░лени данни на ден
+Чи▒ла▓а в ▒коби ▒е о▓на▒┐▓ за
+7-▓е дена до
+по▒ледни▓е 7 дни
+П░емини к║м
+На╖ало▓о
+## Some special phrases for particular reports.
+[не░е╕ени ╖и▒лови ад░е▒и]
+[незададена обла▒▓]
+[непозна▓а обла▒▓]
+[главна ди░ек▓о░и┐]
+[н┐ма ди░ек▓о░и┐]
+[н┐ма ░аз╕и░ение]
+[ди░ек▓о░ии]
+Непозна▓ Windows
+Д░│г Unix
+Робо▓и
+Неизве▒▓на ОС
+## Column headings for requests, pages, bytes and number (ie position in list)
+## and percentages and last-7-day versions of these.
+## Should be as short as possible -- abbreviate if necessary.
+## (The ?bytes represents kbytes, Mbytes etc.)
+за┐вки
+7-дн. за┐вки
+%за┐вки
+%7-дн. за┐вки
+▒▓░.
+7-дн. ▒▓░.
+%▒▓░.
+%7-дн. ▒▓░.
+бай▓а
+?бай▓а
+7-дн. бай▓а
+7-дн. ?бай▓а
+%бай▓а
+%7-дн. бай▓а
+╒
+## Now we need to know how to say "listing the top <whatever>", "listing
+## the top <n> <whatevers>", and "listing <whatevers>". The %s and %d
+## will be replaced by the appropriate things. There may be three of each of
+## these statements, for the genders m, f and n. Any genders that aren't used,
+## you can just put a * there instead. So, for example, French starts
+## Affichage du premier %s
+## Affichage de la premi&egrave;re %s
+## *
+## with entries for m & f, but not n
+*
+*
+Показване на п║░ва▓а %s
+*
+*
+Показване на п║░ви▓е %d %s
+*
+*
+Показване на %s
+## "by" in the phrase "listing the top 3 files BY number of requests"
+по
+## All requests WITH AT LEAST 10 requests
+▒ поне
+## Different ways of doing floors
+за┐вка за по▒ледни▓е 7 дни
+за┐вки за по▒ледни▓е 7 дни
+за┐вка за ▒▓░ани╢а за по▒ледни▓е 7 дни
+за┐вки за ▒▓░ани╢а за по▒ледни▓е 7 дни
+п░ена▒о╖ена за┐вка
+п░ена▒о╖ени за┐вки
+п░ена▒о╖ена за┐вка за по▒ледни▓е 7 дни
+п░ена▒о╖ени за┐вки за по▒ледни▓е 7 дни
+не│▒пе╕на за┐вка
+не│▒пе╕ни за┐вки
+не│▒пе╕на за┐вка за по▒ледни▓е 7 дни
+не│▒пе╕ни за┐вки за по▒ледни▓е 7 дни
+% о▓ ▓░а┤ика
+% о▓ ▓░а┤ика за по▒ледни▓е 7 дни
+% о▓ мак▒имално▓о коли╖е▒▓во ▓░а┤ик
+% о▓ мак▒имално▓о коли╖е▒▓во ▓░а┤ик за по▒ледни▓е 7 дни
+бай▓ ▓░а┤ик
+бай▓а ▓░а┤ик
+## ?bytes represents kbytes, Mbytes etc.
+?бай▓а ▓░а┤ик
+бай▓ ▓░а┤ик за по▒кедни▓е 7 дни
+бай▓а ▓░а┤ик за по▒ледни▓е 7 дни
+?бай▓а ▓░а┤ик за по▒ледни▓е 7 дни
+за┐вени ▒лед
+▒ п░ена▒о╖ена за┐вка ▒лед
+▒ не│▒пе╕на за┐вка ▒лед
+▒ п║░ва за┐вка ▒лед
+▒ п║░ва п░ена▒о╖ена за┐вка ▒лед
+▒ п║░ва не│▒пе╕на за┐вка ▒лед
+## Now "sorted by": again, in m, f & n (only needed in plural though)
+*
+*
+▒о░▓и░ани по
+## Used at the top of each report
+Този о▓╖е▓ ▒║д║░жа данни о▓
+## Used in pie charts
+Резени▓е ▒а на╖е░▓ани по
+## different ways of sorting
+коли╖е▒▓во ▓░а┤ик
+коли╖е▒▓во ▓░а┤ик за по▒ледни▓е 7 дни
+% на за┐вки▓е
+% на за┐вки▓е за по▒ледни▓е 7 дни
+% на мак▒имални┐ б░ой за┐вки
+% о▓ мак▒имални┐ б░ой за┐вки за по▒ледни▓е 7 дни
+б░о┐ за┐вки
+б░о┐ за┐вки за по▒ледни▓е 7 дни
+% на за┐вки▓е за ▒▓░ани╢и
+% на за┐вки▓е за ▒▓░ани╢и за по▒ледни▓е 7 дни
+% на мак▒имални┐ б░ой за┐вки за ▒▓░ани╢и
+% на мак▒имални┐ б░ой за┐вки за ▒▓░ани╢и за по▒ледни▓е 7 дни
+б░о┐ за┐вки за ▒▓░ани╢и
+б░о┐ за┐вки за ▒▓░ани╢и за по▒ледни▓е 7 дни
+% на п░ена▒о╖ени▓е за┐вки
+% на п░ена▒о╖ени▓е за┐вки за по▒ледни▓е 7 дни
+% на мак▒имални┐ б░ой п░ена▒о╖ени за┐вки
+% на мак▒имални┐ б░ой п░ена▒о╖ени за┐вки за по▒ледни▓е 7 дни
+б░о┐ на п░ена▒о╖ени▓е за┐вки
+б░о┐ на п░ена▒о╖ени▓е за┐вки за по▒ледни▓е 7 дни
+% на не│▒пе╕ни▓е за┐вки
+% на не│▒пе╕ни▓е за┐вки за по▒ледни▓е 7 дни
+% на мак▒имални┐ б░ой не│▒пе╕ни за┐вки
+% на мак▒имални┐ б░ой не│▒пе╕ни за┐вки за по▒ледни▓е 7 дни
+б░о┐ на не│▒пе╕ни за┐вки
+б░о┐ на не│▒пе╕ни▓е за┐вки за по▒ледни▓е 7 дни
+в░еме▓о на по▒ледна▓а за┐вка
+в░еме▓о на по▒ледна▓а п░ена▒о╖ена за┐вка
+в░еме▓о на по▒ледна▓а не│▒пе╕на за┐вка
+в░еме▓о на п║░ва▓а за┐вка
+в░еме▓о на п║░ва▓а п░ена▒о╖ена за┐вка
+в░еме▓о на п║░ва▓а не│▒пе╕на за┐вка
+## 3 other ways of sorting in m, f, & n
+*
+*
+▒о░▓и░ани по азб│╖ен ░ед
+*
+*
+▒о░▓и░ани по ╖и▒лов ░ед
+*
+*
+не▒о░▓и░ани
+## The separators to use between thousands, and as a decimal point. For
+## example, English generally uses "3,000.25" so has , and . here. French uses
+## "3 000,25", so has space and , instead.
+ 
+,
+## There's a colon here, because the French like to put a space before a colon,
+## so they have space-colon instead here.
+:
+## am and pm in the sense of morning and afternoon.
+▒│▓░ин▓а
+▒ледобед
+## Some date formats. E.g. for 9am on 1st January 1997 use
+## %d for date          " 1"
+## %D for 0-padded date "01"
+## %e or %E for date at end of time interval (where this makes sense)
+## %m for month         "Jan"
+## %l for month at end of time interval
+## %q for quarter of the year    "1"
+## %y for short year    "97"
+## %Y for long year     "1997"
+## %z or %Z for year at end of time interval
+## %X for ISO 8601 extended date format (yyyy-mm-dd) "1997-01-01"
+## %h for hour in 24-hour clock " 9"
+## %H for 0-padded hour         "09"
+## %j for hour in 12-hour clock " 9"
+## %i, %I or %k for hour at end of time interval
+## %n for minute        "00"
+## %o for minute at end of time interval
+## %a for am or pm      "am"
+## %b for am or pm at end of time interval
+## %w for weekday       "Wed"
+## %x for a dash in a range e.g. in 14:00-14:15. This is necessary because in
+##    proper typesetting, this should be an en-dash not a regular dash.
+##
+## So for a date, English might have %d/%m/%y for 1/Jan/97, whereas German
+## would have %d.%m %y for 1.Jan 97). Note: the month number is not available
+## because it can produce ambiguous dates.
+##
+## The different date formats are as follows
+## "refer to the 7 days to [date]"
+%d %m %Y %h.%n
+## "Program started at" and "Analysed requests from"
+%w %d %m %Y %h.%n
+## In Daily Report
+%d %m %y
+## In Daily Summary
+%w
+## In Hourly Report
+%d %m %y %h.%n%x%i.%o
+## In Hourly Summary
+%h
+## In Hour of the Week Summary
+%w %h.%n%x%i.%o
+## In Quarter-Hour and Five-Minute Reports
+%d %m %y %h.%n%x%i.%o
+## In Quarter-Hour and Five-Minute Summaries
+%h.%n%x%i.%o
+## In Weekly Report
+%d %m %y
+## In Monthly Report
+%m %Y
+## In Quarterly Report
+%m%x%l %Y
+## An alternative for Quarterly Report: %Y Q%q
+## In Yearly Report
+%Y
+## The date (d) column in non-time reports
+%d %m %y
+## The date & time (D) column in non-time reports
+%d %m %y %h.%n
+## In non-time reports: "including all files with requests since [date]"
+%d %m %y в %h.%n
+## Finally, definitions of the HTTP status codes (see
+## ftp://ftp.isi.edu/in-notes/rfc2616.txt). You're welcome to leave these in
+## English if you think they look better that way.
+100 Continue with request
+101 Switching protocols
+1xx [Miscellaneous informational]
+200 OK
+201 Created
+202 Accepted for future processing
+203 Non-authoritative information
+204 OK, but nothing to send
+205 Reset document
+206 Partial content
+2xx [Miscellaneous successes]
+300 Multiple documents available
+301 Document moved permanently
+302 Document found elsewhere
+303 See other document
+304 Not modified since last retrieval
+305 Use proxy
+306 Switch proxy
+307 Document moved temporarily
+3xx [Miscellaneous redirections]
+400 Bad request
+401 Authentication required
+402 Payment required
+403 Access forbidden
+404 Document not found
+405 Method not allowed
+406 Document not acceptable to client
+407 Proxy authentication required
+408 Request timeout
+409 Request conflicts with state of resource
+410 Document gone permanently
+411 Length required
+412 Precondition failed
+413 Request too long
+414 Requested filename too long
+415 Unsupported media type
+416 Requested range not valid
+417 Expectation failed
+4xx [Miscellaneous client/user errors]
+500 Internal server error
+501 Request type not supported
+502 Error at upstream server
+503 Service temporarily unavailable
+504 Gateway timeout
+505 HTTP version not supported
+506 Redirection failed
+5xx [Miscellaneous server errors]
+xxx [Unknown]

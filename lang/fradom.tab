@@ -1,0 +1,265 @@
+aero    2  industrie aeronautique
+arpa    1  Arpanet
+biz     2  entreprises
+com     2  commercial
+coop    2  cooperatives
+edu     2  education (E.-U.)
+gov     2  gouvernement (E.-U.)
+info    2  renseignements
+int     1  organisations internationales
+mil     2  militaire (E.-U.)
+museum  2  musees
+name    3  personnes
+net     2  network (reseau)
+org     2  organisations non commerciales
+pro     3  professionnels
+
+ac  1  Ile de l'Ascension
+ad  2  Andorre
+ae  3  Emirats Arabes Unis
+af  1  Afghanistan
+ag  2  Antigua-et-Barbuda
+ai  1  Anguilla
+al  1  Albanie
+am  2  Armenie
+an  1  Antilles Neerlandaises
+ao  1  Angola
+aq  1  Antarctique
+ar  3  Argentine
+as  1  Samoa Americain
+at  3  Autriche
+au  3  Australie
+aw  1  Aruba
+az  1  Azerbaidjan
+ba  3  Bosnie-Herzegovine
+bb  2  La Barbade
+bd  1  Bangladesh
+be  3  Belgique
+bf  1  Burkina Faso
+bg  2  Bulgarie
+bh  1  Bahrain
+bi  1  Burundi
+bj  1  Benin
+bm  1  Bermudes
+bn  1  Brunei Darussalam
+bo  3  Bolivie
+br  3  Bresil
+bs  1  Bahamas
+bt  1  Bhoutan
+bv  1  Ile Bouvet
+bw  1  Botswana
+by  1  Bielorussie
+bz  1  Belize
+ca  3  Canada
+cc  1  Iles Cocos (Keeling)
+cd  1  Republique democratique du Congo
+cf  1  Republique Centrafricaine
+cg  1  Congo
+ch  2  Suisse
+ci  1  Cote D'Ivoire
+ck  1  Iles Cook
+cl  2  Chili
+cm  1  Cameroun
+cn  3  Chine
+co  3  Colombie
+cr  3  Costa Rica
+cs  3  Serbie et Montenegro
+cu  2  Cuba
+cv  1  Cap-Vert
+cx  2  Ile Christmas
+cy  3  Chypre
+cz  2  Republique Tcheque
+de  2  Allemagne
+dj  1  Djibouti
+dk  2  Danemark
+dm  2  Dominique
+do  3  Republique Dominicaine
+dz  1  Algerie
+ec  3  Equateur
+ee  2  Estonie
+eg  3  Egypte
+eh  1  Sahara Occidental
+er  1  Erythree
+es  2  Espagne
+et  1  Ethiopie
+fi  2  Finlande
+fj  3  Fidji
+fk  1  Malouines (Iles Falkland)
+fm  1  Micronesie
+fo  1  Iles Feroe
+fr  2  France
+fx  1  France (metropolitaine)
+ga  1  Gabon
+gb  1  Grande-Bretagne
+gd  1  Grenade
+ge  1  Georgie
+gf  1  Guyane Francaise
+gg  1  Guernsey
+gh  3  Ghana
+gi  1  Gibraltar
+gl  1  Groenland
+gm  1  Gambie
+gn  1  Guinee
+gp  1  Guadeloupe (France)
+gq  1  Guinee-Equatoriale
+gr  2  Grece
+gs  1  Iles Georgie du Sud et Sandwich du Sud
+gt  3  Guatemala
+gu  1  Guam (USA)
+gw  1  Guinee-Bissau
+gy  1  Guyana
+hk  3  Hong Kong
+hm  1  Iles Heard et McDonald
+hn  2  Honduras
+hr  2  Croatie
+ht  1  Haiti
+hu  2  Hongrie
+id  3  Indonesie
+ie  2  Irlande
+il  3  Israel
+im  1  Ile de Man
+in  3  Inde
+io  1  Territoire Britannique de l'Ocean Indien
+iq  1  Iraq
+ir  1  Iran
+is  2  Islande
+it  2  Italie
+je  1  Jersey
+jm  3  Jamaique
+jo  3  Jordanie
+jp  3  Japon
+ke  3  Kenya
+kg  1  Kirghizstan
+kh  1  Cambodge
+ki  1  Kiribati
+km  1  Iles Comores
+kn  1  Saint-Kitts-et-Nevis
+kp  1  Coree du Nord
+kr  3  Coree du Sud
+kw  3  Koweit
+ky  1  Iles Cayman
+kz  1  Kazakhstan
+la  1  Laos
+lb  3  Liban
+lc  1  Sainte-Lucie
+li  2  Liechtenstein
+lk  1  Sri Lanka
+lr  1  Liberia
+ls  1  Lesotho
+lt  2  Lithuanie
+lu  2  Luxembourg
+lv  2  Lettonie
+ly  1  Libye
+ma  1  Maroc
+mc  2  Monaco
+md  1  Moldavie
+mg  1  Madagascar
+mh  1  Iles Marshall
+mk  3  Macedoine
+ml  1  Mali
+mm  1  Myanmar
+mn  1  Mongolie
+mo  1  Macao
+mp  1  Iles Mariannes du Nord
+mq  1  Martinique (France)
+mr  1  Mauritanie
+ms  1  Montserrat
+mt  3  Malte
+mu  1  Ile Maurice
+mv  1  Maldives
+mw  1  Malawi
+mx  3  Mexique
+my  3  Malaysie
+mz  1  Mozambique
+na  1  Namibie
+nc  1  Nouvelle Caledonie (France)
+ne  1  Niger
+nf  1  Ile Norfolk
+ng  1  Nigeria
+ni  3  Nicaragua
+nl  2  Pays-Bas
+no  2  Norvege
+np  1  Nepal
+nr  1  Nauru
+nu  2  Niue
+nz  3  Nouvelle-Zelande
+om  1  Oman
+pa  3  Panama
+pe  3  Perou
+pf  1  Polynesie Francaise
+pg  3  Papouasie Nouvelle-Guinee
+ph  3  Philippines
+pk  3  Pakistan
+pl  3  Pologne
+pm  1  Saint-Pierre-et-Miquelon
+pn  1  Ile Pitcairn
+pr  1  Porto Rico
+ps  3  Territoire Palestinien Occupe
+pt  2  Portugal
+pw  1  Palau
+py  3  Paraguay
+qa  1  Qatar
+re  1  Reunion (France)
+ro  2  Roumanie
+ru  2  Russie
+rw  1  Rwanda
+sa  3  Arabie Saoudite
+sb  1  Iles Salomon
+sc  1  Seychelles
+sd  1  Soudan
+se  2  Suede
+sg  3  Singapour
+sh  1  Sainte-Helene
+si  2  Slovenie
+sj  1  Iles Svalbard et Jan Mayen
+sk  2  Republique Slovaque
+sl  1  Sierra Leone
+sm  1  Saint-Marin
+sn  1  Senegal
+so  1  Somalie
+sr  1  Surinam
+st  1  Sao Tome e Principe
+su  2  ex-URSS
+sv  3  Salvador
+sy  1  Syrie
+sz  1  Swaziland
+tc  1  Iles Turks-et-Caicos
+td  1  Tchad
+tf  1  Territoires Francais du Sud
+tg  1  Togo
+th  3  Thailande
+tj  1  Tadjikistan
+tk  1  Tokelau
+tl  1  Timor Oriental
+tm  1  Turkmenistan
+tn  1  Tunisie
+to  1  Tonga
+tp  1  Timor Oriental
+tr  3  Turquie
+tt  3  Trinite-et-Tobago
+tv  1  Tuvalu
+tw  3  Taiwan
+tz  1  Tanzanie
+ua  3  Ukraine
+ug  3  Ouganda
+uk  3  Royaume-Uni
+um  1  Iles Mineures Eloignees des E.-U.
+us  4  Etats-Unis
+uy  3  Uruguay
+uz  1  Ouzbekistan
+va  1  Vatican
+vc  1  Saint-Vincent-et-les-Grenadines
+ve  3  Venezuela
+vg  1  Iles Vierges (R.-U.)
+vi  1  Iles Vierges (E.-U.)
+vn  1  Vietnam
+vu  1  Vanuatu
+wf  1  Iles Wallis-et-Futuna
+ws  1  Samoa
+ye  1  Yemen
+yt  1  Mayotte
+yu  3  Yougoslavie
+za  3  Afrique du Sud
+zm  1  Zambie
+zr  1  Republique Democratique du Congo
+zw  3  Zimbabwe

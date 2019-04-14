@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Analog - Interfaccia Web</title>
+</head>
+
+<body>
+<h1><!-- img src="/images/analogo.gif" alt="" --> Interfaccia Web per Analog</h1>
+
+<!-- Apportare le modifiche elencate. Bisogna anche editare anlgform.pl. -->
+
+<!-- Decommmentare il tag img iniziale, modificandolo se necessario. -->
+
+<!-- Usare la linea seguente, modificate per indicare il corretto -->
+<!-- posizionamento di anlgform.pl. -->
+<!-- form action="/cgi-bin/anlgform.pl" method="POST" -->
+
+<!-- Molti sistemi richiedono che la directory IMAGEDIR usata nel form... -->
+<!-- sia differente da quella della linea di comando, perche non puo'... -->
+<!-- essere in /cgi-bin/ -->
+<!-- input type=hidden name="IMAGEDIR" value="/images/" -->
+
+<!-- Alcuni utenti vorranno impostare i loro logfile in questo modo -->
+<!-- input type=hidden name="LOGFILE" value="/usr/local/etc/httpd/logs/access_log" -->
+
+<!-- (Initial comments edited by Stephen Turner 03 Jan 2001) -->
+
+<input type=hidden name="LANGUAGE" value="ITALIAN">
+
+<hr>
+<h2>1. Selezione dei resoconti</h2>
+<i>Vedi <a href="http://www.analog.cx/">la home page di analog</a> per la spiegazione dei vari report.</i>
+
+<p>
+<h3>Quali report vuoi visualizzare?</h3>
+<BR><INPUT TYPE=radio NAME=GENERAL VALUE=ON checked> [On] <INPUT TYPE=radio NAME=GENERAL VALUE=OFF> [Off] Sommario generale
+<BR><INPUT TYPE=radio NAME=MONTHLY VALUE=ON checked> [On] <INPUT TYPE=radio NAME=MONTHLY VALUE=OFF> [Off] Resoconto mesi
+<BR><INPUT TYPE=radio NAME=WEEKLY VALUE=ON> [On] <INPUT TYPE=radio NAME=WEEKLY VALUE=OFF checked> [Off] Resoconto settimane
+<BR><INPUT TYPE=radio NAME=DAILYSUM VALUE=ON checked> [On] <INPUT TYPE=radio NAME=DAILYSUM VALUE=OFF> [Off] Sommario giorni della settimana
+<BR><INPUT TYPE=radio NAME=DAILYREP VALUE=ON> [On] <INPUT TYPE=radio NAME=DAILYREP VALUE=OFF checked> [Off] Resoconto giorni
+<BR><INPUT TYPE=radio NAME=HOURLYSUM VALUE=ON checked> [On] <INPUT TYPE=radio NAME=HOURLYSUM VALUE=OFF> [Off] Sommario ore del giorno
+<BR><INPUT TYPE=radio NAME=DOMAIN VALUE=ON checked> [On] <INPUT TYPE=radio NAME=DOMAIN VALUE=OFF> [Off] Resoconto domini
+<BR><INPUT TYPE=radio NAME=ORGANISATION VALUE=ON checked> [On] <INPUT TYPE=radio NAME=ORGANISATION VALUE=OFF> [Off] Resoconto organizzazioni
+<BR><INPUT TYPE=radio NAME=DIRECTORY VALUE=ON checked> [On] <INPUT TYPE=radio NAME=DIRECTORY VALUE=OFF> [Off] Resoconto directory 
+<BR><INPUT TYPE=radio NAME=FILETYPE VALUE=ON> [On] <INPUT TYPE=radio NAME=FILETYPE VALUE=OFF checked> [Off] Resoconto tipi di file 
+<BR><INPUT TYPE=radio NAME=REQUEST VALUE=ON checked> [On] <INPUT TYPE=radio NAME=REQUEST VALUE=OFF> [Off] Resoconto richieste
+<BR><INPUT TYPE=radio NAME=SIZE VALUE=ON> [On] <INPUT TYPE=radio NAME=SIZE VALUE=OFF checked> [Off] Resoconto dimensioni file
+<BR><INPUT TYPE=radio NAME=REFERRER VALUE=ON> [On] <INPUT TYPE=radio NAME=REFERRER VALUE=OFF checked> [Off] Resoconto provenienze
+<BR><INPUT TYPE=radio NAME=SEARCHQUERY VALUE=ON> [On] <INPUT TYPE=radio NAME=SEARCHQUERY VALUE=OFF checked> [Off] Resoconto richeste ricerca
+<BR><INPUT TYPE=radio NAME=SEARCHWORD VALUE=ON> [On] <INPUT TYPE=radio NAME=SEARCHWORD VALUE=OFF checked> [Off] Resoconto parole ricerca
+<BR><INPUT TYPE=radio NAME=BROWSERSUM VALUE=ON> [On] <INPUT TYPE=radio NAME=BROWSERSUM VALUE=OFF checked> [Off] Sommario browser
+<BR><INPUT TYPE=radio NAME=OSREP VALUE=ON> [On] <INPUT TYPE=radio NAME=OSREP VALUE=OFF checked> [Off] Resoconto sistemi operativi
+<BR><INPUT TYPE=radio NAME=STATUS VALUE=ON> [On] <INPUT TYPE=radio NAME=STATUS VALUE=OFF checked> [Off] Status Code Resoconto codici di stato
+<p><i>&Egrave; ora possibile eseguire il programma: <input type=submit value="Crea statistiche">
+<br>Oppure si possono modificare le seguenti opzioni per report individuali.
+Si pu&ograve; usare 
+<input type=TEXT name="ignore1" maxlength=4 size=4 value="10M">
+<select name=ignore2>
+  <option value=b selected>bytes
+</select>
+ bytes per indicare 10 Megabytes; oppure
+<input type=TEXT name="ignore3" maxlength=4 size=4 value="-50">
+<select name=ignore4>
+  <option value=b selected>bytes
+</select>
+per indicare i primi 50 elementi in ordine di bytes.
+</i>
+<hr>
+<h2>2. Opzioni per resoconti dettagliati</h2>
+
+<h3>Opzioni per resoconto domini</h3>
+
+Ordina il resoconto domini 
+<select name=DOMSORTBY size=1>
+  <option value=REQUESTS>per numero di richieste
+  <option value=PAGES>per numero di richieste di pagine
+  <option value=BYTES selected>per volume di traffico
+  <option value=DATE>per data dell'ultimo accesso
+  <option value=ALPHABETICAL>alfabetico
+</select>
+<br>Includi tutti i domini con almeno
+<input type=TEXT name="DOMFLOORA" maxlength=6 size=6>
+<select name=DOMFLOORB>
+  <option value=r>numero di richieste
+  <option value=p>numero di richieste di pagine
+  <option value=b selected>bytes
+</select>
+
+<h3>Opzioni per resoconto organizzazioni</h3>
+
+Ordina il resoconto organizzazioni 
+<select name=ORGSORTBY size=1>
+  <option value=REQUESTS>per numero di richieste
+  <option value=PAGES>per numero di richieste di pagine
+  <option value=BYTES selected>per volume di traffico
+  <option value=DATE>per data dell'ultimo accesso
+  <option value=ALPHABETICAL>alfabetico
+</select>
+<br>Includi tutte le organizzazioni con almeno
+<input type=TEXT name="ORGFLOORA" maxlength=6 size=6>
+<select name=ORGFLOORB>
+  <option value=r>numero di richieste
+  <option value=p>numero di richieste di pagine
+  <option value=b selected>bytes
+</select>
+
+<h3>Opzioni per resoconto directory</h3>
+
+Ordina il resoconto directory 
+<select name=DIRSORTBY size=1>
+  <option value=REQUESTS>per numero di richieste
+  <option value=PAGES>per numero di richieste di pagine
+  <option value=BYTES selected>per volume di traffico
+  <option value=DATE>per data dell'ultimo accesso
+  <option value=ALPHABETICAL>alfabetico
+</select>
+
+<br>Includi tutte le directory con almeno
+<input type=TEXT name="DIRFLOORA" maxlength=6 size=6>
+<select name=DIRFLOORB>
+  <option value=r>numero di richieste
+  <option value=p>numero di richieste di pagine
+  <option value=b selected>bytes
+</select>
+
+<h3>Opzioni per resoconto richieste</h3>
+
+Ordina il resoconto richieste
+<select name=REQSORTBY size=1>
+  <option value=REQUESTS>per numero di richieste
+  <!-- NB per richieste di pagine non e' valido -->
+  <option value=BYTES selected>per volume di traffico
+  <option value=DATE>per data dell'ultimo accesso
+  <option value=ALPHABETICAL>alfabetico
+</select>
+
+<br>Includi tutti i files con almeno
+<input type=TEXT name="REQFLOORA" maxlength=6 size=6>
+<select name=REQFLOORB>
+  <option value=r>numero di richieste
+  <!-- NB per richieste di pagine non e' valido -->
+  <option value=b selected>bytes
+</select>
+
+<br>Visualizza
+<select name="REQINCLUDE" size=1>
+<option value="*" selected>tutti i files
+<option value="pages">solo le pagine
+</select>
+
+<h3>Opzioni resoconto provenienze</h3>
+
+Ordina il resoconto provenienze
+<select name=REFSORTBY size=1>
+  <option value=REQUESTS>per numero di richieste
+  <option value=PAGES>per numero di richieste di pagine
+  <option value=BYTES selected>per volume di traffico
+  <option value=DATE>per data dell'ultimo accesso
+  <option value=ALPHABETICAL>alfabetico
+</select>
+<br>Includi tutte le provenienze con almeno
+<input type=TEXT name="REFFLOORA" maxlength=6 size=6>
+<select name=REFFLOORB>
+  <option value=r>numero di richieste
+  <option value=p>numero di richieste di pagine
+  <option value=b selected>bytes
+</select>
+<hr>
+<h2>3. Analisi parziale del log</h2>
+<b>Solo determinati periodi</b>
+<br>&Egrave; possibile analizzare solo le richieste per determinati periodi.
+Inserire di seguito il periodo nella forma <i>aammgg</i> 
+(anno, mese, giorno, tutti a 2 cifre);
+per esempio, 980301 per il primo marzo 1998.
+&Egrave; possibile usare un solo campo per limitare il periodo da un solo lato.
+<br>Dalla data <input type=TEXT name="FROM" maxlength=16 size=6>
+alla data <input type=TEXT name="TO" maxlength=16 size=6>
+
+<p><b>Solo determinati files</b>
+<br>Cerca solo questi files (lista, separata da virgole; pu&ograve; contenere il carattere jolly *)
+<br><input type=TEXT name="FILEINCLUDE" size=60>
+<br>Ignora questi files
+<br><input type=TEXT name="FILEEXCLUDE" size=60>
+
+<hr><h2>4. Impaginazione</h2>
+<b>Nome dell'organizzazione</b> (per il titolo della pagina)
+<input type=TEXT name="HOSTNAME" size=60>
+<p><b>home page dell'organizzazione</b>
+<br>URL: <input type=TEXT name="HOSTURL" size=60>
+<hr>
+<input type=submit value="Crea statistiche">
+<input type=reset value="svuota modulo">
+</form></body></html>

@@ -1,0 +1,579 @@
+## Language file for analog 6.0. May not work with any other version.
+##
+## This is a language file for analog. Lines beginning with ## are comments.
+## Each language should have one language file in its own character set,
+## and can have an additional one for ASCII (7 bit) output.
+## 
+## If your language doesn't seem to fit into this pattern, explain the problem
+## to me, and I can adjust the source code if necessary.
+##
+## Μετάφραση όρων από Δημήτρη Ξενάκη, Ιούνιος 1998 και Οκτώβρης 1999.
+##
+## The character set of this language file. Prefix with a * to indicate a
+## multibyte character set: e.g. *ISO-2022-JP
+ISO-8859-7
+## Abbreviations for the day and month names.
+Κυρ
+Δευ
+Τρι
+Τετ
+Πεμ
+Παρ
+Σαβ
+Ιαν
+Φεβ
+Μαρ
+Απρ
+Μαι
+Ιον
+Ιολ
+Αυγ
+Σεπ
+Οκτ
+Νοε
+Δεκ
+## Next some standard common words.
+## Abbreviation for "week beginning"
+εβδ. αρχ.
+++year++
+## Quarter of a year
+++quarter++
+μήνας
+ημέρα
+ημέρες
+ωρ
+λεπτό
+λεπτά
+δευτερόλεπτο
+δευτερόλεπτα
+ψηφιολέξη
+ψηφιολέξεις
+## ?bytes represents kbytes, Mbytes etc.
+++?bytes++
+αίτηση
+αιτήσεις
+ημερομηνία
+## This has the right spacing for a column like 23/Mar/98 15:00-15:05
+ημερομηνία ώρα
+++time++
+πρώτη ημερομηνία
+πρώτη ώρα
+προηγούμενη ημερομηνία
+προηγούμενη ώρα
+αρχείο
+αρχεία
+ξενιστής
+ξενιστές
+εικονικός ξενιστής
+εικονικοί ξενιστές
+φάκελος
+φάκελοι
+περιοχή
+περιοχές
+οργανισμός
+οργανισμοί
+επέκταση
+επεκτάσεις
+URL
+URLs
+φυλλομετρητής
+φυλλομετρητές
+λειτουργικό
+λειτουργικά
+## (= operating system, operating systems)
+μέγεθος
+όρος αναζήτησης
+όροι αναζήτησης
+τόπος
+τόποι
+χρήστης
+χρήστες
+κωδικός κατάστασης
+κωδικοί κατάστασης
+Στατιστικά στοιχεία διακομιστή Web του
+## Prefixes kilo, mega etc. to make kilobytes, megabytes etc.
+kilo
+mega
+giga
+tera
+peta
+exa
+zeta
+yotta
+## Shorter versions of the same prefixes for column headings
+k
+M
+G
+T
+P
+E
+Z
+Y
+## Names for the rows in the File Size Report. Note that changing these will
+## NOT change the boundaries! These are just labels for predetermined buckets.
+## They should line up nicely when right-aligned.
+          0
+   1B-  10B
+  11B- 100B
+ 101B-  1kB
+  1kB- 10kB
+ 10kB-100kB
+100kB-  1MB
+  1MB- 10MB
+ 10MB-100MB
+100MB-  1GB
+      > 1GB
+## Now the names of reports
+Γενική Σύνοψη
+## The time reports, plus "busiest" strings (at the bottom of each report)
+++Yearly Report++
+++Busiest year:++
+++Quarterly Report++
+++Busiest quarter:++
+Μηνιαία Αναφορά
+Μήνας με την υψηλότερη δραστηριότητα:
+Εβδομαδιαία Αναφορά
+Εβδομάδα με την υψηλότερη δραστηριότητα: Εβδομάδα που αρχίζει από
+Καθημερινή Σύνοψη
+Καθημερινή Αναφορά
+Ημέρα με την υψηλότερη δραστηριότητα:
+Ωριαία Αναφορά
+Ωριαία Σύνοψη
+++Hour of the Week Summary++
+Ώρα με την υψηλότερη δραστηριότητα:
+Αναφορά ανά τέταρτο
+++Quarter-Hour Summary++
+Τέταρτο με την υψηλότερη δραστηριότητα:
+Αναφορά ανά πεντάλεπτο
+++Five-Minute Summary++
+Πεντάλεπτο με την υψηλότερη δραστηριότητα:
+## The non-time reports. In each case, we have the name of the report,
+## followed by the type of item in the report, once in the singular and once
+## in the plural. These are used in phrases like "including all ??? with at
+## least 200 requests". (The words higher up are used for column headings.)
+## Finally we have the gender of this type of object, which can be m, f or n.
+##
+## So for example, in German a directory is Verzeichnis (neuter gender), which
+## was given above. But "listing the top directory" is "Ausgabe des ersten
+## Verzeichnisses" and "listing the top two directories" is "Ausgabe der
+## ersten zwei Verzeichnisse". So here, we would have for the directory report:
+##
+## Verzeichnis-Bericht
+## Verzeichnisses
+## Verzeichnisse
+## n
+##
+## I hope that makes sense!
+Αναφορά Ξενιστών
+ξενιστή
+ξενιστών
+m
+++Host Redirection Report++
+++host++
+++hosts++
+++n++
+++Host Failure Report++
+++host++
+++hosts++
+++n++
+Αναφορά Φακέλων
+φακέλου
+φακέλων
+m
+Αναφορά Ειδών Αρχείου
+επέκτασης
+επεκτάσεων
+f
+Αναφορά Αιτήσεων
+αρχείου
+αρχείων
+n
+Αναφορά Αναδρομολογήσεων
+αρχείου
+αρχείων
+n
+Αναφορά Αποτυχιών
+αρχείου
+αρχείων
+n
+Αναφορά Παραπομπών
+URL παραπομπής
+URL παραπομπής
+n
+Αναφορά Τοποθεσιών που Παρέπεμψαν
+τοποθεσίας που περέπεμψε
+τοποθεσιών που παρέπεμψαν
+f
+Αναφορά Αναδρομολογημένου Παραπέμπτη
+URL παραπομπής
+URL παραπομπής
+n
+Αναφορά Αποτυχημένων Παραπομπών
+URL παραπομπής
+URL παραπομπής
+n
+Αναφορά Ερωτημάτων
+ερώτηματος
+ερωτημάτων
+n
+Αναφορά Λέξεων Αναζήτησης
+λέξης ερωτήματος
+λέξεων ερωτήματος
+f
+++Internal Search Query Report++
+++query++
+++queries++
+++n++
+++Internal Search Word Report++
+++query word++
+++query words++
+++n++
+Αναφορά Εικονικών Ξενιστών
+εικονικού ξενιστή
+εικονικών ξενιστών
+m
+++Virtual Host Redirection Report++
+++virtual host++
+++virtual hosts++
+++n++
+++Virtual Host Failure Report++
+++virtual host++
+++virtual hosts++
+++n++
+Αναφορά Χρηστών
+χρήστη
+χρηστών
+m
+++User Redirection Report++
+++user++
+++users++
+++n++
+Αναφορά Σφαλμάτων Χρήστη
+χρήστη
+χρηστών
+m
+Σύνοψη Φυλλομετρητών
+φυλλομετρητή
+φυλλομετρητών
+m
+Αναφορά Φυλλομετρητών
+φυλλομετρητή
+φυλλομετρητών
+m
+Αναφορά Λειτουργικών Συστημάτων
+λειτουργικού συστήματος
+λειτουργικών συστημάτων
+n
+Αναφορά Περιοχών
+περιοχής
+περιοχών
+f
+Αναφορά Οργανισμών
+οργανισμού
+οργανισμών
+m
+Αναφορά Κωδικών Κατάστασης
+κωδικού κατάστασης
+κωδικών κατάστασης
+m
+Αναφορά Χρόνου Επεξεργασίας
+Αναφορά μεγέθους αρχείων
+## Used at the bottom of the report
+Αυτή η ανάλυση παρήχθη από το
+Χρόνος εκτέλεσης
+Λιγότερο από 1
+## Used in the time reports
+Κάθε μονάδα
+αντιστοιχεί σε
+ή μέρος
+αίτηση για ιστιοσελίδα
+αιτήσεις για ιστιοσελίδες
+## Used at the bottom of each non-time report: need m, f & n genders
+δεν φαίνονται αναλυτικά
+δεν φαίνονται αναλυτικά
+δεν φαίνονται αναλυτικά
+## Used on the pie charts: again need m, f & n genders
+++*++
+++*++
+++Other++
+## Used at the top of the report
+Το πρόγραμμα ξεκίνησε
+Αναλύθηκαν αιτήσεις από
+έως
+## Used in the General Summary
+Επιτυχημένες αιτήσεις
+Μέσος όρος επιτυχημένων αιτήσεων ανά ημέρα
+Επιτυχημένες αιτήσεις για ιστιοσελίδες
+Μέσος όρος επιτυχημένων αιτήσεων για ιστιοσελίδες ανά ημέρα
+Γραμμές αρχείου Logfile χωρίς κωδικό κατάστασης
+Αποτυχημένες αιτήσεις
+Αναδρομολογημένες αιτήσεις 
+Αιτήσεις με πληροφοριακό κωδικό κατάστασης
+Ξεχωριστά αρχεία που αναζητήθηκαν
+Ξεχωριστοί ξενιστές που εξυπηρετήθηκαν
+Κατεστραμμένες γραμμές αρχείου logfile
+Μη χρήσιμες καταχωρήσεις αρχείου logfile
+Σύνολο δεδομένων που μεταφέρθηκαν
+Μέσος όρος δεδομένων που μεταφέρθηκαν ανά ημέρα
+Οι αριθμοί σε παρένθεση αναφέρονται σε
+7 ημέρες έως
+τελευταίες 7 ημέρες
+Πήγαινε
+Κορυφή
+## Some special phrases for particular reports.
+[αριθμητικές διευθύνσεις χωρίς αντιστοιχία]
+[δεν δόθηκε περιοχή]
+[άγνωστη περιοχή]
+[αρχικός (root) φάκελος]
+[χωρίς φάκελο]
+[χωρίς επέκταση]
+[φάκελοι]
+Άγνωστο Windows
+Άλλο Unix
+++Robots++
+Λειτουργικό άγνωστο
+## Column headings for requests, pages, bytes and number (ie position in list)
+## and percentages and last-7-day versions of these.
+## Should be as short as possible -- abbreviate if necessary.
+## (The ?bytes represents kbytes, Mbytes etc.)
+#αιτ. 
+++7-day reqs++
+%αιτ. 
+++%7-day reqs++
+σελ.
+++7-day pages++
+%σελ.
+++%7-day pages++
+λέξεις
+++?bytes++
+++7-day bytes++
+++7-day ?bytes++
+%λέξεων
+++%7-day bytes++
+αρ.
+## Now we need to know how to say "listing the top <whatever>", "listing
+## the top <n> <whatevers>", and "listing <whatevers>". The %s and %d
+## will be replaced by the appropriate things. There may be three of each of
+## these statements, for the genders m, f and n. Any genders that aren't used,
+## you can just put a * there instead. So, for example, French starts
+## Affichage du premier %s
+## Affichage de la premi&egrave;re %s
+## *
+## with entries for m & f, but not n
+Εκτύπωση των πρώτων %s
+Εκτύπωση των πρώτων %s
+Εκτύπωση των πρώτων %s
+Εκτύπωση των πρώτων %d %s
+Εκτύπωση των πρώτων %d %s
+Εκτύπωση των πρώτων %d %s
+Eκτύπωση %s
+Eκτύπωση %s
+Eκτύπωση %s
+## "by" in the phrase "listing the top 3 files BY number of requests"
+κατά
+## All requests WITH AT LEAST 10 requests
+με τουλάχιστον
+## Different ways of doing floors
+++request in the last 7 days++
+++requests in the last 7 days++
+++request for a page in the last 7 days++
+++requests for pages in the last 7 days++
+αναδρομολογημένη αίτηση
+αναδρομολογημένες αιτήσεις
+++redirected request in the last 7 days++
+++redirected requests in the last 7 days++
+αποτυχημένη αίτηση
+αποτυχημένες αιτήσεις
+++failed request in the last 7 days++
+++failed requests in the last 7 days++
+% του φορτίου
+++% of the traffic in the last 7 days++
+% του μέγιστου μεγέθους φορτίου
+++% of the maximum amount of traffic in the last 7 days++
+++byte of traffic++
+ψηφιολέξεις κίνησης
+## ?bytes represents kbytes, Mbytes etc.
+++?bytes of traffic++
+++byte of traffic in the last 7 days++
+++bytes of traffic in the last 7 days++
+++?bytes of traffic in the last 7 days++
+αιτήθηκαν από
+με μία αναδρομολογημένη αίτηση από
+με μία αποτυχημένη αίτηση από
+++with first request since++
+++with first redirected request since++
+++with first failed request since++
+## Now "sorted by": again, in m, f & n (only needed in plural though)
+ταξινομημένοι κατά
+ταξινομημένες κατά
+ταξινομημένα κατά
+## Used at the top of each report
+++This report contains data from++
+## Used in pie charts
+++The wedges are plotted by++
+## different ways of sorting
+το μέγεθος του φορτίου
+++the amount of traffic in the last 7 days++
+% των αιτήσεων
+++% of the requests in the last 7 days++
+% του μέγιστου αριθμού αιτήσεων
+++% of the maximum number of requests in the last 7 days++
+τον αριθμό αιτήσεων
+++the number of requests in the last 7 days++
+% των αιτήσεων για ιστιοσελίδες
+++% of the requests for pages in the last 7 days++
+% του μέγιστου αριθμού αιτήσεων για ιστιοσελίδες
+++% of the maximum number of requests for pages in the last 7 days++
+τον αριθμό αιτήσεων για ιστιοσελίδες
+++the number of requests for pages in the last 7 days++
+% των αναδρομολογημένων αιτήσεων
+++% of the redirected requests in the last 7 days++
+% του μέγιστου αριθμού αναδρομολογημένων αιτήσεων
+++% of the maximum number of redirected requests in the last 7 days++
+τον αριθμό αναδρομολογημένων αιτήσεων
+++the number of redirected requests in the last 7 days++
+% των αποτυχημένων αιτήσεων
+++% of the failed requests in the last 7 days++
+% του μέγιστου αριθμού αποτυχημένων αιτήσεων
+++% of the maximum number of failed requests in the last 7 days++
+τον αριθμό αποτυχημένων αιτήσεων
+++the number of failed requests in the last 7 days++
+ο χρόνος της τελευταίας αίτησης
+ο χρόνος της τελευταίας αναδρομολογημένης αίτησης
+ο χρόνος της τελευταίας αποτυχημένης αίτησης
+++the time of the first request++
+++the time of the first redirected request++
+++the time of the first failed request++
+## 3 other ways of sorting in m, f, & n
+ταξινομημένοι αλφαβητικά
+ταξινομημένες αλφαβητικά
+ταξινομημένα αλφαβητικά
+ταξινομημένοι αριθμητικά
+ταξινομημένες αριθμητικά
+ταξινομημένα αριθμητικά
+αταξινόμητοι
+αταξινόμητες
+αταξινόμητα
+## The separators to use between thousands, and as a decimal point. For
+## example, English generally uses "3,000.25" so has , and . here. French uses
+## "3 000,25", so has space and , instead.
+++,++
+++.++
+## There's a colon here, because the French like to put a space before a colon,
+## so they have space-colon instead here.
+:
+## am and pm in the sense of morning and afternoon.
+++am++
+++pm++
+## Some date formats. E.g. for 9am on 1st January 1997 use
+## %d for date          " 1"
+## %D for 0-padded date "01"
+## %e or %E for date at end of time interval (where this makes sense)
+## %m for month         "Jan"
+## %l for month at end of time interval
+## %q for quarter of the year    "1"
+## %y for short year    "97"
+## %Y for long year     "1997"
+## %z or %Z for year at end of time interval
+## %X for ISO 8601 extended date format (yyyy-mm-dd) "1997-01-01"
+## %h for hour in 24-hour clock " 9"
+## %H for 0-padded hour         "09"
+## %j for hour in 12-hour clock " 9"
+## %i, %I or %k for hour at end of time interval
+## %n for minute        "00"
+## %o for minute at end of time interval
+## %a for am or pm      "am"
+## %b for am or pm at end of time interval
+## %w for weekday       "Wed"
+## %x for a dash in a range e.g. in 14:00-14:15. This is necessary because in
+##    proper typesetting, this should be an en-dash not a regular dash.
+##
+## So for a date, English might have %d/%m/%y for 1/Jan/97, whereas German
+## would have %d.%m %y for 1.Jan 97). Note: the month number is not available
+## because it can produce ambiguous dates.
+##
+## The different date formats are as follows
+## "refer to the 7 days to [date]"
+%D-%m-%Y %H:%n
+## "Program started at" and "Analysed requests from"
+%w-%D-%m-%Y %H:%n
+## In Daily Report
+%d/%m/%y
+## In Daily Summary
+++%w++
+## In Hourly Report
+%d/%m/%y %H:%n%x%I:%o
+## In Hourly Summary
+++%h++
+## In Hour of the Week Summary
+++%w %H:%n%x%I:%o++
+## In Quarter-Hour and Five-Minute Reports
+%d/%m/%y %H:%n%x%I:%o
+## In Quarter-Hour and Five-Minute Summaries
+++%H:%n%x%I:%o++
+## In Weekly Report
+%d/%m/%y
+## In Monthly Report
+%m %Y
+## In Quarterly Report
+++%m%x%l %Y++
+## An alternative for Quarterly Report: %Y Q%q
+## In Yearly Report
+++%Y++
+## The date (d) column in non-time reports
+%d/%m/%y
+## The date & time (D) column in non-time reports
+%d/%m/%y %H:%n
+## In non-time reports: "including all files with requests since [date]"
+%d/%m/%y at %H:%n
+## Finally, definitions of the HTTP status codes (see
+## ftp://ftp.isi.edu/in-notes/rfc2616.txt). You're welcome to leave these in
+## English if you think they look better that way.
+100 Συνέχεια αίτησης
+101 Μεταγωγή πρωτοκόλων
+1xx [Διάφορα πληροφοριακά]
+200 ΟΚ
+201 Δημιουργήθηκε
+202 Αποδεκτό για μελλοντική επεξεργασία
+203 Μη εξουσιοδοτημένη πληροφορία
+204 ΟΚ, αλλά τίποτα προς αποστολή
+205 Επανάθεση (Reset) εγγράφου
+206 Μερικό περιεχόμενο
+2xx [Διάφορες επιτυχίες]
+300 Πολλαπλά έγγραφα διαθέσιμα
+301 Το έγγραφο μετακινήθηκε μόνιμα
+302 Το έγγραφο βρέθηκε αλλού
+303 Δείτε άλλο έγγραφο
+304 Δεν έχει αλλάξει απο την προηγούμενη ανάκληση
+305 Χρησιμοποιήστε ενδιάμεσο διακομιστή
+306 Μεταγωγή ενδιάμεσου διακομιστή
+307 Το έγγραφο μετακινήθηκε προσωρινά
+3xx [Διάφορες αναδρομολογήσεις]
+400 Λάθος αίτηση
+401 Απαραίτητη η εξακρίβωση ταυτότητας
+402 Απαραίτητη η πληρωμή
+403 Απαγορευμένη η πρόσβαση
+404 Το έγγραφο δεν βρέθηκε
+405 Μη επιτρεπτή μέθοδος
+406 Το έγγραφο δεν είναι αποδεκτό απο τον πελάτη
+407 Χρειάζεται εξακρίβωση ταυτότητας ενδιάμεσου διακομιστή
+408 Λήξη χρονικού ορίου αίτησης
+409 Η άιτηση συγκρούεται με την κατάσταση του πόρου
+410 Το έγγραφο έχει φύγει μόνιμα
+411 Απαραίτητο το μήκος
+412 Η προϋπόθεση απέτυχε
+413 Η αίτηση πολύ μεγάλη
+414 Το ζητούμενο άνομα αρχείου πολύ μεγάλο
+415 Το είδος μέσου δεν υποστηρίζεται
+416 Το αιτούμενο εύρος τιμών δεν ισχύει
+417 Η προσδοκία απέτυχε
+4xx [Διάφορα σφάλματα πελάτη/χρήστη]
+500 Εσωτερικό σφάλμα διακομιστή
+501 Το είδος αίτησης δεν υποστηρίζεται
+502 Σφάλμα σε προηγούμενο (upstream) διακομιστή
+503 Η υπηρεσία προσωρινά δεν είναι διαθέσιμη
+504 Λήξη χρονικού ορίου πύλης
+505 Η έκδοση HTTP δεν υποστηρίζεται
+506 Η αναδρομολόγηση απέτυχε
+5xx [Διάφορα σφάλματα διακομιστή]
+xxx [Άγνωστο]

@@ -1,0 +1,92 @@
+# Report descriptions file for analog 6.0.
+#
+# This file contains descriptions of each report. Lines starting with a
+# hash (#) are comments. Otherwise, each report must take EXACTLY ONE LINE.
+# Yearly Report
+Questo rapporto elenca l'attività annuale.
+# Quarterly Report
+Questo rapporto elenca l'attività trimestrale.
+# Monthly Report
+Questo rapporto elenca l'attività mensile.
+# Weekly Report
+Questo rapporto elenca l'attività settimanale.
+# Daily Report
+Questo rapporto elenca l'attività giornaliera.
+# Hourly Report
+Questo rapporto elenca l'attività oraria.
+# Quarter-Hour Report
+Questo rapporto elenca l'attività per ogni periodo di 15 minuti.
+# Five-Minute Report
+Questo rapporto elenca l'attività per ogni periodo di 5 minuti.
+# Daily Summary
+Questo rapporto elenca l'attività per ogni giorno della settimana, calcolata cumulativamente su tutte le settimane analizzate.
+# Hourly Summary
+Questo rapporto elenca l'attività per ogni ora del giorno, calcolata cumulativamente su tutti i giorni analizzati.
+# Hour of the Week Summary
+Questo rapporto elenca l'attività per ogni ora della settimana, calcolata cumulativamente su tutte le settimane analizzate.
+# Quarter-Hour Summary
+Questo rapporto elenca l'attività per ogni quarto d'ora del giorno, calcolata cumulativamente su tutti i giorni analizzati.
+# Five-Minute Summary
+Questo rapporto elenca l'attività per ogni periodo di 5 minuti del giorno, calcolata cumulativamente su tutti i giorni analizzati.
+# General Summary
+Questo rapporto elenca le statistiche riepilogative generali.
+# Request Report
+Questo rapporto elenca i files richiesti sul sito.
+# Redirection Report
+Questo rapporto elenca i files che hanno richiesto una redirezione ad un altro file (solitamente directory senza la sbarra finale, o script CGI che forzano la redirezione).
+# Failure Report
+Questo rapporto elenca i files che hanno causato un insuccesso, per esempio files non trovati.
+# File Type Report
+Questo rapporto elenca le estensioni dei files richiesti sul sito.
+# Directory Report
+Questo rapporto elenca le directory dalle quali sono stati richiesti i files, comprese tutte le loro sottodirectory.
+# Host Report
+Questo rapporto elenca i computer che hanno richiesto files.
+# Host Redirection Report
+Questo rapporto elenca i computer che sono stati rediretti ad un altro file.
+# Host Failure Report
+Questo rapporto elenca i computer per i quali sono fallite le richieste.
+# Domain Report
+Questo rapporto elenca il dominio, geografico o internazionale, di provenienza delle richieste.
+# Referrer Report
+Questo rapporto elenca i referenti (da quali pagine sono stati inviati i visitatori, oppure le pagine che includono immagini di questo sito).
+# Referring Site Report
+Questo rapporto elenca da quali server i visitatori sono stati inviati.
+# Redirected Referrer Report
+Questo rapporto elenca i referenti che hanno causato una richiesta di redirezione.
+# Failed Referrer Report
+Questo rapporto elenca i referenti contenenti collegamenti errati a questo sito.
+# Browser Report
+Questo rapporto elenca la versione dettagliata dei browser usati dai visitatori.
+# Virtual Host Report
+Questo rapporto elenca l'attività di ognuno dei domini virtuali di questo server.
+# Virtual Host Redirection Report
+Questo rapporto elenca le richieste redirette ad ognuno dei domini virtuali di questo server.
+# Virtual Host Failure Report
+Questo rapporto elenca le richieste fallite per ognuno dei domini virtuali di questo server.
+# User Report
+Questo rapporto elenca gli utenti che hanno richiesto files, se sono stati autenticati con password o identificati con cookies.
+# User Redirection Report
+Questo rapporto elenca gli utenti che sono stati rediretti ad un altro file.
+# User Failure Report
+Questo rapporto elenca gli utenti ai quali sono fallite le richieste.
+# Organisation Report
+Questo rapporto elenca le organizzazioni dai cui computer sono stati richiesti files.
+# Search Query Report
+Questo rapporto elenca le richieste usate nei motori di ricerca per trovare questo sito.
+# Search Word Report
+Questo rapporto elenca le parole usate nei motori di ricerca per trovare questo sito.
+# Internal Search Query Report
+Questo rapporto elenca le richieste effettuate ai motori di ricerca interni a questo sito.
+# Internal Search Word Report
+Questo rapporto elenca le parole richieste ai motori di ricerca interni a questo sito.
+# Browser Summary
+Questo rapporto elenca il produttore dei browser usati dai visitatori.
+# Operating System Report
+Questo rapporto elenca i sistemi operativi usati dai visitatori.
+# File Size Report
+Questo rapporto elenca le dimensioni dei files.
+# Status Code Report
+Questo rapporto elenca il codice di stato HTTP di tutte le richieste.
+# Processing Time Report
+Questo rapporto elenca il tempo impiegato per processare le richieste.

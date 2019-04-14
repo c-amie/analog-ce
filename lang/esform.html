@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Interfaz de Formularios de Analog</title>
+</head>
+<body>
+<!-- Traducido por Javier Kohan, NO-SPAM_jkohan@cyberware.com.ar_NO-SPAM  -->
+<!-- Nota del Traductor: Mi intento es hacer una traduccion que sirva ...-->
+<!-- ... para la mayoria de los paises hispanohablantes. Sin embargo, ...-->
+<!-- ... cuando eso no es posible, uso las formas usadas en Argentina. -->
+<!-- ... Por ejemplo, posiblemente los usuarios de otros paises ...-->
+<!-- ... prefieran reemplazar todas las ocurrencias de "archivo" por ...-->
+<!-- ... "fichero" (traduccion del ingles "file"). -->
+
+<h1>
+<!-- img src="/images/analogo.gif" alt="" --> Interfaz de Formularios de Analog
+</h1>
+
+<!-- Debes editar este archivo. Ademas necesitaras editar anlgform.pl. -->
+<!-- Primero, quita los comentarios del tag "img" de mas arriba y ...-->
+<!-- ...editalo, de ser necesario  -->
+
+<!-- Edita las linea siguiente, de manera de reflejar la ubicacion ... -->
+<!-- correcta de anlgform.pl. -->
+<!-- form action="/cgi-bin/anlgform.pl" method="POST" -->
+
+<!-- En la mayoria de los sistemas, "IMAGEDIR" debera ser distinto entre ...-->
+<!-- ... el formulario y cuando se invoca el programa por linea de ... -->
+<!-- ... comandos, ya que las imagenes no deberian estar en /cgi-bin/ -->
+<!-- input type=hidden name="IMAGEDIR" value="/images/" -->
+
+<!-- Algunos usuarios prefieren definir su logfile como sigue -->
+<!-- input type=hidden name="LOGFILE" value="/usr/local/etc/httpd/logs/access_log" -->
+
+<!-- (Initial comments edited by Stephen Turner 03 Jan 2001) -->
+
+<input type=hidden name="LANGUAGE" value="SPANISH">
+
+<hr>
+<h2>1. Selecci&oacute;n de Informes</h2>
+<i>Consulte <a href="http://www.analog.cx/">la p&aacute;gina principal de
+analog</a> para la descripci&oacute;n de los distintos informes.</i>
+
+<p>
+<h3>Que informes desea ver ?</h3>
+<BR><INPUT TYPE=radio NAME=GENERAL VALUE=ON checked> [Si] <INPUT TYPE=radio NAME=GENERAL VALUE=OFF> [No] Resumen General
+<BR><INPUT TYPE=radio NAME=MONTHLY VALUE=ON checked> [Si] <INPUT TYPE=radio NAME=MONTHLY VALUE=OFF> [No] Informe Mensual
+<BR><INPUT TYPE=radio NAME=WEEKLY VALUE=ON> [Si] <INPUT TYPE=radio NAME=WEEKLY VALUE=OFF checked> [No] Informe Semanal
+<BR><INPUT TYPE=radio NAME=DAILYSUM VALUE=ON checked> [Si] <INPUT TYPE=radio NAME=DAILYSUM VALUE=OFF> [No] Resumen Diario
+<BR><INPUT TYPE=radio NAME=DAILYREP VALUE=ON> [Si] <INPUT TYPE=radio NAME=DAILYREP VALUE=OFF checked> [No] Informe Diario
+<BR><INPUT TYPE=radio NAME=HOURLYSUM VALUE=ON checked> [Si] <INPUT TYPE=radio NAME=HOURLYSUM VALUE=OFF> [No] Resumen por Horas
+<BR><INPUT TYPE=radio NAME=DOMAIN VALUE=ON checked> [Si] <INPUT TYPE=radio NAME=DOMAIN VALUE=OFF> [No] Informe por Dominios
+<BR><INPUT TYPE=radio NAME=ORGANISATION VALUE=ON checked> [Si] <INPUT TYPE=radio NAME=ORGANISATION VALUE=OFF> [No] Informe por Organizaciones
+<BR><INPUT TYPE=radio NAME=DIRECTORY VALUE=ON checked> [Si] <INPUT TYPE=radio NAME=DIRECTORY VALUE=OFF> [No] Informe por Directorios
+<BR><INPUT TYPE=radio NAME=FILETYPE VALUE=ON> [Si] <INPUT TYPE=radio NAME=FILETYPE VALUE=OFF checked> [No] Informe por tipo de Archivos.
+<BR><INPUT TYPE=radio NAME=REQUEST VALUE=ON checked> [Si] <INPUT TYPE=radio NAME=REQUEST VALUE=OFF> [No] Informe por Peticiones
+<BR><INPUT TYPE=radio NAME=SIZE VALUE=ON> [Si] <INPUT TYPE=radio NAME=SIZE VALUE=OFF checked> [No] Informe por Tama&ntilde;o de Archivos
+<BR><INPUT TYPE=radio NAME=REFERRER VALUE=ON> [Si] <INPUT TYPE=radio NAME=REFERRER VALUE=OFF checked> [No] Informe por Remitentes
+<BR><INPUT TYPE=radio NAME=SEARCHQUERY VALUE=ON> [Si] <INPUT TYPE=radio NAME=SEARCHQUERY VALUE=OFF checked> [No] Informe por Consultas de B&uacute;squedas
+<BR><INPUT TYPE=radio NAME=SEARCHWORD VALUE=ON> [Si] <INPUT TYPE=radio NAME=SEARCHWORD VALUE=OFF checked> [No] Informe por B&uacute;squedas de palabras.
+<BR><INPUT TYPE=radio NAME=BROWSERSUM VALUE=ON> [Si] <INPUT TYPE=radio NAME=BROWSERSUM VALUE=OFF checked> [No] Resumen por Navegador.
+<BR><INPUT TYPE=radio NAME=OSREP VALUE=ON> [Si] <INPUT TYPE=radio NAME=OSREP VALUE=OFF checked> [No] Informe por Sistema Operativo.
+<BR><INPUT TYPE=radio NAME=STATUS VALUE=ON> [Si] <INPUT TYPE=radio NAME=STATUS VALUE=OFF checked> [No] Informe por C&oacute;digo de Retorno
+<p><i>Ahora ya puede ejecutar el programa: <input type=submit value="Producir Estad&iacute;sticas">
+<br>O puede completar las siguientes opciones para informes individuales.
+Puede usar
+<input type=TEXT name="ignore1" maxlength=4 size=4 value="10M">
+<select name=ignore2>
+  <option value=b selected>bytes
+</select>
+ bytes para indicar 10 Megabytes; tambi&eacute;n
+<input type=TEXT name="ignore3" maxlength=4 size=4 value="-50">
+<select name=ignore4>
+  <option value=b selected>bytes
+</select>
+para indicar los 50 items con m&aacute;s bytes.
+</i>
+<hr>
+<h2>2. Opciones para el informe detallado</h2>
+
+<h3>Opciones del Informe por Dominios</h3>
+
+Ordenar el Informe por Dominios
+<select name=DOMSORTBY size=1>
+  <option value=REQUESTS>por el n&uacute;mero total de peticiones 
+  <option value=PAGES>por el n&uacute;mero de peticiones de p&aacute;ginas
+  <option value=BYTES selected>por volumen de tr&aacute;fico
+  <option value=DATE>por la fecha del &uacute;ltimo acceso
+  <option value=ALPHABETICAL>alfabeticamente
+</select>
+<br>Incluir todos los dominios con al menos
+<input type=TEXT name="DOMFLOORA" maxlength=6 size=6>
+<select name=DOMFLOORB>
+  <option value=r>peticiones totales
+  <option value=p>peticiones de p&aacute;ginas
+  <option value=b selected>bytes
+</select>
+
+<h3>Opciones del Informe por Organizaciones</h3>
+
+Ordenar el Informe por Organizaciones
+<select name=ORGSORTBY size=1>
+  <option value=REQUESTS selected>por el n&uacute;mero total de peticiones 
+  <option value=PAGES>por el n&uacute;mero de peticiones de p&aacute;ginas
+  <option value=BYTES>por volumen de tr&aacute;fico
+  <option value=DATE>por la fecha del &uacute;ltimo acceso
+  <option value=ALPHABETICAL>alfabeticamente
+</select>
+<br>Incluir todas las Organizaciones con al menos
+<input type=TEXT name="ORGFLOORA" maxlength=6 size=6>
+<select name=ORGFLOORB>
+  <option value=r selected>peticiones en total
+  <option value=p>peticiones de p&aacute;ginas
+  <option value=b>bytes
+</select>
+
+<h3>Opciones del Informe por Directorios</h3>
+
+Ordenar el Informe por Directorios
+<select name=DIRSORTBY size=1>
+  <option value=REQUESTS>por el n&uacute;mero de peticiones en total
+  <option value=PAGES>por el n&uacute;mero de peticiones de p&aacute;ginas
+  <option value=BYTES selected>por volumen de tr&aacute;fico
+  <option value=DATE>por la fecha del &uacute;ltimo acceso
+  <option value=ALPHABETICAL>alfabeticamente
+</select>
+
+<br>Incluir todos los directorios con al menos
+<input type=TEXT name="DIRFLOORA" maxlength=6 size=6>
+<select name=DIRFLOORB>
+  <option value=r>peticiones totales
+  <option value=p>peticiones de p&aacute;ginas
+  <option value=b selected>bytes
+</select>
+
+<h3>Opciones del Informe por Peticiones</h3>
+
+Ordenar el Informe por Peticiones
+<select name=REQSORTBY size=1>
+  <option value=REQUESTS selected>por el n&uacute;mero de peticiones en total
+  <!-- NB paginas no es un metodo valido -->
+  <option value=BYTES>por volumen de tr&aacute;fico
+  <option value=DATE>por la fecha del &uacute;ltimo acceso
+  <option value=ALPHABETICAL>alfabeticamente
+</select>
+
+<br>Incluir todos los archivos con al menos
+<input type=TEXT name="REQFLOORA" maxlength=6 size=6>
+<select name=REQFLOORB>
+  <option value=r selected>peticiones
+  <option value=b>bytes
+</select>
+
+<br>Mostrar
+<select name="REQINCLUDE" size=1>
+<option value="*" selected>todos los archivos
+<option value="pages">p&aacute;ginas solamente
+</select>
+
+<h3>Opciones del Informe por Remitentes</h3>
+
+Ordenar el Informe por Remitentes
+<select name=REFSORTBY size=1>
+  <option value=REQUESTS>por el n&uacute;mero de peticiones en total
+  <option value=PAGES selected>por el n&uacute;mero de peticiones de p&aacute;ginas
+  <option value=BYTES>por volumen de tr&aacute;fico
+  <option value=DATE>por la fecha del &uacute;ltimo acceso
+  <option value=ALPHABETICAL>alfabeticamente
+</select>
+<br>Incluir todos los Remitentes con al menos
+<input type=TEXT name="REFFLOORA" maxlength=6 size=6>
+<select name=REFFLOORB>
+  <option value=r>peticiones en total
+  <option value=p selected>peticiones de p&aacute;ginas
+  <option value=b>bytes
+</select>
+<hr>
+<!-- Nota del Traductor: Traduzco "logfile" como "archivo de registro". -->
+<!-- ... A falta de algo mejor, prefiero usar la misma terminologia ...-->
+<!-- ... que en las versiones en castellano de Windows -->
+<h2>3. Analizando s&oacute;lo una parte del archivo de registro</h2>
+<b>S&oacute;lo ciertas fechas</b>
+<br>Puede analizar s&oacute;lo las peticiones entre ciertas fechas.
+Ingrese el rango de fechas m&aacute;s abajo de la siguiente manera <i>aammdd</i>;
+ej., 980301 para el 1ro de Marzo de 1998 (o llene s&oacute;lo una casilla
+para limitar el rango de fechas en un solo sentido).
+<br>Desde <input type=TEXT name="FROM" maxlength=16 size=6>
+hasta <input type=TEXT name="TO" maxlength=16 size=6>
+
+<p><b>S&oacute;lo ciertos archivos</b>
+<br>S&oacute;lo considerar los siguientes archivos (lista, separada por comas; puede
+contener el caracter comod&iacute;n *)
+<br><input type=TEXT name="FILEINCLUDE" size=60>
+<br>Ignorar los siguientes archivos
+<br><input type=TEXT name="FILEEXCLUDE" size=60>
+
+<hr><h2>4. Presentaci&oacute;n</h2>
+<b>El nombre de su organizaci&oacute;n</b> (para el t&iacute;tulo de la p&aacute;gina)
+<input type=TEXT name="HOSTNAME" size=60>
+<p><b>La p&aacute;gina principal de su Organizaci&oacute;n</b>
+<br>URL: <input type=TEXT name="HOSTURL" size=60>
+<hr>
+<input type=submit value="Producir Estad&iacute;sticas">
+<input type=reset value="Limpiar formulario">
+</form></body></html>

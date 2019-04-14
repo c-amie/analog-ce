@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Interface formulaire d'Analog</title>
+</head>
+
+<body>
+<h1><!-- img src="/images/analogo.gif" alt="" --> Interface formulaire d'Analog</h1>
+
+<!-- Make the edits below. You also need to edit anlgform.pl. -->
+
+<!-- First, uncomment the img tag above, edited if necessary. -->
+
+<!-- Next, uncomment the following line, edited to reflect the correct -->
+<!-- location of anlgform.pl in you server's filespace. -->
+<!-- form action="/cgi-bin/anlgform.pl" method="POST" -->
+
+<!-- Many systems will want the IMAGEDIR to be different on the form -->
+<!-- than from the command line, because it should not be within /cgi-bin/ -->
+<!-- input type=hidden name="IMAGEDIR" value="/images/" -->
+
+<!-- Some users will want to set their logfile like this. -->
+<!-- input type=hidden name="LOGFILE" value="/usr/local/etc/httpd/logs/access_log" -->
+
+<!-- After you've made these edits, you can remove the "strong" lines below -->
+
+<hr>
+<h2>1. Choix des rapports &agrave; &eacute;diter</h2>
+
+<strong><font color=red>N.B. Ce formulaire ne fonctionnera pas - les boutons n'apparaîtront peut-&ecirc;tre m&ecirc;me pas
+- jusqu'à ce que vous l'ayiez configuré conformément aux instructions.
+Après quoi vous pourrez retirer ce paragraphe.<br>
+</font></strong>
+
+<i>Voir <a href="http://www.analog.cx/">la home page de Analog</a> pour la signification des différents rapports.</i>
+
+<p>
+<h3>Quels rapports voulez-vous obtenir ?</h3>
+<BR><INPUT TYPE=radio NAME=GENERAL VALUE=ON checked> [On] <INPUT TYPE=radio NAME=GENERAL VALUE=OFF> [Off] R&eacute;sum&eacute; g&eacute;n&eacute;ral
+<BR><INPUT TYPE=radio NAME=MONTHLY VALUE=ON checked> [On] <INPUT TYPE=radio NAME=MONTHLY VALUE=OFF> [Off] Rapport mensuel
+<BR><INPUT TYPE=radio NAME=WEEKLY VALUE=ON> [On] <INPUT TYPE=radio NAME=WEEKLY VALUE=OFF checked> [Off] Rapport hebdomadaire
+<BR><INPUT TYPE=radio NAME=DAILYSUM VALUE=ON checked> [On] <INPUT TYPE=radio NAME=DAILYSUM VALUE=OFF> [Off] R&eacute;sum&eacute; journalier
+<BR><INPUT TYPE=radio NAME=DAILYREP VALUE=ON> [On] <INPUT TYPE=radio NAME=FULLDAILYREP VALUE=OFF checked> [Off] Rapport journalier
+<BR><INPUT TYPE=radio NAME=HOURLYSUM VALUE=ON checked> [On] <INPUT TYPE=radio NAME=HOURLYSUM VALUE=OFF> [Off] R&eacute;sum&eacute; horaire
+<BR><INPUT TYPE=radio NAME=DOMAIN VALUE=ON checked> [On] <INPUT TYPE=radio NAME=DOMAIN VALUE=OFF> [Off] Rapport par domaine
+<BR><INPUT TYPE=radio NAME=ORGANISATION VALUE=ON checked> [On] <INPUT TYPE=radio NAME=ORGANISATION VALUE=OFF> [Off] Rapport par organisation
+<BR><INPUT TYPE=radio NAME=DIRECTORY VALUE=ON checked> [On] <INPUT TYPE=radio NAME=DIRECTORY VALUE=OFF> [Off] Rapport par r&eacute;pertoire
+<BR><INPUT TYPE=radio NAME=FILETYPE VALUE=ON> [On] <INPUT TYPE=radio NAME=FILETYPE VALUE=OFF checked> [Off] Rapport par type de fichier
+<BR><INPUT TYPE=radio NAME=REQUEST VALUE=ON checked> [On] <INPUT TYPE=radio NAME=REQUEST VALUE=OFF> [Off] Rapport par requ&ecirc;te
+<BR><INPUT TYPE=radio NAME=SIZE VALUE=ON> [On] <INPUT TYPE=radio NAME=SIZE VALUE=OFF checked> [Off] Rapport par taille de fichier
+<BR><INPUT TYPE=radio NAME=REFERRER VALUE=ON> [On] <INPUT TYPE=radio NAME=REFERRER VALUE=OFF checked> [Off] Rapport par provenance
+<BR><INPUT TYPE=radio NAME=SEARCHQUERY VALUE=ON> [On] <INPUT TYPE=radio NAME=SEARCHQUERY VALUE=OFF checked> [Off] Rapport par requ&ecirc;te de recherche
+<BR><INPUT TYPE=radio NAME=SEARCHWORD VALUE=ON> [On] <INPUT TYPE=radio NAME=SEARCHWORD VALUE=OFF checked> [Off] Rapport par mot-cl&eacute; de recherche
+<BR><INPUT TYPE=radio NAME=BROWSERSUM VALUE=ON> [On] <INPUT TYPE=radio NAME=BROWSERSUM VALUE=OFF checked> [Off] R&eacute;sum&eacute; par navigateur
+<BR><INPUT TYPE=radio NAME=OSREP VALUE=ON> [On] <INPUT TYPE=radio NAME=OSREP VALUE=OFF checked> [Off] Rapport par syst&egrave;me d'exploitation
+<BR><INPUT TYPE=radio NAME=STATUS VALUE=ON> [On] <INPUT TYPE=radio NAME=STATUS VALUE=OFF checked> [Off] Rapport par code statut
+<p><i>Vous pouvez maintenant lancer le programme: <input type=submit value="Afficher les statistiques">
+<br>Ou vous pouvez compl&eacute;ter les options ci dessous pour chaque rapport.
+Vous pouvez utiliser
+<input type=TEXT name="ignore1" maxlength=4 size=4 value="10M">
+<select name=ignore2>
+  <option value=b selected>octets
+</select>
+ octets pour 10 M&eacute;ga-octets; ou bien
+<input type=TEXT name="ignore3" maxlength=4 size=4 value="-50">
+<select name=ignore4>
+  <option value=b selected>octets
+</select>
+pour les 50 premiers &eacute;l&eacute;ments en nombre d'octets.
+</i>
+<hr>
+<h2>2. Options d&eacute;taill&eacute;es</h2>
+
+<h3>Options du rapport par domaine</h3>
+
+Trier le rapport par domaine
+<select name=DOMSORTBY size=1>
+  <option value=REQUESTS>par nombre de requ&ecirc;tes
+  <option value=PAGES>par nombre de requ&ecirc;tes de pages
+  <option value=BYTES selected>par volume de trafic
+  <option value=DATE>par date du dernier acc&egrave;s
+  <option value=ALPHABETICAL>par ordre alphab&eacute;tique
+</select>
+<br>Inclure les domaines ayant au moins
+<input type=TEXT name="DOMFLOORA" maxlength=6 size=6>
+<select name=DOMFLOORB>
+  <option value=r>requ&ecirc;tes
+  <option value=p>requ&ecirc;tes de pages
+  <option value=b selected>octets
+</select>
+
+<h3>Options du rapport par organisation</h3>
+
+Trier le rapport par organisation
+<select name=ORGSORTBY size=1>
+  <option value=REQUESTS selected>par nombre de requ&ecirc;tes
+  <option value=PAGES>par nombre de requ&ecirc;tes de pages
+  <option value=BYTES>par volume de trafic
+  <option value=DATE>par date du dernier acc&egrave;s
+  <option value=ALPHABETICAL>par ordre alphab&eacute;tique
+</select>
+<br>Inclure les organisations ayant au moins
+<input type=TEXT name="ORGFLOORA" maxlength=6 size=6>
+<select name=ORGFLOORB>
+  <option value=r selected>requ&ecirc;tes
+  <option value=p>requ&ecirc;tes de pages
+  <option value=b>octets
+</select>
+
+<h3>Options du rapport par r&eacute;pertoire</h3>
+
+Trier le rapport par r&eacute;pertoire
+<select name=DIRSORTBY size=1>
+  <option value=REQUESTS>par nombre de requ&ecirc;tes
+  <option value=PAGES>par nombre de requ&ecirc;tes de pages
+  <option value=BYTES selected>par volume de trafic
+  <option value=DATE>par date de dernier acc&egrave;s
+  <option value=ALPHABETICAL>par ordre alphab&eacute;tique
+</select>
+
+<br>Inclure les r&eacute;pertoires ayant au moins
+<input type=TEXT name="DIRFLOORA" maxlength=6 size=6>
+<select name=DIRFLOORB>
+  <option value=r>requ&ecirc;tes
+  <option value=p>requ&ecirc;tes de page
+  <option value=b selected>octets
+</select>
+
+<h3>Options du rapport par fichier demand&eacute;</h3>
+
+Trier le rapport par fichier demand&eacute;
+<select name=REQSORTBY size=1>
+  <option value=REQUESTS selected>par nombre de requ&ecirc;tes
+  <!-- NB pages not a valid method -->
+  <option value=BYTES>par volume de trafic
+  <option value=DATE>par date de dernier acc&egrave;s
+  <option value=ALPHABETICAL>par ordre alphab&eacute;tique
+</select>
+
+<br>Inclure les fichiers ayant au moins
+<input type=TEXT name="REQFLOORA" maxlength=6 size=6>
+<select name=REQFLOORB>
+  <option value=r selected>requ&ecirc;tes
+  <option value=b>octets
+</select>
+
+<br>Montrer
+<select name="REQINCLUDE" size=1>
+<option value="*" selected>tous les fichiers
+<option value="pages">les pages seulement
+</select>
+
+<h3>Options du rapport par provenance</h3>
+
+Trier le rapport par provenance
+<select name=REFSORTBY size=1>
+  <option value=REQUESTS>par nombre de requ&ecirc;tes
+  <option value=PAGES selected>par nombre de requ&ecirc;tes de pages
+  <option value=BYTES>par volume de trafic
+  <option value=DATE>par date de dernier acc&egrave;s
+  <option value=ALPHABETICAL>par ordre alphab&eacute;tique
+</select>
+<br>Inclure les provenances ayant au moins
+<input type=TEXT name="REFFLOORA" maxlength=6 size=6>
+<select name=REFFLOORB>
+  <option value=r>requ&ecirc;tes
+  <option value=p selected>requ&ecirc;tes de pages
+  <option value=b>octets
+</select>
+<hr>
+<h2>3. Analyser partiellement le fichier log</h2>
+<b>Seulement certaines dates</b>
+<br>Vous pouvez n'analyser que les requ&ecirc;tes faites &agrave; certaines dates.
+<br>Entrez les dates de d&eacute;but et de fin ci-dessous sous la forme <i>aammjj</i>;
+<br>par exemple, 980301 pour le 1er Mars 1998, ou seulement l'une des deux dates
+<br>pour n'avoir qu'une date de d&eacute;but ou une date de fin.
+<br>De <input type=TEXT name="FROM" maxlength=16 size=6>
+Jusqu'&agrave; <input type=TEXT name="TO" maxlength=16 size=6>
+
+<p><b>Seulement certains fichiers</b>
+<br>Ne traiter que les fichiers suivants
+(entrez une liste de fichiers, s&eacute;par&eacute;s par des virgules;
+les noms peuvent contenir le caract&egrave;re joker '*')
+<br><input type=TEXT name="FILEINCLUDE" size=60>
+<br>Ignorer les fichiers suivants
+<br><input type=TEXT name="FILEEXCLUDE" size=60>
+
+<hr><h2>4. Disposition</h2>
+<b>Nom de votre organisation</b> (pour le titre de la page)
+<input type=TEXT name="HOSTNAME" size=60>
+<p><b>Home page de votre organisation</b> (laisser en blanc si aucune)
+<br>URL: <input type=TEXT name="HOSTURL" size=60>
+<hr>
+<input type=submit value="Afficher les statistiques">
+<input type=reset value="Valeurs par d&eacute;faut">
+</form></body></html>

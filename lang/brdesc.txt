@@ -1,0 +1,93 @@
+# Arquivo de descrição dos relatórios para analog 6.0.
+#
+# Este arquivo contem as descrições para cada relatório.
+# As linhas iniciadas por (#) são comentários.
+# Cada relatório precisa ter EXATAMENTE UMA LINHA.
+#
+Este relatório lista as atividades anuais.
+# Quarterly Report - Relatório Trimestral
+Este relatório lista as atividades trimestrais.
+# Monthly Report - Relatório Mensal
+Este relatório lista as atividades mensais.
+# Weekly Report - Relatório Semanal
+Este relatório lista as atividades semanais.
+# Daily Report - Relatório Diário
+Este relatório lista as atividades diárias.
+# Hourly Report - Relatório por Hora
+Este relatório lista as atividades a cada hora.
+# Quarter-Hour Report - Relatório por Quinze minutos
+Este relatório lista as atividades a cada quinze minutos.
+# Five-Minute Report - Relatório por Cinco minutos
+Este relatório lista as atividades a cada cinco minutos.
+# Daily Summary - Resumo Diário
+Este relatório lista o total de atividades para cada dia da semana, somadas todas as semanas deste relatório.
+# Hourly Summary - Resumo por Hora
+Este relatório lista o total de atividades para cada hora do dia, somadas todos os dias deste relatório.
+# Hour of the Week Summary - Resumo por Hora da Semana
+Este relatório lista o total de atividades para cada hora da semana, somadas todas as semanas deste relatório.
+# Quarter-Hour Summary - Resumo por Quinze Minutos
+Este relatório lista o total de atividades diárias para cada quinze minutos, somados todos os dias deste relatório. 
+# Five-Minute Summary - Resumo por Cinco Minutos
+Este relatório lista o total de atividades diárias para cada cinco minutos, somados todos os dias deste relatório.
+# General Summary - Resumo Geral
+Este relatório contem estatísticas gerais.
+# Request Report - Relatório de Requisições
+Este relatório lista os arquivos no site.
+# Redirection Report - Relatório de Redirecionamentos
+Este relatório lista os arquivos cujas requisições foram redirecionadas para outro arquivo. (Normalmente diretórios sem a ultima barra ou CGI's que forcam o redirecionamento.
+# Failure Report - Relatório de Falhas
+Este relatório lista os arquivos que causaram erros, por exemplo Arquivo inexistente.
+# File Type Report - Relatório por Tipos de Arquivos
+Este relatório lista as extensões dos arquivos requisitados.
+# Directory Report - Relatório por Diretórios
+Este relatório lista os diretórios de cada arquivo requisitado.
+# Host Report - Relatórios por Hosts
+Este relatório mostra os computadores os quais requisitaram os arquivos.
+# Host Redirection Report - Relatório por Hosts Redirecionados
+Este relatório lista os computadores que foram redirecionados para outro arquivo.
+# Host Failure Report - Relatório por Falhas de Hosts
+Este relatório lista os computadores que tiveram falha na requisição.
+# Domain Report - Relatório por Domínios
+Este relatório lista os países cujos computadores requisitaram os arquivos.
+# Referrer Report - Relatório por Referências
+Este relatório lista as referencias (de onde são os links ou paginas que incluíram a imagem deste site).
+# Referring Site Report - Relatório por Referências de Sites
+Este relatório lista os servidores com links.
+# Redirected Referrer Report - Relatório de Referências Redirecionadas
+Este relatório lista as referencias de requisições redirecionadas.
+# Failed Referrer Report - Relatório de Referências com Falhas
+Este relatório lista as referencias contendo links cancelados para o site.
+# Browser Report - Relatório de Navegadores
+Este relatório lista os browsers usados pelos visitantes.
+# Virtual Host Report - Relatório de Domínios Virtuais
+Este relatório lista as atividades de cada domínio virtual no site.
+# Virtual Host Redirection Report - Relatório de Redirecionamento de Domínios Virtuais
+Este relatório lista as requisições redirecionadas para cada domínio virtual.
+# Virtual Host Failure Report - Relatório de Falhas de Redirecionamento de Domínios Virtuais
+Este relatório lista as requisições com falha para cada domínio virtual.
+# User Report - Relatório de Usuários
+Este relatório lista os usuário que requisitaram arquivos, caso os usuários tenham autenticado ou possam ser identificados por cookies.
+# User Redirection Report
+Este relatório lista os usuários os quais foram redirecionados para outro arquivo.
+# User Failure Report
+Este relatório lista os usuário que obtiveram falha na requisição.
+# Organization Report
+Este relatório lista as organizações os computadores que requisitaram arquivos.
+# Search Query Report
+Este relatório lista quais as solicitações usadas em mecanismos de busca para encontrar o site.
+# Search Word Report
+Este relatório lista quais as palavras usadas em mecanismos de busca para encontrar o site.
+# Internal Search Query Report
+Este relatório lista quais as solicitações usadas nos scripts com o site.
+# Internal Search Word Report
+Este relatório lista quais as palavras usadas nos scripts com o site.
+# Browser Summary
+Este relatório lista os fornecedores os browsers dos visitantes.
+# Operating System Report
+Este relatório lista os sistemas operacionais usados pelos visitantes.
+# File Size Report
+Este relatório lista os tamanhos dos arquivos.
+# Status Code Report
+Este relatório lista o status HTTP de todas as requisições.
+# Processing Time Report
+Este relatório lista o tempo tomado por cada requisição bem sucedida.

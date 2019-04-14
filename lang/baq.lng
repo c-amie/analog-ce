@@ -1,0 +1,589 @@
+###############################################################################
+## Language file for analog 6.0. May not work with any other version.
+##
+## This is a language file for analog. Lines beginning with ## are comments.
+## Each language should have one language file in its own character set,
+## and can have an additional one for ASCII (7 bit) output.
+##
+## If your language doesn't seem to fit into this pattern, explain the problem
+## to me, and I can adjust the source code if necessary.
+##
+## The character set of this language file. Prefix with a * to indicate a
+## multibyte character set: e.g. *ISO-2022-JP
+##
+###############################################################################
+##
+## BAIETZ Fundazioak euskaratuta
+##
+## /usr/lib/analog/lang/eu.lng izan daiteke
+## analog.conf fitxategian, ez jarri "LANGUAGE BASQUE", baizik eta
+## "LANGFILE eu.lng"
+##
+###############################################################################
+ISO-8859-15
+## Abbreviations for the day and month names.
+Iga
+Alh
+Aar
+Aaz
+Osg
+Orl
+Lar
+Urt
+Ots
+Mar
+Api
+Mai
+Eka
+Uzt
+Abu
+Ira
+Urr
+Aza
+Abe
+## Next some standard common words.
+## Abbreviation for "week beginning"
+aste hasiera
+urtea
+## Quarter of a year
+hiruhilekoa
+hilea
+egun
+egun
+ordua
+minutu
+minutu
+segundu
+segundu
+byte
+byte
+## ?bytes represents kbytes, Mbytes etc.
+?byte
+eskaera
+eskaera
+data
+## This has the right spacing for a column like 23/Mar/98 15:00-15:05
+data           ordua
+ordua
+lehen data
+lehen ordua
+azken data
+azken ordua
+artxibo
+artxibo
+sistema
+sistem
+zerbitzari birtual
+zerbitzari birtual
+direktorio
+direktorio
+domeinu
+domeinu
+erakunde
+erakunde
+luzapen
+luzapen
+URL
+URL
+Nabigatzailea
+Nabigatzaile
+SE
+SE
+## (= operating system, operating systems)
+neurria
+bilatutako termino
+bilatutako termino
+gune
+gune
+erabiltzaile
+erabiltzaile
+egoera kode
+egoera kode
+Zerbitzari honen estatistikak:
+## Prefixes kilo, mega etc. to make kilobytes, megabytes etc.
+kilo
+mega
+giga
+tera
+peta
+exa
+zeta
+yotta
+## Shorter versions of the same prefixes for column headings
+k
+M
+G
+T
+P
+E
+Z
+Y
+## Names for the rows in the File Size Report. Note that changing these will
+## NOT change the boundaries! These are just labels for predetermined buckets.
+## They should line up nicely when right-aligned.
+          0
+   1B-  10B
+  11B- 100B
+ 101B-  1kB
+  1kB- 10kB
+ 10kB-100kB
+100kB-  1MB
+  1MB- 10MB
+ 10MB-100MB
+100MB-  1GB
+      > 1GB
+## Now the names of reports
+Laburpen orokorra
+## The time reports, plus "busiest" strings (at the bottom of each report)
+Urtekako txostena
+Trafiko handienaren urtea:
+Hiruhilabetekako txostena
+Trafiko handienaren hiruhilabetea:
+Hilekako txostena
+Trafiko handienaren hilea:
+Astekako txostena
+Trafiko handienaren astea:
+Egunkako laburpena
+Egunkako txostena
+Trafiko handienaren eguna:
+Ordukako txostena
+Ordukako laburpena
+Astearen ordukako txostena
+Trafiko handienaren ordua:
+Ordulaurdenkako txostena
+Ordulaurdenkako laburpena
+Trafiko handienaren ordulaurdena:
+Bost minutukako txostena
+Bost minutukako laburpena
+Trafiko handienaren bost minutuak:
+## The non-time reports. In each case, we have the name of the report,
+## followed by the type of item in the report, once in the singular and once
+## in the plural. These are used in phrases like "including all ??? with at
+## least 200 requests". (The words higher up are used for column headings. and
+## for the "not listed" lines at the bottom of the reports.)
+## Finally we have the gender of this type of object, which can be m, f or n.
+##
+## So for example, in German a directory is Verzeichnis (neuter gender), which
+## was given above. But "listing the top directory" is "Ausgabe des ersten
+## Verzeichnisses" and "listing the top two directories" is "Ausgabe der
+## ersten zwei Verzeichnisse". So here, we would have for the directory report:
+##
+## Verzeichnis-Bericht
+## Verzeichnisses
+## Verzeichnisse
+## n
+##
+## I hope that makes sense!
+Sistema txostena
+sistema
+sistem
+m
+Sistema Birbideratze txostena
+sistema
+sistem
+m
+Sistema Akats txostena
+sistema
+sistem
+m
+Direktorio txostena
+direktorio
+directorio
+m
+Fitxategi Moten txostena
+luzapena
+luzapen
+m
+Eskaera txostena
+artxiboa
+artxibo
+m
+Biribideratze txostena
+artxiboa
+artxibo
+m
+Eskaera baten akatsen txostena
+artxiboa
+artxibo
+m
+Eskatzaileen txostena
+URL eskatzailea
+URL eskatzaile
+m
+Gune eskatzaileen txostena
+gune eskatzailea
+gune eskatzaile
+m
+Birbideratutako eskatzaileen txostena
+URL eskatzailea
+URL eskatzaile
+m
+Eskatzaileen akatsen txostena
+eskatzailearen URLa
+eskatzaileen URL
+m
+Bilaketa Galderen txostena
+galdera
+galdera
+m
+Bilatutako Hitzen txostena
+bilatutako hitza
+bilatutako hitz
+m
+Bilaketa Galderen Barne txostena
+galdera
+galder
+m
+Bilaketa Hitzen Barne txostena
+bilatutako hitz
+bilatutako hitz
+m
+Zerbitzari birtualen txostena
+zerbitzari birtual
+zerbitzari birtual
+m
+Zerbitzari Birtualen Birbideratze txostena
+zerbitzari birtual
+zerbitzari birtual
+m
+Zerbitzari Birtualen Akatsen txostena
+zerbitzari birtual
+zerbitzari birtual
+m
+Erabiltzaileen txostena
+erabiltzaile
+erabiltzaile
+m
+Erabiltzaileen Birbideratze txostena
+erabiltzaile
+erabiltzaile
+m
+Erabiltzaileen Akatsen txostena
+erabiltzaile
+erabiltzaile
+m
+Nabigatzaileen Laburpena
+nabigatzailea
+nabigatzaile
+m
+Nabigatzaileen txostena
+nabigatzailea
+nabigatzaile
+m
+Sistema Eragileen txostena
+sistema eragile
+sistema eragile
+m
+Domeinuen txostena
+domeinua
+domeinuak
+m
+Erakunde txostena
+Erakundea
+Erakundeak
+m
+Egoera kodeen txostena
+egoera kodea
+egoera kodeak
+m
+Prozesatze denboren txostena
+Artxiboen neurriaren txostena
+## Used at the bottom of the report
+Azterketa hau egin duen programa:
+Eman duen denbora
+Gehienez 1
+## Used in the time reports
+Ale bakoitzak
+adierazten du
+edo zatia
+orriren eskaera
+eskaera orriko
+## Used at the bottom of each non-time report: need m, f & n genders
+zerrendatu gabe
+*
+*
+## Used on the pie charts: again need m, f & n genders
+Besterik
+*
+*
+## Used at the top of the report
+Programa exekutatu da:
+Eskaeren azterketa tartea:
+ -->
+## Used in the General Summary
+Eskaera zuzenak
+Eguneko bataz besteko eskaera kopurua
+Orriko eskaera zuzenak
+Eguneko orriko bataz besteko eskaera zuzenen kopurua
+Logean egoera koderik gabeko lerroak
+Lortu gabeko eskaerak
+Birbideratutako eskaerak
+Egoera kodea informatiboa duten eskaerak
+Eskatutako artxibo ezberdinak
+Zerbitutako sistema eragile ezberdinak
+Logean lerro okerrak
+Logean eskatu gabeko sarrerak
+Transferentzia guztira
+Eguneko bataz besteko transferentzia
+Parentesi arteko zenbakiak zera dira,
+7 egun data honetan:
+azken 7 egunak
+Joan hona
+Gora
+## Some special phrases for particular reports.
+[aurkitu gabeko zenbaki helbideak]
+[zehaztu gabeko domeinua]
+[domeinu ezezaguna]
+[erro direktorioa]
+[direktoriorik gabe]
+[luzapenik gabe]
+[direktorioak]
+Windows ezezaguna
+Beste Unixen bat
+Errobotak
+Sistema Eragile ezezaguna
+## Column headings for requests, pages, bytes and number (ie position in list)
+## and percentages and last-7-day versions of these.
+## Should be as short as possible -- abbreviate if necessary.
+## (The ?bytes represents kbytes, Mbytes etc.)
+Esk. Kop.
+esk. 7-egun
+%esk.
+%esk 7-egun
+Orri.
+orri 7-egun
+%Orri.
+%orri. 7-egun
+byte
+?byte
+byte 7-egun
+?byte 7-egun
+%byte
+%byte 7-egun
+zki.
+## Now we need to know how to say "listing the top <whatever>", "listing
+## the top <n> <whatevers>", and "listing <whatevers>". The %s and %d
+## will be replaced by the appropriate things. There may be three of each of
+## these statements, for the genders m, f and n. Any genders that aren't used,
+## you can just put a * there instead. So, for example, French starts
+## Affichage du premier %s
+## Affichage de la premi&egrave;re %s
+## *
+## with entries for m & f, but not n
+Lehen %sen zerrenda
+*
+*
+Lehen %d %sen zerrenda
+*
+*
+%sen zerrenda
+*
+*
+## "by" in the phrase "listing the top 3 files BY number of requests"
+honen arabera:
+## All requests WITH AT LEAST 10 requests
+, gutxienez zera adierazten dutela,
+## Different ways of doing floors
+azken 7 egunetako eskaera
+azken 7 egunetako eskaerak
+azken 7 egunetako orri baten eskaera
+azken 7 egunetako orriko eskaera
+birbideratutako eskaera
+birbideratutako eskaerak
+azken 7 egunetan birbideratutako eskaera
+azken 7 egunetan birbideratutako eskaerak
+lortu gabeko eskaera
+lortu gabeko eskaerak
+azken 7 egunetan lortu gabeko eskaera
+azken 7 egunetan lortu gabeko eskaerak
+trafikoaren %
+azken 7 egunetako trafikoaren %
+gehienezko trafikoaren %
+azken 7 egunetako gehienezko trafikoaren %
+trafiko byte
+trafiko byte
+## ?bytes represents kbytes, Mbytes etc.
+trafiko ?byte
+trafiko byte azken 7 egunetan
+trafiko byte azken 7 egunetan
+trafiko ?byte azken 7 egunetan
+eskaera batekin data honetatik:
+birbideratutako eskaera batekin data honetatik:
+lortu gabeko eskaera batekin data honetatik:
+lehen eskaera batekin data honetatik:
+biribideratutako lehen eskaera batekin data honetatik:
+lortu gabeko lehen eskaera batekin data honetatik:
+## Now "sorted by": again, in m, f & n (only needed in plural though)
+honen arabera:
+*
+*
+## Used at the top of each report
+Txosten honek hemengo datuak ditu:
+## Used in pie charts
+Guneak marrazturik daude honen arabera:
+## different ways of sorting
+trafiko kopurua
+azken 7 egunetako trafiko kopurua
+eskaera %
+azken 7 egunetako eskaera %
+gehienezko eskaeren %
+azken 7 egunetako gehienezko eskaeren %
+eskaera kopurua
+azken 7 egunetako eskaera kopurua
+orriko eskaera %
+azken 7 egunetako orriko eskaera %
+orriko gehienezko eskaera %
+azken 7 egunetako orriko gehienezko eskaera %
+orriko eskaera kopurua
+azken 7 egunetako orriko eskaera kopurua
+birbideratutako eskaera %
+azken 7 egunetako birbideratutako eskaera %
+birbideratutako gehienezko eskaeren %
+azken 7 egunetan birbideratutako gehienezko eskaeren %
+birbideratutako eskaera kopurua
+azken 7 egunetan birbideratutako eskaera kopurua
+lortu gabeko eskaera %
+azken 7 egunetan lortu gabeko eskaera %
+lortu gabeko gehienezko eskaera %
+azken 7 egunetan lortu gabeko gehienezko eskaera %
+lortu gabeko eskaera kopurua
+azken 7 egunetan lortu gabeko eskaera kopurua
+azken eskaeraren ordua
+birbideratutako azken eskaeraren ordua
+lortu gabeko azken eskaeraren ordua
+lehen eskaeraren ordua
+birbideratutakko lehen eskaeraren ordua
+lortu gabeko lehen eskaeraren ordua
+## 3 other ways of sorting in m, f, & n
+alfabetikoki
+*
+*
+zenbakikoki
+*
+*
+desordenaturik
+*
+*
+## The separators to use between thousands, and as a decimal point. For
+## example, English generally uses "3,000.25" so has , and . here. French uses
+## "3 000,25", so has space and , instead.
+.
+'
+## There's a colon here, because the French like to put a space before a colon,
+## so they have space-colon instead here.
+:
+## am and pm in the sense of morning and afternoon.
+am
+pm
+## Some date formats. E.g. for 9am on 1st January 1997 use
+## %d for date          " 1"
+## %D for 0-padded date "01"
+## %e or %E for date at end of time interval (where this makes sense)
+## %m for month         "Jan"
+## %l for month at end of time interval
+## %q for quarter of the year    "1"
+## %y for short year    "97"
+## %Y for long year     "1997"
+## %z or %Z for year at end of time interval
+## %X for ISO 8601 extended date format (yyyy-mm-dd) "1997-01-01"
+## %h for hour in 24-hour clock " 9"
+## %H for 0-padded hour         "09"
+## %j for hour in 12-hour clock " 9"
+## %i, %I or %k for hour at end of time interval
+## %n for minute        "00"
+## %o for minute at end of time interval
+## %a for am or pm      "am"
+## %b for am or pm at end of time interval
+## %w for weekday       "Wed"
+## %x for a dash in a range e.g. in 14:00-14:15. This is necessary because in
+##    proper typesetting, this should be an en-dash not a regular dash.
+##
+## So for a date, English might have %Y/%m/%d for 1/Jan/97, whereas German
+## would have %d.%m %y for 1.Jan 97). Note: the month number is not available
+## because it can produce ambiguous dates.
+##
+## The different date formats are as follows
+## "refer to the 7 days to [date]"
+%D-%m-%Y %j:%n %a
+## "Program started at" and "Analysed requests from"
+%w, %Y/%m/%D %j:%n %a
+## In Daily Report
+%Y/%m/%d
+## In Daily Summary
+%w
+## In Hourly Report
+%Y/%m/%d %H:%n%x%I:%o %b
+## In Hourly Summary
+%h
+## In Hour of the Week Summary
+%w %H:%n%x%I:%o %b
+## In Quarter-Hour and Five-Minute Reports
+%Y/%m/%d %H:%n%x%I:%o %b
+## In Quarter-Hour and Five-Minute Summaries
+%j:%n%x%I:%o %b
+## In Weekly Report
+%Y/%m/%d
+## In Monthly Report
+%Y %m
+## In Quarterly Report
+%m%x%l %Y
+## An alternative for Quarterly Report: %Y Q%q
+## In Yearly Report
+%Y
+## The date (d) column in non-time reports
+%Y/%m/%d
+## The date & time (D) column in non-time reports
+%Y/%m/%d %j:%n %a
+## In non-time reports: "including all files with requests since [date]"
+%Y/%m/%d - %j:%n %a
+## Finally, definitions of the HTTP status codes (see
+## ftp://ftp.isi.edu/in-notes/rfc2616.txt). You're welcome to leave these in
+## English if you think they look better that way.
+100 Eskaera jarraitu
+101 Konmutazio protokokoak
+1xx [Hainbat informazio mezu]
+200 OK
+201 Sortuta
+202 Gero prozesatzeko onartua
+203 Baimenik gabeko informazioa
+204 OK, baina bidaltzekorik ez
+205 Dokumentua berrezarri
+206 Eduki partziala
+2xx [lortutako hainbat eragiketa]
+300 Hainbat dokumentu prest
+301 Betiko mugitutako dokumentua
+302 Beste nonbait aurkitutako dokumentua
+303 Beste dokumentu bat begiratu
+304 Azken atzipenatik aldatu gabe
+305 Zerbitzari alternatiboa erabili
+306 Zerbitzari alternatiboa aldatu
+307 Dokumentua behin-behineko mugituta
+3xx [Hainbat birbideratze]
+400 eskaera okerra
+401 Autentikazioa behar da
+402 Ordainketa behar da
+403 Debekatuta
+404 Aurkitu gabeko dokumentua
+405 Baimendu gabeko metodoa
+406 Bezeroak ezin duen onartu dokumentua
+407 Ordezko zerbitzariaren autentikazioa behar da
+408 eskaera etenda
+409 Eskaera eta baliabidearen arteko gatazka
+410 Dokumentua ezin da gehiago atzitu
+411 Derrigorrezko iraupena
+412 Aurrebaldintzaren akatsa
+413 eskaera luzeegia
+414 Eskatutako artxiboaren izena luzeegia
+415 Baliabide baliogabea
+416 Eskatutako tartea baliogabea
+417 Eskaera lortu gabea
+4xx [bezeroa/erabiltzailearen hainbat akats]
+500 Zerbitzariaren barne akatsa
+501 Onartu gabeko eskaera
+502 Zerbitzariaren helbidean akatsa
+503 Zerbitzua behin-behingoz erabilezina
+504 Pasarela etenda
+505 HTTP bertsioa onartugabea
+506 Lortu gabeko birbideratzea
+5xx [Zerbitzariaren hainbat akats]
+xxx [Ezezaguna]
