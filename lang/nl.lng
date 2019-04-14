@@ -1,0 +1,580 @@
+## Taalbestand voor Analog 6.0. Kan wellicht niet werken met andere versies.
+##
+## This is a language file for analog. Lines beginning with ## are comments.
+## Each language should have one language file in its own character set,
+## and can have an additional one for ASCII (7 bit) output.
+## 
+## Vertaling Engels naar Nederlands a.d.h.v het oude taalbestand.
+## 16 Juni 1998, Joost Baaij <joost@euromedia.nl>.
+##
+## Translation for version 4 by Dimitry Smagghe <Dimitry.Smagghe@advalvas.be>
+## Translation for version 5 by Bert Hiddink
+##
+## The character set of this language file. Prefix with a * to indicate a
+## multibyte character set: e.g. *ISO-2022-JP
+ISO-8859-1
+## Abbreviations for the day and month names.
+Zon
+Maa
+Din
+Woe
+Don
+Vry
+Zat
+Jan
+Feb
+Mrt
+Apr
+Mei
+Jun
+Jul
+Aug
+Sep
+Okt
+Nov
+Dec
+## Next some standard common words.
+## Abbreviation for "week beginning"
+week beg.
+jaar
+## Quarter of a year
+kwartaal
+maand
+dag
+dagen
+u.
+minuut
+minuten
+seconde
+seconden
+byte
+bytes
+## ?bytes represents kbytes, Mbytes etc.
+?bytes
+aanvraag
+aanvragen
+datum
+## This has the right spacing for a column like 23/Mar/98 15:00-15:05
+datum       tijd
+tijd
+eerste datum
+eerste tijd
+laatste datum
+laatste tijd
+bestand
+bestanden
+host
+hosts
+virtual host
+virtual hosts
+directory
+directories
+domein
+domeinen
+bedrijf
+bedrijven
+extensie
+extensies
+URL
+URLs
+browser
+browsers
+besturingssysteem
+besturingssystemen
+## (= operating system, operating systems)
+grootte
+zoek string
+zoek strings
+site
+sites
+gebruiker
+gebruikers
+status code
+status codes
+Website statistieken voor
+## Prefixes kilo, mega etc. to make kilobytes, megabytes etc.
+kilo
+mega
+giga
+tera
+peta
+exa
+zeta
+yotta
+## Shorter versions of the same prefixes for column headings
+k
+M
+G
+T
+P
+E
+Z
+Y
+## Names for the rows in the File Size Report. Note that changing these will
+## NOT change the boundaries! These are just labels for predetermined buckets.
+## They should line up nicely when right-aligned.
+          0
+   1B-  10B
+  11B- 100B
+ 101B-  1kB
+  1kB- 10kB
+ 10kB-100kB
+100kB-  1MB
+  1MB- 10MB
+ 10MB-100MB
+100MB-  1GB
+      > 1GB
+## Now the names of reports
+Algemene samenvatting
+## The time reports, plus "busiest" strings (at the bottom of each report)
+Jaar Rapport
+Drukste jaar
+Kwartaal Rapport
+Drukste kwartaal
+Maandelijks Rapport
+Drukste maand:
+Wekelijks Rapport
+Drukste week: week beginnende
+Dagelijkse Samenvatting
+Dagelijks Rapport
+Drukste dag:
+Uur Rapport
+Uur Samenvatting
+Uur van de Week Samenvatting
+Drukste uur:
+Kwartier Rapport
+Kwartier Samenvatting
+Drukste kwartier van een uur:
+Vijf-minuten Rapport
+Vijf-minuten Samenvatting
+Drukste vijf minuten:
+## The non-time reports. In each case, we have the name of the report,
+## followed by the type of item in the report, once in the singular and once
+## in the plural. These are used in phrases like "including all ??? with at
+## least 200 requests". (The words higher up are used for column headings.)
+## Finally we have the gender of this type of object, which can be m, f or n.
+##
+## So for example, in German a directory is Verzeichnis (neuter gender), which
+## was given above. But "listing the top directory" is "Ausgabe des ersten
+## Verzeichnisses" and "listing the top two directories" is "Ausgabe der
+## ersten zwei Verzeichnisse". So here, we would have for the directory report:
+##
+## Verzeichnis-Bericht
+## Verzeichnisses
+## Verzeichnisse
+## n
+##
+## I hope that makes sense!
+Host Rapport
+host
+hosts
+n
+Host Doorverwezen Rapport
+host
+hosts
+n
+Host Mislukking Rapport
+host
+hosts
+n
+Directory Rapport
+directory
+directories
+n
+Bestands Type Rapport
+extensie
+extensies
+n
+Aanvragen Rapport
+Aangevraagd bestand
+aangevraagde bestanden
+n
+Redirectie Rapport
+Aangevraagd bestand
+aangevraagde bestanden
+n
+Mislukking Rapport
+Aangevraagd bestand
+aangevraagde bestanden
+n
+Referrer Rapport
+refererende URL
+refererende URLs
+n
+Refererende Sites Rapport
+refererende site
+refererende sites
+n
+Doorverwezen Referrer Rapport
+refererende URL
+refererende URLs
+n
+Mislukte Referrer Rapport
+refererende URL
+refererende URLs
+n
+Zoek Query Rapport
+query
+queries
+n
+Zoek Woord Rapport
+query woord
+query woorden
+n
+Intern Zoekopdracht Rapport
+zoekopdracht
+zoekopdrachten
+n
+Intern Zoekwoord Rapport
+zoekwoord
+zoekwoorden
+n
+Virtual Host Rapport
+virtual host
+virtual hosts
+n
+Virtuele Host Redirect Rapport
+virtuele host
+virtuele hosts
+n
+Virtuel Host Mislukking Rapport
+virtuele host
+virtuele hosts
+n
+Gebruiker Rapport
+gebruiker
+gebruikers
+n
+Gebruiker Doorverwezen Rapport
+gebruiker
+gebruikers
+n
+Gebruiker Mislukking Rapport
+gebruiker
+gebruikers
+n
+Browser Samenvatting
+browser
+browsers
+n
+Browser Rapport
+browser
+browsers
+n
+Besturingssysteem Rapport
+Besturingssysteem
+Besturingssysteemen
+n
+Domein Rapport
+domein
+domeinen
+n
+Bedrijfs Rapport
+bedrijf
+bedrijven
+n
+Status Code Rapport
+status code
+status codes
+n
+Verwerkingstijd Rapport
+Bestandsgrootte Rapport
+## Used at the bottom of the report
+Deze analyse is geproduceerd door
+Looptijd
+Minder dan 1
+## Used in the time reports
+Elke eenheid
+representeert
+of een gedeelte hiervan
+aanvragen voor een pagina
+aanvragen voor pagina's
+## Used at the bottom of each non-time report: need m, f & n genders
+*
+*
+niet getoond
+## Used on the pie charts: again need m, f & n genders
+* 
+* 
+Andere
+## Used at the top of the report
+Programma gestart op
+Aanvragen geanalyseerd van
+tot
+## Used in the General Summary
+Totale aantal geslaagde aanvragen
+Gemiddelde aantal geslaagde aanvragen per dag
+Totale aantal geslaagde aanvragen voor pagina's
+Gemiddelde aantal geslaagde aanvragen voor pagina's per dag
+Logbestand regels zonder status code
+Totale aantal mislukte aanvragen
+Totale aantal omgeleide aanvragen
+Aantal aanvragen met informatieve status code
+Aantal verschillende bestanden aangevraagd
+Aantal verschillende hosts bediend
+Onleesbare regels in logbestand
+Ongebruikte regels in logbestand
+Totale hoeveelheid data verzonden
+Gemiddelde hoeveelheid data verzonden per dag
+Getallen tussen haakjes verwijzen naar de
+7 dagen tot
+afgelopen 7 dagen
+Ga Naar
+Top
+## Some special phrases for particular reports.
+[Niet gevonden numerieke adressen]
+[domein niet gegeven]
+[ongekend domein]
+[hoofdmap]
+[geen map]
+[geen uitbreiding]
+[mappen]
+Onbekende Windows
+Ander Unix
+Robots
+Onbekend besturingssysteem
+## Column headings for requests, pages, bytes and number (ie position in list)
+## and percentages and last-7-day versions of these.
+## Should be as short as possible -- abbreviate if necessary.
+## (The ?bytes represents kbytes, Mbytes etc.)
+#aanv
+7-dagen aanvragen
+%aanv
+7-dagen aanvragen
+pags
+7-dagen paginas
+%pags
+7-dagen paginas
+bytes
+?bytes
+7-dagen bytes
+7-dagen ?bytes
+%bytes
+7-dagen ?bytes
+aantal
+## Now we need to know how to say "listing the top <whatever>", "listing
+## the top <n> <whatevers>", and "listing <whatevers>". The %s and %d
+## will be replaced by the appropriate things. There may be three of each of
+## these statements, for the genders m, f and n. Any genders that aren't used,
+## you can just put a * there instead. So, for example, French starts
+## Affichage du premier %s
+## Affichage de la premi&egrave;re %s
+## *
+## with entries for m & f, but not n
+*
+*
+Top %s afgedrukt
+*
+*
+Top %d %s afgedrukt
+*
+*
+Alle %s afgedrukt
+## "by" in the phrase "listing the top 3 files BY number of requests"
+met
+## All requests WITH AT LEAST 10 requests
+met minstens
+## Different ways of doing floors
+aanvraag gedurende afgelopen 7 dagen 
+aanvragen gedurende afgelopen 7 dagen
+aanvraag voor een pagina gedurende afgelopen 7 dagen
+aanvragen voor paginas gedurende de afgelopen 7 dagen
+doorverwezen aanvraag
+doorverwezen aanvragen
+doorverwezen aanvraag gedurende de laatste 7 dagen
+doorverwezen aanvragen gedurende de laatste 7 dagen
+mislukt aanvraag
+mislukte aanvragen
+mislukte aanvraag gedurende de laatste 7 dagen
+mislukte aanvragen gedurende de laatste 7 dagen
+% van het verkeer
+% van het verkeer gedurende de laatste 7 dagen
+% van het maximale aantal verkeer
+% van de maximale hoeveelheid verkeer gedurende de afgelopen 7 dagen
+byte van het verkeer
+bytes van het verkeer
+## ?bytes represents kbytes, Mbytes etc.
+?bytes van het verkeer
+byte van het verkeer gedurende de laatste 7 dagen
+bytes van het verkeer gedurende de laatste 7 dagen
+?bytes van het verkeer gedurende de laatste 7 dagen
+verzocht sinds
+met een doorverwezen aanvraag sinds
+met een mislukt aanvraag sinds
+met eerste aanvraag sinds
+met eerste doorverwezen aanvraag sinds
+met eerste mislukte aanvraag sinds
+## Now "sorted by": again, in m, f & n (only needed in plural though)
+*
+*
+gesorteerd op
+## Used at the top of each report
+Dit rapport bevat gegevens van
+## Used in pie charts
+De taartpunten geven weer de
+## different ways of sorting
+hoeveelheid verkeer
+de hoeveelheid verkeer gedurende the laatste 7 dagen
+% van de aanvragen
+% van de aanvragen gedurende de laatste 7 dagen
+% van het maximale aantal aanvragen
+% van het maximale aantal aanvragen gedurende de laatste 7 dagen
+het aantal aanvragen
+het aantal aanvragen gedurende de laatste 7 dagen
+% van de aanvragen voor pagina's
+% van pagina aanvragen gedurende de laatste 7 dagen
+% van het aantal aanvragen voor pagina's
+% van het maximale aantal pagina aanvragen gedurende de laatste 7 dagen
+het aantal aanvragen voor pagina's
+het aantal pagina aanvragen gedurende de laatste 7 dagen
+% van de doorverwezen aanvragen
+% van de doorverwezen aanvragen gedurende de laatste 7 dagen
+% van het maximale aantal doorverwezen aanvragen
+% van het maximale aantal doorverwezen aanvragen gedurende de laatste 7 dagen
+het aantal doorverwezen aanvragen
+het aantal doorverwezen aanvragen gedurende de laatste 7 dagen
+% van de mislukte aanvragen
+% van de mislukte  doorverwezen aanvragen gedurende de laatste 7 dagen
+% van het maximum aantal mislukte aanvragen
+% van het maximale aantal aanvragen gedurende de laatste 7 dagen
+het aantal mislukte aanvragen
+het aantal mislukte aanvragen gedurende de laatste 7 dagen
+de tijd van de laatste aanvraag
+de tijd van de laatste doorverwezen aanvraag
+de tijd van de laatste mislukte aanvraag
+tijdstip van de eerste aanvraag
+tijdstip van de eerste doorverwezen aanvraag
+tijdstip van eerste mislukte aanvraag
+## 3 other ways of sorting in m, f, & n
+*
+*
+alfabetisch gesorteerd
+*
+*
+op nummer gesorteerd
+*
+*
+niet gesorteerd
+## The separators to use between thousands, and as a decimal point. For
+## example, English generally uses "3,000.25" so has , and . here. French uses
+## "3 000,25", so has space and , instead.
+,
+,
+## There's a colon here, because the French like to put a space before a colon,
+## so they have space-colon instead here.
+:
+## am and pm in the sense of morning and afternoon.
+vm
+nm
+## Some date formats. E.g. for 9am on 1st January 1997 use
+## %d for date          " 1"
+## %D for 0-padded date "01"
+## %e or %E for date at end of time interval (where this makes sense)
+## %m for month         "Jan"
+## %l for month at end of time interval
+## %q for quarter of the year    "1"
+## %y for short year    "97"
+## %Y for long year     "1997"
+## %z or %Z for year at end of time interval
+## %X for ISO 8601 extended date format (yyyy-mm-dd) "1997-01-01"
+## %h for hour in 24-hour clock " 9"
+## %H for 0-padded hour         "09"
+## %j for hour in 12-hour clock " 9"
+## %i, %I or %k for hour at end of time interval
+## %n for minute        "00"
+## %o for minute at end of time interval
+## %a for am or pm      "am"
+## %b for am or pm at end of time interval
+## %w for weekday       "Wed"
+## %x for a dash in a range e.g. in 14:00-14:15. This is necessary because in
+##    proper typesetting, this should be an en-dash not a regular dash.
+##
+## So for a date, English might have %d/%m/%y for 1/Jan/97, whereas German
+## would have %d.%m %y for 1.Jan 97). Note: the month number is not available
+## because it can produce ambiguous dates.
+##
+## The different date formats are as follows
+## "refer to the 7 days to [date]"
+%D-%m-%Y %H:%n
+## "Program started at" and "Analysed requests from"
+%w-%D-%m-%Y %H:%n
+## In Daily Report
+%d-%m-%y
+## In Daily Summary
+%w
+## In Hourly Report
+%d-%m-%y %H:%n%x%I:%o
+## In Hourly Summary
+%h
+## In Hour of the Week Summary
+%w %H:%n%x%I:%o
+## In Quarter-Hour and Five-Minute Reports
+%d-%m-%y %H:%n%x%I:%o
+## In Quarter-Hour and Five-Minute Summaries
+%H:%n%x%I:%o
+## In Weekly Report
+%d-%m-%y
+## In Monthly Report
+%m %Y
+## In Quarterly Report
+%m%x%l %Y
+## An alternative for Quarterly Report: %Y Q%q
+## In Yearly Report
+%Y
+## The date (d) column in non-time reports
+%d-%m-%y
+## The date & time (D) column in non-time reports
+%d-%m-%y %H:%n
+## In non-time reports: "including all files with requests since [date]"
+%d-%m-%y at %H:%n
+## Finally, definitions of the HTTP status codes (see
+## ftp://ftp.isi.edu/in-notes/rfc2616.txt). You're welcome to leave these in
+## English if you think they look better that way.
+100 Doe verder met aanvraag
+101 Verwisselen van protocollen
+1xx [Overige informatief]
+200 OK
+201 Gemaakt
+202 Aanvaard voor verdere verwerking
+203 Niet toegankelijke informatie
+204 OK, maar ik heb niks te versturen
+205 Herbegin document
+206 Gedeeltelijke inhoud
+2xx [Verschillende successen]
+300 Meerdere documenten beschikbaar
+301 Document is voorgoed verplaatst
+302 Document elders gevonden
+303 Zie ander document
+304 Niet gewijzigd sinds laatste opvraging
+305 Gebruik proxy
+306 Verwissel proxy
+307 Document tijdelijk verplaatst
+3xx [Gemengde doorverwijzingen]
+400 Slechte aanvraag
+401 Identificatie vereist
+402 Betaling vereist
+403 Toegang geweigerd
+404 Document niet gevonden
+405 Methode niet toegestaan
+406 Document niet aanvaard door client
+407 Proxy identificatie vereist
+408 Tijdlimiet aanvraag overschreden
+409 Aanvraag conflicteert met staat van bron
+410 Document voorgoed verdwenen
+411 Lengte vereist
+412 Eerste vereiste niet voldaan
+413 Aanvraag te lang
+414 Gevraagde bestandsnaam te lang
+415 Niet ondersteund media type
+416 Gevraagd bereik niet geldig
+417 Vooruitzicht mislukt
+4xx [Gemengde client/gebruiker fouten]
+500 Interne server fout
+501 Gevraagde type niet ondersteund
+502 Fout by upstream server
+503 Dienst tijdelijk  onbeschikbaar
+504 Tijdlimiet gateway overschreden
+505 HTTP versie niet ondersteund
+506 Doorverwijzing mislukt
+5xx [Gemengde server fouten]
+xxx [Niet bekend]

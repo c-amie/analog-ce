@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Analog form interface</title>
+</head>
+
+<body>
+<h1><!-- img src="/images/analogo.gif" alt="" --> Analog form interface</h1>
+
+<!-- Make the edits below. You also need to edit anlgform.pl. -->
+
+<!-- First, uncomment the img tag above, edited if necessary. -->
+
+<!-- Next, uncomment the following line, edited to reflect the correct -->
+<!-- location of anlgform.pl in you server's filespace. -->
+<!-- form action="/cgi-bin/anlgform.pl" method="POST" -->
+
+<!-- Many systems will want the IMAGEDIR to be different on the form -->
+<!-- than from the command line, because it should not be within /cgi-bin/ -->
+<!-- input type=hidden name="IMAGEDIR" value="/images/" -->
+
+<!-- Some users will want to set their logfile like this. -->
+<!-- input type=hidden name="LOGFILE" value="/usr/local/etc/httpd/logs/access_log" -->
+
+<!-- After you've made these edits, you can remove the "strong" lines below -->
+
+<input type=hidden name="LANGUAGE" value="US-ENGLISH">
+
+<hr>
+<h2>1. Report choices</h2>
+
+<strong><font color=red>N.B. This form will not work - e.g. the buttons may
+not even appear - until you've configured it according to the instructions.
+When you've configured it, you should remove this paragraph.<br>
+</font></strong>
+
+<i>See <a href="http://www.analog.cx/">the analog
+home page</a> for the meanings of the various reports.</i>
+
+<p>
+<h3>Which reports do you want to see?</h3>
+<BR><INPUT TYPE=radio NAME=GENERAL VALUE=ON checked> [On] <INPUT TYPE=radio NAME=GENERAL VALUE=OFF> [Off] General Summary
+<BR><INPUT TYPE=radio NAME=MONTHLY VALUE=ON checked> [On] <INPUT TYPE=radio NAME=MONTHLY VALUE=OFF> [Off] Monthly Report
+<BR><INPUT TYPE=radio NAME=WEEKLY VALUE=ON> [On] <INPUT TYPE=radio NAME=WEEKLY VALUE=OFF checked> [Off] Weekly Report
+<BR><INPUT TYPE=radio NAME=DAILYSUM VALUE=ON checked> [On] <INPUT TYPE=radio NAME=DAILYSUM VALUE=OFF> [Off] Daily Summary
+<BR><INPUT TYPE=radio NAME=DAILYREP VALUE=ON> [On] <INPUT TYPE=radio NAME=DAILYREP VALUE=OFF checked> [Off] Daily Report
+<BR><INPUT TYPE=radio NAME=HOURLYSUM VALUE=ON checked> [On] <INPUT TYPE=radio NAME=HOURLYSUM VALUE=OFF> [Off] Hourly Summary
+<BR><INPUT TYPE=radio NAME=DOMAIN VALUE=ON checked> [On] <INPUT TYPE=radio NAME=DOMAIN VALUE=OFF> [Off] Domain Report
+<BR><INPUT TYPE=radio NAME=ORGANISATION VALUE=ON checked> [On] <INPUT TYPE=radio NAME=ORGANISATION VALUE=OFF> [Off] Organization Report
+<BR><INPUT TYPE=radio NAME=DIRECTORY VALUE=ON checked> [On] <INPUT TYPE=radio NAME=DIRECTORY VALUE=OFF> [Off] Directory Report
+<BR><INPUT TYPE=radio NAME=FILETYPE VALUE=ON> [On] <INPUT TYPE=radio NAME=FILETYPE VALUE=OFF checked> [Off] File Type Report
+<BR><INPUT TYPE=radio NAME=REQUEST VALUE=ON checked> [On] <INPUT TYPE=radio NAME=REQUEST VALUE=OFF> [Off] Request Report
+<BR><INPUT TYPE=radio NAME=SIZE VALUE=ON> [On] <INPUT TYPE=radio NAME=SIZE VALUE=OFF checked> [Off] File Size Report
+<BR><INPUT TYPE=radio NAME=REFERRER VALUE=ON> [On] <INPUT TYPE=radio NAME=REFERRER VALUE=OFF checked> [Off] Referrer Report
+<BR><INPUT TYPE=radio NAME=SEARCHQUERY VALUE=ON> [On] <INPUT TYPE=radio NAME=SEARCHQUERY VALUE=OFF checked> [Off] Search Query Report
+<BR><INPUT TYPE=radio NAME=SEARCHWORD VALUE=ON> [On] <INPUT TYPE=radio NAME=SEARCHWORD VALUE=OFF checked> [Off] Search Word Report
+<BR><INPUT TYPE=radio NAME=BROWSERSUM VALUE=ON> [On] <INPUT TYPE=radio NAME=BROWSERSUM VALUE=OFF checked> [Off] Browser Summary
+<BR><INPUT TYPE=radio NAME=OSREP VALUE=ON> [On] <INPUT TYPE=radio NAME=OSREP VALUE=OFF checked> [Off] Operating System Report
+<BR><INPUT TYPE=radio NAME=STATUS VALUE=ON> [On] <INPUT TYPE=radio NAME=STATUS VALUE=OFF checked> [Off] Status Code Report
+<p><i>You can now run the program: <input type=submit value="Produce statistics">
+<br>Or you can fill in the options below for individual reports.
+You can use
+<input type=TEXT name="ignore1" maxlength=4 size=4 value="10M">
+<select name=ignore2>
+  <option value=b selected>bytes
+</select>
+ bytes to mean 10 Megabytes; also
+<input type=TEXT name="ignore3" maxlength=4 size=4 value="-50">
+<select name=ignore4>
+  <option value=b selected>bytes
+</select>
+to mean the 50 items with the most bytes.
+</i>
+<hr>
+<h2>2. Detailed report options</h2>
+
+<h3>Domain Report options</h3>
+
+Sort the Domain Report 
+<select name=DOMSORTBY size=1>
+  <option value=REQUESTS>by number of requests
+  <option value=PAGES>by number of requests for pages
+  <option value=BYTES selected>by volume of traffic
+  <option value=DATE>by date of last access
+  <option value=ALPHABETICAL>alphabetically
+</select>
+<br>Include all domains with at least
+<input type=TEXT name="DOMFLOORA" maxlength=6 size=6>
+<select name=DOMFLOORB>
+  <option value=r>requests
+  <option value=p>requests for pages
+  <option value=b selected>bytes
+</select>
+
+<h3>Organization Report options</h3>
+
+Sort the Organization Report 
+<select name=ORGSORTBY size=1>
+  <option value=REQUESTS selected>by number of requests
+  <option value=PAGES>by number of requests for pages
+  <option value=BYTES>by volume of traffic
+  <option value=DATE>by date of last access
+  <option value=ALPHABETICAL>alphabetically
+</select>
+<br>Include all organizations with at least
+<input type=TEXT name="ORGFLOORA" maxlength=6 size=6>
+<select name=ORGFLOORB>
+  <option value=r selected>requests
+  <option value=p>requests for pages
+  <option value=b>bytes
+</select>
+
+<h3>Directory Report options</h3>
+
+Sort the Directory Report 
+<select name=DIRSORTBY size=1>
+  <option value=REQUESTS>by number of requests
+  <option value=PAGES>by number of requests for pages
+  <option value=BYTES selected>by volume of traffic
+  <option value=DATE>by date of last access
+  <option value=ALPHABETICAL>alphabetically
+</select>
+
+<br>Include all directories with at least
+<input type=TEXT name="DIRFLOORA" maxlength=6 size=6>
+<select name=DIRFLOORB>
+  <option value=r>requests
+  <option value=p>requests for pages
+  <option value=b selected>bytes
+</select>
+
+<h3>Request Report options</h3>
+
+Sort the Request Report 
+<select name=REQSORTBY size=1>
+  <option value=REQUESTS selected>by number of requests
+  <!-- NB pages not a valid method -->
+  <option value=BYTES>by volume of traffic
+  <option value=DATE>by date of last access
+  <option value=ALPHABETICAL>alphabetically
+</select>
+
+<br>Include all files with at least
+<input type=TEXT name="REQFLOORA" maxlength=6 size=6>
+<select name=REQFLOORB>
+  <option value=r selected>requests
+  <option value=b>bytes
+</select>
+
+<br>Show
+<select name="REQINCLUDE" size=1>
+<option value="*" selected>all files
+<option value="pages">pages only
+</select>
+
+<h3>Referrer Report options</h3>
+
+Sort the Referrer Report 
+<select name=REFSORTBY size=1>
+  <option value=REQUESTS>by number of requests
+  <option value=PAGES selected>by number of requests for pages
+  <option value=BYTES>by volume of traffic
+  <option value=DATE>by date of last access
+  <option value=ALPHABETICAL>alphabetically
+</select>
+<br>Include all referrers with at least
+<input type=TEXT name="REFFLOORA" maxlength=6 size=6>
+<select name=REFFLOORB>
+  <option value=r>requests
+  <option value=p selected>requests for pages
+  <option value=b>bytes
+</select>
+<hr>
+<h2>3. Analyzing only part of the logfile</h2>
+<b>Only certain dates</b>
+<br>You can analyze only the requests from certain dates.
+Enter the range of dates below in the from <i>yymmdd</i>;
+e.g., 980301 for 1st March 1998 (or fill in just one box
+to limit the range of dates on just one side).
+<br>From <input type=TEXT name="FROM" maxlength=16 size=6>
+to <input type=TEXT name="TO" maxlength=16 size=6>
+
+<p><b>Only certain files</b>
+<br>Only look at the following files (list, separated by commas; can contain wild character *)
+<br><input type=TEXT name="FILEINCLUDE" size=60>
+<br>Ignore the following files
+<br><input type=TEXT name="FILEEXCLUDE" size=60>
+
+<hr><h2>4. Layout</h2>
+<b>Your organization's name</b> (for the title of the page)
+<input type=TEXT name="HOSTNAME" size=60>
+<p><b>Your organization's home page</b>
+<br>URL: <input type=TEXT name="HOSTURL" size=60>
+<hr>
+<input type=submit value="Produce statistics">
+<input type=reset value="Reset form">
+</form></body></html>

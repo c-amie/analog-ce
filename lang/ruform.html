@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=KOI8-R">
+<title>Форма управления анализатором логов Analog</title>
+</head>
+
+<!-- Вам нужно поправить несколько нижеследующих строк, и возможно, файл anlgform.cgi -->
+<!-- Во-первых, раскоментируйте или исправьте ссылку на картинку -->
+<body>
+<h1><!-- img src="/images/analogo.gif" alt="" --> Форма управления анализатором логов Analog</h1>
+
+<!-- Затем, раскоментируйте и задайте точный путь к anlgform.pl на вашем сервере -->
+<!--form action="/cgi-bin/anlgform.pl" method="POST"-->
+
+<!-- Многие системы задают другой путь к IMAGEDIR для данной формы, -->
+<!-- нежели из командной строки, чтобы не использовать /cgi-bin/ -->
+<!--input type=hidden name="IMAGEDIR" value="/images/"-->
+
+<!-- Можете также задать конфиг. файл по умолчанию вот таким образом -->
+<!-- input type=hidden name="CONFIGFILE" value="/home/sites/union.gomel.by/lib/config2"-->
+<hr>
+<h2>1. Настройка отчёта</h2>
+
+<strong><font color=red>Внимание ! Данная форма пока не настроена,
+и, возможно, не будет работать. Вам необходимо вручную настроить
+некоторые параметры и пути непосредственно в файле ruform.html
+После настройки это предупреждение можно удалить.<br>
+</font></strong>
+
+<i>См. <a href="http://www.analog.cx/">основной сайт программы analog</a> 
+для подробного описания имеющихся возможностей.</i>
+
+<p>
+<h3>Какие отчеты выводить?</h3>
+<BR><INPUT TYPE=radio NAME=GENERAL VALUE=ON checked> [Вкл.] <INPUT TYPE=radio NAME=GENERAL VALUE=OFF> [Откл.] Общая информация
+<BR><INPUT TYPE=radio NAME=MONTHLY VALUE=ON checked> [Вкл.] <INPUT TYPE=radio NAME=MONTHLY VALUE=OFF> [Откл.] Отчёт по месяцам
+<BR><INPUT TYPE=radio NAME=WEEKLY VALUE=ON> [Вкл.] <INPUT TYPE=radio NAME=WEEKLY VALUE=OFF checked> [Откл.] Отчёт по неделям
+<BR><INPUT TYPE=radio NAME=DAILYSUM VALUE=ON checked> [Вкл.] <INPUT TYPE=radio NAME=DAILYSUM VALUE=OFF> [Откл.] Итоги по дням
+<BR><INPUT TYPE=radio NAME=DAILYREP VALUE=ON> [Вкл.] <INPUT TYPE=radio NAME=DAILYREP VALUE=OFF checked> [Откл.] Каждый день подробно
+<BR><INPUT TYPE=radio NAME=HOURLYSUM VALUE=ON checked> [Вкл.] <INPUT TYPE=radio NAME=HOURLYSUM VALUE=OFF> [Откл.] Итоги по часам
+<BR><INPUT TYPE=radio NAME=DOMAIN VALUE=ON checked> [Вкл.] <INPUT TYPE=radio NAME=DOMAIN VALUE=OFF> [Откл.] Отчёт по доменам
+<BR><INPUT TYPE=radio NAME=ORGANISATION VALUE=ON checked> [Вкл.] <INPUT TYPE=radio NAME=ORGANISATION VALUE=OFF> [Откл.] Отчёт по поддоменам
+<BR><INPUT TYPE=radio NAME=DIRECTORY VALUE=ON checked> [Вкл.] <INPUT TYPE=radio NAME=DIRECTORY VALUE=OFF> [Откл.] Отчёт о каталогах
+<BR><INPUT TYPE=radio NAME=FILETYPE VALUE=ON> [Вкл.] <INPUT TYPE=radio NAME=FILETYPE VALUE=OFF checked> [Откл.] Отчёт о типах файлов
+<BR><INPUT TYPE=radio NAME=REQUEST VALUE=ON checked> [Вкл.] <INPUT TYPE=radio NAME=REQUEST VALUE=OFF> [Откл.] Отчёт о запросах
+<BR><INPUT TYPE=radio NAME=SIZE VALUE=ON> [Вкл.] <INPUT TYPE=radio NAME=SIZE VALUE=OFF checked> [Откл.]  Размеры файлов
+<BR><INPUT TYPE=radio NAME=REFERRER VALUE=ON> [Вкл.] <INPUT TYPE=radio NAME=REFERRER VALUE=OFF checked> [Откл.] Отчёт о ссылках
+<BR><INPUT TYPE=radio NAME=SEARCHQUERY VALUE=ON> [Вкл.] <INPUT TYPE=radio NAME=SEARCHQUERY VALUE=OFF checked> [Откл.] Ссылки с поисковиков
+<BR><INPUT TYPE=radio NAME=SEARCHWORD VALUE=ON> [Вкл.] <INPUT TYPE=radio NAME=SEARCHWORD VALUE=OFF checked> [Откл.] Ключевые слова при успешном поиске
+<BR><INPUT TYPE=radio NAME=BROWSERSUM VALUE=ON> [Вкл.] <INPUT TYPE=radio NAME=BROWSERSUM VALUE=OFF checked> [Откл.] Расклад по браузерам
+<BR><INPUT TYPE=radio NAME=OSREP VALUE=ON> [Вкл.] <INPUT TYPE=radio NAME=OSREP VALUE=OFF checked> [Откл.] Расклад по операционным системам
+<BR><INPUT TYPE=radio NAME=STATUS VALUE=ON> [Вкл.] <INPUT TYPE=radio NAME=STATUS VALUE=OFF checked> [Откл.] Отчёт о статусе запросов
+<p><i>Сейчас можно запустить программу анализа: <input type=submit value="Обработать журнал">
+<br>, либо можно уточнить параметры отдельных отчётов в дополнительной форме,
+расположенной ниже.<br>
+Вы можете для некоторых полей указать значения. Например, 
+<input type=TEXT name="ignore1" maxlength=4 size=4 value="10M">
+<select name=ignore2>  <option value=b selected>bytes
+</select>
+(с англ. буквой) для размера 10 MB; или
+ <input type=TEXT name="ignore3" maxlength=4 size=4 value="-50">
+<select name=ignore4>
+  <option value=b selected>безразмерный параметр
+</select> (с минусом) для остальных параметров.
+</i>
+<hr>
+<h2>2. Детальные опции для отдельных отчётов</h2>
+
+<h3>Отчёт о доменах</h3>
+
+Порядок сортировки в отчёте по доменам
+<select name=DOMSORTBY size=1>
+  <option value=REQUESTS>по общему кол-ву обращений
+  <option value=PAGES>по кол-ву обращений к страницам
+  <option value=BYTES selected>по объёму трафика
+  <option value=DATE>по дате последнего доступа
+  <option value=ALPHABETICAL>по алфавиту
+</select>
+<br>Включать все домены, превысившие:
+<input type=TEXT name="DOMFLOORA" maxlength=6 size=6>
+<select name=DOMFLOORB>
+  <option value=r>запросов всего
+  <option value=p>запросов к страницам
+  <option value=b selected>объёма трафика
+</select>
+
+<h3>Отчёт по поддоменам</h3>
+
+Порядок сортировки 
+<select name=ORGSORTBY size=1>
+  <option value=REQUESTS>по общему кол-ву обращений
+  <option value=PAGES>по кол-ву обращений к страницам
+  <option value=BYTES selected>по объёму трафика
+  <option value=DATE>по дате последнего доступа
+  <option value=ALPHABETICAL>по алфавиту
+</select>
+<br>Включать все поддомены, превысившие:
+<input type=TEXT name="ORGFLOORA" maxlength=6 size=6>
+<select name=ORGFLOORB>
+  <option value=r selected>запросов всего
+  <option value=p>запросов к страницам
+  <option value=b>объёма трафика
+</select>
+
+<h3>Отчёт по каталогам</h3>
+
+Порядок сортировки отчёта по каталогам
+<select name=DIRSORTBY  size=1>
+  <option value=REQUESTS>по общему кол-ву обращений
+  <option value=PAGES>по кол-ву обращений к страницам
+  <option value=BYTES selected>по объёму трафика
+  <option value=DATE>по дате последнего доступа
+  <option value=ALPHABETICAL>по алфавиту
+</select>
+<br>Включать все поддомены превысившие:
+<input type=TEXT name="DIRFLOORA" maxlength=6 size=6>
+<select name=DIRFLOORB>
+  <option value=r>запросов всего
+  <option value=p>запросов к страницам
+  <option value=b selected>объёма трафика
+</select>
+
+<h3>Отчёт по количеству запросов</h3>
+
+Порядок сортировки отчёта об общем количестве запросов
+<select name=REQSORTBY size=1>
+  <option value=REQUESTS>по общему кол-ву обращений
+  <!-- NB pages not a valid method -->
+  <option value=BYTES selected>по объёму трафика
+  <option value=DATE>по дате последнего доступа
+  <option value=ALPHABETICAL>по алфавиту
+</select>
+
+<br>Включать все файлы, превысившие:
+<input type=TEXT name="REQFLOORA" maxlength=6 size=6>
+<select name=REQFLOORB>
+  <option value=r>запросов всего
+  <option value=b selected>объёма трафика
+</select>
+
+<br>Показать
+<select name="REQINCLUDE" size=1>
+<option value="*" selected>все файлы
+<option value="pages">только HTML-документы
+</select>
+
+<h3>Отчёт о ссылках на сервер</h3>
+
+Порядок сортировки отчёта
+<select name=REFSORTBY size=1>
+  <option value=REQUESTS>по общему кол-ву обращений
+  <option value=PAGES>по кол-ву обращений к страницам
+  <option value=BYTES selected>по объёму трафика
+  <option value=DATE>по дате последнего доступа
+  <option value=ALPHABETICAL>по алфавиту
+</select>
+<br>Включать все ссылающиеся на нас страницы, превысившие:
+<input type=TEXT name="REFFLOORA" maxlength=6 size=6>
+<select name=REFFLOORB>
+  <option value=r>запросов всего
+  <option value=p selected>запросов к страницам
+  <option value=b>объёма трафика
+</select>
+<hr>
+<h2>3. Анализировать только часть журнального файла</h2>
+<b>Просмотреть только указанный диапазон дат</b>
+Пожалуйста, введите интересующий вас диапазон дат в формате <i>yymmdd</i>;
+например, 011020 для 20 октября 2001 года. Вы можете указать только одну дату,
+тогда вторая дата будет отсчитываться от начала (или до конца) лога.
+<br>From <input type=TEXT name="FROM" maxlength=16 size=7>
+to <input type=TEXT name="TO" maxlength=16 size=7>
+
+<p><b>Просмотреть только указанный журнальный файл</b>
+<br>Вы можете задать список лог-файлов, разделённых запятыми.
+Мета-символ * будет расширен до списка удовлетворяющих шаблону файлов.
+<br><input type=TEXT name="FILEINCLUDE" size=60>
+<br>Исключить указанные файлы, правила такие же.
+<br><input type=TEXT name="FILEEXCLUDE" size=60>
+
+<hr><h2>4. Заголовок отчёта</h2>
+<b>Название организации (сайта)</b>, станет названием отчетом
+<input type=TEXT name="HOSTNAME" size=60>
+<p><b>Адрес сайта в интернете</b>
+<br>URL: <input type=TEXT name="HOSTURL" size=60>
+<hr>
+<input type=submit value="Показать статистику">
+<input type=reset value="Очистить форму">
+</form></body></html>

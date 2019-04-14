@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=SHIFT_JIS">
+<title>Analog フォーム・インタフェース</title>
+</head>
+
+<body>
+<h1><!-- img src="/images/analogo.gif" alt="" --> Analog フォーム・インタフェース</h1>
+
+<!-- 以下を編集すること。anlgform.pl も編集する必要がある。 -->
+
+<!-- 最初に、上記の img タグのコメントを取り、必要なら編集しなさい。 -->
+
+<!-- 次に、サーバ内での anlgform.pl の正しい位置を反映するように編集して -->
+<!-- 以下の行のコメントを削除しなさい。 -->
+<!-- form action="/cgi-bin/anlgform.pl" method="POST" -->
+
+<!-- 多くのシステムでは、IMAGEDIR が /cgi-bin/ 中に無いようにしたいために、 -->
+<!-- フォーム上の IMAGEDIR はコマンドライン上での指定とは異なるようにしている。 -->
+<!-- input type=hidden name="IMAGEDIR" value="/images/" -->
+
+<!-- 他の環境設定ファイルを以下で指定できる。 -->
+<!-- input type=hidden name="cg" value="/analog/other.cfg" -->
+
+<!-- あるユーザの設定では、ログファイルは以下のようになるでしょう。 -->
+<!-- input type=hidden name="LOGFILE" value="/usr/local/apache/logs/access_log" -->
+
+<!-- これらを編集した後、以下の赤で "強調" した行を削除して下さい。 -->
+
+<input type=hidden name="LANGUAGE" value="JAPANESE-SJIS">
+
+<hr>
+<h2>1. レポートの選択</h2>
+
+<strong><font color=red>注意 : 以下の指示に従って環境を設定し終わるまで、
+このフォームは動作しないでしょう。例えば、ボタンさえ現れないかもしれません。
+環境設定を終了した後、この文節を削除してください。<br>
+</font></strong>
+
+<i>個々のレポートの詳細な意味については 
+<a href="http://www.analog.cx/">analog
+のホームページ</a> を参照してください。</i>
+
+<p>
+<h3>どのレポートを表示しますか?</h3>
+<BR><INPUT TYPE=radio NAME=GENERAL VALUE=ON checked> [On] <INPUT TYPE=radio NAME=GENERAL VALUE=OFF> [Off] 全体の概要
+<BR><INPUT TYPE=radio NAME=MONTHLY VALUE=ON checked> [On] <INPUT TYPE=radio NAME=MONTHLY VALUE=OFF> [Off] 月別レポート
+<BR><INPUT TYPE=radio NAME=WEEKLY VALUE=ON> [On] <INPUT TYPE=radio NAME=WEEKLY VALUE=OFF checked> [Off] 週別レポート
+<BR><INPUT TYPE=radio NAME=DAILYSUM VALUE=ON checked> [On] <INPUT TYPE=radio NAME=DAILYSUM VALUE=OFF> [Off] 曜日別概要
+<BR><INPUT TYPE=radio NAME=DAILYREP VALUE=ON> [On] <INPUT TYPE=radio NAME=DAILYREP VALUE=OFF checked> [Off] 日別レポート
+<BR><INPUT TYPE=radio NAME=HOURLYSUM VALUE=ON checked> [On] <INPUT TYPE=radio NAME=HOURLYSUM VALUE=OFF> [Off] 時間別概要
+<BR><INPUT TYPE=radio NAME=HOURLYREP VALUE=ON> [On] <INPUT TYPE=radio NAME=HOURLYREP VALUE=OFF checked> [Off] 時間別レポート
+<BR><INPUT TYPE=radio NAME=QUARTERREP VALUE=ON> [On] <INPUT TYPE=radio NAME=QUARTERREP VALUE=OFF checked> [Off] 15分間隔レポート
+<BR><INPUT TYPE=radio NAME=DOMAIN VALUE=ON checked> [On] <INPUT TYPE=radio NAME=DOMAIN VALUE=OFF> [Off] ドメインレポート
+<BR><INPUT TYPE=radio NAME=ORGANISATION VALUE=ON checked> [On] <INPUT TYPE=radio NAME=ORGANISATION VALUE=OFF> [Off] 組織別レポート
+<BR><INPUT TYPE=radio NAME=DIRECTORY VALUE=ON checked> [On] <INPUT TYPE=radio NAME=DIRECTORY VALUE=OFF> [Off] ディレクトリレポート
+<BR><INPUT TYPE=radio NAME=FILETYPE VALUE=ON> [On] <INPUT TYPE=radio NAME=FILETYPE VALUE=OFF checked> [Off] ファイル種類別レポート
+<BR><INPUT TYPE=radio NAME=REQUEST VALUE=ON checked> [On] <INPUT TYPE=radio NAME=REQUEST VALUE=OFF> [Off] リクエストレポート
+<BR><INPUT TYPE=radio NAME=SIZE VALUE=ON> [On] <INPUT TYPE=radio NAME=SIZE VALUE=OFF checked> [Off] ファイルサイズレポート
+<BR><INPUT TYPE=radio NAME=REFERRER VALUE=ON> [On] <INPUT TYPE=radio NAME=REFERRER VALUE=OFF checked> [Off] 参照元レポート
+<BR><INPUT TYPE=radio NAME=SEARCHQUERY VALUE=ON> [On] <INPUT TYPE=radio NAME=SEARCHQUERY VALUE=OFF checked> [Off] 検索語句レポート
+<BR><INPUT TYPE=radio NAME=SEARCHWORD VALUE=ON> [On] <INPUT TYPE=radio NAME=SEARCHWORD VALUE=OFF checked> [Off] 検索語レポート
+<BR><INPUT TYPE=radio NAME=HOST VALUE=ON> [On] <INPUT TYPE=radio NAME=HOST VALUE=OFF checked> [Off] ホストレポート
+<BR><INPUT TYPE=radio NAME=BROWSERREP VALUE=ON> [On] <INPUT TYPE=radio NAME=BROWSERREP VALUE=OFF checked> [Off] ブラウザレポート
+<BR><INPUT TYPE=radio NAME=BROWSERSUM VALUE=ON> [On] <INPUT TYPE=radio NAME=BROWSERSUM VALUE=OFF checked> [Off] ブラウザの概要
+<BR><INPUT TYPE=radio NAME=OSREP VALUE=ON> [On] <INPUT TYPE=radio NAME=OSREP VALUE=OFF checked> [Off] OS レポート
+<BR><INPUT TYPE=radio NAME=STATUS VALUE=ON> [On] <INPUT TYPE=radio NAME=STATUS VALUE=OFF checked> [Off] ステータスコードレポート
+<p><i>プログラムの実行 : <input type=submit value="統計情報出力">
+<br>もしくは、個々のレポートについて、
+以下のオプションを指定する事ができます。
+<input type=TEXT name="ignore1" maxlength=4 size=4 value="10M"><select name=ignore2>
+  <option value=b selected>bytes
+</select>
+ は、10Mバイト以上の項目を表示します。同様に
+<input type=TEXT name="ignore3" maxlength=4 size=4 value="-50"><select name=ignore4>
+  <option value=b selected>bytes
+</select>
+は、バイト数が多い方から上位 50 位を表示します。
+</i>
+<hr>
+<h2>2. レポートの詳細オプション</h2>
+
+<h3>ドメインレポートのオプション</h3>
+
+ドメインレポートのソート順
+<select name=DOMSORTBY size=1>
+  <option value=REQUESTS>リクエスト数順
+  <option value=PAGES>ページ数順
+  <option value=BYTES selected>データ転送量順
+  <option value=DATE>最終アクセス日時順
+  <option value=ALPHABETICAL>アルファベット順
+</select>
+<br>少なくとも
+<input type=TEXT name="DOMFLOORA" maxlength=6 size=6>
+<select name=DOMFLOORB>
+  <option value=r>リクエスト数
+  <option value=p>ページ数
+  <option value=b selected>バイト数
+</select>
+以上のドメインを全て含む。
+
+<h3>組織別レポートのオプション</h3>
+
+組織別レポートのソート順
+<select name=ORGSORTBY size=1>
+  <option value=REQUESTS selected>リクエスト数順
+  <option value=PAGES>ページ数順
+  <option value=BYTES>データ転送量順
+  <option value=DATE>最終アクセス日時順
+  <option value=ALPHABETICAL>アルファベット順
+</select>
+<br>少なくとも
+<input type=TEXT name=ORGFLOORA maxlength=6 size=6>
+<select name=ORGFLOORB>
+  <option value=r selected>リクエスト数
+  <option value=p>ページ数
+  <option value=b>バイト数
+</select>
+以上の組織を全て含む。
+
+<h3>ディレクトリレポートのオプション</h3>
+
+ディレクトリレポートのソート順
+<select name=DIRSORTBY size=1>
+  <option value=REQUESTS>リクエスト数順
+  <option value=PAGES>ページ数順
+  <option value=BYTES selected>データ転送量順
+  <option value=DATE>最終アクセス日時順
+  <option value=ALPHABETICAL>アルファベット順
+</select>
+<br>少なくとも
+<input type=TEXT name="DIRFLOORA" maxlength=6 size=6>
+<select name=DIRFLOORB>
+  <option value=r>リクエスト数
+  <option value=p>ページ数
+  <option value=b selected>バイト数
+</select>
+以上のディレクトリを全て含む。
+
+<h3>リクエストレポートのオプション</h3>
+
+リクエストレポートのソート順
+<select name=REQSORTBY size=1>
+  <option value=REQUESTS selected>リクエスト数順
+  <option value=BYTES>データ転送量順
+  <option value=DATE>最終アクセス日時順
+  <option value=ALPHABETICAL>アルファベット順
+</select>
+
+<br>少なくとも
+<input type=TEXT name="REQFLOORA" maxlength=6 size=6>
+<select name=REQFLOORB>
+  <option value=r selected>リクエスト数
+  <option value=b>バイト数
+</select>
+以上のファイルを全て含む。
+
+<br>表示は、
+<select name="REQINCLUDE" size=1>
+<option value="*" selected> 全てのファイル
+<option value="pages">ページのみ
+</select>
+を対象とする。
+
+<h3>参照元レポートのオプション</h3>
+
+参照元レポートのソート順
+<select name=REFSORTBY size=1>
+  <option value=REQUESTS>リクエスト数順
+  <option value=PAGES selected>ページ数順
+  <option value=BYTES>データ転送量順
+  <option value=DATE>最終アクセス日時順
+  <option value=ALPHABETICAL>アルファベット順
+</select>
+<br>少なくとも
+<input type=TEXT name="REFFLOORA" maxlength=6 size=6>
+<select name=REFFLOORB>
+  <option value=r>リクエスト数
+  <option value=p selected>ページ数
+  <option value=b>バイト数
+</select>
+以上の参照元 URL を全て含む。
+<hr>
+<h2>3. ログファイルの部分解析</h2>
+<b> 特定日時のみ</b>
+<br> 特定日時のリクエストだけを解析する事も可能です。
+解析する日付の範囲を以下のように
+<i> yymmdd </i>
+の形で入力してください。例 : 980301 は 1998年3月1日
+(一方の範囲だけを制限したい場合は、
+片方のフィールドだけを埋めてください)
+<br><input type=TEXT name="FROM" maxlength=10 size=6> から
+<input type=TEXT name="TO" maxlength=10 size=6> まで
+
+<p><b> 特定のファイルのみ</b>
+<br> 以下のファイルのみを対象とします (コンマで区切って列挙してください。
+ワイルドカードとして * を含める事ができます)
+<br><input type=TEXT name="FILEINCLUDE" size=60>
+<br>以下のファイルは除外します。
+<br><input type=TEXT name="FILEEXCLUDE" size=60>
+
+<hr><h2>4. レイアウト</h2>
+<b> あなたの組織名 </b> (ページのタイトル用)
+<input type=TEXT name="HOSTNAME" size=60>
+<p><b> 組織のホームページ</b> (不要の場合は空白のままにしてください)
+<br>URL : <input type=TEXT name="HOSTURL" size=60>
+<hr>
+<input type=submit value="統計情報出力">
+<input type=reset value="フォームのリセット">
+</form></body></html>

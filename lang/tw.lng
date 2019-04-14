@@ -1,0 +1,581 @@
+## Language file for analog 6.0. May not work with any other version.
+##
+## This is a language file for analog. Lines beginning with ## are comments.
+## Each language should have one language file in its own character set,
+## and can have an additional one for ASCII (7 bit) output.
+## 
+## If your language doesn't seem to fit into this pattern, explain the problem
+## to me, and I can adjust the source code if necessary.
+##
+## The character set of this language file. Prefix with a * to indicate a
+## multibyte character set: e.g. *ISO-2022-JP
+##
+## This file is translated by Tzu-hsien Yu (thyu@ck.tp.edu.tw), Jun 2001.
+##
+*Big5
+## Abbreviations for the day and month names.
+週日
+週一
+週二
+週三
+週四
+週五
+週六
+一月
+二月
+三月
+四月
+五月
+六月
+七月
+八月
+九月
+十月
+十一月
+十二月
+## Next some standard common words.
+## Abbreviation for "week beginning"
+每週
+年
+## Quarter of a year
+季
+月
+日
+天
+小時
+分鐘
+分鐘
+秒
+秒
+Byte
+Bytes
+## ?bytes represents kbytes, Mbytes etc.
+?bytes
+請求
+請求
+日期
+## This has the right spacing for a column like 23/Mar/98 15:00-15:05
+日期          時間
+時間
+最早日期
+最早時間
+最近日期
+最近時間
+檔案
+檔案
+主機
+主機
+虛擬主機
+虛擬主機
+目錄
+目錄
+網域
+網域
+組織
+組織
+副檔名
+副檔名
+URL
+URLs
+瀏覽器
+瀏覽器數
+作業系統
+作業系統
+## (= operating system, operating systems)
+大小
+檢索字
+檢索字個數
+網站
+網站
+使用者
+使用者
+狀態代碼
+狀態代碼
+Web Server 統計:
+## Prefixes kilo, mega etc. to make kilobytes, megabytes etc.
+kilo
+mega
+giga
+tera
+peta
+exa
+zeta
+yotta
+## Shorter versions of the same prefixes for column headings
+k
+M
+G
+T
+P
+E
+Z
+Y
+## Names for the rows in the File Size Report. Note that changing these will
+## NOT change the boundaries! These are just labels for predetermined buckets.
+## They should line up nicely when right-aligned.
+          0
+   1B-  10B
+  11B- 100B
+ 101B-  1kB
+  1kB- 10kB
+ 10kB-100kB
+100kB-  1MB
+  1MB- 10MB
+ 10MB-100MB
+100MB-  1GB
+      > 1GB
+## Now the names of reports
+總概要報告
+## The time reports, plus "busiest" strings (at the bottom of each report)
+每年報告
+高峰年:
+每季報告
+高峰季
+每月報告
+高峰月:
+每週報告
+高峰週: 開始於
+每日報告概要
+每日報告
+高峰日:
+每小時報告
+每小時報告概要
+本週每小時報告
+高峰小時:
+每刻(15分鐘)報告
+每刻(15分鐘)報告概要
+高峰一刻:
+五分鐘報告
+五分鐘報告概要
+高峰五分鐘:
+## The non-time reports. In each case, we have the name of the report,
+## followed by the type of item in the report, once in the singular and once
+## in the plural. These are used in phrases like "listing ??? with at
+## least 200 requests". (The words higher up are used for column headings and
+## for the "not listed" lines at the bottom of the reports.)
+## Finally we have the gender of this type of object, which can be m, f or n.
+##
+## So for example, in German a directory is Verzeichnis (neuter gender), which
+## was given above. But "listing the top directory" is "Ausgabe des ersten
+## Verzeichnisses" and "listing the top two directories" is "Ausgabe der
+## ersten zwei Verzeichnisse". So here, we would have for the directory report:
+##
+## Verzeichnis-Bericht
+## Verzeichnisses
+## Verzeichnisse
+## n
+##
+## I hope that makes sense!
+主機報告
+主機
+主機
+n
+主機重新導向報告
+主機
+主機
+n
+主機失敗報告
+主機
+主機
+n
+目錄報告
+目錄
+目錄
+n
+文件類型報告
+副檔名
+副檔名
+n
+請求報告
+檔案
+檔案
+n
+重新導向報告
+檔案
+檔案
+n
+失敗報告
+檔案
+檔案
+n
+來源網頁報告
+連結的 URL
+連結的 URLs
+n
+來源網站報告
+連結的網站
+連結的網站
+n
+重新導向連結(Redirected Referrer)報告
+連結的 URL
+連結的 URLs
+n
+失敗連結點(Referrer)報告
+連結的 URL
+連結的 URLs
+n
+搜尋檢索報告
+檢索
+檢索
+n
+檢索字報告
+檢索字
+檢索字
+n
+內部搜尋檢索報告
+檢索
+檢索
+n
+內部檢索字報告
+檢索字
+檢索字
+n
+虛擬主機報告
+虛擬主機
+虛擬主機數
+n
+虛擬主機重新導向報告
+虛擬主機
+虛擬主機
+n
+虛擬主機失敗報告
+虛擬主機
+虛擬主機
+n
+使用者報告
+使用者
+使用者
+n
+使用者重新導向報告
+使用者
+使用者
+n
+使用者失敗報告
+使用者
+使用者
+n
+瀏覽器概要報告
+瀏覽器
+瀏覽器
+n
+瀏覽器報告
+瀏覽器
+瀏覽器
+n
+作業系統報告
+作業系統
+作業系統
+n
+網域報告
+網域
+網域
+n
+來源組織單位報告
+組織單位
+組織單位
+n
+狀態代碼報告
+狀態代碼
+狀態代碼
+n
+處理時間報告
+檔案大小報告
+## Used at the bottom of the report
+此統計以此產生:
+執行時間
+小於1
+## Used in the time reports
+每單位
+代表
+或未滿的部分
+頁請求
+頁請求
+## Used at the bottom of each non-time report: need m, f & n genders
+*
+*
+沒有列出
+## Used on the pie charts: again need m, f & n genders
+*
+*
+Other
+## Used at the top of the report
+程式開始於
+分析請求自
+到
+## Used in the General Summary
+全部成功請求
+每天平均成功請求
+頁請求全部成功請求
+每日平均成功頁請求
+不含狀態代碼的紀錄行數
+全部的失敗請求
+被轉向的請求
+含狀態代碼的請求
+相異不重複的請求
+相異不重複的來訪主機
+壞掉的紀錄行數
+無用的紀錄數
+總傳輸量
+平均每天傳輸量
+括弧內的數值表示
+七天至
+最後七天
+直接跳到
+頂端
+## Some special phrases for particular reports.
+[無法反解的位址]
+[無網域]
+[未知網域]
+[根目錄]
+[沒有目錄]
+[無副檔名]
+[目錄數]
+未知的 Windows
+其他 Unix
+網頁機器人 Robots
+未知的作業系統
+## Column headings for requests, pages, bytes and number (ie position in list)
+## and percentages and last-7-day versions of these.
+## Should be as short as possible -- abbreviate if necessary.
+## (The ?bytes represents kbytes, Mbytes etc.)
+#reqs
+7-day reqs
+%reqs
+%7-day reqs
+#pages
+7-day pages
+%pages
+%7-day pages
+bytes
+?bytes
+7-day bytes
+7-day ?bytes
+%bytes
+%7-day bytes
+ #
+## Now we need to know how to say "listing the top <whatever>", "listing
+## the top <n> <whatevers>", and "listing <whatevers>". The %s and %d
+## will be replaced by the appropriate things. There may be three of each of
+## these statements, for the genders m, f and n. Any genders that aren't used,
+## you can just put a * there instead. So, for example, French starts
+## Affichage du premier %s
+## Affichage de la premi&egrave;re %s
+## *
+## with entries for m & f, but not n
+*
+*
+列出最上面的 %s
+*
+*
+列出最上面的 %d %s
+*
+*
+列出 %s 
+## "by" in the phrase "listing the first 3 files BY number of requests"
+依
+## All requests WITH AT LEAST 10 requests
+至少有
+## Different ways of doing floors
+最近七天內的請求
+最近七天內的請求
+最近七天內頁請求
+最近七天內頁請求
+重新導向請求
+重新導向請求
+最近七天重新導向的請求
+最近七天重新導向的請求
+失敗請求
+失敗請求
+最近七天內的失敗請求
+最近七天內的失敗請求
+%流量
+%最近七天內的流量
+%最大流量
+%最近七天內的最大流量
+流量(byte)
+流量(bytes)
+## ?bytes represents kbytes, Mbytes etc.
+?bytes of traffic
+byte of traffic in the last 7 days
+bytes of traffic in the last 7 days
+?bytes of traffic in the last 7 days
+請求自從
+重新導向請求自從
+失敗請求自從
+第一次請求在
+第一次重新導向請求在
+第一次失敗請求在
+## Now "sorted by": again, in m, f & n (only needed in plural though)
+*
+*
+排序:
+## Used at the top of each report
+這份報告包括了
+## Used in pie charts
+此圖形繪製根據:
+## different ways of sorting
+流量
+最近七天內的流量
+%請求
+%最近七天內的請求
+%最大請求
+%最近七天內的最大請求
+請求數
+最近七天內的請求數
+%對頁請求數
+%最近七天內對頁請求數
+%最大對頁請求數
+%最近七天內最大對頁請求數
+頁請求數
+最近七天內對頁請求數
+%重新導向請求數
+%最近七天內重新導向請求數
+%最大重新導向請求數
+%最近七天內最大重新導向請求數
+重新導向請求數
+最近七天內重新導向請求數
+%失敗請求數
+%最近七天內失敗請求數
+%失敗請求最大數
+%最近七天內最大失敗請求數
+失敗請求數
+最近七天內失敗請求數
+最近請求時間
+最近轉向請求時間
+最近失敗請求時間
+第一次請求時間
+第一次重新導向時間
+第一次失敗請求時間
+## 3 other ways of sorting in m, f, & n
+*
+*
+按字母順序排序
+*
+*
+按數字大小排序
+*
+*
+未排序
+## The separators to use between thousands, and as a decimal point. For
+## example, English generally uses "3,000.25" so has , and . here. French uses
+## "3 000,25", so has space and , instead.
+,
+.
+## There's a colon here, because the French like to put a space before a colon,
+## so they have space-colon instead here.
+:
+## am and pm in the sense of morning and afternoon.
+am
+pm
+## Some date formats. E.g. for 9am on 1st January 1997 use
+## %d for date          " 1"
+## %D for 0-padded date "01"
+## %e or %E for date at end of time interval (where this makes sense)
+## %m for month         "Jan"
+## %l for month at end of time interval
+## %q for quarter of the year    "1"
+## %y for short year    "97"
+## %Y for long year     "1997"
+## %z or %Z for year at end of time interval
+## %X for ISO 8601 extended date format (yyyy-mm-dd) "1997-01-01"
+## %h for hour in 24-hour clock " 9"
+## %H for 0-padded hour         "09"
+## %j for hour in 12-hour clock " 9"
+## %i, %I or %k for hour at end of time interval
+## %n for minute        "00"
+## %o for minute at end of time interval
+## %a for am or pm      "am"
+## %b for am or pm at end of time interval
+## %w for weekday       "Wed"
+## %x for a dash in a range e.g. in 14:00-14:15. This is necessary because in
+##    proper typesetting, this should be an en-dash not a regular dash.
+##
+## So for a date, English might have %d/%m/%y for 1/Jan/97, whereas German
+## would have %d.%m %y for 1.Jan 97). Note: the month number is not available
+## because it can produce ambiguous dates.
+##
+## The different date formats are as follows
+## "refer to the 7 days to [date]"
+%m %D %Y %H:%n
+## "Program started at" and "Analysed requests from"
+%w, %m %D %Y %H:%n
+## In Daily Report
+%m/%d/%y
+## In Daily Summary
+%w
+## In Hourly Report
+%m/%d/%y %H:%n-%I:%o
+## In Hourly Summary
+%h
+## In Hour of the Week Summary
+%w %H:%n%x%I:%o
+## In Quarter-Hour and Five-Minute Reports
+%m/%d/%y %H:%n-%I:%o
+## In Quarter-Hour and Five-Minute Summaries
+%H:%n%x%I:%o
+## In Weekly Report
+%m/%d/%y
+## In Monthly Report
+%m %Y
+## In Quarterly Report
+%m%x%l %Y
+## An alternative for Quarterly Report: %Y Q%q
+## In Yearly Report
+%Y
+## The date (d) column in non-time reports
+%d/%m/%y
+## The date & time (D) column in non-time reports
+%m/%d/%y %H:%n
+## In non-time reports: "including all files with requests since [date]"
+%m/%d/%y at %H:%n
+## Finally, definitions of the HTTP status codes (see
+## ftp://ftp.isi.edu/in-notes/rfc2616.txt). You're welcome to leave these in
+## English if you think they look better that way.
+100 Continue with request
+101 Switching protocols
+1xx [Miscellaneous informational]
+200 OK
+201 Created
+202 Accepted for future processing
+203 Non-authoritative information
+204 OK, but nothing to send
+205 Reset document
+206 Partial content
+2xx [Miscellaneous successes]
+300 Multiple documents available
+301 Document moved permanently
+302 Document found elsewhere
+303 See other document
+304 Not modified since last retrieval
+305 Use proxy
+306 Switch proxy
+307 Document moved temporarily
+3xx [Miscellaneous redirections]
+400 Bad request
+401 Authentication required
+402 Payment required
+403 Access forbidden
+404 Document not found
+405 Method not allowed
+406 Document not acceptable to client
+407 Proxy authentication required
+408 Request timeout
+409 Request conflicts with state of resource
+410 Document gone permanently
+411 Length required
+412 Precondition failed
+413 Request too long
+414 Requested filename too long
+415 Unsupported media type
+416 Requested range not valid
+417 Expectation failed
+4xx [Miscellaneous client/user errors]
+500 Internal server error
+501 Request type not supported
+502 Error at upstream server
+503 Service temporarily unavailable
+504 Gateway timeout
+505 HTTP version not supported
+506 Redirection failed
+5xx [Miscellaneous server errors]
+xxx [Unknown]

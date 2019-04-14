@@ -1,0 +1,580 @@
+## Language file for analog 6.0. May not work with any other version.
+##
+## This is a language file for analog. Lines beginning with ## are comments.
+## Each language should have one language file in its own character set,
+## and can have an additional one for ASCII (7 bit) output.
+## 
+## If your language doesn't seem to fit into this pattern, explain the problem
+## to me, and I can adjust the source code if necessary.
+##
+## Turkish translation for versions 3 & 4 by Nezih Erkman.
+## Turkish translation for version 5 by Dikran Diragormacioglu.
+##
+## The character set of this language file. Prefix with a * to indicate a
+## multibyte character set: e.g. *ISO-2022-JP
+ISO-8859-9
+## Abbreviations for the day and month names.
+Paz
+Pts
+Sal
+Çrþ
+Prþ
+Cum
+Cts
+Ock
+Þbt
+Mrt
+Nis
+May
+Haz
+Tem
+Aðu
+Eyl
+Ekm
+Ksm
+Ara
+## Next some standard common words.
+## Abbreviation for "week beginning"
+Hafta baþý
+yýl
+## Quarter of a year
+üç aylýk süre
+ay
+gün
+gün
+sa
+dakika
+dakika
+saniye
+saniye
+byte
+bytes
+## ?bytes represents kbytes, Mbytes etc.
+?bytes 
+eriþim
+eriþim
+tarih
+## This has the right spacing for a column like 23/Mar/98 15:00-15:05
+tarih        saat
+saat
+ilk tarih
+ilk saat
+son tarih
+son saat
+dosya
+dosyalar
+host
+hostlar
+sanal host
+sanal hostlar
+bölüm
+bölümler
+site tipi
+site tipleri
+organizasyon
+organizasyonlar
+dosya uzantýsý
+dosya uzantýlarý
+URL
+URLs
+browser
+browserlar
+sistem
+sistemler
+## (= operating system, operating systems)
+boyut
+aranan terim
+aranan terimler
+site
+siteler
+kullanýcý
+kullanýcýlar
+durum kodu
+durum kodlarý
+Web Server Ýstatistikleri:
+## Prefixes kilo, mega etc. to make kilobytes, megabytes etc.
+kilo
+mega
+giga
+tera
+peta
+exa
+zeta
+yotta
+## Shorter versions of the same prefixes for column headings
+k
+M
+G
+T
+P
+E
+Z
+Y
+## Names for the rows in the File Size Report. Note that changing these will
+## NOT change the boundaries! These are just labels for predetermined buckets.
+## They should line up nicely when right-aligned.
+          0
+   1B-  10B
+  11B- 100B
+ 101B-  1kB
+  1kB- 10kB
+ 10kB-100kB
+100kB-  1MB
+  1MB- 10MB
+ 10MB-100MB
+100MB-  1GB
+      > 1GB
+## Now the names of reports
+Genel Özet
+## The time reports, plus "busiest" strings (at the bottom of each report)
+Yýllýk rapor
+En meþgul yýl
+Üç aylýk rapor
+En meþgul üç ay
+Aylýk Rapor
+En meþgul ay:
+Haftalýk Rapor
+En meþgul hafta: hafta baþý-
+Günlük Özet
+Günlük Rapor
+En meþgul gün:
+Saatlik Rapor
+Saatlik Özet
+Haftanýn saati özeti
+En meþgul saat:
+15 dk. Raporu
+15 dk. Özeti
+En meþgul 15 dk.:
+5 dk. Raporu
+5 dk. Özeti
+En meþgul 5 dk.:
+## The non-time reports. In each case, we have the name of the report,
+## followed by the type of item in the report, once in the singular and once
+## in the plural. These are used in phrases like "including all ??? with at
+## least 200 requests". (The words higher up are used for column headings.)
+## Finally we have the gender of this type of object, which can be m, f or n.
+##
+## So for example, in German a directory is Verzeichnis (neuter gender), which
+## was given above. But "listing the top directory" is "Ausgabe des ersten
+## Verzeichnisses" and "listing the top two directories" is "Ausgabe der
+## ersten zwei Verzeichnisse". So here, we would have for the directory report:
+##
+## Verzeichnis-Bericht
+## Verzeichnisses
+## Verzeichnisse
+## n
+##
+## I hope that makes sense!
+Host Raporu
+host
+hostlar
+n
+Host yönlendirme raporu
+host	
+hostlar
+n
+Baþarýsýz host eriþim raporu
+host
+hostlar
+n
+Dizin Raporu
+Dizin
+Dizinler
+n
+Dosya Tipi Raporu
+dosya tipi
+dosya tipleri
+n
+Eriþim Raporu
+dosya
+dosyalar
+n
+Yönlendirme Raporu
+dosya
+dosyalar
+n
+Baþarýsýz Eriþim Raporu 
+dosya
+dosyalar
+n
+Gönderen Yer Raporu
+gönderici URL
+gönderici URLler
+n
+Gönderici Site Raporu
+gönderici site
+gönderici siteler
+n
+Yönlendirmeler Raporu
+gönderici URL
+gönderici URLler
+n
+Baþarýsýz Gönderiler Raporu
+gönderici URL
+gönderici URLler
+n
+Arama Sorgusu Raporu
+sorgu 
+sorgular
+n
+Aranan Kelime Raporu
+aranan kelime
+aranan kelimeler
+n
+Dahili arama sorgusu raporu
+sorgu
+sorgular
+n
+Dahili kelime arama raporu
+aranan kelime
+aranan kelimeler
+n
+Sanal Host Raporu
+sanal host
+sanal hostlar
+n
+Sanal Host yönlendirme raporu
+Sanal Host
+Sanal Hostlar
+n
+Sanal Host baþarýsýz eriþim raporu
+Sanal Host
+Sanal Hostlar
+n
+Kullanýcý Raporu
+kullanýcý
+kullanýcýlar
+n
+Kullanýcý Yönlendirme Raporu
+kullanýcý
+kullanýcýlar
+n
+Eriþemeyen Kullanýcý Raporu
+kullanýcý
+kullanýcýlar
+n
+Kullanýlan Browserlar Özeti  
+browser
+browserlar
+n
+Kullanýlan Browser Raporu
+Browser
+Browserlar
+n
+Ýþletim Sistemi Raporu
+iþletim sistemi
+iþlerim sistemleri
+n
+Site Tipi Raporu
+site tipi
+site tipleri
+n
+Organizasyon Raporu
+organizasyon
+organizasyonlar
+n
+Durum Kodu Raporu
+durum kodu
+durum kodlarý
+n
+Ýþlem Süresi Raporu
+Dosya Boyutu Raporu
+## Used at the bottom of the report
+Bu analizi yaratmak için kullanýlan program:
+Çalýþma süresi
+1 den az
+## Used in the time reports
+Herbir ünite
+sayfaya
+(sayfadaki nesnelere eriþim dahil)
+kez eriþimi gösterir
+kez eriþimi gösterir
+## Used at the bottom of each non-time report: need m, f & n genders
+*
+*
+not listed
+## Used on the pie charts: again need m, f & n genders
+*
+*
+diðer
+## Used at the top of the report
+Program baþlagýcý: 
+Analiz edilen tarih aralýðý: 
+ / 
+## Used in the General Summary
+Baþarýlý eriþimler
+Baþarýlý eriþimler günlük ortalamasý 
+Sayfalara yapýlan baþarýlý eriþimler
+Sayfalara yapýlan baþarýlý eriþimler günlük ortalamasý
+Durum kodu olmayan KAYIT(LOG) dosyasý satýrlarý
+Baþarýsýz eriþimler
+Yönlendirilen eriþimler
+Enformasyonal status kodlu eriþimler
+Eriþilen belirgin dosya sayýsý
+Servis verilen belirgin host sayýsý
+Bozuk KAYIT(LOG) dosyasý satýrlarý
+Ýstenmeyen KAYIT(LOG) dosyasý satýrlarý
+Transfer edilen bilgi
+Transfer edilen bilgi günlük ortalamasý
+Parantez içindeki deðerlerin temsil ettiði gün sayýsý:
+7 gün-bitiþ: 
+son 7 gün
+Git
+Ýlk Sayfa
+## Some special phrases for particular reports.
+[Çözümlenmemiþ sayýsal adres]
+[Host bilinmiyor]
+[Bilinmeyen host]
+[Ana dizin]
+[Dizin yok]
+[dosya uzantýsý yok]
+[Dizinler]
+Bilinmeyen Windows
+Diðer Unix
+Robotlar
+iþletim sistemi bilinmiyor
+## Column headings for requests, pages, bytes and number (ie position in list)
+## and percentages and last-7-day versions of these.
+## Should be as short as possible -- abbreviate if necessary.
+## (The ?bytes represents kbytes, Mbytes etc.)
+eriþim
+7 günlük eriþim
+eriþim%
+7 günlük eriþim%
+sayfa
+7 günlük sayfa 
+sayfa%
+7 günlük sayfa% 
+bytes
+?bytes
+7 günlük bytes
+7 günlük ?bytes
+bytes%
+7 günlük bytes%
+no.
+## Now we need to know how to say "listing the top <whatever>", "listing
+## the top <n> <whatevers>", and "listing <whatevers>". The %s and %d
+## will be replaced by the appropriate things. There may be three of each of
+## these statements, for the genders m, f and n. Any genders that aren't used,
+## you can just put a * there instead. So, for example, French starts
+## Affichage du premier %s
+## Affichage de la premi&egrave;re %s
+## *
+## with entries for m & f, but not n
+*
+*
+Ýlk %s listeleniyor
+*
+*
+Ýlk %d %s listeleniyor
+*
+*
+%s listeleniyor
+## "by" in the phrase "listing the top 3 files BY number of requests"
+. Sýralama:
+## All requests WITH AT LEAST 10 requests
+ - en az
+## Different ways of doing floors
+son 7 gün içindeki eriþim
+son 7 gün içindeki eriþimler
+son yedi gün içindeki tek sayfa eriþimi
+son yedi gün içindeki sayfa eriþimleri
+yönlendirilmiþ eriþim
+yönlendirilmiþ eriþimler
+son yedi gün içindeki yönlendirilmiþ eriþim
+son yedi gün içindeki yönlendirilmiþ eriþimler
+baþarýsýz eriþim
+baþarýsýz eriþimler
+son yedi gün içindeki baþarýsýz eriþim
+son yedi gün içindeki baþarýsýz eriþimler
+% trafiði olan
+son yedi günde % trafiði olan
+% max. trafiði olan
+son yedi günde % max. trafiði olan
+eriþim
+eriþim miktarý
+## ?bytes represents kbytes, Mbytes etc.
+?bytes cinsinden eriþim miktarý
+son yedi gün içindeki eriþim 
+son yedi gün içindeki bytes cinsinden eriþim miktarý
+son yedi gün içindeki ?bytes cinsinden eriþim miktarý
+son eriþim:
+son yönlendirilmiþ eriþim:
+son baþarýsýz eriþim:
+ilk eriþim
+ilk yönlendirilmiþ eriþim
+ilk baþarýsýz eriþim
+## Now "sorted by": again, in m, f & n (only needed in plural though)
+*
+*
+Sýralama: 
+## Used at the top of each report
+Bu rapordaki verilerin ait olduðu dönem:
+## Used in pie charts
+Dilimlerin temsil ettiði büyüklük:
+## different ways of sorting
+eriþim miktarý
+son yedi gün içindeki eriþim miktarý
+% eriþim yüzdeli
+son yedi gün içindeki % eriþim yüzdeli 
+% max. eriþim yüzdeli
+son yedi gün içindeki % max. eriþim yüzdeli
+eriþim sayýsý
+son yedi gün içindeki eriþim sayýsý
+% sayfa eriþim yüzdeli
+son yedi gün içindeki % sayfa eriþim yüzdeli
+% max. sayfa eriþim yüzdeli
+son yedi gün içindeki % max. sayfa eriþim yüzdeli
+sayfa eriþim sayýsý
+son yedi gün içindeki sayfa eriþim sayýsý 
+% yönlendirilmiþ eriþim yüzdeli
+son yedi gündeki % yönlendirilmiþ eriþim yüzdeli
+% max. yönlendirilmiþ eriþim yüzdeli
+son yedi gün içindeki % max. yönlendirilmiþ eriþim yüzdeli
+yönlendirilmiþ eriþim sayýsý
+son yedi gün içindeki yönlendirilmiþ eriþim sayýsý 
+% baþarýsýz eriþim yüzdeli
+son yedi gündeki % baþarýsýz eriþim yüzdeli
+% max. baþarýsýz eriþim yüzdeli
+son yedi gün içindeki % max. baþarýsýz eriþim yüzdeli
+baþarýsýz eriþim sayýsý
+son yedi gün içindeki baþarýsýz eriþim sayýsý
+Son eriþim zamaný:
+Son yönlendirilmiþ eriþim zamaný:
+Son baþarýsýz eriþim zamaný:
+ilk eriþim zamaný
+ilk yönlendirilmiþ eriþim zamaný
+ilk baþarýsýz eriþim zamaný
+## 3 other ways of sorting in m, f, & n
+*
+*
+Alfabetik sýralý
+*
+*
+Numara sýralý
+*
+*
+Sýralanmamýþ
+## The separators to use between thousands, and as a decimal point. For
+## example, English generally uses "3,000.25" so has , and . here. French uses
+## "3 000,25", so has space and , instead.
+ 
+.
+## There's a colon here, because the French like to put a space before a colon,
+## so they have space-colon instead here.
+:
+## am and pm in the sense of morning and afternoon.
+sabah
+öðleden sonra
+## Some date formats. E.g. for 9am on 1st January 1997 use
+## %d for date          " 1"
+## %D for 0-padded date "01"
+## %e or %E for date at end of time interval (where this makes sense)
+## %m for month         "Jan"
+## %l for month at end of time interval
+## %q for quarter of the year    "1"
+## %y for short year    "97"
+## %Y for long year     "1997"
+## %z or %Z for year at end of time interval
+## %X for ISO 8601 extended date format (yyyy-mm-dd) "1997-01-01"
+## %h for hour in 24-hour clock " 9"
+## %H for 0-padded hour         "09"
+## %j for hour in 12-hour clock " 9"
+## %i, %I or %k for hour at end of time interval
+## %n for minute        "00"
+## %o for minute at end of time interval
+## %a for am or pm      "am"
+## %b for am or pm at end of time interval
+## %w for weekday       "Wed"
+## %x for a dash in a range e.g. in 14:00-14:15. This is necessary because in
+##    proper typesetting, this should be an en-dash not a regular dash.
+##
+## So for a date, English might have %d/%m/%y for 1/Jan/97, whereas German
+## would have %d.%m %y for 1.Jan 97). Note: the month number is not available
+## because it can produce ambiguous dates.
+##
+## The different date formats are as follows
+## "refer to the 7 days to [date]"
+%D-%m-%Y %H:%n
+## "Program started at" and "Analysed requests from"
+%w,%D-%m-%Y %H:%n
+## In Daily Report
+%d/%m/%y
+## In Daily Summary
+%w
+## In Hourly Report
+%d/%m/%y %H:%n%x%I:%o
+## In Hourly Summary
+%h
+## In Hour of the Week Summary
+%w %H:%n%x%I:%o
+## In Quarter-Hour and Five-Minute Reports
+%d/%m/%y %H:%n%x%I:%o 
+## In Quarter-Hour and Five-Minute Summaries
+%H:%n%x%I:%o
+## In Weekly Report
+%d/%m/%y
+## In Monthly Report
+%m %Y
+## In Quarterly Report
+%m%x%l %Y
+## An alternative for Quarterly Report: %Y Q%q
+## In Yearly Report
+%Y
+## The date (d) column in non-time reports
+%d/%m/%y
+## The date & time (D) column in non-time reports
+%d/%m/%y %H:%n
+## In non-time reports: "including all files with requests since [date]"
+%d/%m/%y at %H:%n
+## Finally, definitions of the HTTP status codes (see
+## ftp://ftp.isi.edu/in-notes/rfc2616.txt). You're welcome to leave these in
+## English if you think they look better that way.
+100 Continue with request
+101 Switching protocols
+1xx [Miscellaneous informational]
+200 OK
+201 Created
+202 Accepted for future processing
+203 Non-authoritative information
+204 OK, but nothing to send
+205 Reset document
+206 Partial content
+2xx [Miscellaneous successes]
+300 Multiple documents available
+301 Document moved permanently
+302 Document found elsewhere
+303 See other document
+304 Not modified since last retrieval
+305 Use proxy
+306 Switch proxy
+307 Document moved temporarily
+3xx [Miscellaneous redirections]
+400 Bad request
+401 Authentication required
+402 Payment required
+403 Access forbidden
+404 Document not found
+405 Method not allowed
+406 Document not acceptable to client
+407 Proxy authentication required
+408 Request timeout
+409 Request conflicts with state of resource
+410 Document gone permanently
+411 Length required
+412 Precondition failed
+413 Request too long
+414 Requested filename too long
+415 Unsupported media type
+416 Requested range not valid
+417 Expectation failed
+4xx [Miscellaneous client/user errors]
+500 Internal server error
+501 Request type not supported
+502 Error at upstream server
+503 Service temporarily unavailable
+504 Gateway timeout
+505 HTTP version not supported
+506 Redirection failed
+5xx [Miscellaneous server errors]
+xxx [Unknown]

@@ -1,0 +1,92 @@
+# Report descriptions file for analog 6.0.
+#
+# This file contains descriptions of each report. Lines starting with a
+# hash (#) are comments. Otherwise, each report must take EXACTLY ONE LINE.
+# Yearly Report
+Denna rapport visar aktiviteten under varje aar.
+# Quarterly Report
+Denna rapport visar aktiviteten under varje kvartal.
+# Monthly Report
+Denna rapport visar aktiviteten under varje maanad.
+# Weekly Report
+Denna rapport visar aktiviteten under varje vecka.
+# Daily Report
+Denna rapport visar aktiviteten under varje dygn.
+# Hourly Report
+Denna rapport visar aktiviteten under varje timme.
+# Quarter-Hour Report
+Denna rapport visar aktiviteten under varje kvart.
+# Five-Minute Report
+Denna rapport visar aktiviteten under varje femminutersperiod.
+# Daily Summary
+Denna rapport visar totala aktiviteten foer varje dygn i veckan, summerat oever alla veckor i rapporten.
+# Hourly Summary
+Denna rapport visar totala aktiviteten foer varje timme paa dygnet, summerat oever alla dygn i rapporten.
+# Hour of the Week Summary
+Denna rapport visar totala aktiviteten foer varje dag i veckan, summerat oever alla veckor i rapporten.
+# Quarter-Hour Summary
+Denna rapport visar totala aktiviteten foer varje kvart under dygnet, summerat oever alla dygn i rapporten.
+# Five-Minute Summary
+Denna rapport visar totala aktiviten foer varje femminutersperiod under dygnet, summerat oever alla dygn i rapporten.
+# General Summary
+Denna rapport innehaaller oevergripande statistik.
+# Request Report
+Denna rapport visar filerna paa webbplatsen.
+# Redirection Report
+Denna rapport visar filerna som orsakade att begaeranden omdirigerades till en annan fil (normalt kataloger som saknade ett snedstreck paa slutet, eller CGI-skript som tvingade omdirigeringar).
+# Failure Report
+Denna rapport visar de filer som orsakade misslyckanden, till exempel filer som inte kunde hittas.
+# File Type Report
+Denna rapport visar filaendelserna paa begaerda filer.
+# Directory Report
+Denna rapport visar de kataloger som filer begaerdes ifraan (siffrorna foer varje katalog inkluderar alla dess underkataloger).
+# Host Report
+Denna rapport visar de datorer som begaerde filer.
+# Host Redirection Report
+Denna rapport visar de datorer som omdirigerades till en annan fil.
+# Host Failure Report
+Denna rapport visar de datorer som raakade ut foer misslyckade begaeran.
+# Domain Report
+Denna rapport visar laenderna foer de datorer som begaerde filer.
+# Referrer Report
+Denna rapport visar haenvisarna (de platser som besoekare foeljde laenkar ifraan, eller sidor som inkluderade den haer webbplatsens bilder).
+# Referring Site Report
+Denna rapport visar de servrar som besoekare foeljt laenkar ifraan.
+# Redirected Referrer Report
+Denna rapport visar de haenvisare som orsakade omdirigerade begaeran.
+# Failed Referrer Report
+Denna rapport visar de haenvisare som innehaaller trasiga laenkar till webbplatsen.
+# Browser Report
+Denna rapport visar webblaesarna som besoekare anvaender.
+# Virtual Host Report
+Denna rapport visar aktiviteten foer varje virtuell domaen pae servern.
+# Virtual Host Redirection Report
+Denna rapport visar omdirigerade begaeran till varje virtuell domaen.
+# Virtual Host Failure Report
+Denna rapport visar misslyckade begaeran foer varje virtuell domaen.
+# User Report
+Denna rapport visar de anvaendare som begaerde filer, om anvaendare kan autentiseras eller identifieras av kakor.
+# User Redirection Report
+Denna rapport visar de anvaendare som omdirigerades till en annan fil.
+# User Failure Report
+Denna rapport visar de anvaendare som raakade ut foer misslyckade begaeran.
+# Organisation Report
+Denna rapport visar de organisationer som de datorer som begaerde filer tillhoer.
+# Search Query Report
+Denna rapport visar de soekuttryck som besoekare anvaent i soekmotorer foer att hitta webbplatsen.
+# Search Word Report
+Denna rapport visar de soekord som besoekare anvaent i soekmotorer foer att hitta webbplatsen.
+# Internal Search Query Report
+Denna rapport visar de soekuttryck som besoekare anvaent i skript paa webbplatsen.
+# Internal Search Word Report
+Denna rapport visar de soekord som besoekare anvaent i skript paa webbplatsen.
+# Browser Summary
+Denna rapport visar vilka webblaesare besoekarna har anvaent.
+# Operating System Report
+Denna rapport visar de operativsystem som besoekarna har anvaent.
+# File Size Report
+Denna rapport visar storlekarna paa filer.
+# Status Code Report
+Denna rapport visar HTTP-statuskoderna foer alla begaeranden.
+# Processing Time Report
+Denna rapport visar tiden det har tagit foer att bearbeta lyckade begaeranden.

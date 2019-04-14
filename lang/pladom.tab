@@ -1,0 +1,268 @@
+## Domains File for Analog
+## Polish translation (US-ASCII version) by:
+## Marcin Sochacki (wanted@panda.bg.univ.gda.pl)
+## Tomek Wozniak (huckster@panda.bg.univ.gda.pl)
+aero    2  Przemysl lotniczy
+arpa    1  Arpanet
+biz     2  Biznes
+com     2  Komercyjne
+coop    2  Kooperacje
+edu     2  Edukacyjne
+gov     2  Rzadowe
+info    2  Informacyjne
+int     2  Organizacje Miedzynarodowe
+mil     2  Wojskowe
+museum  2  Muzea
+name    3  Prywatne
+net     2  Sieciowe
+org     2  Organizacje
+pro     3  Profesjonalne
+
+ac  1  Wyspa Wniebowstapienia
+ad  2  Andora
+ae  3  Zjednoczone Emiraty Arabskie
+af  1  Afganistan
+ag  2  Antigua i Barbuda
+ai  1  Anguilla
+al  1  Albania
+am  2  Armenia
+an  1  Antyle Holenderskie
+ao  1  Angola
+aq  1  Antarktyka
+ar  3  Argentyna
+as  1  Samoa Amerykanskie
+at  3  Austria
+au  3  Australia
+aw  1  Aruba
+az  1  Azerbejdzan
+ba  3  Bosnia i Hercegowina
+bb  2  Barbados
+bd  1  Bangladesz
+be  3  Belgia
+bf  1  Burkina Faso
+bg  2  Bulgaria
+bh  1  Bahrain
+bi  1  Burundi
+bj  1  Benin
+bm  1  Bermudy
+bn  1  Brunei
+bo  3  Boliwia
+br  3  Brazylia
+bs  1  Bahamy
+bt  1  Bhutan
+bv  1  Wyspa Bouvet
+bw  1  Botswana
+by  1  Bialorus
+bz  1  Belize
+ca  3  Kanada
+cc  1  Wyspy Kokosowe
+cd  1  Demokratyczna Republika Konga
+cf  1  Republika Srodkowoafrykanska
+cg  1  Kongo
+ch  2  Szwajcaria
+ci  1  Wybrzeze Kosci Sloniowej
+ck  1  Wyspy Cooka
+cl  2  Chile
+cm  1  Kamerun
+cn  3  Chiny
+co  3  Kolumbia
+cr  3  Kostaryka
+cu  2  Kuba
+cv  1  Republika Zielonego Przyladka
+cx  2  Wyspa Bozego Narodzenia
+cy  3  Cypr
+cz  2  Czechy
+de  2  Niemcy
+dj  1  Dzibuti
+dk  2  Dania
+dm  2  Dominika
+do  3  Dominikana
+dz  1  Algieria
+ec  3  Ekwador
+ee  2  Estonia
+eg  3  Egipt
+eh  1  Sahara Zachodnia
+er  1  Erytrea
+es  2  Hiszpania
+et  1  Etiopia
+fi  2  Finlandia
+fj  3  Fidzi
+fk  1  Falklandy
+fm  1  Mikronezja
+fo  1  Wyspy Faroe
+fr  2  Francja
+fx  1  Francja (Terytorium Europejskie)
+ga  1  Gabon
+gb  1  Wielka Brytania
+gd  1  Grenada
+ge  1  Gruzja
+gf  1  Gujana Francuska
+gg  1  Guernsey
+gh  3  Ghana
+gi  1  Gibraltar
+gl  1  Grenlandia
+gm  1  Gambia
+gn  1  Gwinea
+gp  1  Gwadelupa
+gq  1  Gwinea Rownikowa
+gr  2  Grecja
+gs  1  Georgia Poludniowa i Sandwich Poludniowy
+gt  3  Gwatemala
+gu  1  Guam (USA)
+gw  1  Gwinea Bissau
+gy  1  Gujana
+hk  3  Hongkong
+hm  1  Wyspy Heard i McDonald
+hn  2  Honduras
+hr  2  Chorwacja
+ht  1  Haiti
+hu  2  Wegry
+id  3  Indonezja
+ie  2  Irlandia
+il  3  Izrael
+im  1  Wyspa Man
+in  3  Indie
+io  1  Brytyjskie Terytorium Oceanu Indyjskiego
+iq  1  Irak
+ir  1  Iran
+is  2  Islandia
+it  2  Wlochy
+je  1  Jersey
+jm  3  Jamajka
+jo  3  Jordania
+jp  3  Japonia
+ke  3  Kenia
+kg  1  Kirgistan
+kh  1  Kambodza
+ki  1  Kiribati
+km  1  Komory
+kn  1  Saint Kitts i Nevis
+kp  1  Korea Polnocna
+kr  3  Korea Poludniowa
+kw  3  Kuwejt
+ky  1  Kajmany
+kz  1  Kazachstan
+la  1  Laos
+lb  3  Liban
+lc  1  Saint Lucia
+li  2  Liechtenstein
+lk  1  Sri Lanka
+lr  1  Liberia
+ls  1  Lesotho
+lt  2  Litwa
+lu  2  Luksemburg
+lv  2  Lotwa
+ly  1  Libia
+ma  1  Maroko
+mc  2  Monako
+md  1  Moldawia
+mg  1  Madagaskar
+mh  1  Wyspy Marshalla
+mk  3  Macedonia
+ml  1  Mali
+mm  1  Myanmar
+mn  1  Mongolia
+mo  1  Makao
+mp  1  Mariany Polnocne
+mq  1  Martynika
+mr  1  Mauretania
+ms  1  Montserrat
+mt  3  Malta
+mu  1  Mauritius
+mv  1  Malediwy
+mw  1  Malawi
+mx  3  Meksyk
+my  3  Malezja
+mz  1  Mozambik
+na  1  Namibia
+nc  1  Nowa Kaledonia
+ne  1  Niger
+nf  1  Wyspa Norfolk
+ng  1  Nigeria
+ni  3  Nikaragua
+nl  2  Holandia
+no  2  Norwegia
+np  1  Nepal
+nr  1  Nauru
+nu  2  Niue
+nz  3  Nowa Zelandia
+om  1  Oman
+pa  3  Panama
+pe  3  Peru
+pf  1  Polinezja Francuska
+pg  3  Papua Nowa Gwinea
+ph  3  Filipiny
+pk  3  Pakistan
+pl  3  Polska
+pm  1  Saint-Pierre i Miquelon
+pn  1  Pitcairn
+pr  1  Puerto Rico
+ps  1  Palestyna
+pt  2  Portugalia
+pw  1  Palau
+py  3  Paragwaj
+qa  1  Katar
+re  1  Reunion
+ro  2  Rumunia
+ru  2  Rosja
+rw  1  Rwanda
+sa  3  Arabia Saudyjska
+sb  1  Wyspy Salomona
+sc  1  Seszele
+sd  1  Sudan
+se  2  Szwecja
+sg  3  Singapur
+sh  1  Swieta Helena
+si  2  Slowenia
+sj  1  Wyspy Svalbard i Jan Mayen
+sk  2  Slowacja
+sl  1  Sierra Leone
+sm  1  San Marino
+sn  1  Senegal
+so  1  Somalia
+sr  1  Surinam
+st  1  Wyspy Swietego Tomasza i Ksiazeca
+su  2  ZSRR
+sv  3  Salwador
+sy  1  Syria
+sz  1  Suazi
+tc  1  Wyspy Turks i Caicos
+td  1  Czad
+tf  1  Francuskie Terytoria Poludniowe
+tg  1  Togo
+th  3  Tajlandia
+tj  1  Tadzykistan
+tk  1  Tokelau
+tl  1  Timor Wschodni
+tm  1  Turkmenistan
+tn  1  Tunezja
+to  1  Tonga
+tp  1  Timor Wschodni
+tr  3  Turcja
+tt  3  Trynidad i Tobago
+tv  1  Tuvalu
+tw  3  Tajwan
+tz  1  Tanzania
+ua  3  Ukraina
+ug  3  Uganda
+uk  3  Wielka Brytania
+um  1  Wyspy Zewnetrzne Stanow Zjednoczonych
+us  4  Stany Zjednoczone
+uy  3  Urugwaj
+uz  1  Uzbekistan
+va  1  Watykan
+vc  1  Saint Vincent i Grenadyny
+ve  3  Wenezuela
+vg  1  Dziewicze Wyspy Brytyjskie
+vi  1  Dziewicze Wyspy Stanow Zjednoczonych
+vn  1  Wietnam
+vu  1  Vanuatu
+wf  1  Wyspy Wallis i Futuna
+ws  1  Samoa
+ye  1  Jemen
+yt  1  Mayotte
+yu  3  Jugoslawia
+za  3  Republika Poludniowej Afryki
+zm  1  Zambia
+zr  1  Demokratyczna Republika Konga
+zw  3  Zimbabwe

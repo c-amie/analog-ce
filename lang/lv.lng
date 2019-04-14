@@ -1,0 +1,579 @@
+## Latvian language file for analog 6.0
+## May not (or may) work with any other version.
+##
+## This is a language file for analog. Lines beginning with ## are comments.
+## Each language should have one language file in its own character set,
+## and can have an additional one for ASCII (7 bit) output.
+## 
+## Made by Anda Bimbere
+## anda@firstcut.net	http://www.firstcut.net Web design & hosting
+## Any comments welcome
+##
+## The character set of this language file. Prefix with a * to indicate a
+## multibyte character set: e.g. *ISO-2022-JP 
+Windows-1257
+## Abbreviations for the day and month names.
+Svçtd.
+Pirmd.
+Otrd.
+Treðd.
+Ceturtd.
+Piektd.
+Sestd.
+Jan
+Feb
+Mar
+Apr
+Maij
+Jûn
+Jûl
+Aug
+Sep
+Okt
+Nov
+Dec
+## Next some standard common words.
+## Abbreviation for "week beginning"
+nedçïas sâk.
+gads
+## Quarter of a year
+ceturksnis
+mçnesis
+diena
+dienas
+st.
+minûte
+minûtes
+sekunde
+sekundes
+baits
+baiti
+## ?bytes represents kbytes, Mbytes etc.
+?baiti
+pieprasîjums
+pieprasîjumi
+datums
+## This has the right spacing for a column like 23/Mar/98 15:00-15:05
+datums      laiks
+laiks
+pirmais datums
+pirmais laiks
+pçdçjais datums
+pçdçjais laiks
+fails
+faili
+dators
+datori
+virtuâla maðîna
+virtuâlas maðînas
+direktorija
+direktorijas
+domçns
+domçni
+organizâcija
+organizâcijas
+paplaðinâjums
+paplaðinâjumi
+URL
+URLi
+Internet pârlûkprogramma
+Internet pârlûkprogrammas
+OS
+OSas
+## (= operating system, operating systems)
+izmçrs
+meklçðanas vârds
+meklçðanas vârdi
+saits
+saiti
+lietotâjs
+lietotâji
+status kods
+status kodi
+Web Servera Statistika
+## Prefixes kilo, mega etc. to make kilobytes, megabytes etc.
+kilo
+mega
+giga
+tera
+peta
+exa
+zeta
+yotta
+## Shorter versions of the same prefixes for column headings
+k
+M
+G
+T
+P
+E
+Z
+Y
+## Names for the rows in the File Size Report. Note that changing these will
+## NOT change the boundaries! These are just labels for predetermined buckets.
+## They should line up nicely when right-aligned.
+          0
+   1B-  10B
+  11B- 100B
+ 101B-  1kB
+  1kB- 10kB
+ 10kB-100kB
+100kB-  1MB
+  1MB- 10MB
+ 10MB-100MB
+100MB-  1GB
+      > 1GB
+## Now the names of reports
+Îss Kopsavilkums
+## The time reports, plus "busiest" strings (at the bottom of each report)
+Gada Pârskats
+Visnoslogotâkais gads:
+Ceturkðòa Pârskats
+Visnoslogotâkais ceturksnis:
+Mçneða Pârskats
+Visnoslogotâkais mçnesis:
+Nedçïas Pârskats
+Visnoslogotâkâ nedçïa: nedçïas sâkums
+Dienas kopsavilkums
+Dienas Pârskats
+Visnoslogotâkâ diena:
+Stundas Pârskats
+Stundas Kopsavilkums
+Nedçïas Stundu Kopsavilkums
+Visnoslogotâkâ stunda:
+Ceturtdaïstundas Pârskats
+Ceturtdaïstundas Kopsavilkums
+Visnoslogotâkâ stundas ceturtdaïa:
+Piecu Minûðu Pârskats
+Piecu Minûðu Kopsavilkums
+Visnoslogotâkâs piecas minûtes:
+## The non-time reports. In each case, we have the name of the report,
+## followed by the type of item in the report, once in the singular and once
+## in the plural. These are used in phrases like "including all ??? with at
+## least 200 requests". (The words higher up are used for column headings.)
+## Finally we have the gender of this type of object, which can be m, f or n.
+##
+## So for example, in German a directory is Verzeichnis (neuter gender), which
+## was given above. But "listing the top directory" is "Ausgabe des ersten
+## Verzeichnisses" and "listing the top two directories" is "Ausgabe der
+## ersten zwei Verzeichnisse". So here, we would have for the directory report:
+##
+## Verzeichnis-Bericht
+## Verzeichnisses
+## Verzeichnisse
+## n
+##
+## I hope that makes sense!
+Datoru Statistika
+dators
+datori
+m
+Servera Pâradresâcijas Pârskats
+serveris
+serveri
+m
+Servera Neveiksmju Pârskats
+serveris
+serveri
+m
+Direktoriju Pârskats
+direktorija
+direktorijas
+f
+Failu Tipu Pârskats
+faila paplaðinâjums
+failu paplaðinâjumi
+m
+Pieprasîjumu Pârskats
+fails
+faili
+m
+Pâradresâcijas Pârskats
+fails
+faili
+m
+Kïûdu Pârskats
+fails
+faili
+m
+Pârsûtîtâju Pârskats
+pârsûtîtâja URL
+pârsûtîtâju URLi
+m
+Pârsûtîtâja Lapas Pârskats
+pârsûtîtâja lapa
+pârsûtîtâju lapas
+f
+Pâradresçto Pârsûtîtâju Pârskats
+pârsûtîtâja URL
+pârsûtîtâju URLi 
+m
+Neveiksmîgu Pârsûtîtâju Pârskats
+pârsûtîtâja URL
+pârsûtîtâju URLi 
+m
+Meklçðanas Pieprasîjumu Pârskats
+pieprasîjums
+pieprasîjumi
+m
+Meklçðanas Vârdu Pârskats
+meklçðanas vârds
+meklçðanas vârdi
+m
+Iekðçjâs Meklçðanas Pieprasîjuma Pârskats
+pieprasîjums
+pieprasîjumi
+m
+Iekðçjâs Meklçðanas Vârda Pârskats
+pieprasîjuma vârds
+pieprasîjumu vârdi
+m
+Virtuâlo Maðînu Pârskats
+virtuâla maðîna
+virtuâlas maðînas
+f
+Virtuâlâ Servera Pâradresâciju Pârskats
+virtuâlais serveris
+virtuâlie serveri
+m
+Virtuâlâ Servera Neveiksmju Pârskats
+virtuâlais serveris
+virtuâlie serveri
+m
+Lietotâju Pârskats
+lietotâjs
+lietotâji
+m
+Lietotâju Pâradresâcijas Pârskats
+lietotâjs
+lietotâji
+m
+Lietotâju Neveiksmju Pârskats
+lietotâjs
+lietotâji
+m
+Internet Pârlûkprogrammu Kopsavilkums
+Internet pârlûkprogramma
+Internet pârlûkprogrammas
+f
+Internet Pârlûkprogrammu Pârskats
+Internet pârlûkprogramma
+Internet pârlûkprogrammas
+f
+Operçtâjsistçmu Pârskats
+operçtâjsistçma
+operçtâjsistçmas
+f
+Domçnu Pârskats
+domçns
+domçni
+m
+Organizâciju Pârskats
+organizâcija
+organizâcijas
+f
+Status Kodu Pârskats
+status kods
+status kodi
+m
+Pârstrâdâðanas Laika Pârskats
+Failu Izmçru Statistika
+## Used at the bottom of the report
+Ðî analîze tika izveidota ar
+Analizçðanas laiks
+Mazâks kâ 1
+## Used in the time reports
+Katra vienîba
+parâda
+vai daïu no tiem
+lapas pieprasîjums
+lapas pieprasîjumi
+## Used at the bottom of each non-time report: need m, f & n genders
+nav parâdîti 
+nav parâdîtas 
+nav parâdîti
+## Used on the pie charts: again need m, f & n genders
+Cits
+Cita
+Cits
+## Used at the top of the report
+Programma bija sâkta:
+Analizçti pieprasîjumi no
+lîdz
+## Used in the General Summary
+Veiksmîgu pieprasîjumu skaits
+Veiksmîgu pieprasîjumu vidçjais skaits dienâ
+Lapu veiksmîgo pieprasîjumu skaits
+Lapu veiksmîgo pieprasîjumu vidçjais skaits dienâ
+Logfaila rindas bez statusa koda bija
+Neveiksmîgu pieprasîjumu skaits
+Pâradresçto pieprasîjumu skaits
+Pieprasîjumu ar informâcijas statusa kodu bija
+Pieprasîtie individuâlie faili
+Apkalpotie individuâlie serveri
+Sabojâto logfailu rindas
+Nelietotâs logfaila rindas
+Pârsûtîtie dati
+Dienâ vidçji pârsûtîtie dati
+Numuri iekavâs attiecas uz
+7 dienu periods beidzoties
+pçdçjâs 7 dienas
+Skatît
+Sâkums
+## Some special phrases for particular reports.
+[neatrisinâtas numuriskâs adreses]
+[domeins nav uzrâdîts]
+[nezinâms domeins]
+[saknes direktorija]
+[nav direktorijas]
+[nav paplaðinâjums]
+[direktorijas]
+Nezinâms Windows
+Cits Unix
+Roboti
+OS nezinâma
+## Column headings for requests, pages, bytes and number (ie position in list)
+## and percentages and last-7-day versions of these.
+## Should be as short as possible -- abbreviate if necessary.
+## (The ?bytes represents kbytes, Mbytes etc.)
+#piepr
+7 dienu piepr.
+%piepr
+%7 dienu piepr.
+lapas
+7 dienu lapas
+%lapas
+%7 dienu lapas
+baiti
+?baiti
+7 dienu baiti
+7 dienu ?baiti
+%baiti
+%7 dienu baiti
+No.
+## Now we need to know how to say "listing the top <whatever>", "listing
+## the top <n> <whatevers>", and "listing <whatevers>". The %s and %d
+## will be replaced by the appropriate things. There may be three of each of
+## these statements, for the genders m, f and n. Any genders that aren't used,
+## you can just put a * there instead. So, for example, French starts
+## Affichage du premier %s
+## Affichage de la premi&egrave;re %s
+## *
+## with entries for m & f, but not n
+Uzrâdîti topa %s
+Uzrâdîtas topa %s 
+Uzrâdîti topa %s
+Uzrâdîti topa %d %s 
+Uzrâdîtas topa %d %s 
+Uzrâdîti topa %d %s
+Uzrâdîti %s
+Uzrâdîtas %s
+Uzrâdîti %s
+## "by" in the phrase "listing the top 3 files BY number of requests"
+pçc
+## All requests WITH AT LEAST 10 requests
+kam ir ne mazâk par
+## Different ways of doing floors
+pieprasîjums pçdçjo 7 dienu laikâ
+pieprasîjumi pçdçjo 7 dienu laikâ
+lapas pieprasîjums pçdçjo 7 dienu laikâ
+lapu pieprasîjumi pçdçjo 7 dienu laikâ
+pâradresçts pieprasîjums
+pâradresçti pieprasîjumi
+pâradresçts pieprasîjums pçdçjo 7 dienu laikâ
+pâradresçti pieprasîjumi pçdçjo 7 dienu laikâ
+neizdevies pieprasîjums
+neizdevuðies pieprasîjumi
+neizdevies pieprasîjums pçdçjo 7 dienu laikâ
+neizdevuðies pieprasîjumi pçdçjo 7 dienu laikâ
+% no satiksmes
+% no satiksmes pçdçjo 7 dienu laikâ
+% no kopçjâs satiksmes 
+% no vislielâkâs satiksmes daudzuma pçdçjo 7 dienu laikâ
+baits no satiksmes
+baiti no satiksmes
+## ?bytes represents kbytes, Mbytes etc.
+?baiti no satiksmes
+baits no satiksmes pçdçjo 7 dienu laikâ
+baiti no satiksmes pçdçjo 7 dienu laikâ
+?baiti no satiksmes pçdçjo 7 dienu laikâ
+pieprasîti
+kopâ ar pâradresçtiem pieprasîjumiem
+kopâ ar neveiksmîgiem pieprasîjumiem
+ar pirmo pieprasîjumu kopð
+ar pirmo pâradresçto pieprasîjumu kopð
+ar pirmo neveiksmîgo pieprasîjumu kopð
+## Now "sorted by": again, in m, f & n (only needed in plural though)
+sakârtoti pçc 
+sakârtotas pçc 
+sakârtoti pçc
+## Used at the top of each report
+Ðajâ pârskatâ ir dati no
+## Used in pie charts
+Ðíçles ir izveidotas no
+## different ways of sorting
+satiksmes daudzuma
+satiksmes daudzuma pçdçjo 7 dienu laikâ
+% no pieprasîjumiem
+% no pieprasîjumiem pçdçjo 7 dienu laikâ
+% no vislielakâ pieprasîjumu skaita
+% no vislielakâ pieprasîjumu skaita pçdçjo 7 dienu laikâ
+pieprasîjumu skaita
+pieprasîjumu skaits pçdçjo 7 dienu laikâ
+% no lapu pieprasîjuma
+% no lapu pieprasîjuma pçdçjo 7 dienu laikâ
+% no lapu kopçjâ pieprasîjuma
+% no vislielâkâ lapu pieprasîjumu skaita pçdçjo 7 dienu laikâ
+lapu pieprasîjumu skaita
+lapu pieprasîjumu skaits pçdçjo 7 dienu laikâ
+% no pâradresçtiem pieprasîjumiem
+% no pâradresçtiem pieprasîjumiem pçdçjo 7 dienu laikâ
+% no pâradresçto pieprasîjumu vislielâkâ skaita 
+% no pâradresçto pieprasîjumu vislielâkâ skaita pçdçjo 7 dienu laikâ
+pâradresçto pieprasîjumu skaita
+pâradresçto pieprasîjumu skaits pçdçjo 7 dienu laikâ
+% no neveiksmîgiem pieprasîjumiem
+% no neveiksmîgiem pieprasîjumiem pçdçjo 7 dienu laikâ
+% no visiem neveiksmîgiem pieprasîjumiem
+% no neveiksmîgu pieprasîjumu vislielâkâ skaita pçdçjo 7 dienu laikâ
+no neveiksmîgu pieprasîjumu skaita
+neveiksmîgo pieprasîjumu skaits pçdçjo 7 dienu laikâ
+pçdçjais pieprasîjums bija
+pçdçjais pâradresçtais pieprasîjums bija
+pçdçjais neveiksmîgais pieprasîjums bija
+pirmâ pieprasîjuma laiks
+pirmâ pâradresçtâ pieprasîjuma laiks
+pirmâ neveiksmîgâ pieprasîjuma laiks
+## 3 other ways of sorting in m, f, & n
+sakârtoti pçc alfabçta kârtîbas 
+sakârtotas pçc alfabçta kârtîbas 
+sakârtoti pçc alfabçta kârtîbas 
+sakârtoti pçc secîbas 
+sakârtotas pçc secîbas 
+sakârtoti pçc secîbas 
+nesakârtoti
+nesakârtotas
+nesakârtoti
+## The separators to use between thousands, and as a decimal point. For
+## example, English generally uses "3,000.25" so has , and . here. French uses
+## "3 000,25", so has space and , instead.
+ 
+,
+## There's a colon here, because the French like to put a space before a colon,
+## so they have space-colon instead here.
+:
+## am and pm in the sense of morning and afternoon.
+am
+pm
+## Some date formats. E.g. for 9am on 1st January 1997 use
+## %d for date          " 1"
+## %D for 0-padded date "01"
+## %e or %E for date at end of time interval (where this makes sense)
+## %m for month         "Jan"
+## %l for month at end of time interval
+## %q for quarter of the year    "1"
+## %y for short year    "97"
+## %Y for long year     "1997"
+## %z or %Z for year at end of time interval
+## %X for ISO 8601 extended date format (yyyy-mm-dd) "1997-01-01"
+## %h for hour in 24-hour clock " 9"
+## %H for 0-padded hour         "09"
+## %j for hour in 12-hour clock " 9"
+## %i, %I or %k for hour at end of time interval
+## %n for minute        "00"
+## %o for minute at end of time interval
+## %a for am or pm      "am"
+## %b for am or pm at end of time interval
+## %w for weekday       "Wed"
+## %x for a dash in a range e.g. in 14:00-14:15. This is necessary because in
+##    proper typesetting, this should be an en-dash not a regular dash.
+##
+## So for a date, English might have %d/%m/%y for 1/Jan/97, whereas German
+## would have %d.%m %y for 1.Jan 97). Note: the month number is not available
+## because it can produce ambiguous dates.
+##
+## The different date formats are as follows
+## "refer to the 7 days to [date]"
+%Y.g. %d. %m. %H:%n
+## "Program started at" and "Analysed requests from"
+%w, %Y.g. %d. %m. %H:%n
+## In Daily Report
+%d/%m/%y
+## In Daily Summary
+%w
+## In Hourly Report
+%d/%m/%y %H:%n%x%I:%o
+## In Hourly Summary
+%h
+## In Hour of the Week Summary
+%w %H:%n%x%I:%o
+## In Quarter-Hour and Five-Minute Reports
+%d/%m/%y %H:%n%x%I:%o
+## In Quarter-Hour and Five-Minute Summaries
+%H:%n%x%I:%o
+## In Weekly Report
+%d/%m/%y
+## In Monthly Report
+%m %Y
+## In Quarterly Report
+%m.%x%l. %Y
+## An alternative for Quarterly Report: %Y Q%q
+## In Yearly Report
+%Y
+## The date (d) column in non-time reports
+%d/%m/%y
+## The date & time (D) column in non-time reports
+%d/%m/%y %H:%n
+## In non-time reports: "including all files with requests since [date]"
+%d/%m/%y %H:%n
+## Finally, definitions of the HTTP status codes (see
+## ftp://ftp.isi.edu/in-notes/rfc2616.txt). You're welcome to leave these in
+## English if you think they look better that way.
+100 Turpinât pieprasîjumu
+101 Tiek mainîts protokols
+1xx [Daþâda informâcija]
+200 OK
+201 Izveidota
+202 Pieòemts pârstrâdei nâkotnç
+203 neautorizçta informâcija
+204 OK, bet nav, ko sûtît
+205 Atjaunots dokuments
+206 Daïçjs saturs
+2xx [Daþâdi izdevuðies pieprasîjumi]
+300 Pieejami vairâki dokumenti
+301 Dokuments pastâvîgi pârvietots
+302 Dokuments atrodams citur
+303 Apskatiet citu dokumentu
+304 Nav mainîts kopð pçdçjâs reizes
+305 Lietojiet proxy
+306 Mainiet proxy
+307 Dokuments pagaidâm pârvietots
+3xx [Daþâdas pâradresâcijas]
+400 Slikts pieprasîjums
+401 Nepiecieðama autentikâcija+
+402 Vajadzîgs maksâjums
+403 Pieeja aizliegta
+404 Dokuments nav atrasts
+405 Metode nav atïauta
+406 Dokuments nav pieòemams klientam
+407 Nepiecieðama proxy autentikâcija
+408 Pieprasîjuma laiks beidzies
+409 Pieprasîjums ir pretrunâ ar resursu stâvokli
+410 Dokuments ir pastâvîgi izòemts no lietoðanas
+411 Vajadzîgs garums
+412 Iepriekðnosacîjums nav izdevies
+413 Pieprasîjums par garu
+414 Pieprasîtais faila nosaukums par garu
+415 Neatbalstîti mediju veidi
+416 Pieprasîtâ amplitûda nederîga
+417 Pieprasîjums nav izdevies
+4xx [Daþâdas klientu/lietotâju kïûdas]
+500 Iekðçjâ servera kïûda
+501 Pieprasîjuma veids nav atbalstîts
+502 Kïûda vienâ no tâlâkajiem serveriem
+503 Pakalpojums pagaidâm nav pieejams
+504 Gateway laiks beidzies
+505 HTTP versija nav atbalstîta
+506 Neveiksmîga pâradresâcija
+5xx [Daþâdas servera kïûdas]
+xxx [Nezinâms]

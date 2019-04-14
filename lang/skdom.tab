@@ -1,0 +1,270 @@
+# Slovak language files made by DooDeeToo (http://doodeetoo.host.sk)
+#
+# character set: ISO-8859-2
+
+# Generic and Infrastructure domains
+aero    2  letecká doprava
+arpa    1  Arpanet
+biz     2  firmy
+com     2  komerèné organizácie
+coop    2  kooperácie
+edu     2  vzdelávacie in¹titúcie USA
+gov     2  vláda USA
+info    2  informaèné
+int     2  medzinárodné organizácie
+mil     2  armáda USA
+museum  2  múzeá
+name    3  jednotlivci
+net     2  sie»ové organizácie
+org     2  neziskové organizácie
+pro     3  profesionálne
+
+# Country code domains
+ac  1   ostrov Ascension
+ad  2   Andorra
+ae  3   Spojené Arabské emiráty
+af  1   Afganistan
+ag  2   Antigua a Barbuda
+ai  1   Anguilla
+al  1   Albánsko
+am  2   Arménsko
+an  1   Holandské Antily
+ao  1   Angola
+aq  1   Antarktída
+ar  3   Argentína
+as  1   Americká Samoa
+at  3   Rakúsko
+au  3   Austrália
+aw  1   Aruba
+az  1   Azerbajd¾an
+ba  3   Bosna a Hercegovina
+bb  2   Barbados
+bd  1   Bangladé¹
+be  3   Belgicko
+bf  1   Burkina Faso
+bg  2   Bulharsko
+bh  1   Bahrajn
+bi  1   Burundi
+bj  1   Benin
+bm  1   Bermudy
+bn  1   Brunej
+bo  3   Bolívia
+br  3   Brazília
+bs  1   Bahamy
+bt  1   Bhután
+bv  1   ostrov Bouvet
+bw  1   Botswana
+by  1   Bielorusko
+bz  1   Belize
+ca  3   Kanada
+cc  1   Kokosové ostrovy
+cd  1   Kon¾ská demokratická republika
+cf  1   Stredoafrická republika
+cg  1   Kongo
+ch  2   ©vajèiarsko
+ci  1   Pobre¾ie Slonoviny
+ck  1   Cookove ostrovy
+cl  2   Chile
+cm  1   Kamerun
+cn  3   Èína
+co  3   Kolumbia
+cr  3   Kostarika
+cu  2   Kuba
+cv  1   Kapverdy
+cx  2   Vianoèný ostrov
+cy  3   Cyprus
+cz  2   Èesko
+de  2   Nemecko
+dj  1   D¾ibutsko
+dk  2   Dánsko
+dm  2   Dominika
+do  3   Dominikánska republika
+dz  1   Al¾írsko
+ec  3   Ekvádor
+ee  2   Estónsko
+eg  3   Egypt
+eh  1   Západná Sahara
+er  1   Eritrea
+es  2   ©panielsko
+et  1   Eiópia
+fi  2   Fínsko
+fj  3   Fid¾i
+fk  1   Falklandy
+fm  1   Mikronézia
+fo  1   Faerské ostrovy
+fr  2   Francúzsko
+fx  1   Francúzsko (Európske územie)
+ga  1   Gabon
+gb  1   Veµká Británia
+gd  1   Grenada
+ge  1   Gruzínsko
+gf  1   Francúzska Guyana
+gg  1   Guernsey
+gh  3   Ghana
+gi  1   Gibraltár
+gl  1   Grónsko
+gm  1   Gambia
+gn  1   Guinea
+gp  1   Guadelupe
+gq  1   Rovníková Guinea
+gr  2   Grécko
+gs  1   Ju¾ná Georgia
+gt  3   Guatemala
+gu  1   Guam
+gw  1   Guinea-Bissau
+gy  1   Guyana
+hk  3   Hongkong
+hm  1   ostrovy Heard a McDonald
+hn  2   Honduras
+hr  2   Chorvátsko
+ht  1   Haiti
+hu  2   Maïarsko
+id  3   Indonézia
+ie  2   Írsko
+il  3   Izrael
+im  1   ostrov Man
+in  3   India
+io  1   Britské indickooceánske teritórium
+iq  1   Irak
+ir  1   Irán
+is  2   Island
+it  2   Taliansko
+je  1   ostrov Jersey
+jm  3   Jamajka
+jo  3   Jordánsko
+jp  3   Japonsko
+ke  3   Keòa
+kg  1   Kirgizsko
+kh  1   Kambod¾a
+ki  1   Kiribati
+km  1   Komory
+kn  1   Svätý Kri¹tof
+kp  1   Severná Kórea
+kr  3   Ju¾ná Kórea
+kw  3   Kuvajt
+ky  1   Kajmanie ostrovy
+kz  1   Kazachstan
+la  1   Laos
+lb  3   Libanon
+lc  1   Svätá Lucia
+li  2   Lichten¹tajnsko
+lk  1   Srí Lanka
+lr  1   Libéria
+ls  1   Lesotho
+lt  2   Litva
+lu  2   Luxembursko
+lv  2   Loty¹sko
+ly  1   Líbya
+ma  1   Maroko
+mc  2   Monako
+md  1   Moldavsko
+mg  1   Madagaskar
+mh  1   Marshallove ostrovy
+mk  3   Macedónsko
+ml  1   Mali
+mm  1   Barma
+mn  1   Mongolsko
+mo  1   Macao
+mp  1   Severné Mariany
+mq  1   Martinik
+mr  1   Mauritánia
+ms  1   Montserrat
+mt  3   Malta
+mu  1   Maurícius
+mv  1   Maledivy
+mw  1   Malawi
+mx  3   Mexiko
+my  3   Malajzia
+mz  1   Mozambik
+na  1   Namíbia
+nc  1   Nová Kaledónia
+ne  1   Niger
+nf  1   Norfolk
+ng  1   Nigéria
+ni  3   Nikaragua
+nl  2   Holandsko
+no  2   Nórsko
+np  1   Nepál
+nr  1   Nauru
+nu  2   Niue
+nz  3   Nový Zéland
+om  1   Omán
+pa  3   Panama
+pe  3   Peru
+pf  1   Francúzska Polynézia
+pg  3   Papua - Nová Guinea
+ph  3   Filipíny
+pk  3   Pakistan
+pl  3   Poµsko
+pm  1   Saint Pierre a Miguelon
+pn  1   Pitcairnove ostrovy
+pr  1   Portoriko
+ps  3   Palestína
+pt  2   Portugalsko
+pw  1   Palauské ostrovy
+py  3   Paraguaj
+qa  1   Katar
+re  1   Réunion
+ro  2   Rumunsko
+ru  2   Rusko
+rw  1   Rwanda
+sa  3   Saudská Arábia
+sb  1   ©alamúnove ostrovy
+sc  1   Seychely
+sd  1   Sudán
+se  2   ©védsko
+sg  3   Singapur
+sh  1   Svätá Helena
+si  2   Slovinsko
+sj  1   ©picbergy
+sk  2   Slovensko
+sl  1   Sierra Leone
+sm  1   San Maríno
+sn  1   Senegal
+so  1   Somálsko
+sr  1   Surinam
+st  1   Svätý Tomá¹
+su  2   Sovietsky zväz
+sv  3   Salvádor
+sy  1   Sýria
+sz  1   Svazijsko
+tc  1   Turks a Caicos
+td  1   Èad
+tf  1   Francúzske ju¾né územia
+tg  1   Togo
+th  3   Thajsko
+tj  1   Tad¾ikistan
+tk  1   Tokelau
+tl  1   Východný Timor
+tm  1   Turkménsko
+tn  1   Tunisko
+to  1   Tonga
+tp  1   Východný Timor
+tr  3   Turecko
+tt  3   Trinidad a Tobago
+tv  1   Tuvalu
+tw  3   Taiwan
+tz  1   Tanzánia
+ua  3   Ukrajina
+ug  3   Uganda
+uk  3   Veµká Británia
+um  1   malé ostrovy USA
+us  4   Spojené ¹táty americké
+uy  3   Uruguaj
+uz  1   Uzbekistan
+va  1   Vatikán
+vc  1   Svätý Vincent
+ve  3   Venezuela
+vg  1   Britské Panenské ostrovy
+vi  1   Americké Panenské ostrovy
+vn  1   Vietnam
+vu  1   Vanuatu
+wf  1   Wallisove ostrovy
+ws  1   Samoa
+ye  1   Jemen
+yt  1   ostrov Mayotte
+yu  3   Juhoslávia
+za  3   Ju¾ná Afrika
+zm  1   Zambia
+zr  1   Zair
+zw  3   Zimbabwe

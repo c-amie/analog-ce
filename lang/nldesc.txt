@@ -1,0 +1,92 @@
+# Report descriptions file for analog 6.0.
+#
+# This file contains descriptions of each report. Lines starting with a
+# hash (#) are comments. Otherwise, each report must take EXACTLY ONE LINE.
+# Yearly Report
+Dit rapport laat de activiteiten zien in ieder jaar.
+# Quarterly Report
+Dit rapport laat de activiteiten zien in ieder kwartaal.
+# Monthly Report
+Dit rapport laat de activiteiten zien in iedere maand.
+# Weekly Report
+Dit rapport laat de activiteiten zien in iedere week.
+# Daily Report
+Dit rapport laat de activiteiten zien in iedere dag.
+# Hourly Report
+Dit rapport laat de activiteiten zien in ieder uur.
+# Quarter-Hour Report
+Dit rapport laat de activiteiten zien in ieder kwartier.
+# Five-Minute Report
+Dit rapport laat de activiteiten zien per vijf minuten.
+# Daily Summary
+Dit rapport laat de totale activiteit zien voor iedere dag van de week, gesommeerd over alle weken in het rapport.
+# Hourly Summary
+Dit rapport laat de totale activiteit zien voor ieder uur van de dag, gesommeerd over alle dagen in het rapport.
+# Hour of the Week Summary
+Dit rapport laat de totale activiteit zien for ieder uur van de week, gesommeerd over alle weken in het rapport.
+# Quarter-Hour Summary
+Dit rapport laat de totale activiteit voor ieder kwartier van de dag, gesommeerd over alle dagen in het rapport.
+# Five-Minute Summary
+Dit rapport laat de totale activiteit zien voor iedere vijf minuten van de dag, gesommeerd over alle dagen in het rapport.
+# General Summary
+Dit rapport bevat de algemene statistieken.
+# Request Report
+Dit rapport laat de bestanden op de site zien.
+# Redirection Report
+Dit rapport laat de bestanden zien die ervoor zorgen dat verzoeken worden doorverwezen naar een ander bestand. (Meestal directories zonder de laatste slash, of CGI scripts die doorsturen.)
+# Failure Report
+Dit rapport laat de bestanden zien die fouten veroorzaken, bijvoorbeeld bestand niet gevonden.
+# File Type Report
+Dit rapport laat de extensies zien van de aangevraagde bestanden.
+# Directory Report
+Dit rapport laat de directories zien van waar de bestanden waren aangevraagd. (De figuren voor iedere directory bevatten alle subdirectories.)
+# Host Report
+Dit rapport laat de computers zien die bestanden aanvragen.
+# Host Redirection Report
+Dit rapport laat de computers zien die zijn doorverwezen naar andere bestanden.
+# Host Failure Report
+Dit rapport laat de computers zien die foute verzoeken veroorzaakten.
+# Domain Report
+Dit rapport laat de landen van de computers zien die bestanden aanvragen.
+# Referrer Report
+Dit rapport laat de referrers zien (van waar mensen links hebben gevolgd, of pagina's die plaatsjes/bestanden van deze site bevatten).
+# Referring Site Report
+Dit rapport laat zien vanaf welke servers mensen links volgde.
+# Redirected Referrer Report
+Dit rapport laat zien welke referrers een doorverwijzing veroorzaakt.
+# Failed Referrer Report
+Dit rapport laat de referrers zien die een broken link naar de site hebben.
+# Browser Report
+Dit rapport laat zien welke browser door de bezoekers gebruikt worden.
+# Virtual Host Report
+Dit rapport laat de activiteiten zien op elke virtual domain van de site.
+# Virtual Host Redirection Report
+Dit rapport laat de doorverwezen verzoeken zien naar elke virtual domain van de site.
+# Virtual Host Failure Report
+Dit rapport laat de mislukte verzoeken zien van elke virtual domain.
+# User Report
+Dit rapport laat de gebruikers zien die bestanden aanvroegen, als gebruikers zich hebben aangemeld of geïdentificeerd kunnen worden door cookies.
+# User Redirection Report
+Dit rapport laat de gebruikers zien die zijn doorverwezen naar een ander bestand.
+# User Failure Report
+Dit rapport laat de gebruikers zien die fouten veroorzaakten.
+# Organisation Report
+Dit rapport laat de organisaties zien van waar computers bestanden aanvroegen.
+# Search Query Report
+Dit rapport laat zien welke vraag bezoekers hebben gesteld in een zoekmachine om deze site te vinden.
+# Search Word Report
+Dit rapport laat zien welke woorden bezoekers hebben gebruikt in een zoekmachine om deze site te vinden.
+# Internal Search Query Report
+Dit rapport laat zien welke vraag bezoekers hebben gesteld in scripts binnen de site.
+# Internal Search Word Report
+Dit rapport laat zien welke woorden bezoekers hebben gebruikt in scripts binnen de site.
+# Browser Summary
+Dit rapport laat de makers van de bezoekers' browsers zien.
+# Operating System Report
+Dit rapport laat de operating systems zien gebruikt door de bezoekers.
+# File Size Report
+Dit rapport laat de grootte van de bestanden zien.
+# Status Code Report
+Dit rapport laat de HTTP status codes of alle requests zien.
+# Processing Time Report
+Dit rapport laat de benodigde tijden zien om aanvragen goed af te handelen.

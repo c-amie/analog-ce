@@ -1,0 +1,265 @@
+aero    2   Luchtvaartindustrie
+arpa    1   Arpanet
+biz     2   Bedrijven
+com     2   Commercieel
+coop    2   Coöperaties
+edu     2   USA Onderwijs
+gov     2   USA Overheid
+info    2   Informatief
+int     2   Internationale Verdrag Organisaties
+mil     2   VS Militiar
+museum  2   Musea
+name    3   Personen
+net     2   Netwerk
+org     2   Niet-Commerciële Organisaties
+pro     3   Professionals
+
+ac  1   Ascension Eiland
+ad  2   Andorra
+ae  3   Verenigde Arabisch Emiraten
+af  1   Afghanistan
+ag  2   Antigua en Barbuda
+ai  1   Anguilla
+al  1   Albanië
+am  2   Armenië
+an  1   Nederlandse Antillen
+ao  1   Angola
+aq  1   Antarctica
+ar  3   Argentinië
+as  1   Amerikaans Samoa
+at  3   Oostenrijk
+au  3   Australië
+aw  1   Aruba
+az  1   Azerbaidzjan
+ba  3   Bosnië-Herzegovina
+bb  2   Barbados
+bd  1   Bangladesh
+be  3   België
+bf  1   Burkina Faso
+bg  2   Bulgarië
+bh  1   Bahrein
+bi  1   Burundi
+bj  1   Benin
+bm  1   Bermuda
+bn  1   Brunei Darussalam
+bo  3   Bolivia
+br  3   Brazilië
+bs  1   Bahama's
+bt  1   Bhutan
+bv  1   Bouvet Eiland
+bw  1   Botswana
+by  1   Wit-Rusland
+bz  1   Belize
+ca  3   Canada
+cc  1   Cocos (of Keeling) Eilanden
+cd  1   Democratisch Republiek Congo
+cf  1   Centraal-Afrikaanse Republiek
+cg  1   Congo
+ch  2   Zwitserland
+ci  1   Ivoorkust
+ck  1   Cook Eilanden
+cl  2   Chili
+cm  1   Kameroen
+cn  3   China
+co  3   Colombia
+cr  3   Costa Rica
+cs  3   Servië en Montenegro
+cu  1   Cuba
+cv  1   Kaap Verdië
+cx  2   Christmas Eiland
+cy  3   Cyprus
+cz  2   Tsjechië
+de  2   Duitsland
+dj  1   Djibouti
+dk  2   Denemarken
+dm  2   Dominica
+do  2   Dominicaanse Republiek
+dz  1   Algerije
+ec  3   Ecuador
+ee  2   Estland
+eg  3   Egypte
+eh  1   West-Sahara
+er  1   Eritrea
+es  2   Spanje
+et  1   Ethiopië
+fi  2   Finland
+fj  3   Fiji
+fk  1   Falkland Eilanden
+fm  1   Micronesië
+fo  1   Faeröer Eilanden
+fr  2   Frankrijk
+fx  1   Frankrijk (Europees Territorium)
+ga  1   Gabon
+gb  1   Verenigd Koninkrijk
+gd  1   Grenada
+ge  1   Georgië
+gf  1   Frans Guyana
+gg  1   Guernsey
+gh  3   Ghana
+gi  1   Gibraltar
+gl  1   Groenland
+gm  1   Gambia
+gn  1   Guinea
+gp  1   Guadeloupe
+gq  1   Equatoriaal Guinea
+gr  2   Griekenland
+gs  1   Zuid-Georgië en de Zuid-Sandwicheilanden
+gt  3   Guatemala
+gu  1   Guam
+gw  1   Guinee-Bissau
+gy  1   Guyana
+hk  3   Hong Kong
+hm  1   Heard- en McDonald Eilanden
+hn  2   Honduras
+hr  2   Kroatië
+ht  1   Haïti
+hu  2   Hongarije
+id  3   Indonesië
+ie  2   Ierland
+il  3   Israël
+im  1   Isle of Man
+in  3   India
+io  1   Brits gebied in de Indisch Oceaan
+iq  1   Irak
+ir  1   Iran
+is  2   IJsland
+it  2   Italië
+je  1   Jersey
+jm  3   Jamaica
+jo  3   Jordanië
+jp  3   Japan
+ke  3   Kenia
+kg  1   Kirgiezië
+kh  1   Cambodja
+ki  1   Kiribati
+km  1   Comoren
+kn  1   Saint Kitts en Nevis
+kp  1   Noord-Korea
+kr  3   Zuid-Korea
+kw  3   Koeweit
+ky  1   Cayman Eilanden
+kz  1   Kazachstan
+la  1   Laos
+lb  3   Libanon
+lc  1   Sint Lucia
+li  2   Liechtenstein
+lk  1   Sri Lanka
+lr  1   Liberia
+ls  1   Lesotho
+lt  2   Litouwen
+lu  2   Luxemburg
+lv  2   Letland
+ly  1   Libië
+ma  1   Marokko
+mc  2   Monaco
+md  1   Moldavië
+mg  1   Madagaskar
+mh  1   Marshall Eilanden
+mk  3   Macedonië
+ml  1   Mali
+mm  1   Myanmar
+mn  1   Mongolië
+mo  1   Macau
+mp  1   Noord-Marianen
+mq  1   Martinique
+mr  1   Mauritanië
+ms  1   Montserrat
+mt  3   Malta
+mu  1   Mauritius
+mv  1   Maladiven
+mw  1   Malawi
+mx  3   Mexico
+my  3   Maleisië
+mz  1   Mozambique
+na  1   Namibië
+nc  1   Nieuw-Caledonië
+ne  1   Niger
+nf  1   Norfolk
+ng  1   Nigeria
+ni  3   Nicaragua
+nl  2   Nederland
+no  2   Noorwegen
+np  1   Nepal
+nr  1   Nauru
+nu  2   Niue Eiland
+nz  3   Nieuw-Zeeland
+om  1   Oman
+pa  3   Panama
+pe  3   Peru
+pf  1   Frans-Polynesië
+pg  3   Papua-Nieuw-Guinea
+ph  3   Filipijnen
+pk  3   Pakistan
+pl  3   Polen
+pm  1   Sint Pierre en Miquelon
+pn  1   Pitcairn Eilanden
+pr  1   Puerto Rico
+ps  1   Gebied onder Palestijnse autoriteit
+pt  2   Portugal
+pw  1   Palau Eilanden
+py  3   Paraguay
+qa  1   Qatar
+re  1   Reunion Eiland
+ro  2   Romanië
+ru  2   Rusland
+rw  1   Rwanda
+sa  3   Saudi-Arabië
+sb  1   Salomons Eilanden
+sc  1   Seychelles
+sd  1   Soedan
+se  2   Zweden
+sg  3   Singapore
+sh  1   Sint Helena
+si  2   Slovenië
+sj  1   Svalbard en Jan Mayen Eilanden
+sk  2   Slowakije
+sl  1   Sierra Leone
+sm  1   San Marino
+sn  1   Senegal
+so  1   Somalië
+sr  1   Suriname
+st  1   Sao Tomé en Principe
+su  2   Voormalig Sovjet Unie
+sv  3   El Salvador
+sy  1   Syrië
+sz  1   Swaziland
+tc  1   Turks en Caicos Eilanden
+td  1   Tsjaad
+tf  1   Franse zuidelijke gebieden
+tg  1   Togo
+th  3   Thailand
+tj  1   Tadjikistan
+tk  1   Tokelau Eilanden
+tl  1   Oost-Timor
+tm  1   Turkmenistan
+tn  1   Tunisië
+to  1   Tonga
+tp  1   Oost-Timor
+tr  3   Turkije
+tt  3   Trinidad en Tobago
+tv  1   Tuvalu
+tw  3   Taiwan
+tz  1   Tanzania
+ua  3   Oekraïne
+ug  3   Uganda
+uk  3   Vereningd Koninkrijk
+um  1   Verafgelegen eilandjes van de Verenigde Staten
+us  4   Vereningde Staten
+uy  3   Uruguay
+uz  1   Oezbekistan
+va  1   Vaticaanstad
+vc  1   Saint Vincent en Grenadines
+ve  3   Venezuela
+vg  1   Maagdeneilanden (Brits)
+vi  1   Maagdeneilanden (USA)
+vn  1   Vietnam
+vu  1   Vanuatu
+wf  1   Wallis en Futuna Eilanden
+ws  1   Samoa
+ye  1   Jemen
+yt  1   Mayotte
+yu  3   Joegoslavië
+za  3   Zuid-Afrika
+zm  1   Zambia
+zr  1   Voormalig Zaire
+zw  3   Zimbabwe

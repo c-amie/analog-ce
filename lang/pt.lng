@@ -1,0 +1,579 @@
+## Language file for analog 6.0. May not work with any other version.
+##
+## This is a language file for analog. Lines beginning with ## are comments.
+## Each language should have one language file in its own character set,
+## and can have an additional one for ASCII (7 bit) output.
+## 
+## If your language doesn't seem to fit into this pattern, explain the problem
+## to me, and I can adjust the source code if necessary.
+##
+## Portuguese version by Jaime Carvalho e Silva, 26 January 2001
+##
+## The character set of this language file. Prefix with a * to indicate a
+## multibyte character set: e.g. *ISO-2022-JP
+ISO-8859-1
+## Abbreviations for the day and month names.
+Dom
+Seg
+Ter
+Qua
+Qui
+Sex
+Sab
+Jan
+Fev
+Mar
+Abr
+Mai
+Jun
+Jul
+Ago
+Set
+Out
+Nov
+Dez
+## Next some standard common words.
+## Abbreviation for "week beginning"
+sem. com.
+ano
+## Quarter of a year
+trimestre
+mês
+dia
+dias
+h
+minuto
+minutos
+segundo
+segundos
+byte
+bytes
+## ?bytes represents kbytes, Mbytes etc.
+?bytes
+pedido
+pedidos
+data
+## This has the right spacing for a column like 23/Mar/98 15:00-15:05
+data        hora
+horas 
+prim. data
+prim. hora
+data ant.
+hora ant.
+ficheiro
+ficheiros
+servidor
+servidores
+servidor virtual
+servidores virtuais
+directoria
+directorias
+domínio
+domínios
+organização
+organizações
+extensão
+extensões
+URL
+URLs
+Leitor
+Leitores
+Sistema Operativo
+Sistemas Operativos
+## (= operating system, operating systems)
+tamanho
+termo pesquisado
+termos pesquisados
+sítio
+sítios
+utilizador
+utilizadores
+cod. estado
+cod. estado
+Estatísticas do Servidor Web de
+## Prefixes kilo, mega etc. to make kilobytes, megabytes etc.
+kilo
+mega
+giga
+tera
+peta
+exa
+zeta
+yotta
+## Shorter versions of the same prefixes for column headings
+k
+M
+G
+T
+P
+E
+Z
+Y
+## Names for the rows in the File Size Report. Note that changing these will
+## NOT change the boundaries! These are just labels for predetermined buckets.
+## They should line up nicely when right-aligned.
+          0
+   1B-  10B
+  11B- 100B
+ 101B-  1kB
+  1kB- 10kB
+ 10kB-100kB
+100kB-  1MB
+  1MB- 10MB
+ 10MB-100MB
+100MB-  1GB
+      > 1GB
+## Now the names of reports
+Sumário Geral
+## The time reports, plus "busiest" strings (at the bottom of each report)
+Relatório Anual
+Ano mais movimentado:
+Relatório trimestral
+Trimestre mais movimentado:
+Relatório Mensal
+Mês mais movimentado:
+Relatório Semanal
+Semana mais movimentada: semana começando
+Resumo Diário
+Relatório Diário
+Dia mais movimentado:
+Relatório Horário
+Resumo Horário
+Resumo de hora da Semana
+Hora mais movimentada:
+Relatório ao quarto de hora
+Resumo dos quartos de hora
+Quarto de hora mais movimentado:
+Relatório cada cinco minutos
+Resumo dos cinco minutos
+Cinco minutos mais movimentados:
+## The non-time reports. In each case, we have the name of the report,
+## followed by the type of item in the report, once in the singular and once
+## in the plural. These are used in phrases like "including all ??? with at
+## least 200 requests". (The words higher up are used for column headings.)
+## Finally we have the gender of this type of object, which can be m, f or n.
+##
+## So for example, in German a directory is Verzeichnis (neuter gender), which
+## was given above. But "listing the top directory" is "Ausgabe des ersten
+## Verzeichnisses" and "listing the top two directories" is "Ausgabe der
+## ersten zwei Verzeichnisse". So here, we would have for the directory report:
+##
+## Verzeichnis-Bericht
+## Verzeichnisses
+## Verzeichnisse
+## n
+##
+## I hope that makes sense!
+Relatório de Servidores
+Servidor
+Servidores
+m
+Relatório de reencaminhamento do Servidor
+servidor
+servidores
+m
+Relatório de falhas do Servidor
+servidor
+servidores
+m
+Relatório de Directorias
+directoria
+directorias
+f
+Relatório de Tipos de Ficheiro
+extensão
+extensões
+f
+Relatório de Pedidos
+ficheiro
+ficheiros
+m
+Relatório de redireccionamento
+ficheiro
+ficheiros
+m
+Relatório de falhas
+ficheiro
+ficheiros
+m
+Relatório de referência
+URL de referência
+URLs de referência
+m
+Relatório do sítio de referência
+sítio de referência
+sítios de referência
+m
+Relatório de referência redireccionada
+URL de referência
+URLs de referência
+m
+Relatório de referência falhada
+URL de referência
+URLs de referência
+m
+Relatório de perguntas de pesquisa
+pergunta
+perguntas
+f
+Relatório de pesquisa de palavras
+palavra pesquisada
+palavras pesquisadas
+f
+Relatório de Pesquisas Internas
+pesquisas
+pesquisa
+f
+Relatório de Palavras Pesquisadas Internamente
+palavra pesquisada
+palavras pesquisadas
+f
+Relatório de Servidor Virtual
+servidor virtual
+servidores virtuais
+m
+Relatório de Reencaminhamento de Servidor Virtual 
+servidor virtual
+servidores virtuais
+m
+Relatório de Falhas de Servidor Virtual 
+servidor virtual
+servidores virtuais
+m
+Relatório de Utilizadores
+utilizador
+utilizadores
+m
+Relatório de Reencaminhamento de Utilizadores 
+utilizador
+utilizadores
+m
+Relatório de Erros de Utilizadores
+utilizador
+utilizadores
+m
+Resumo de Leitores
+leitor
+leitores
+m
+Relatório de Leitores
+leitor
+leitores
+m
+Relatório de Sistemas Operativos
+Sistema Operativo
+Sistemas Operativos
+m
+Relatório de Domínios
+domínio
+domínios
+m
+Relatório de organizações
+organização
+organizações
+f
+Relatório de Códigos de Estado
+código de estado
+códigos de estado
+m
+Relatório de tempo de processamento
+Relatório de Tamanho de Ficheiro
+## Used at the bottom of the report
+Estatísticas geradas por
+Tempo de execução
+Menos de 1
+## Used in the time reports
+Cada unidade
+representa
+ou fracção
+pedido de uma página
+pedidos de páginas
+## Used at the bottom of each non-time report: need m, f & n genders
+não listados
+não listadas
+*
+## Used on the pie charts: again need m, f & n genders
+Outro
+Outra
+*
+## Used at the top of the report
+Começo do programa em
+Análise de pedidos desde
+até
+## Used in the General Summary
+Pedidos atendidos
+Número médio de pedidos atendidos por dia
+Pedidos de páginas atendidos
+Número médio de pedidos de páginas atendidos por dia
+Linhas sem código de estado no ficheiro de log
+Pedidos não atendidos
+Pedidos redirigidos
+Pedidos com código de estado informativo
+Ficheiros diferentes solicitados
+Servidores diferentes atendidos
+Linhas inválidas no ficheiro de log
+Entradas não desejadas no ficheiro de log
+Tráfego total
+Tráfego médio transferido por dia
+Os valores entre parêntesis referem-se aos
+7 dias até
+últimos 7 dias
+Ir a
+Início
+## Some special phrases for particular reports.
+[endereço numérico não traduzido]
+[domínio não indicado]
+[domínio desconhecido]
+[directoria da raiz]
+[directoria ausente]
+[extensão ausente]
+[directorias]
+Windows desconhecido
+Outro Unix
+Robôs
+Sistema Operativo desconhecido
+## Column headings for requests, pages, bytes and number (ie position in list)
+## and percentages and last-7-day versions of these.
+## Should be as short as possible -- abbreviate if necessary.
+## (The ?bytes represents kbytes, Mbytes etc.)
+N.ped
+ped.7 dias
+% ped
+%ped. 7 dias
+Pgs.
+pgs. 7 dias
+% Pgs.
+%pgs. 7 dias
+bytes
+?bytes
+bytes 7 dias
+?bytes 7 dias
+%bytes
+%bytes 7 dias
+no.
+## Now we need to know how to say "listing the top <whatever>", "listing
+## the top <n> <whatevers>", and "listing <whatevers>". The %s and %d
+## will be replaced by the appropriate things. There may be three of each of
+## these statements, for the genders m, f and n. Any genders that aren't used,
+## you can just put a * there instead. So, for example, French starts
+## Affichage du premier %s
+## Affichage de la premi&egrave;re %s
+## *
+## with entries for m & f, but not n
+Mostrando o primeiro %s
+Mostrando a primeira %s
+*
+Mostrando os %d primeiros %s
+Mostrando as %d primeiras %s
+*
+Mostrando os %s
+Mostrando as %s
+*
+## "by" in the phrase "listing the top 3 files BY number of requests"
+por
+## All requests WITH AT LEAST 10 requests
+com pelo menos
+## Different ways of doing floors
+pedido nos últimos 7 dias
+pedidos nos últimos 7 dias
+pedido de uma página nos últimos 7 dias
+pedido de páginas nos últimos 7 dias
+pedido redireccionado
+pedidos redireccionados
+pedido reencaminhado nos últimos 7 dias
+pedidos reencaminhados nos últimos 7 dias
+pedido falhado
+pedidos falhados
+pedido falhado nos últimos 7 dias
+pedidos falhados nos últimos 7 dias
+% do tráfego
+% do tráfego nos últimos 7 dias
+% da quantidade máxima de tráfego
+% da quantidade máxima de tráfego dos últimos 7 dias
+byte de tráfego 
+bytes de tráfego
+## ?bytes represents kbytes, Mbytes etc.
+?bytes de tráfego 
+byte de tráfego nos últimos 7 dias 
+bytes de tráfego nos últimos 7 dias 
+?bytes de tráfego nos últimos 7 dias 
+pedido desde
+com um pedido redireccionado desde
+com um pedido falhado desde
+com o primeiro pedido desde
+com o primeiro pedido redireccionado desde
+com o primeiro pedido falhado desde
+## Now "sorted by": again, in m, f & n (only needed in plural though)
+ordenados por
+ordenadas por
+*
+## Used at the top of each report
+Este relatório contém dados de
+## Used in pie charts
+Este gráfico foi traçado por
+## different ways of sorting
+quantidade de tráfego
+quantidade de tráfego nos últimos 7 dias 
+% dos pedidos
+% dos pedidos nos últimos 7 dias 
+% da quantidade máxima de pedidos
+% da quantidade máxima de pedidos nos últimos 7 dias 
+número de pedidos
+número de pedidos nos últimos 7 dias
+% dos pedidos de páginas
+% dos pedidos de páginas nos últimos 7 dias
+% do número máximo de pedidos de páginas
+% do número máximo de pedidos de páginas nos últimos 7 dias 
+número de pedidos de páginas
+número de pedidos de páginas nos últimos 7 dias
+% dos pedidos redireccionados
+% dos pedidos redireccionados nos últimos 7 dias
+% do número máximo de pedidos redireccionados
+% do número máximo de pedidos redireccionados nos últimos 7 dias 
+número de pedidos redireccionados
+número de pedidos redireccionados nos últimos 7 dias 
+% dos pedidos falhados
+% dos pedidos falhados nos últimos 7 dias 
+% do número máximo de pedidos falhados
+% do número máximo de pedidos falhados nos últimos 7 dias 
+número de pedidos falhados
+número de pedidos falhados nos últimos 7 dias 
+hora do último pedido
+hora do último pedido redireccionado
+hora do último pedido falhado
+hora do primeiro pedido
+hora do primeiro pedido redireccionado
+hora do primeiro pedido falhado
+## 3 other ways of sorting in m, f, & n
+por ordem alfabética
+por ordem alfabética
+por ordem alfabética
+por ordem numérica
+por ordem numérica
+por ordem numérica
+desordenados
+desordenadas
+*
+## The separators to use between thousands, and as a decimal point. For
+## example, English generally uses "3,000.25" so has , and . here. French uses
+## "3 000,25", so has space and , instead.
+ 
+,
+## There's a colon here, because the French like to put a space before a colon,
+## so they have space-colon instead here.
+:
+## am and pm in the sense of morning and afternoon.
+am
+pm
+## Some date formats. E.g. for 9am on 1st January 1997 use
+## %d for date          " 1"
+## %D for 0-padded date "01"
+## %e or %E for date at end of time interval (where this makes sense)
+## %m for month         "Jan"
+## %l for month at end of time interval
+## %q for quarter of the year    "1"
+## %y for short year    "97"
+## %Y for long year     "1997"
+## %z or %Z for year at end of time interval
+## %X for ISO 8601 extended date format (yyyy-mm-dd) "1997-01-01"
+## %h for hour in 24-hour clock " 9"
+## %H for 0-padded hour         "09"
+## %j for hour in 12-hour clock " 9"
+## %i, %I or %k for hour at end of time interval
+## %n for minute        "00"
+## %o for minute at end of time interval
+## %a for am or pm      "am"
+## %b for am or pm at end of time interval
+## %w for weekday       "Wed"
+## %x for a dash in a range e.g. in 14:00-14:15. This is necessary because in
+##    proper typesetting, this should be an en-dash not a regular dash.
+##
+## So for a date, English might have %d/%m/%y for 1/Jan/97, whereas German
+## would have %d.%m %y for 1.Jan 97). Note: the month number is not available
+## because it can produce ambiguous dates.
+##
+## The different date formats are as follows
+## "refer to the 7 days to [date]"
+%D-%m-%Y %H:%n
+## "Program started at" and "Analysed requests from"
+%w-%D-%m-%Y %H:%n
+## In Daily Report
+%d/%m/%y
+## In Daily Summary
+%w
+## In Hourly Report
+%d/%m/%y %H:%n%x%I:%o
+## In Hourly Summary
+%H
+## In Hour of the Week Summary
+%w %H:%n%x%I:%o
+## In Quarter-Hour and Five-Minute Reports
+%d/%m/%y %H:%n%x%I:%o
+## In Quarter-Hour and Five-Minute Summaries
+%H:%n%x%I:%o
+## In Weekly Report
+%d/%m/%y
+## In Monthly Report
+%m %Y
+## In Quarterly Report
+%m%x%l %Y
+## An alternative for Quarterly Report: %Y Q%q
+## In Yearly Report
+%Y
+## The date (d) column in non-time reports
+%d/%m/%y
+## The date & time (D) column in non-time reports
+%d/%m/%y %H:%n
+## In non-time reports: "including all files with requests since [date]"
+%d/%m/%y às %H:%n
+## Finally, definitions of the HTTP status codes (see
+## ftp://ftp.isi.edu/in-notes/rfc2616.txt). You're welcome to leave these in
+## English if you think they look better that way.
+100 Continue with request
+101 Switching protocols
+1xx [Miscellaneous informational]
+200 OK
+201 Created
+202 Accepted for future processing
+203 Non-authoritative information
+204 OK, but nothing to send
+205 Reset document
+206 Partial content
+2xx [Miscellaneous successes]
+300 Multiple documents available
+301 Document moved permanently
+302 Document found elsewhere
+303 See other document
+304 Not modified since last retrieval
+305 Use proxy
+306 Switch proxy
+307 Document moved temporarily
+3xx [Miscellaneous redirections]
+400 Bad request
+401 Authentication required
+402 Payment required
+403 Access forbidden
+404 Document not found
+405 Method not allowed
+406 Document not acceptable to client
+407 Proxy authentication required
+408 Request timeout
+409 Request conflicts with state of resource
+410 Document gone permanently
+411 Length required
+412 Precondition failed
+413 Request too long
+414 Requested filename too long
+415 Unsupported media type
+416 Requested range not valid
+417 Expectation failed
+4xx [Miscellaneous client/user errors]
+500 Internal server error
+501 Request type not supported
+502 Error at upstream server
+503 Service temporarily unavailable
+504 Gateway timeout
+505 HTTP version not supported
+506 Redirection failed
+5xx [Miscellaneous server errors]
+xxx [Unknown]

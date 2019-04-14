@@ -1,0 +1,97 @@
+# Report descriptions file for analog 6.0.
+#
+# This file contains descriptions of each report. Lines starting with a
+# hash (#) are comments. Otherwise, each report must take EXACTLY ONE LINE.
+#
+# Slovak language files made by DooDeeToo (http://doodeetoo.host.sk)
+#
+# character set: ISO-8859-2
+#
+# Yearly Report
+Tento prehµad zobrazuje aktivitu v ka¾dom roku.
+# Quarterly Report
+Tento prehµad zobrazuje aktivitu v ka¾dom ¹tvr»roku.
+# Monthly Report
+Tento prehµad zobrazuje aktivitu v ka¾dom mesiaci.
+# Weekly Report
+Tento prehµad zobrazuje aktivitu v ka¾dom tý¾dni.
+# Daily Report
+Tento prehµad zobrazuje aktivitu v ka¾dom dni.
+# Hourly Report
+Tento prehµad zobrazuje aktivitu v ka¾dej hodine.
+# Quarter-Hour Report
+Tento prehµad zobrazuje aktivitu v ka¾dom ¹tvr»hodinovom intervale.
+# Five-Minute Report
+Tento prehµad zobrazuje aktivitu v ka¾dom 5-minútovom intervale.
+# Daily Summary
+Tento prehµad zobrazuje celkovú aktivitu pre ka¾dý deò tý¾dòa, súhrnne pre v¹etky tý¾dne v prehµade.
+# Hourly Summary
+Tento prehµad zobrazuje celkovú aktivitu pre ka¾dú hodinu dòa, súhrnne pre v¹etky dni v prehµade.
+# Hour of the Week Summary
+Tento prehµad zobrazuje celkovú aktivitu pre ka¾dú hodinu tý¾dòa, súhrnne pre v¹etky tý¾dne v prehµade.
+# Quarter-Hour Summary
+Tento prehµad zobrazuje celkovú aktivitu pre ka¾dý ¹tvr»hodinový interval dòa, súhrnne pre v¹etky dni v prehµade.
+# Five-Minute Summary
+Tento prehµad zobrazuje celkovú aktivitu pre ka¾dý 5-minútový interval dòa, súhrnne pre v¹etky dni v prehµade.
+# General Summary
+Tento prehµad obsahuje celkové ¹tatistiky.
+# Request Report
+Tento prehµad zobrazuje po¾adované súbory na stránkach.
+# Redirection Report
+Tento prehµad zobrazuje súbory, ktoré spôsobili presmerovanie po¾iadaviek na iný súbor. (Zvyèajne adresáre s chýbajúcim lomítkom na konci alebo skripty, ktoré vnútili presmerovanie.)
+# Failure Report
+Tento prehµad zobrazuje súbory, ktoré spôsobili zlyhanie, napríklad nenájdené súbory.
+# File Type Report
+Tento prehµad zobrazuje prípony vy¾iadaných súborov.
+# Directory Report
+Tento prehµad zobrazuje adresáre, z ktorých boli vy¾iadané súbory. (Diagramy pre ka¾dý adresár obsahujú v¹etky jeho podadresáre.)
+# Host Report
+Tento prehµad zobrazuje poèítaèe, ktoré si vy¾iadali súbory.
+# Host Redirection Report
+Tento prehµad zobrazuje poèítaèe, ktoré boli presmerované na iný súbor.
+# Host Failure Report
+Tento prehµad zobrazuje poèítaèe, ktoré narazili na zlyhania po¾iadaviek.
+# Domain Report
+Tento prehµad zobrazuje krajiny poèítaèov, ktoré si vy¾iadali súbory.
+# Referrer Report
+Tento prehµad zobrazuje referencie (odkiaµ µudia nasledovali odkazy, alebo stránky, ktoré obsahujú obrázky z týchto stránok).
+# Referring Site Report
+Tento prehµad zobrazuje servery, z ktorých µudia nasledovali odkazy.
+# Redirected Referrer Report
+Tento prehµad zobrazuje referencie, ktoré spôsobili presmerované po¾iadavky.
+# Failed Referrer Report
+Tento prehµad zobrazuje referencie, obsahujúce chybné odkazy na stránku.
+# Browser Report
+Tento prehµad zobrazuje, ktoré prehliadaèe pou¾ívajú náv¹tevníci, spolu s podrobnos»ami.
+# Virtual Host Report
+Tento prehµad zobrazuje aktivitu ka¾dej virtuálnej domény na stránkach.
+# Virtual Host Redirection Report
+Tento prehµad zobrazuje presmerované po¾iadavky na ka¾dú virtuálnu doménu.
+# Virtual Host Failure Report
+Tento prehµad zobrazuje neúspe¹né po¾iadavky na ka¾dú virtuálnu doménu.
+# User Report
+Tento prehµad zobrazuje u¾ívateµov, ktorí si vy¾iadali súbory, ak boli autentifikovaní alebo mô¾u by» identifikovaní cez cookies.
+# User Redirection Report
+Tento prehµad zobrazuje u¾ívateµov, ktorí boli presmerovaní na iný súbor.
+# User Failure Report
+Tento prehµad zobrazuje u¾ívateµov, ktorí narazili na neúspe¹né po¾iadavky.
+# Organisation Report
+Tento prehµad zobrazuje organizácie poèítaèov, ktoré si vy¾iadali súbory.
+# Search Query Report
+Tento prehµad zobrazuje, ktoré výrazy µudia zadali do vyhµadávaèov, aby na¹li tieto stránky.
+# Search Word Report
+Tento prehµad zobrazuje, ktoré slová µudia zadali do vyhµadávaèov, aby na¹li tieto stránky.
+# Internal Search Query Report
+Tento prehµad zobrazuje, ktoré výrazy µudia zadali do skriptov na týchto stránkach.
+# Internal Search Word Report
+Tento prehµad zobrazuje, ktoré slová µudia zadali do skriptov na týchto stránkach.
+# Browser Summary
+Tento prehµad zobrazuje, ktoré prehliadaèe pou¾ívajú náv¹tevníci.
+# Operating System Report
+Tento prehµad zobrazuje, ktoré operaèné systémy pou¾ívajú náv¹tevníci.
+# File Size Report
+Tento prehµad zobrazuje veµkosti súborov.
+# Status Code Report
+Tento prehµad zobrazuje stavový kód HTTP pre v¹etky po¾iadavky.
+# Processing Time Report
+Tento prehµad zobrazuje èas potrebný na vykonanie úspe¹ných po¾iadaviek.

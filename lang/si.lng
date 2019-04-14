@@ -1,0 +1,575 @@
+## Slovenian language file for analog 6.0.
+## May not work with any other version.
+##
+## This is a language file for analog. Lines beginning with ## are comments.
+## Each language should have one language file in its own character set,
+## and can have an additional one for ASCII (7 bit) output.
+## 
+## The character set of this language file. Prefix with a * to indicate a
+## multibyte character set: e.g. *ISO-2022-JP
+ISO-8859-2
+## Abbreviations for the day and month names.
+ned
+pon
+tor
+sre
+èet
+pet
+sob
+jan
+feb
+mar
+apr
+maj
+jun
+jul
+avg
+sep
+okt
+nov
+dec
+## Next some standard common words.
+## Abbreviation for "week beginning"
+teden od:
+leto
+## Quarter of a year
+èetrtletje
+mesec
+dan
+dni
+ura
+minuta
+minut
+sekunda
+sekund(e)
+byte
+bytov
+## ?bytes represents kbytes, Mbytes etc.
+?bytov
+zahtevek
+zahtevki(ov)
+datum
+## This has the right spacing for a column like 23/Mar/98 15:00-15:05
+datum       ura 
+èas
+prvi datum
+prva ura
+zadnji obisk
+zadnji datum
+datoteka
+datotek(e)
+gostitelj
+gostitelji(ev)
+virtualni gostitelj
+virtualni gostitelji(ev)
+imenik
+imenikov
+domena
+domen(e)
+organizacija
+organizacije
+podalj¹ek
+podalj¹ki
+URL
+URL-ji
+brskalnik
+brskalniki
+OS
+OS
+## (= operating system, operating systems)
+velikost
+iskalni niz
+iskalni nizi
+spletno podroèje
+spletna podroèja
+uporabnik
+uporabniki(ov)
+statusna koda
+statusne kode
+Statistika spletnega stre¾nika
+## Prefixes kilo, mega etc. to make kilobytes, megabytes etc.
+kilo
+mega
+giga
+tera
+peta
+exa
+zeta
+yotta
+## Shorter versions of the same prefixes for column headings
+k
+M
+G
+T
+P
+E
+Z
+Y
+## Names for the rows in the File Size Report. Note that changing these will
+## NOT change the boundaries! These are just labels for predetermined buckets.
+## They should line up nicely when right-aligned.
+          0
+   1B-  10B
+  11B- 100B
+ 101B-  1kB
+  1kB- 10kB
+ 10kB-100kB
+100kB-  1MB
+  1MB- 10MB
+ 10MB-100MB
+100MB-  1GB
+      > 1GB
+## Now the names of reports
+Splo¹ni povzetek
+## The time reports, plus "busiest" strings (at the bottom of each report)
+Poroèilo po letih
+Leto z najveè obiski:
+Poroèilo po èetrtletjih
+Èetrtletje z najveè obiski:
+Poroèilo po mesecih
+Mesec z najveè obiski:
+Poroèilo po tednih
+Teden z najveè obiski: teden od 
+Povzetek po dnevih
+Poroèilo po dnevih
+Dan z najveè obiski:
+Poroèilo po urah
+Povzetek po urah
+Povzetek po uri tedna
+Ura z najveè obiski:
+Poroèilo po èetrt ure
+Povzetek po èetrt ure
+Èetrt ure z najveè obiskov:
+Poroèilo po skupinah po pet minut
+Povzetek po petih minutah
+Pet minut z najveè obiski:
+## The non-time reports. In each case, we have the name of the report,
+## followed by the type of item in the report, once in the singular and once
+## in the plural. These are used in phrases like "including all ??? with at
+## least 200 requests". (The words higher up are used for column headings.)
+## Finally we have the gender of this type of object, which can be m, f or n.
+##
+## So for example, in German a directory is Verzeichnis (neuter gender), which
+## was given above. But "listing the top directory" is "Ausgabe des ersten
+## Verzeichnisses" and "listing the top two directories" is "Ausgabe der
+## ersten zwei Verzeichnisse". So here, we would have for the directory report:
+##
+## Verzeichnis-Bericht
+## Verzeichnisses
+## Verzeichnisse
+## n
+##
+## I hope that makes sense!
+Poroèilo po gostiteljih
+gostitelja
+gostitelji(ev)
+m
+Poroèilo o preusmeritvah gostiteljev
+gostitelj
+gostiteljev
+m
+Poroèilo o neuspehih gostiteljev
+gostitelj
+gostiteljev
+m
+Poroèilo po imenikih
+imenik
+imeniki
+m
+Poroèilo po vrstah datotek
+podalj¹ek
+podalj¹ki
+m
+Poroèilo po zahtevkih
+datoteka
+datoteke
+f
+Poroèilo o preusmeritveh (redirekciji)
+datoteka
+datoteke
+f
+Poroèilo o napakah
+datoteka
+datoteke
+f
+Poroèilo po straneh, od koder so pri¹li
+URL naslov
+URL naslovi
+m
+Poroèilo po spletnih podroèjih, od koder so pri¹li
+spletno podroèje
+spletna podroèja
+n
+Poroèilo o preusmerjenih zahtevkih
+URL naslov
+URL naslovi
+m
+Poroèilo o neuspelih preusmerjenih zahtevkih
+URL naslov
+URL naslovi
+m
+Poroèilo o povpra¹evanju
+povpra¹evanje
+povpra¹evanja
+n
+Poroèilo o povpra¹evanju z besedami
+povpre¹evalna beseda
+povpra¹evalne besede
+n
+Poroèilo o internem povpra¹evanju
+povpra¹evanje
+povpra¹evanja
+n
+Poroèilo o internem povpra¹evanju z besedami
+povpra¹evalna beseda
+povpra¹evalne besede
+f
+Poroèilo po virtualnih gostiteljih
+virtualni gostitelj
+virtualni gostitelji
+m
+Poroèilo o preusmeritvah virtualnih gostiteljev
+virtualni gostitelj
+virtualni gostitelji
+m
+Poroèilo o neuspehih virtualnih gostiteljev
+virtualni gostitelj
+virtualni gostitelji
+m
+Poroèilo po uporabnikih
+uporabnik
+uporabniki(ov)
+m
+Poroèilo o preusmerjenih uporabnikih
+uporabnik
+uporabniki(ov)
+m
+Poroèilo o neuspelih uporabnikih
+uporabnik
+uporabniki(ov)
+m
+Povzetek po brskalnikih
+brskalnik
+brskalniki(ov)
+m
+Poroèilo po brskalnikih
+brskalnik
+brskalniki(ov)
+m
+Poroèilo operacijskega sistema
+operacijski sistem
+operacijski sistemi
+m
+Poroèilo po domenah
+domena
+domene
+f
+Poroèilo o organizaciji
+organizacija
+organizacije
+f
+Poroèilo o statusu posredovanih strani
+oznaka statusa
+oznake statusa
+m
+Poroèilo o procesnem èasu
+Poroèilo po velikosti datotek
+## Used at the bottom of the report
+Analizo opravil
+Èas dela
+Manj kot 1
+## Used in the time reports
+Vsaka enota
+predstavlja
+ali manj¹i dele¾
+zahtevek za stran
+zahtevkov za stran
+## Used at the bottom of each non-time report: need m, f & n genders
+nenavedeno
+nenavedeno
+nenavedeno
+## Used on the pie charts: again need m, f & n genders
+*
+*
+Drugo
+## Used at the top of the report
+Datum obdelave:
+Analizirani so zahtevki od
+do
+## Used in the General Summary
+Uspe¹nih zahtevkov (skupaj)
+Povpreèno uspe¹nih zahtevkov dnevno
+Uspe¹nih zahtevkov za strani (skupaj)
+Povpreèno uspe¹nih zahtevkov za strani dnevno
+Vrstice v log datoteki brez oznake statusa
+Neuspe¹ni zahtevki
+Preusmerjeni zahtevki
+Zahtevki z oznako "informational status"
+©tevilo posredovanih strani na drugih stre¾nikih
+©tevilo posredovanih drugih stre¾nikov
+Okvarjene vrstice v log datoteki
+Ne¾eljeni vnosi v log datoteki
+Celoten obseg prenesenih podatkov
+Povpreèno ¹tevilo prenesenih podatkov dnevno
+©tevilke v oklepajih se nana¹ajo na
+7 dni do
+zadnjih 7 dni
+Pojdi na
+Zaèetek
+## Some special phrases for particular reports.
+[nere¹ene ¹tevilène adrese]
+[nepodana domena]
+[neznana domena]
+[glavni imenik]
+[ni imenika]
+[ni podalj¹ka]
+[imeniki]
+Neznani Windows
+Drugi Unix
+Roboti
+OS neznan
+## Column headings for requests, pages, bytes and number (ie position in list)
+## and percentages and last-7-day versions of these.
+## Should be as short as possible -- abbreviate if necessary.
+## (The ?bytes represents kbytes, Mbytes etc.)
+¹t.zaht.
+ted.¹t.zaht.
+% zaht.
+% ted.zaht.
+strani
+ted.strani
+% strani
+% ted.strani
+bytov
+?bytov
+ted.bytov
+ted.?bytov
+% bytov
+% ted.bytov
+¹t.
+## Now we need to know how to say "listing the top <whatever>", "listing
+## the top <n> <whatevers>", and "listing <whatevers>". The %s and %d
+## will be replaced by the appropriate things. There may be three of each of
+## these statements, for the genders m, f and n. Any genders that aren't used,
+## you can just put a * there instead. So, for example, French starts
+## Affichage du premier %s
+## Affichage de la premi&egrave;re %s
+## *
+## with entries for m & f, but not n
+Izpisani prvi
+Izpisane prve
+Izpisani prvi %s
+Izpisani prvi %d %s
+Izpisane prve %d %s
+Izpisani prvi %d %s
+Izpisani %s
+Izpisane %s
+Izpisani %s
+## "by" in the phrase "listing the top 3 files BY number of requests"
+po
+## All requests WITH AT LEAST 10 requests
+z vsaj
+## Different ways of doing floors
+zahtevek v zadnjih 7. dnevih
+zahtevkov v zadnjih 7. dnevih
+zahtevek za stran v zadnjih 7. dnevih
+zahtevkov za strani v zadnjih 7. dnevih
+preusmerjeni zahtevek
+preusmerjeni zahtevki
+preusmerjeni zahtevek v zadnjih 7. dnevih
+preusmerjeni zahtevki v zadnjih 7. dnevih
+neuspe¹ni zahtevek
+neuspe¹ni zahtevki
+neuspe¹ni zahtevek v zadnjih 7. dnevih
+neuspe¹ni zahtevki v zadnjih 7. dnevih
+% prometa
+% prometa v zadnjih 7. dnevih
+% od najveèjega obsega prometa
+% od najveèjega obsega prometa v zadnjih 7. dnevih
+byte prometa
+bytov prometa
+## ?bytes represents kbytes, Mbytes etc.
+?bytov prometa
+byte prometa v zadnjih 7. dnevih
+bytov prometa v zadnjih 7. dnevih
+?bytov prometa v zadnjih 7. dnevih
+zahtevanih od
+s preusmerjenimi zahtevki od
+z neuspe¹nimi zahtevki od
+s prvim zahtevkom od
+s prvim preusmerjenim zahtevkom od
+s prvim neuspe¹nim zahtevkom od
+## Now "sorted by": again, in m, f & n (only needed in plural though)
+razporejeni po
+razporejene po
+razporejeni po
+## Used at the top of each report
+To poroèilo vsebuje podatke iz
+## Used in pie charts
+Rezine so narisane z
+## different ways of sorting
+obsegu prometa
+obsegu prometa v zadnjih 7. dnevih
+% zahtevkov
+% zahtevkov v zadnjih 7. dnevih
+% od najveèjega ¹tevila zahtevkov
+% od najveèjega ¹tevila zahtevkov v zadnjih 7. dnevih
+¹tevilu zahtevkov
+¹tevilu zahtevkov v zadnjih 7. dnevih
+% zahtevkov za strani
+% zahtevkov za strani v zadnjih 7. dnevih
+% od najveèjega ¹tevila zahtevkov za strani
+% od najveèjega ¹tevila zahtevkov za strani v zadnjih 7. dnevih
+¹tevilu zahtevkov za strani
+¹tevilu zahtevkov za strani v zadnjih 7. dnevih
+% od preusmerjenih zahtevkov
+% od preusmerjenih zahtevkov v zadnjih 7. dnevih
+% od najveèjega ¹tevila preusmerjenih zahtevkov
+% od najveèjega ¹tevila preusmerjenih zahtevkov v zadnjih 7. dnevih
+¹tevilu preusmerjenih zahtevkov
+¹tevilu preusmerjenih zahtevkov v zadnjih 7. dnevih
+% od neuspe¹nih zahtevkov
+% od neuspe¹nih zahtevkov v zadnjih 7. dnevih
+% od najveèjega ¹tevila neuspe¹nih zahtevkov
+% od najveèjega ¹tevila neuspe¹nih zahtevkov v zadnjih 7. dnevih
+¹tevilu neuspe¹nih zahtevkov
+¹tevilu neuspe¹nih zahtevkov v zadnjih 7. dnevih
+èasu zadnjega zahtevka
+èasu zadnjega preusmerjenega zahtevka
+èasu zadnjega neuspe¹nega zahtevka
+èasu prvega zahtevka
+èasu prvega preusmerjenega zahtevka
+èasu prvega neuspe¹nega zahtevka
+## 3 other ways of sorting in m, f, & n
+razporejeni po abecedi
+razporejene po abecedi
+razporejeno po abecedi
+razporejeni numerièno
+razporejene numerièno
+razporejeno numerièno
+nerazporejeni
+nerazporejene
+nerazporejeno
+## The separators to use between thousands, and as a decimal point. For
+## example, English generally uses "3,000.25" so has , and . here. French uses
+## "3 000,25", so has space and , instead.
+.
+,
+## There's a colon here, because the French like to put a space before a colon,
+## so they have space-colon instead here.
+:
+## am and pm in the sense of morning and afternoon.
+dopoldan
+popoldan
+## Some date formats. E.g. for 9am on 1st January 1997 use
+## %d for date          " 1"
+## %D for 0-padded date "01"
+## %e or %E for date at end of time interval (where this makes sense)
+## %m for month         "Jan"
+## %l for month at end of time interval
+## %q for quarter of the year    "1"
+## %y for short year    "97"
+## %Y for long year     "1997"
+## %z or %Z for year at end of time interval
+## %X for ISO 8601 extended date format (yyyy-mm-dd) "1997-01-01"
+## %h for hour in 24-hour clock " 9"
+## %H for 0-padded hour         "09"
+## %j for hour in 12-hour clock " 9"
+## %i, %I or %k for hour at end of time interval
+## %n for minute        "00"
+## %o for minute at end of time interval
+## %a for am or pm      "am"
+## %b for am or pm at end of time interval
+## %w for weekday       "Wed"
+## %x for a dash in a range e.g. in 14:00-14:15. This is necessary because in
+##    proper typesetting, this should be an en-dash not a regular dash.
+##
+## So for a date, English might have %d/%m/%y for 1/Jan/97, whereas German
+## would have %d.%m %y for 1.Jan 97). Note: the month number is not available
+## because it can produce ambiguous dates.
+##
+## The different date formats are as follows
+## "refer to the 7 days to [date]"
+%d. %m. %Y %H.%n
+## "Program started at" and "Analysed requests from"
+%d. %m. %Y ob %H.%n
+## In Daily Report
+%d. %m. %y
+## In Daily Summary
+%w
+## In Hourly Report
+%d. %m. %y %H.%n%x%I.%o
+## In Hourly Summary
+%h
+## In Hour of the Week Summary
+%w %H:%n%x%I:%o
+## In Quarter-Hour and Five-Minute Reports
+%d. %m. %y %H.%n%x%I.%o
+## In Quarter-Hour and Five-Minute Summaries
+%H:%n%x%I:%o
+## In Weekly Report
+%d. %m. %y
+## In Monthly Report
+%m. %Y
+## In Quarterly Report
+%m%x%l %Y
+## An alternative for Quarterly Report: %Y Q%q
+## In Yearly Report
+%Y
+## The date (d) column in non-time reports
+%d. %m. %y
+## The date & time (D) column in non-time reports
+%d. %m. %y ob %H.%n
+## In non-time reports: "including all files with requests since [date]"
+%d. %m. %y %H.%n
+## Finally, definitions of the HTTP status codes (see
+## ftp://ftp.isi.edu/in-notes/rfc2616.txt). You're welcome to leave these in
+## English if you think they look better that way.
+100 Nadaljuj z zahtevo
+101 Pretikanje protokolov
+1xx [Informacije]
+200 V redu
+201 Narejeno
+202 Sprejeto
+203 Informacija ni izvirna
+204 Ni vsebine
+205 Poèisti dokument
+206 Delna vsebina
+2xx [Uspehi]
+300 Veè izbir
+301 Stalno premaknjen dokument
+302 Dokument najden drugje
+303 Poglej ostalo dokumentacijo
+304 Nespremenjeno od zadnjega zahtevka
+305 Uporabi proxy
+306 Pretikanje proxy-ja
+307 Zaèasno premaknjen dokument
+3xx [Preusmeritev]
+400 Neveljavna zahteva
+401 Neavtorizirano
+402 Zahtevano plaèilo
+403 Dostop zavrnjen
+404 Dokument ni najden
+405 Nedovoljena metoda
+406 Dokument ni veljaven za klienta
+407 Zahtevana izvirnost Proxy-ja
+408 Zahteva je potekla
+409 Zahteva v sporu s sredstvi
+410 Dokument za stalno odstranjen
+411 Zahtevana dol¾ina
+412 Predpogoj je spodletel
+413 Zahteva je predolga
+414 Zahtevano ime datoteke je predolgo
+415 Ne podpira tipa datoteke
+416 Zahtevan interval neveljaven
+417 Prièakovanja spodletela
+4xx [Razliène klient/uporabnik napake]
+500 Notranja napaka pri procesorju
+501 Nepodpiranje zahtevanega tipa
+502 Napaka na serverju
+503 Usluga trenutno nedosegljiva
+504 Gateway je potekel
+505 Verzija HTTP ni podprta
+506 Preusmeritev spodletela
+5xx [Napake na serverju]
+xxx [Neznan]

@@ -1,0 +1,92 @@
+# Report descriptions file for analog 6.0.
+#
+# This file contains descriptions of each report. Lines starting with a
+# hash (#) are comments. Otherwise, each report must take EXACTLY ONE LINE.
+# Yearly Report
+Este relatorio lista a actividade em cada ano.
+# Quarterly Report
+Este relatorio lista a actividade em cada trimestre.
+# Monthly Report
+Este relatorio lista a actividade em cada mes.
+# Weekly Report
+Este relatorio lista a actividade em cada semana.
+# Daily Report
+Este relatorio lista a actividade em cada dia.
+# Hourly Report
+Este relatorio lista a actividade em cada hora.
+# Quarter-Hour Report
+Este relatorio lista a actividade em cada quarto de hora.
+# Five-Minute Report
+Este relatorio lista a actividade em cada periodo de cinco minutos.
+# Daily Summary
+Este relatorio lista a actividade total para cada dia da semana, somada ao longo de todas semanas do relatorio.
+# Hourly Summary
+Este relatorio lista a actividade total para cada hora do dia, somada ao longo de todos os dias do relatorio.
+# Hour of the Week Summary
+Este relatorio lista a actividade total para cada hora da semana, somada ao longo de todas as semanas do relatorio.
+# Quarter-Hour Summary
+Este relatorio lista a actividade total em cada quarto de hora, somada ao longo de todos os dias do relatorio.
+# Five-Minute Summary
+Este relatorio lista a actividade total para cada periodo de cinco minutos, somada ao longo de todos os dias do relatorio.
+# General Summary
+Este relatorio contem as estatisticas globais.
+# Request Report
+Este relatorio lista os ficheiros no servidor.
+# Redirection Report
+Este relatorio lista os ficheiros que fizeram com que os pedidos fossem reencaminhados para outro ficheiro. (Geralmente as directorias sem a barra final, ou 'scripts' CGI forcaram os reencaminhamentos.)
+# Failure Report
+Este relatorio lista os ficheiros que provocaram falhas, por exemplo ficheiros nao encontrados.
+# File Type Report
+Este relatorio lista as extensoes dos ficheiros solicitados.
+# Directory Report
+Este relatorio lista as directorias cujos ficheiros foram solicitados. (Os numeros para cada directoria incluem todas as suas subdirectorias.)
+# Host Report
+Este relatorio lista os computadores que solicitaram ficheiros. 
+# Host Redirection Report
+Este relatorio lista os computadores que foram redireccionados para outro ficheiro.
+# Host Failure Report
+Este relatorio lista os computadores que encontraram pedidos falhados.
+# Domain Report
+Este relatorio lista os paises dos computadores que pediram ficheiros.
+# Referrer Report
+Este relatorio lista os referenciadores (donde as pessoas seguiram ligacoes, ou paginas que incluiam as imagens deste sitio).
+# Referring Site Report
+Este relatorio lista os servidores donde as pessoas seguiram ligacoes.
+# Redirected Referrer Report
+Este relatorio lista os referenciadores que provocaram reencaminhamento de pedidos.
+# Failed Referrer Report
+Este relatorio lista os referenciadores contendo ligacoes quebradas para o sitio.
+# Browser Report
+Este relatorio lista os navegadores usados pelos vistantes.
+# Virtual Host Report
+Este relatorio lista a actividade em cada um dos dominios virtuais no sitio.
+# Virtual Host Redirection Report
+Este relatorio lista os pedidos reencaminhados para cada um dos dominios virtuais.
+# Virtual Host Failure Report
+Este relatorio lista os pedidos falhados para cada um dos dominios virtuais.
+# User Report
+Este relatorio lista os utilizadores que pediram ficheiros, se os utilizadores foram autenticados ou podem ser identificados por 'cookies'.
+# User Redirection Report
+Este relatorio lista os utilizadores que foram reencaminhados para outro ficheiro.
+# User Failure Report
+Este relatorio lista os utilizadores que encontraram pedidos falhados.
+# Organisation Report
+Este relatorio lista as organizacoes dos computadores que pediram ficheiros.
+# Search Query Report
+Este relatorio lista que pesquisas as pessoas usaram nos motores de pesquisa para encontrar o sitio.
+# Search Word Report
+Este relatorio lista que palavras as pessoas usaram nos motores de pesquisa para encontrar o sitio.
+# Internal Search Query Report
+Este relatorio lista que pesquisas as pessoas usaram nos 'scripts' do sitio.
+# Internal Search Word Report
+Este relatorio lista que palavras as pessoas usaram nos 'scripts' do sitio.
+# Browser Summary
+Este relatorio lista os fabricantes dos navegadores dos visitantes.
+# Operating System Report
+Este relatorio lista os sistemas operativos usados pelos visitantes.
+# File Size Report
+Este relatorio lista os tamanhos dos ficheiros.
+# Status Code Report
+Este relatorio lista os codigos de estado HTTP de todos os pedidos.
+# Processing Time Report
+Este relatorio lista os tempos gastos a processar os pedidos bem sucedidos.

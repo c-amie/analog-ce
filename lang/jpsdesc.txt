@@ -1,0 +1,92 @@
+# Report descriptions file for analog 6.0.
+#
+# This file contains descriptions of each report. Lines starting with a
+# hash (#) are comments. Otherwise, each report must take EXACTLY ONE LINE.
+# Yearly Report
+このレポートは、年度別の統計を表します。
+# Quarterly Report
+このレポートは、4半期毎の統計を表します。
+# Monthly Report
+このレポートは、月別の統計を表します。
+# Weekly Report
+このレポートは、週別の統計を表します。
+# Daily Report
+このレポートは、日別の統計を表します。
+# Hourly Report
+このレポートは、時間別の統計を表します。
+# Quarter-Hour Report
+このレポートは、15分間隔の統計を表します。
+# Five-Minute Report
+このレポートは、5分間隔の統計を表します。
+# Daily Summary
+このレポートは、全ての週の曜日別総和の統計を表します。
+# Hourly Summary
+このレポートは、全ての日の時間別総和の統計を表します。
+# Hour of the Week Summary
+このレポートは、全ての週の時間別総和の統計を表します。
+# Quarter-Hour Summary
+このレポートは、全ての日の15分間隔の総和の統計を表します。
+# Five-Minute Summary
+このレポートは、全ての日の5分間隔の総和の統計を表します。
+# General Summary
+このレポートは、全体の統計を表します。
+# Request Report
+このレポートは、サイトのファイルの統計を表します。
+# Redirection Report
+このレポートは、別のファイルへリダイレクションしたファイルの統計を表します。(通常、リダイレクションを強制させる、最後にスラッシュの無いディレクトリか、CGI スクリプトである。)
+# Failure Report
+このレポートは、「ファイルが見つからない」等のエラーを生じさせるファイルの統計を表します。
+# File Type Report
+このレポートは、ファイルの拡張子の統計を表します。
+# Directory Report
+このレポートは、ファイルがリクエストされたディレクトリの統計を表します。(各ディレクトリの数値は全てのサブディレクトリも含みます。)
+# Host Report
+このレポートは、ファイルをリクエストしたコンピュータの統計を表します。
+# Host Redirection Report
+このレポートは、別ファイルへリダイレクションされたコンピュータの統計を表します。
+# Host Failure Report
+このレポートは、リクエストに失敗したコンピュータの統計を表します。
+# Domain Report
+このレポートは、ファイルをリクエストしたコンピュータの国別統計を表します。
+# Referrer Report
+このレポートは、(リンク、あるいはこのサイトの画像を含むページを辿ってきた) 参照元の統計を表します。
+# Referring Site Report
+このレポートは、参照元のサーバの統計を表します。
+# Redirected Referrer Report
+このレポートは、リダイレクションを起こした参照元の統計を表します。
+# Failed Referrer Report
+このレポートは、このサイトへのリンク切れの参照元の統計を表します。
+# Browser Report
+このレポートは、ユーザのブラウザーの統計を表します。
+# Virtual Host Report
+このレポートは、このサイトの各仮想ドメインの統計を表します。
+# Virtual Host Redirection Report
+このレポートは、各仮想ドメインへリダイレクションされたリクエストの統計を表します。
+# Virtual Host Failure Report
+このレポートは、各仮想ドメインへの不成功リクエストの統計を表します。
+# User Report
+このレポートは、ユーザが認証されるかクッキーで認定されたとき、ファイルをリクエストしたユーザの統計を表します。
+# User Redirection Report
+このレポートは、別ファイルへリダイレクションされたユーザの統計を表します。
+# User Failure Report
+このレポートは、リクエストに失敗したユーザの統計を表します。
+# Organisation Report
+このレポートは、ファイルをリクエストをしたコンピュータのドメインの統計を表します。
+# Search Query Report
+このレポートは、ユーザがこのサイトを発見するのに、検索エンジンで使用した検索語句の統計を表します。
+# Search Word Report
+このレポートは、ユーザがこのサイトを発見するのに、検索エンジンで使用した単語の統計を表します。
+# Internal Search Query Report
+このレポートは、ユーザがこのサイト内で、スクリプトで使用した検索語句の統計を表します。
+# Internal Search Word Report
+このレポートは、ユーザがこのサイト内で、スクリプトで使用した単語の統計を表します。
+# Browser Summary
+このレポートは、ユーザの使用したブラウザーのベンダーの統計を表します。
+# Operating System Report
+このレポートは、ユーザの使用した OS の統計を表します。
+# File Size Report
+このレポートは、ファイルの大きさの統計を表します。
+# Status Code Report
+このレポートは、全てのリクエストの HTTP 状態コードの統計を表します。
+# Processing Time Report
+このレポートは、成功リクエストの処理時間の統計を表します。

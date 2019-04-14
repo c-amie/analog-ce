@@ -1,0 +1,267 @@
+# Generic and Infrastructure domains
+aero    2  Air Transport Industry
+arpa    1  Arpanet
+biz     2  Businesses
+com     2  Commercial
+coop    2  Co-operatives
+edu     2  USA Higher Education
+gov     2  USA Government
+info    2  Informational
+int     2  International Treaty Organisations
+mil     2  USA Military
+museum  2  Museums
+name    3  Individuals
+net     2  Networks
+org     2  Non Profit Making Organisations
+pro     3  Professionals
+
+# Country code domains
+ac  1   Ascension Island
+ad  2   Andorra
+ae  3   United Arab Emirates
+af  1   Afghanistan
+ag  2   Antigua and Barbuda
+ai  1   Anguilla
+al  1   Albania
+am  2   Armenia
+an  1   Netherlands Antilles
+ao  1   Angola
+aq  1   Antarctica
+ar  3   Argentina
+as  1   American Samoa
+at  3   Austria
+au  3   Australia
+aw  1   Aruba
+az  1   Azerbaijan
+ba  3   Bosnia-Herzegovina
+bb  2   Barbados
+bd  1   Bangladesh
+be  3   Belgium
+bf  1   Burkina Faso
+bg  2   Bulgaria
+bh  1   Bahrain
+bi  1   Burundi
+bj  1   Benin
+bm  1   Bermuda
+bn  1   Brunei Darussalam
+bo  3   Bolivia
+br  3   Brazil
+bs  1   Bahamas
+bt  1   Bhutan
+bv  1   Bouvet Island
+bw  1   Botswana
+by  1   Belarus
+bz  1   Belize
+ca  3   Canada
+cc  1   Cocos (Keeling) Islands
+cd  1   Democratic Republic of the Congo
+cf  1   Central African Republic
+cg  1   Congo
+ch  2   Switzerland
+ci  1   Ivory Coast
+ck  1   Cook Islands
+cl  2   Chile
+cm  1   Cameroon
+cn  3   China
+co  3   Colombia
+cr  3   Costa Rica
+cs  3   Serbia and Montenegro
+cu  2   Cuba
+cv  1   Cape Verde
+cx  2   Christmas Island
+cy  3   Cyprus
+cz  2   Czech Republic
+de  2   Germany
+dj  1   Djibouti
+dk  2   Denmark
+dm  2   Dominica
+do  3   Dominican Republic
+dz  1   Algeria
+ec  3   Ecuador
+ee  2   Estonia
+eg  3   Egypt
+eh  1   Western Sahara
+er  1   Eritrea
+es  2   Spain
+et  1   Ethiopia
+fi  2   Finland
+fj  3   Fiji
+fk  1   Falkland Islands
+fm  1   Micronesia
+fo  1   Faroe Islands
+fr  2   France
+fx  1   France (European Territory)
+ga  1   Gabon
+gb  1   United Kingdom
+gd  1   Grenada
+ge  1   Georgia
+gf  1   French Guiana
+gg  1   Guernsey
+gh  3   Ghana
+gi  1   Gibraltar
+gl  1   Greenland
+gm  1   Gambia
+gn  1   Guinea
+gp  1   Guadeloupe
+gq  1   Equatorial Guinea
+gr  2   Greece
+gs  1   South Georgia and South Sandwich Islands
+gt  3   Guatemala
+gu  1   Guam
+gw  1   Guinea-Bissau
+gy  1   Guyana
+hk  3   Hong Kong
+hm  1   Heard and McDonald Islands
+hn  2   Honduras
+hr  2   Croatia
+ht  1   Haiti
+hu  2   Hungary
+id  3   Indonesia
+ie  2   Ireland
+il  3   Israel
+im  1   Isle of Man
+in  3   India
+io  1   British Indian Ocean Territory
+iq  1   Iraq
+ir  1   Iran
+is  2   Iceland
+it  2   Italy
+je  1   Jersey
+jm  3   Jamaica
+jo  3   Jordan
+jp  3   Japan
+ke  3   Kenya
+kg  1   Kyrgyzstan
+kh  1   Cambodia
+ki  1   Kiribati
+km  1   Comoros
+kn  1   Saint Kitts and Nevis
+kp  1   North Korea
+kr  3   South Korea
+kw  3   Kuwait
+ky  1   Cayman Islands
+kz  1   Kazakhstan
+la  1   Laos
+lb  3   Lebanon
+lc  1   Saint Lucia
+li  2   Liechtenstein
+lk  1   Sri Lanka
+lr  1   Liberia
+ls  1   Lesotho
+lt  2   Lithuania
+lu  2   Luxembourg
+lv  2   Latvia
+ly  1   Libya
+ma  1   Morocco
+mc  2   Monaco
+md  1   Moldova
+mg  1   Madagascar
+mh  1   Marshall Islands
+mk  3   Macedonia (Former Yugoslav Republic)
+ml  1   Mali
+mm  1   Myanmar
+mn  1   Mongolia
+mo  1   Macao
+mp  1   Northern Mariana Islands
+mq  1   Martinique
+mr  1   Mauritania
+ms  1   Montserrat
+mt  3   Malta
+mu  1   Mauritius
+mv  1   Maldives
+mw  1   Malawi
+mx  3   Mexico
+my  3   Malaysia
+mz  1   Mozambique
+na  1   Namibia
+nc  1   New Caledonia
+ne  1   Niger
+nf  1   Norfolk Island
+ng  1   Nigeria
+ni  3   Nicaragua
+nl  2   Netherlands
+no  2   Norway
+np  1   Nepal
+nr  1   Nauru
+nu  2   Niue
+nz  3   New Zealand
+om  1   Oman
+pa  3   Panama
+pe  3   Peru
+pf  1   French Polynesia
+pg  3   Papua New Guinea
+ph  3   Philippines
+pk  3   Pakistan
+pl  3   Poland
+pm  1   Saint Pierre and Miquelon
+pn  1   Pitcairn Island
+pr  1   Puerto Rico
+ps  3   Occupied Palestinian Territory
+pt  2   Portugal
+pw  1   Palau
+py  3   Paraguay
+qa  1   Qatar
+re  1   Reunion
+ro  2   Romania
+ru  2   Russia
+rw  1   Rwanda
+sa  3   Saudi Arabia
+sb  1   Solomon Islands
+sc  1   Seychelles
+sd  1   Sudan
+se  2   Sweden
+sg  3   Singapore
+sh  1   Saint Helena
+si  2   Slovenia
+sj  1   Svalbard and Jan Mayen Islands
+sk  2   Slovakia
+sl  1   Sierra Leone
+sm  1   San Marino
+sn  1   Senegal
+so  1   Somalia
+sr  1   Suriname
+st  1   Saint Tome and Principe
+su  2   Former USSR
+sv  3   El Salvador
+sy  1   Syria
+sz  1   Swaziland
+tc  1   Turks and Caicos Islands
+td  1   Chad
+tf  1   French Southern Territories
+tg  1   Togo
+th  3   Thailand
+tj  1   Tajikistan
+tk  1   Tokelau
+tl  1   East Timor
+tm  1   Turkmenistan
+tn  1   Tunisia
+to  1   Tonga
+tp  1   East Timor
+tr  3   Turkey
+tt  3   Trinidad and Tobago
+tv  1   Tuvalu
+tw  3   Taiwan
+tz  1   Tanzania
+ua  3   Ukraine
+ug  3   Uganda
+uk  3   United Kingdom
+um  1   USA Minor Outlying Islands
+us  4   United States
+uy  3   Uruguay
+uz  1   Uzbekistan
+va  1   Vatican City State
+vc  1   Saint Vincent and Grenadines
+ve  3   Venezuela
+vg  1   Virgin Islands (British)
+vi  1   Virgin Islands (USA)
+vn  1   Vietnam
+vu  1   Vanuatu
+wf  1   Wallis and Futuna Islands
+ws  1   Samoa
+ye  1   Yemen
+yt  1   Mayotte
+yu  3   Former Yugoslavia
+za  3   South Africa
+zm  1   Zambia
+zr  1   Democratic Republic of the Congo
+zw  3   Zimbabwe

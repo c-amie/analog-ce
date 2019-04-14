@@ -1,0 +1,97 @@
+# Report descriptions file for analog 6.0.
+#
+# This file contains descriptions of each report. Lines starting with a
+# hash (#) are comments. Otherwise, each report must take EXACTLY ONE LINE.
+#
+# Slovak language files made by DooDeeToo (http://doodeetoo.host.sk)
+#
+# character set: US-ASCII
+#
+# Yearly Report
+Tento prehlad zobrazuje aktivitu v kazdom roku.
+# Quarterly Report
+Tento prehlad zobrazuje aktivitu v kazdom stvrtroku.
+# Monthly Report
+Tento prehlad zobrazuje aktivitu v kazdom mesiaci.
+# Weekly Report
+Tento prehlad zobrazuje aktivitu v kazdom tyzdni.
+# Daily Report
+Tento prehlad zobrazuje aktivitu v kazdom dni.
+# Hourly Report
+Tento prehlad zobrazuje aktivitu v kazdej hodine.
+# Quarter-Hour Report
+Tento prehlad zobrazuje aktivitu v kazdom stvrthodinovom intervale.
+# Five-Minute Report
+Tento prehlad zobrazuje aktivitu v kazdom 5-minutovom intervale.
+# Daily Summary
+Tento prehlad zobrazuje celkovu aktivitu pre kazdy den tyzdna, suhrnne pre vsetky tyzdne v prehlade.
+# Hourly Summary
+Tento prehlad zobrazuje celkovu aktivitu pre kazdu hodinu dna, suhrnne pre vsetky dni v prehlade.
+# Hour of the Week Summary
+Tento prehlad zobrazuje celkovu aktivitu pre kazdu hodinu tyzdna, suhrnne pre vsetky tyzdne v prehlade.
+# Quarter-Hour Summary
+Tento prehlad zobrazuje celkovu aktivitu pre kazdy stvrthodinovy interval dna, suhrnne pre vsetky dni v prehlade.
+# Five-Minute Summary
+Tento prehlad zobrazuje celkovu aktivitu pre kazdy 5-minutovy interval dna, suhrnne pre vsetky dni v prehlade.
+# General Summary
+Tento prehlad obsahuje celkove statistiky.
+# Request Report
+Tento prehlad zobrazuje pozadovane subory na strankach.
+# Redirection Report
+Tento prehlad zobrazuje subory, ktore sposobili presmerovanie poziadaviek na iny subor. (Zvycajne adresare s chybajucim lomitkom na konci alebo skripty, ktore vnutili presmerovanie.)
+# Failure Report
+Tento prehlad zobrazuje subory, ktore sposobili zlyhanie, napriklad nenajdene subory.
+# File Type Report
+Tento prehlad zobrazuje pripony vyziadanych suborov.
+# Directory Report
+Tento prehlad zobrazuje adresare, z ktorych boli vyziadane subory. (Diagramy pre kazdy adresar obsahuju vsetky jeho podadresare.)
+# Host Report
+Tento prehlad zobrazuje pocitace, ktore si vyziadali subory.
+# Host Redirection Report
+Tento prehlad zobrazuje pocitace, ktore boli presmerovane na iny subor.
+# Host Failure Report
+Tento prehlad zobrazuje pocitace, ktore narazili na zlyhania poziadaviek.
+# Domain Report
+Tento prehlad zobrazuje krajiny pocitacov, ktore si vyziadali subory.
+# Referrer Report
+Tento prehlad zobrazuje referencie (odkial ludia nasledovali odkazy, alebo stranky, ktore obsahuju obrazky z tychto stranok).
+# Referring Site Report
+Tento prehlad zobrazuje servery, z ktorych ludia nasledovali odkazy.
+# Redirected Referrer Report
+Tento prehlad zobrazuje referencie, ktore sposobili presmerovane poziadavky.
+# Failed Referrer Report
+Tento prehlad zobrazuje referencie, obsahujuce chybne odkazy na stranku.
+# Browser Report
+Tento prehlad zobrazuje, ktore prehliadace pouzivaju navstevnici, spolu s podrobnostami.
+# Virtual Host Report
+Tento prehlad zobrazuje aktivitu kazdej virtualnej domeny na strankach.
+# Virtual Host Redirection Report
+Tento prehlad zobrazuje presmerovane poziadavky na kazdu virtualnu domenu.
+# Virtual Host Failure Report
+Tento prehlad zobrazuje neuspesne poziadavky na kazdu virtualnu domenu.
+# User Report
+Tento prehlad zobrazuje uzivatelov, ktori si vyziadali subory, ak boli autentifikovani alebo mozu byt identifikovani cez cookies.
+# User Redirection Report
+Tento prehlad zobrazuje uzivatelov, ktori boli presmerovani na iny subor.
+# User Failure Report
+Tento prehlad zobrazuje uzivatelov, ktori narazili na neuspesne poziadavky.
+# Organisation Report
+Tento prehlad zobrazuje organizacie pocitacov, ktore si vyziadali subory.
+# Search Query Report
+Tento prehlad zobrazuje, ktore vyrazy ludia zadali do vyhladavacov, aby nasli tieto stranky.
+# Search Word Report
+Tento prehlad zobrazuje, ktore slova ludia zadali do vyhladavacov, aby nasli tieto stranky.
+# Internal Search Query Report
+Tento prehlad zobrazuje, ktore vyrazy ludia zadali do skriptov na tychto strankach.
+# Internal Search Word Report
+Tento prehlad zobrazuje, ktore slova ludia zadali do skriptov na tychto strankach.
+# Browser Summary
+Tento prehlad zobrazuje, ktore prehliadace pouzivaju navstevnici.
+# Operating System Report
+Tento prehlad zobrazuje, ktore operacne systemy pouzivaju navstevnici.
+# File Size Report
+Tento prehlad zobrazuje velkosti suborov.
+# Status Code Report
+Tento prehlad zobrazuje stavovy kod HTTP pre vsetky poziadavky.
+# Processing Time Report
+Tento prehlad zobrazuje cas potrebny na vykonanie uspesnych poziadaviek.

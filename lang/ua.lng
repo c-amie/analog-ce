@@ -1,0 +1,581 @@
+## Language file for analog 6.0. May not work with any other version.
+##
+## This is a language file for analog. Lines beginning with ## are comments.
+## Each language should have one language file in its own character set,
+## and can have an additional one for ASCII (7 bit) output.
+## 
+## If your language doesn't seem to fit into this pattern, explain the problem
+## to me, and I can adjust the source code if necessary.
+##
+## Hi mens I try to make translation file for ukrainian and I hope you can
+## use it. In any case you may contact direct to me mb@serv.biph.kiev.ua
+## or take the last version of this file at http://wek.kiev.ua/analog/
+## 
+## The character set of this language file. Prefix with a * to indicate a
+## multibyte character set: e.g. *ISO-2022-JP
+Windows-1251
+## Abbreviations for the day and month names.
+Неділя
+Понеділок
+Вівторок
+Середа
+Четвер
+П'ятниця
+Субота
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+12
+## Next some standard common words.
+## Abbreviation for "week beginning"
+Початок тижня
+рік
+## Quarter of a year
+квартал
+місяць
+день
+днів
+год.
+хвилина
+хвилин(и)
+секунда
+секунд(и)
+байт
+байти
+## ?bytes represents kbytes, Mbytes etc.
+?байт
+запит
+запити
+дата
+## This has the right spacing for a column like 23/Mar/98 15:00-15:05
+дата час
+час
+перший день
+перша година
+останній запит
+час запиту
+запит щодо
+запити щодо
+хост
+хости
+віртуальний хост
+віртуальні хости
+директорія
+директорії
+регіон
+регіони
+організація
+організації
+тип
+типи
+URL
+URLs
+шукач
+шукачі
+операційна система
+операційні системи
+## (= operating system, operating systems)
+розмiр
+пошук щодо
+пошук щодо
+сайт
+сайти
+користувач
+користувачі
+код статусу
+коди статусу
+Статистика web-сервера
+## Prefixes kilo, mega etc. to make kilobytes, megabytes etc.
+кіло
+мега
+гіга
+тера
+пета
+екса
+зета
+йота
+## Shorter versions of the same prefixes for column headings
+К
+М
+Г
+Т
+П
+Е
+З
+Й
+## Names for the rows in the File Size Report. Note that changing these will
+## NOT change the boundaries! These are just labels for predetermined buckets.
+## They should line up nicely when right-aligned.
+          0
+   1б-  10б
+  11б- 100б
+ 101б-  1Кб
+  1Кб- 10Кб
+ 10Кб-100Мб
+100Кб-  1Мб
+  1Мб- 10Мб
+ 10Мб-100Мб
+100Мб-  1Гб
+      > 1Гб
+## Now the names of reports
+Загальні результати
+## The time reports, plus "busiest" strings (at the bottom of each report)
+Щорічна
+Рік з найбільшою кількістю запитів
+Щоквартальна
+Квартал з найбільшою кількістю запитів
+Щомісячна
+Місяць з найбільшою кількістю запитів
+Щотижнева
+Найбільше запитів у тиждень, що почався
+Дні тижня
+Щоденна
+Найбільше запитів
+Щогодинна
+Години доби
+Дні тижня по годинах
+Година з найбільшою кількістю запитів
+Щочвертьгодинна
+За кожні п'ятнадцять хвилин
+Чверть години з найбільшою кількістю запитів
+Щоп'ятихвилинна
+За кожні п'ять хвилин
+П'ять хвилин з найбільшою кількістю запитів
+## The non-time reports. In each case, we have the name of the report,
+## followed by the type of item in the report, once in the singular and once
+## in the plural. These are used in phrases like "including all ??? with at
+## least 200 requests". (The words higher up are used for column headings.)
+## Finally we have the gender of this type of object, which can be m, f or n.
+##
+## So for example, in German a directory is Verzeichnis (neuter gender), which
+## was given above. But "listing the top directory" is "Ausgabe des ersten
+## Verzeichnisses" and "listing the top two directories" is "Ausgabe der
+## ersten zwei Verzeichnisse". So here, we would have for the directory report:
+##
+## Verzeichnis-Bericht
+## Verzeichnisses
+## Verzeichnisse
+## n
+##
+## I hope that makes sense!
+Хости
+хост
+хостів
+хости
+Перенаправлення хостів
+хост
+хостів
+хости
+Помилки з хостів
+хост
+хостів
+хости
+Папки
+папка
+папок
+папки
+Типи файлів
+тип
+типів
+типи
+Файли
+назва
+файлів
+файли
+Перенаправлення
+адреса
+адрес
+адреси
+Помилки
+запит щодо
+помилок
+помилки
+Посилання (сторінки)
+сторінка
+сторінок
+сторінки
+Посилання (сайти)
+сайт
+сайтів
+сайти
+Посилання (загальний)
+URL
+URLs
+n
+Сайти, що з них отримували помилки
+сайт
+сайтів
+сайти
+Шукали
+строчка
+строчок
+строчки
+Слова пошуку
+слів
+слів
+n
+Шукали на сайті
+фраза
+фраз
+фрази
+Шукали слова на сайті
+слово
+слів
+слова
+Віртуальні хости
+хост
+хостів
+хости
+Перенаправлені віртуальні хости
+хост
+хостів
+хости
+Помилкові віртуальні хости
+хост
+хостів
+хости
+Користувачі
+користувач
+користувачів
+користувачі
+Перенаправлені користувачі
+користувач
+користувачів
+користувачі 
+Помилки користувачів
+користувач
+користувачів
+користувачі
+Шукачі
+назва
+шукачів
+шукачі
+Шукачі (загальний)
+назва
+шукачів
+шукачі
+Операційні системи
+назва
+операційних систем
+операційні системи
+Регіони
+регіон
+регіонів
+регіони
+Організації
+организація
+організацій
+організації
+Коди виконання
+код
+кодів
+коди
+Час виконання
+Розміри файлів
+## Used at the bottom of the report
+Цю сторінку створено програмою
+Час виконання
+Меньше ніж 1
+## Used in the time reports
+Значок
+дорівнює запиту
+або є часткою
+сторінки
+сторінок
+## Used at the bottom of each non-time report: need m, f & n genders
+*
+*
+інші
+## Used on the pie charts: again need m, f & n genders
+*
+*
+інші
+## Used at the top of the report
+Останнє оновлення о
+Проаналізовано запити з
+по
+## Used in the General Summary
+Слушні запити
+Середня кількість запитів на день
+Слушні запити сторінок
+Середня кількість запитів сторінок на день
+Строчки без коду виконнання
+Помилкові запити
+Перенаправлені запити
+Запити без додаткового коду виконнання 
+Запитано різних сторінок
+Обслуговано хостів
+Пошкоджених строчок
+Незараховано записів
+Передано данних
+Середня кількість переданих данних на день
+У скобках результати за
+7 днів, що передують
+останні 7 днів
+Подивитись
+Початок
+## Some special phrases for particular reports.
+[unresolved numerical addresses]
+[domain not given]
+[unknown domain]
+[root directory]
+[no directory]
+[no extension]
+[directories]
+Unknown Windows
+Other Unix
+Robots
+OS unknown
+## Column headings for requests, pages, bytes and number (ie position in list)
+## and percentages and last-7-day versions of these.
+## Should be as short as possible -- abbreviate if necessary.
+## (The ?bytes represents kbytes, Mbytes etc.)
+запити
+зап за 7 днів
+%(зап)
+%(зап за 7 днів)
+сторінки
+стор за 7 днів
+%(стор)
+%(стор за 7 днів)
+байти
+?Кбайти
+байти за 7 днів
+?Кбайти за 7 днів
+%(байт)
+%(байти за 7 днів)
+№
+## Now we need to know how to say "listing the top <whatever>", "listing
+## the top <n> <whatevers>", and "listing <whatevers>". The %s and %d
+## will be replaced by the appropriate things. There may be three of each of
+## these statements, for the genders m, f and n. Any genders that aren't used,
+## you can just put a * there instead. So, for example, French starts
+## Affichage du premier %s
+## Affichage de la premi&egrave;re %s
+## *
+## with entries for m & f, but not n
+*
+*
+Перші %s
+*
+*
+Перші %d %s
+*
+*
+Список %s
+## "by" in the phrase "listing the top 3 files BY number of requests"
+за
+## All requests WITH AT LEAST 10 requests
+що мають не меньш ніж
+## Different ways of doing floors
+запит за останні 7 днів
+запити за останні 7 днів
+запит сторінки за останні 7 днів
+запити сторінок за останні 7 днів
+запит
+запити
+перенаправлений запит за останні 7 днів
+перенаправлені запити за останні 7 днів
+помилковий запит
+помилкові запити 
+помилковий запит за останні 7 днів
+помилкові запити за останні 7 днів
+% від загального
+% від загального  за останні 7 днів
+% від найбільшого кількості
+% від найбільшого кількості за останні 7 днів
+передано байтів
+за якими передано байтів не меньш ніж
+## ?bytes represents kbytes, Mbytes etc.
+передано ?Кбайтів
+byte of traffic in the last 7 days
+bytes of traffic in the last 7 days
+?bytes of traffic in the last 7 days
+що з них робили запити від
+запити з
+помилкові запити з
+with first request since
+with first redirected request since
+with first failed request since
+## Now "sorted by": again, in m, f & n (only needed in plural though)
+*
+*
+відсортовано за
+## Used at the top of each report
+Данні за
+## Used in pie charts
+Позначено за
+## different ways of sorting
+трафіком
+трафіком за останні 7 днів
+% від кількості запитів
+% від кількості запитів за останні 7 днів
+% від найбільшої кількості запитів
+% від найбільшої кількості запитів за останні 7 днів
+кількістю запитів
+кількістю запитів за останні 7 днів
+% від кількості запитів сторінок
+% від кількості запитів сторінок за останні 7 днів
+% від найбільшої кількості запитів сторінок 
+% від найбільшої кількості запитів сторінок за останні 7 днів
+кількістю запитів сторінок
+кількістю запитів сторінок за останні 7 днів
+% від кількості перенаправлених запитів 
+% від кількості перенаправлених запитів за останні 7 днів
+% від найбільшої кількості перенаправлених запитів 
+% від найбільшої кількості перенаправлених запитів за останні 7 днів
+кількістю перенаправлених запитів 
+кількістю перенаправлених запитів за останні 7 днів
+% від кількості помилкових запитів 
+% від кількості помилкових запитів за останні 7 днів
+% від найбільшої кількості помилкових запитів
+% від найбільшої кількості помилкових запитів за останні 7 днів
+кількістю помилкових запитів 
+кількістю помилкових запитів  за останні 7 днів
+часом останього запиту
+часом останього перенаправленого запиту 
+часом останього помилкового запиту
+час першого запиту
+час першого перенаправленого запиту
+час першого помилкового запиту
+## 3 other ways of sorting in m, f, & n
+*
+*
+за алфавітом
+*
+*
+за номером
+*
+*
+не відсортовано
+## The separators to use between thousands, and as a decimal point. For
+## example, English generally uses "3,000.25" so has , and . here. French uses
+## "3 000,25", so has space and , instead.
+   
+,
+## There's a colon here, because the French like to put a space before a colon,
+## so they have space-colon instead here.
+ 
+## am and pm in the sense of morning and afternoon.
+ 
+ 
+## Some date formats. E.g. for 9am on 1st January 1997 use
+## %d for date          " 1"
+## %D for 0-padded date "01"
+## %e or %E for date at end of time interval (where this makes sense)
+## %m for month         "Jan"
+## %l for month at end of time interval
+## %q for quarter of the year    "1"
+## %y for short year    "97"
+## %Y for long year     "1997"
+## %z or %Z for year at end of time interval
+## %X for ISO 8601 extended date format (yyyy-mm-dd) "1997-01-01"
+## %h for hour in 24-hour clock " 9"
+## %H for 0-padded hour         "09"
+## %j for hour in 12-hour clock " 9"
+## %i, %I or %k for hour at end of time interval
+## %n for minute        "00"
+## %o for minute at end of time interval
+## %a for am or pm      "am"
+## %b for am or pm at end of time interval
+## %w for weekday       "Wed"
+## %x for a dash in a range e.g. in 14:00-14:15. This is necessary because in
+##    proper typesetting, this should be an en-dash not a regular dash.
+##
+## So for a date, English might have %d/%m/%y for 1/Jan/97, whereas German
+## would have %d.%m %y for 1.Jan 97). Note: the month number is not available
+## because it can produce ambiguous dates.
+##
+## The different date formats are as follows
+## "refer to the 7 days to [date]"
+%D.%m.%Y %H:%n
+## "Program started at" and "Analysed requests from"
+%H:%n %D.%m.%Y
+## In Daily Report
+%d.%m.%Y
+## In Daily Summary
+%w
+## In Hourly Report
+%d.%m.%Y %H:%n%x%I:%o
+## In Hourly Summary
+%h
+## In Hour of the Week Summary
+%w %H:%n%x%I:%o
+## In Quarter-Hour and Five-Minute Reports
+%d.%m.%Y %H:%n%x%I:%o
+## In Quarter-Hour and Five-Minute Summaries
+%H:%n%x%I:%o
+## In Weekly Report
+%d.%m.%Y
+## In Monthly Report
+%m - %Y
+## In Quarterly Report
+%m%x%l %Y
+## An alternative for Quarterly Report: %Y Q%q
+## In Yearly Report
+%Y
+## The date (d) column in non-time reports
+%d.%m.%y
+## The date & time (D) column in non-time reports
+%d.%m.%y %H:%n
+## In non-time reports: "including all files with requests since [date]"
+%H:%n годин %d.%m.%y
+## Finally, definitions of the HTTP status codes (see
+## ftp://ftp.isi.edu/in-notes/rfc2616.txt). You're welcome to leave these in
+## English if you think they look better that way.
+100 Continue with request
+101 Switching protocols
+1xx [Miscellaneous informational]
+200 OK
+201 Created
+202 Accepted for future processing
+203 Non-authoritative information
+204 OK, but nothing to send
+205 Reset document
+206 Partial content
+2xx [Miscellaneous successes]
+300 Multiple documents available
+301 Document moved permanently
+302 Document found elsewhere
+303 See other document
+304 Not modified since last retrieval
+305 Use proxy
+306 Switch proxy
+307 Document moved temporarily
+3xx [Miscellaneous redirections]
+400 Bad request
+401 Authentication required
+402 Payment required
+403 Access forbidden
+404 Document not found
+405 Method not allowed
+406 Document not acceptable to client
+407 Proxy authentication required
+408 Request timeout
+409 Request conflicts with state of resource
+410 Document gone permanently
+411 Length required
+412 Precondition failed
+413 Request too long
+414 Requested filename too long
+415 Unsupported media type
+416 Requested range not valid
+417 Expectation failed
+4xx [Miscellaneous client/user errors]
+500 Internal server error
+501 Request type not supported
+502 Error at upstream server
+503 Service temporarily unavailable
+504 Gateway timeout
+505 HTTP version not supported
+506 Redirection failed
+5xx [Miscellaneous server errors]
+xxx [Unknown]

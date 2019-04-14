@@ -1,0 +1,264 @@
+aero    2   Flygindustri
+arpa    1   Arpanet
+biz     2   Företag
+com     2   Kommersiellt
+coop    2   Kooperativ
+edu     2   Utbildningsväsendet i USA
+gov     2   Myndigheter i USA
+info    2   Informativt
+int     2   Internationella fördragsorganisationer
+mil     2   Militär i USA
+museum  2   Museum
+name    3   Individer
+net     2   Nätverk
+org     2   Ideella organisationer
+pro     3   Yrkesmän
+
+ac  1   Ascensionön
+ad  2   Andorra
+ae  3   Förenade Arabemiraten
+af  1   Afghanistan
+ag  2   Antigua och Barbuda
+ai  1   Anguilla
+al  1   Albanien
+am  2   Armenien
+an  1   Nederländska Antillerna
+ao  1   Angola
+aq  1   Antarktis
+ar  3   Argentina
+as  1   Amerikanska Samoa
+at  3   Österrike
+au  3   Australien
+aw  1   Aruba
+az  1   Azerbajdzjan
+ba  3   Bosnien-Hercegovina
+bb  2   Barbados
+bd  1   Bangladesh
+be  3   Belgien
+bf  1   Burkina Faso
+bg  2   Bulgarien
+bh  1   Bahrain
+bi  1   Burundi
+bj  1   Benin
+bm  1   Bermuda
+bn  1   Brunei
+bo  3   Bolivia
+br  3   Brasilien
+bs  1   Bahamas
+bt  1   Bhutan
+bv  1   Bouvetön
+bw  1   Botswana
+by  1   Vitryssland
+bz  1   Belize
+ca  3   Kanada
+cc  1   Kokosöarna
+cd  1   Demokratiska republiken Kongo
+cf  1   Centralafrikanska republiken
+cg  1   Kongo
+ch  2   Schweiz
+ci  1   Elfenbenskusten
+ck  1   Cooköarna
+cl  2   Chile
+cm  1   Kamerun
+cn  3   Kina
+co  3   Colombia
+cr  3   Costa Rica
+cu  2   Kuba
+cv  1   Kap Verdeöarna
+cx  2   Julön
+cy  3   Cypern
+cz  2   Tjeckien
+de  2   Tyskland
+dj  1   Djibouti
+dk  2   Danmark
+dm  2   Dominica
+do  3   Dominikanska republiken
+dz  1   Algeriet
+ec  3   Ecuador
+ee  2   Estland
+eg  3   Egypten
+eh  1   Västsahara
+er  1   Eritrea
+es  2   Spanien
+et  1   Etiopien
+fi  2   Finland
+fj  3   Fidji
+fk  1   Falklandsöarna
+fm  1   Mikronesien
+fo  1   Färöarna
+fr  2   Frankrike
+fx  1   Frankrike (Europeiskt territorium)
+ga  1   Gabon
+gb  1   Storbritannien
+gd  1   Grenada
+ge  1   Georgien
+gf  1   Franska Guyana
+gg  1   Guernsey
+gh  3   Ghana
+gi  1   Gibraltar
+gl  1   Grönland
+gm  1   Gambia
+gn  1   Guinea
+gp  1   Guadeloupe
+gq  1   Ekvatorialguinea
+gr  2   Grekland
+gs  1   Sydgeorgien och Sydsandwichöarna
+gt  3   Guatemala
+gu  1   Guam
+gw  1   Guinea Bissau
+gy  1   Guyana
+hk  3   Hong Kong
+hm  1   Heardön och McDonaldöarna
+hn  2   Honduras
+hr  2   Kroatien
+ht  1   Haiti
+hu  2   Ungern
+id  3   Indonesien
+ie  2   Irland
+il  3   Israel
+im  1   Isle of Man
+in  3   Indien
+io  1   Brittiskt territorium i Indiska Oceanen
+iq  1   Irak
+ir  1   Iran
+is  2   Island
+it  2   Italien
+je  1   Jersey
+jm  3   Jamaica
+jo  3   Jordanien
+jp  3   Japan
+ke  3   Kenya
+kg  1   Kirgizistan
+kh  1   Kambodja
+ki  1   Kiribati
+km  1   Komorerna
+kn  1   Sankt Kitts och Nevis
+kp  1   Nordkorea
+kr  3   Sydkorea
+kw  3   Kuwait
+ky  1   Caymanöarna
+kz  1   Kazakstan
+la  1   Laos
+lb  3   Libanon
+lc  1   Saint Lucia
+li  2   Liechtenstein
+lk  1   Sri Lanka
+lr  1   Liberia
+ls  1   Lesotho
+lt  2   Litauen
+lu  2   Luxemburg
+lv  2   Lettland
+ly  1   Libyen
+ma  1   Marocko
+mc  2   Monaco
+md  1   Moldavien
+mg  1   Madagaskar
+mh  1   Marshallöarna
+mk  3   Makedonien (före detta del av Jugoslavien)
+ml  1   Mali
+mm  1   Burma (Myanmar)
+mn  1   Mongoliet
+mo  1   Macau
+mp  1   Nordmarianerna
+mq  1   Martinique
+mr  1   Mauretanien
+ms  1   Montserrat
+mt  3   Malta
+mu  1   Mauritius
+mv  1   Maldiverna
+mw  1   Malawi
+mx  3   Mexiko
+my  3   Malaysia
+mz  1   Mocambique
+na  1   Namibia
+nc  1   Nya Kaledonien
+ne  1   Niger
+nf  1   Norfolkön
+ng  1   Nigeria
+ni  3   Nicaragua
+nl  2   Nederländerna
+no  2   Norge
+np  1   Nepal
+nr  1   Nauru
+nu  2   Niue
+nz  3   Nya Zeeland
+om  1   Oman
+pa  3   Panama
+pe  3   Peru
+pf  1   Franska Polynesien
+pg  3   Papua Nya Guinea
+ph  3   Filippinerna
+pk  3   Pakistan
+pl  3   Polen
+pm  1   Sankt Pierre och Miquelon
+pn  1   Pitcairnön
+pr  1   Puerto Rico
+ps  3   Palestinska territoriet
+pt  2   Portugal
+pw  1   Palau
+py  3   Paraguay
+qa  1   Qatar
+re  1   Reunion
+ro  2   Rumänien
+ru  2   Ryssland
+rw  1   Rwanda
+sa  3   Saudiarabien
+sb  1   Solomonöarna
+sc  1   Seychellerna
+sd  1   Sudan
+se  2   Sverige
+sg  3   Singapore
+sh  1   Sankt Helena
+si  2   Slovenien
+sj  1   Svalbard och Jan Mayen
+sk  2   Slovakien
+sl  1   Sierra Leone
+sm  1   San Marino
+sn  1   Senegal
+so  1   Somalia
+sr  1   Surinam
+st  1   Sankt Tome och Principe
+su  2   F.d. Sovjetunionen
+sv  3   El Salvador
+sy  1   Syrien
+sz  1   Swaziland
+tc  1   Turks- och Caicosöarna
+td  1   Tchad
+tf  1   Franska södra territorierna
+tg  1   Togo
+th  3   Thailand
+tj  1   Tadjikistan
+tk  1   Tokelau
+tl  1   Östtimor
+tm  1   Turkmenistan
+tn  1   Tunisien
+to  1   Tonga
+tp  1   Östtimor
+tr  3   Turkiet
+tt  3   Trinidad och Tobago
+tv  1   Tuvalu
+tw  3   Taiwan
+tz  1   Tanzania
+ua  3   Ukraina
+ug  3   Uganda
+uk  3   Storbritannien
+um  1   USAs yttre öar
+us  4   USA
+uy  3   Uruguay
+uz  1   Uzbekistan
+va  1   Vatikanstaten
+vc  1   Sankt Vincent och Grenadinerna
+ve  3   Venezuela
+vg  1   Brittiska Jungfruöarna
+vi  1   Jungfruöarna
+vn  1   Vietnam
+vu  1   Vanuatu
+wf  1   Wallis- och Futunaöarna
+ws  1   Samoa
+ye  1   Jemen
+yt  1   Mayotte
+yu  3   Jugoslavien
+za  3   Sydafrika
+zm  1   Zambia
+zr  1   Demokratiska republiken Kongo
+zw  3   Zimbabwe

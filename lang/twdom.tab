@@ -1,0 +1,261 @@
+aero    2   Air Transport Industry 航太業
+arpa    1   Arpanet
+biz     2   Businesses 商業
+com     2   Commercial 商業
+coop    2   Co-operatives 合作社(組織)
+edu     2   美國教育單位
+gov     2   美國政府單位
+info    2   Informational 一般資訊
+int     2   International Treaty Organizations 國際組織
+mil     2   美國軍事單位
+museum  2   Museums 博物館等展覽機構
+name    3   Individuals 個人使用
+net     2   Network 網路
+org     2   非營利性組織
+pro     3   Professionals 專業人士或機構
+
+ac  1   Ascension Island 亞森欣島
+ad  2   Andorra 安道爾共和國
+ae  3   United Arab Emirates 阿拉伯聯合大公國
+af  1   Afghanistan 阿富汗
+ag  2   Antigua and Barbuda 安地卡及巴布達
+ai  1   Anguilla 英屬安古拉島
+al  1   Albania 阿爾巴尼亞
+am  2   Armenia 亞美尼亞
+an  1   Netherlands Antilles 荷屬安地里斯群島
+ao  1   Angola 安哥拉
+aq  1   Antartica 南極洲
+ar  3   Argentina 阿根廷
+as  1   American Samoa 美屬薩摩亞
+at  3   Austria 奧地利
+au  3   Australia 澳大利亞
+aw  1   Aruba 阿魯巴島
+az  1   Azerbaijan 亞塞拜然
+ba  3   Bosnia and Herzegovina 波西尼亞-赫茲果維亞
+bb  2   Barbados 巴貝多
+bd  1   Bangladesh 孟加拉共和國
+be  2   Belgium 比利時
+bf  1   Burkina Faso 布基那法索
+bg  2   Bulgaria 保加利亞
+bh  1   Bahrain 巴林
+bi  1   Burundi 蒲隆地
+bj  1   Benin 貝南
+bm  1   Bermuda 百慕達群島
+bn  1   Brunei Darussalam 汶萊
+bo  3   Bolivia 玻利維亞
+br  3   Brazil 巴西
+bs  1   Bahamas 巴哈馬
+bt  1   Bhutan 不丹
+bv  1   Bouvet Island 布威島
+bw  1   Botswana 波紮那共和國
+by  1   Belarus 白俄羅斯
+bz  1   Belize 貝里斯
+ca  2   Canada 加拿大
+cc  1   Cocos (Keeling) Islands 扣扣斯群島
+cd  1   Democratic Republic of the Congo 剛果民主共和國
+cf  1   Central African Republic 中非共和國
+cg  1   Republic of Congo 剛果
+ch  2   Switzerland 瑞士
+ci  1   Ivory Coast (Cote d'Ivoire) 象牙海岸共和國
+ck  1   Cook Islands 庫克群島
+cl  2   Chile 智利
+cm  1   Cameroon 喀麥隆
+cn  3   China 中國
+co  3   Colombia 哥倫比亞
+cr  3   Costa Rica 哥斯大黎加
+cu  1   Cuba 古巴
+cv  1   Cape Verde 維德角
+cx  1   Christmas Island 聖誕島
+cy  3   Cyprus 塞普勒斯
+cz  2   Czech Republic 捷克共和國
+de  2   Germany 德國
+dj  1   Djibouti 吉布地
+dk  2   Denmark 丹麥
+dm  2   Dominica 多米尼克
+do  2   Dominican Republic 多米尼克共和國
+dz  1   Algeria 阿爾及利亞
+ec  3   Ecuador 厄瓜多爾
+ee  2   Estonia 愛沙尼亞
+eg  3   Egypt 埃及
+eh  1   Western Sahara 西撒哈拉
+er  1   Eritrea 厄立特里亞
+es  2   Spain 西班牙
+et  1   Ethiopia 衣索比亞
+fi  2   Finland 芬蘭
+fj  3   Fiji 斐濟
+fk  1   Falkland Islands (Malvina) 英屬福克蘭群島
+fm  1   Federal State of Micronesia 密克羅西尼亞
+fo  1   Faroe Islands 非洛群島
+fr  2   France 法國
+ga  1   Gabon 加彭
+gd  1   Grenada 格瑞納達
+ge  1   Georgia 喬治亞
+gf  1   French Guiana 法屬蓋亞那
+gg  1   Guernsey 英屬耿西島
+gh  3   Ghana 迦納
+gi  1   Gibraltar 直布羅陀
+gl  1   Greenland 格陵蘭
+gm  1   Gambia 甘比亞
+gn  1   Guinea 幾內亞
+gp  1   Guadeloupe (French) 法屬瓜達路島
+gq  1   Equatorial Guinea 赤道幾內亞
+gr  2   Greece 希臘
+gs  1   South Georgia and the South Sandwich Islands 南喬治亞及南三明治群島
+gt  3   Guatemala 瓜地馬拉
+gu  1   Guam (USA) 關島
+gw  1   Guinea-Bissau 幾內亞比紹共和國
+gy  1   Guyana 蓋亞那
+hk  3   Hong Kong 香港
+hm  1   Heard and McDonald Islands 赫德麥當勞群島
+hn  2   Honduras 宏都拉斯
+hr  2   Croatia (Hrvatske) 克羅埃西亞
+ht  1   Haiti 海地
+hu  2   Hungary 匈牙利
+id  3   Indonesia 印尼
+ie  2   Ireland 愛爾蘭
+il  3   Israel 以色列
+im  1   Isle of Man 曼城島
+in  3   India 印度
+io  1   British Indian Ocean Territory 英屬印度洋領地
+iq  1   Iraq 伊拉克
+ir  1   Iran 伊朗
+is  2   Iceland 冰島
+it  2   Italy 義大利
+je  1   Jersey 英屬澤西島
+jm  3   Jamaica 牙買加
+jo  3   Jordan 約旦
+jp  3   Japan 日本
+ke  3   Kenya 肯亞
+kg  1   Kyrgyzstan 吉爾吉斯
+kh  1   Cambodia 柬埔寨
+ki  1   Kiribati 吉里巴斯共和國
+km  1   Comoros 科摩洛
+kn  1   Saint Kitts & Nevis 聖克里斯多福及尼維斯
+kp  1   North Korea (Democratic People's Republic of Korea) 北韓
+kr  3   South Korea (Republic of Korea) 南韓
+kw  3   Kuwait 科威特
+ky  1   Cayman Islands 開曼群島
+kz  1   Kazakhstan 哈薩克
+la  1   Laos 寮國
+lb  3   Lebanon 黎巴嫩
+lc  1   Saint Lucia 聖路西亞島
+li  2   Liechtenstein 列支敦斯登
+lk  1   Sri Lanka 斯里蘭卡
+lr  1   Liberia 賴比瑞亞
+ls  1   Lesotho 賴索托
+lt  2   Lithuania 立陶宛
+lu  2   Luxembourg 盧森堡
+lv  2   Latvia 拉脫維亞
+ly  1   Libya Arab Jamahiriya 利比亞
+ma  1   Morocco 摩洛哥
+mc  2   Monaco 摩納哥
+md  1   Moldova 摩爾達維亞
+mg  1   Madagascar 馬達加斯加
+mh  1   Marshall Islands 馬紹爾群島
+mk  3   Macedonia 馬其頓
+ml  1   Mali 馬利
+mm  1   Myanmar 緬甸
+mn  1   Mongolia 蒙古
+mo  1   Macau 澳門
+mp  1   Northern Mariana Islands 北馬里安納群島
+mq  1   Martinique (French) 法屬馬提尼島
+mr  1   Mauritania 茅利塔尼亞
+ms  1   Montserrat 蒙特色拉特島
+mt  3   Malta 馬爾他
+mu  1   Mauritius 模里西斯
+mv  1   Maldives 馬爾地夫
+mw  1   Malawi 馬拉威
+mx  3   Mexico 墨西哥
+my  3   Malaysia 馬來西亞
+mz  1   Mozambique 莫三比克
+na  1   Namibia 那米比亞
+nc  1   New Caledonia (French) 新喀里多尼亞群島
+ne  1   Niger 尼日
+nf  1   Norfolk Island 諾福克島
+ng  1   Nigeria 奈及利亞
+ni  3   Nicaragua 尼加拉瓜
+nl  2   Netherlands 荷蘭
+no  2   Norway 挪威
+np  1   Nepal 尼泊爾
+nr  1   Nauru 諾魯
+nu  2   Niue 紐威島
+nz  3   New Zealand 紐西蘭
+om  1   Oman 阿曼
+pa  3   Panama 巴拿馬
+pe  3   Peru 祕魯
+pf  1   Polynesia (French) 法屬玻里尼西亞
+pg  3   Papua New Guinea 巴布新幾內亞
+ph  3   Philippines 菲律賓
+pk  3   Pakistan 巴基斯坦
+pl  3   Poland 波蘭
+pm  1   Saint Pierre and Miquelon 聖匹島
+pn  1   Pitcairn Island 皮特康島
+pr  1   Puerto Rico 美屬波多黎各
+ps  1   Palestinian Territories 巴勒斯坦領地
+pt  2   Portugal 葡萄牙
+pw  1   Palau 帛琉
+py  3   Paraguay 巴拉圭
+qa  1   Qatar 卡達
+re  1   Reunion Island (French) 留尼旺
+ro  2   Romania 羅馬尼亞
+ru  2   Russia 俄羅斯
+rw  1   Rwanda 盧安達
+sa  3   Saudi Arabia 沙烏地阿拉伯
+sb  1   Solomon Islands 所羅門群島
+sc  1   Seychelles 塞席爾群島
+sd  1   Sudan 蘇丹
+se  2   Sweden 瑞典
+sg  3   Singapore 新加坡
+sh  1   Saint Helena 聖赫勒拿島
+si  2   Slovenia 斯洛維尼雅
+sj  1   Svalbard and Jan Mayen Islands 冷岸及央麥恩群島
+sk  2   Slovak Republic 斯洛伐克共和國
+sl  1   Sierra Leone 獅子山
+sm  1   San Marino 聖馬利諾
+sn  1   Senegal 塞內加爾
+so  1   Somalia 索馬利亞
+sr  1   Suriname 蘇利南莫
+st  1   Sao Tome and Principe 聖多美普林西比
+sv  3   El Salvador 薩爾瓦多
+sy  1   Syria Arab Republic 敘利亞
+sz  1   Swaziland 史瓦濟蘭
+tc  1   Turks and Caicos Islands 土克斯及開科斯群島
+td  1   Chad 查德
+tf  1   French Southern Territories 法國南方領地
+tg  1   Togo 多哥
+th  3   Thailand 泰國
+tj  1   Tajikistan 塔吉克
+tk  1   Tokelau 托克勞群島
+tl  1   East Timor 東帝汶
+tm  1   Turkmenistan 土庫曼
+tn  1   Tunisia 突尼西亞
+to  1   Tonga 東加
+tp  1   East Timor 東帝汶
+tr  3   Turkey 土耳其
+tt  3   Trinidad and Tobago 千里達托貝哥
+tv  1   Tuvalu 吐瓦魯群島
+tw  3   Taiwan 台灣
+tz  1   Tanzania 坦尚尼亞
+ua  3   Ukraine 烏克蘭
+ug  3   Uganda 烏干達
+uk  3   United Kingdom 英國
+um  1   US Minor Outlying Islands 美國外島
+us  4   United States 美國
+uy  3   Uruguay 烏拉圭
+uz  1   Uzbekistan 烏茲別克斯坦
+va  1   Vatican City State 梵蒂岡
+vc  1   Saint Vincent & Grenadines 聖文森及格瑞那丁
+ve  3   Venezuela 委內瑞拉
+vg  1   Virgin Islands (British) 英屬維爾京群島
+vi  1   Virgin Islands (USA) 美屬維爾京群島
+vn  1   Vietnam 越南
+vu  1   Vanuatu 瓦那圖共和國
+wf  1   Wallis and Futuna Islands 瓦利斯和福杜納群島
+ws  1   Western Samoa 薩摩亞
+ye  1   Yemen 葉門
+yt  1   Mayotte 摩亞特
+yu  3   Yugoslavia 南斯拉夫
+za  3   South Africa 南非
+zm  1   Zambia 尚比亞
+zr  1   Zaire 薩伊
+zw  3   Zimbabwe 辛巴威
