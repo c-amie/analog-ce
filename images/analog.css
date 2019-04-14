@@ -1,0 +1,27 @@
+body {
+	background-color: #F3F3F3;
+	margin: 10px;
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.88em;
+}
+h1 {
+	font-size: 1.8em;
+	color: #882b32;
+}
+h2 {
+	font-size: 1.4em;
+	color: #882b32;
+}
+a:link {
+	color: #3f7fc3;
+}
+a:active {
+	color: #1E3D60;
+}
+a:visited {
+	color: #1E3D60;
+}
+a:hover {
+	color: #142941;
+}
