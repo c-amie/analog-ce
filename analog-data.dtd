@@ -1,0 +1,133 @@
+<!--
+
+        Analog Data DTD - version 1.0
+
+        For further information, see: http://timian.jessen.ch
+
+        This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+
+        PUBLIC "::timian/analog-data::"
+        SYSTEM "http://timian.jessen.ch/dtd/analog-data.dtd"
+
+	Copyright (c) 2003 Per Jessen, per@computer.org
+
+	This program is free software. You can redistribute it and/or modify it
+	under the terms of version 2 of the GNU General Public License, which
+	you should have received with it.
+
+	This program is distributed in the hope that it will be useful, but
+	without any warranty, expressed or implied.
+
+	- - - - - - - - - -
+
+	This DTD describes the syntax of an XML-document produced by
+	analog (http://www.analog.cx) when using OUTPUT XML.
+
+	Please refer to http://timian.jessen.ch for further information.
+
+
+	Changelog:
+	2003/01/21 0.1 per	First version.
+	2003/02/15 0.2 per	At best this may be considered early alpha stage.
+	2003/04/01 0.3 per	Updated for analog 5.90beta2.
+	2003/04/04 0.4 per	now subject to analog license.
+        2003/04/25 1.0 per      updated this header.
+	2004/11/07 1.1 sret     Changed licence to GPL.
+
+-->
+
+
+<!ENTITY % number  "NMTOKEN">
+
+<!ENTITY % generalsummary "(row+)" >
+
+<!ENTITY % timereport	"(rowlimit,sort,row+,busiest)" >
+
+<!ENTITY % timesummary	"(sort,row+)" >
+
+<!ENTITY % genericreport "((sort+,floor+)?,timespan,row+)" >
+
+
+<!ELEMENT analog-data (analog,report+)>
+
+	<!-- using XML data from newer/updated analog versions might require an update of the DTD -->
+	<!ATTLIST analog-data
+		version CDATA #FIXED "5.90beta2"
+		timestamp CDATA #REQUIRED
+	>
+
+        <!ELEMENT analog (property*, timespan)>
+
+	<!ELEMENT property EMPTY>
+	<!ATTLIST property
+		name	NMTOKEN	#REQUIRED
+		content CDATA	#REQUIRED
+	>
+
+
+        <!ELEMENT report ( %timereport; | %timesummary; | %generalsummary; | %genericreport; ) >
+
+        <!ATTLIST report name CDATA #REQUIRED>
+
+
+	<!ELEMENT rowlimit EMPTY>
+	<!ATTLIST rowlimit
+		count %number; #REQUIRED
+	>
+
+        <!ELEMENT row (col+)>
+        <!ELEMENT col (#PCDATA|i18n|timespan)*>
+
+	<!ATTLIST row
+		level %number; #IMPLIED
+	>
+
+        <!ATTLIST col
+		name CDATA #REQUIRED
+	>
+
+	<!ELEMENT timespan EMPTY>
+	<!ATTLIST timespan 
+		from CDATA	#REQUIRED
+		to CDATA	#IMPLIED
+		days %number;	#IMPLIED
+		dayofweek %number; #IMPLIED
+		month %number;	#IMPLIED
+		hour %number;	#IMPLIED
+		minute %number;	#IMPLIED
+	>
+
+	<!ELEMENT timestamp EMPTY>
+	<!ATTLIST timestamp
+		iso8601 CDATA #REQUIRED
+	>
+
+        <!ELEMENT i18n (#PCDATA)>
+        <!ATTLIST i18n
+		key CDATA #IMPLIED
+		var CDATA #IMPLIED
+	>
+
+
+        <!ELEMENT busiest EMPTY>
+        <!ATTLIST busiest 
+		time CDATA #REQUIRED
+		reqs %number; #IMPLIED
+		pages %number; #IMPLIED
+		bytes %number; #IMPLIED
+	>
+
+	<!ELEMENT sort EMPTY>
+	<!ATTLIST sort
+		dir (ascending|descending) #REQUIRED
+		by  CDATA   #IMPLIED
+	>
+
+
+	<!ELEMENT floor EMPTY>
+
+	<!ATTLIST floor
+		level %number;	#REQUIRED
+		qual  CDATA	#IMPLIED
+		by    CDATA	#REQUIRED
+	>

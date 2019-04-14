@@ -1,0 +1,280 @@
+.\"
+.\" Analog by Stephen R. E. Turner, copyright (c) 1995 - 2004.
+.\"
+.\" See http://www.analog.cx/docs/Licence.txt or Licence.txt in your
+.\" analog docs directory for the full licence information.
+.\"
+.TH analog 1 "Version 6.0    19 December 2004" "Analog"
+.SH NAME
+analog \- web server logfile analyser
+.SH SYNOPSIS
+\fBanalog \-\-help
+.br
+analog\fP
+[(\fB\-\fP|\fB+\fP)\fB1\fP]
+[(\fB\-\fP|\fB+\fP)\fB4\fP]
+[(\fB\-\fP|\fB+\fP)\fB5\fP]
+[(\fB\-\fP|\fB+\fP)\fB6\fP]
+[(\fB\-\fP|\fB+\fP)\fB7\fP]
+[(\fB\-\fP|\fB+\fP)\fBA\fP] [(\fB\-\fP|\fB+\fP)\fBa\fP]
+[\fB\-B\fP|\fB+B\fP[\fIoptions\fP]]
+[\fB\-b\fP|\fB+b\fP[\fIoptions\fP]]
+[(\fB\-\fP|\fB+\fP)\fBC\fP'\fIconfiguration-line\fP'] 
+[\fB\-c\fP|\fB+c\fP[\fIoptions\fP]]
+[(\fB\-\fP|\fB+\fP)\fBD\fP]
+[(\fB\-\fP|\fB+\fP)\fBd\fP]
+[\fB\-E\fP|\fB+E\fP[\fIoptions\fP]]
+[\fB\-F\fP|\fB+F\fP\fIdate\fP]
+[\fB\-f\fP|\fB+f\fP[\fIoptions\fP]]
+[\fB\-G\fP]
+[\fB+g\fP\fIfilename\fP]
+[(\fB\-\fP|\fB+\fP)\fBH\fP]
+[(\fB\-\fP|\fB+\fP)\fBh\fP]
+[\fB\-I\fP|\fB+I\fP[\fIoptions\fP]]
+[\fB\-i\fP|\fB+i\fP[\fIoptions\fP]]
+[\fB\-J\fP|\fB+J\fP[\fIoptions\fP]]
+[\fB\-j\fP|\fB+j\fP[\fIoptions\fP]]
+[\fB\-K\fP|\fB+K\fP[\fIoptions\fP]]
+[\fB\-k\fP|\fB+k\fP[\fIoptions\fP]]
+[\fB\-L\fP|\fB+L\fP[\fIoptions\fP]]
+[\fB\-l\fP|\fB+l\fP[\fIoptions\fP]]
+[\fB\-M\fP|\fB+M\fP[\fIoptions\fP]]
+[(\fB\-\fP|\fB+\fP)\fBm\fP]
+[\fB\-N\fP|\fB+N\fP[\fIoptions\fP]]
+[\fB\-n\fP|\fB+n\fP[\fIoptions\fP]]
+[\fB+O\fP\fIoutput-file\fP]
+[\fB\-o\fP|\fB+o\fP[\fIoptions\fP]]
+[(\fB\-\fP|\fB+\fP)\fBP\fP]
+[\fB\-p\fP|\fB+p\fP[\fIoptions\fP]]
+[(\fB\-\fP|\fB+\fP)\fBQ\fP]
+[\fB\-q\fP|\fB+q\fP[[\fB\-\fP|\fB+\fP]\fItypes\fP]]
+[\fB\-R\fP|\fB+R\fP[\fIoptions\fP]]
+[\fB\-r\fP|\fB+r\fP[\fIoptions\fP]]
+[\fB\-S\fP|\fB+S\fP[\fIoptions\fP]]
+[(\fB\-\fP|\fB+\fP)\fBS\fP]
+[\fB\-T\fP|\fB+T\fP\fIdate\fP]
+[\fB\-t\fP|\fB+t\fP[\fIoptions\fP]]
+[(\fB\-\fP|\fB+\fP)\fBU\fP\fIcache\fP]
+[\fB\-u\fP|\fB+u\fP[\fIoptions\fP]]
+[\fB\-V\fP|\fB+V\fP[[\fB\-\fP|\fB+\fP]\fItypes\fP]]
+[\fB\-v\fP|\fB+v\fP[\fIoptions\fP]]
+[(\fB\-\fP|\fB+\fP)\fBW\fP]
+[(\fB\-\fP|\fB+\fP)\fBw\fP]
+[(\fB\-\fP|\fB+\fP)\fBX\fP]
+[(\fB\-\fP|\fB+\fP)\fBx\fP]
+[\fB\-Y\fP|\fB+Y\fP[\fIoptions\fP]]
+[\fB\-y\fP|\fB+y\fP[\fIoptions\fP]]
+[\fB\-Z\fP|\fB+Z\fP[\fIoptions\fP]]
+[(\fB\-\fP|\fB+\fP)\fBz\fP]
+[\fB\-\-settings\fP]
+[\fIlogfile\fP...]
+.TP
+but normally just
+.TP
+.B analog\fP [\fB-G\fP] [\fB+g\fP\fIfilename\fP]
+.SH DESCRIPTION
+\fBAnalog\fP is a program for analyzing log files, and is designed to be fast 
+and to produce attractive statistics.
+
+The usual (and easier) way of configuring \fBanalog\fP is through a
+configuration file, not command line options.
+For more information about writing a configuration file or about the command
+line options see \fIReadme.html\fP in the \fBanalog\fP documentation.
+A description of what \fIoptions\fP are available for the non-time 
+reports is available in \fIothreps.html#othclarg\fP in the \fBanalog\fP
+documentation.
+.SH OPTIONS
+.TP
+.B \-\-help
+Display version and help information and exit.
+.TP
+(\fB-\fP|\fB+\fP)\fB1
+Toggle the Yearly Report.
+.TP
+(\fB-\fP|\fB+\fP)\fB4
+Toggle the Quarter-Hour Report.
+.TP
+(\fB-\fP|\fB+\fP)\fB5
+Toggle the Five-Minute Report.
+.TP
+(\fB-\fP|\fB+\fP)\fB6
+Toggle the Quarter-Hour Summary.
+.TP
+(\fB-\fP|\fB+\fP)\fB7
+Toggle the Five-Minute Summary.
+.TP
+(\fB-\fP|\fB+\fP)\fBA
+Turn all the reports (except the General Summary) off or on.
+.TP
+(\fB-\fP|\fB+\fP)\fBa
+Toggle output style between \fIHTML\fP and \fIPLAIN\fP formats, respectively.
+.TP
+.B -B\fP|\fB+B\fP[\fIoptions\fP]
+Turn the Browser Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B -b\fP|\fB+b\fP[\fIoptions\fP]
+Turn the Browser Summary off or on, possibly setting \fIoptions\fP.
+.TP
+(\fB-\fP|\fB+\fP)\fBC\fP'\fIconfiguration-line\fP'
+Include \fIconfiguration-line\fP in the configuration commands.
+.TP
+.B -c\fP|\fB+c\fP[\fIoptions\fP]
+Turn the Status Code Report off or on, possibly setting \fIoptions\fP.
+.TP
+(\fB-\fP|\fB+\fP)\fBD
+Toggle the Daily Report.
+.TP
+(\fB-\fP|\fB+\fP)\fBd
+Toggle the Daily Summary.
+.TP
+.B -E\fP|\fB+E\fP[\fIoptions\fP]
+Turn the Redirection Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B \-F\fP|\fB+F\fP\fIdate\fP
+Toggle or set the \fIFROM\fP date.  Use \fB-F\fP to turn the \fIFROM\fP date 
+off, and use \fB+F\fP\fIdate\fP to set the \fIFROM\fP date.
+.TP
+.B -f\fP|\fB+f\fP[\fIoptions\fP]
+Turn the Referrer Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B \-G
+Do not use the default configuration file.
+.TP
+\fB+g\fP\fIfilename\fP
+Add \fIfilename\fP to the list of configuration files.
+.TP
+(\fB-\fP|\fB+\fP)\fBH
+Turn the Hourly Report off or on, possibly setting \fIoptions\fP.
+.TP
+(\fB-\fP|\fB+\fP)\fBh
+Toggle the Hourly Summary.
+.TP
+.B -I\fP|\fB+I\fP[\fIoptions\fP]
+Turn the Failure Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B -i\fP|\fB+i\fP[\fIoptions\fP]
+Turn the Directory Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B -J\fP|\fB+J\fP[\fIoptions\fP]
+Turn the User Failure Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B -j\fP|\fB+j\fP[\fIoptions\fP]
+Turn the User Redirection Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B -K\fP|\fB+K\fP[\fIoptions\fP]
+Turn the Failed Referrer Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B -k\fP|\fB+k\fP[\fIoptions\fP]
+Turn the Redirected Referrer Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B -L\fP|\fB+L\fP[\fIoptions\fP]
+Turn the Host Failure Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B -l\fP|\fB+l\fP[\fIoptions\fP]
+Turn the Host Redirection Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B -M\fP|\fB+M\fP[\fIoptions\fP]
+Turn the Virtual Host Failure Report off or on, possibly setting \fIoptions\fP.
+.TP
+(\fB-\fP|\fB+\fP)\fBm
+Toggle the Monthly Report.
+.TP
+.B -N\fP|\fB+N\fP[\fIoptions\fP]
+Turn the Search Query Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B -n\fP|\fB+n\fP[\fIoptions\fP]
+Turn the Search Word Report off or on, possibly setting \fIoptions\fP.
+.TP
+(\fB-\fP|\fB+\fP)\fBO\fP\fIoutput-file\fP
+Write output to \fIoutput-file\fP. Use - for stdout.
+.TP
+.B -o\fP|\fB+o\fP[\fIoptions\fP]
+Turn the Domain Report off or on, possibly setting \fIoptions\fP.
+.TP
+(\fB-\fP|\fB+\fP)\fBP
+Toggle the Processing Time Report.
+.TP
+(\fB-\fP|\fB+\fP)\fBp
+Toggle the Operating System Report.
+.TP
+(\fB-\fP|\fB+\fP)\fBQ
+Toggle the Quarterly Report.
+.TP
+.B \-q\fP|\fB+q\fP[[\fB\-\fP|\fB+\fP]\fItypes\fP]
+Turn all warnings off/on, or remove/add/use exactly specified \fItypes\fP of
+warnings.
+.TP
+.B -R\fP|\fB+R\fP[\fIoptions\fP]
+Turn the Virtual Host Redirection Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B -r\fP|\fB+r\fP[\fIoptions\fP]
+Turn the Request Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B -S\fP|\fB+S\fP[\fIoptions\fP]
+Turn the Host Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B -s\fP|\fB+s\fP[\fIoptions\fP]
+Turn the Referring Site Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B \-T\fP|\fB+T\fP\fIdate\fP
+Toggle or set the \fITO\fP date.  Use \fB-T\fP to turn the \fITO\fP date off, 
+and use \fB+T\fP\fIdate\fP to set the \fITO\fP date.
+.TP
+.B -t\fP|\fB+t\fP[\fIoptions\fP]
+Turn the File Type Report off or on, possibly setting \fIoptions\fP.
+.TP
+(\fB-\fP|\fB+\fP)\fBU\fP\fIcache\fP
+Use file \fIcache\fP for cache output.
+.TP
+.B -u\fP|\fB+u\fP[\fIoptions\fP]
+Turn the User Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B \-V\fP|\fB+V\fP[[\fB\-\fP|\fB+\fP]\fItypes\fP]
+Turn all debugging off/on, or remove/add/use exactly specified \fItypes\fP
+of debugging messages.
+.TP
+.B -v\fP|\fB+v\fP[\fIoptions\fP]
+Turn the Virtual Host Report off or on, possibly setting \fIoptions\fP.
+.TP
+(\fB-\fP|\fB+\fP)\fBW
+Toggle the Weekly Report.
+.TP
+(\fB-\fP|\fB+\fP)\fBw
+Toggle the Hour of the Week Report.
+.TP
+(\fB-\fP|\fB+\fP)\fBX
+Toggle GOTOS (on and off only).
+.TP
+(\fB-\fP|\fB+\fP)\fBx
+Toggle the General Summary.
+.TP
+.B -Y\fP|\fB+Y\fP[\fIoptions\fP]
+Turn the Internal Search Query Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B -y\fP|\fB+y\fP[\fIoptions\fP]
+Turn the Internal Search Word Report off or on, possibly setting \fIoptions\fP.
+.TP
+.B -Z\fP|\fB+Z\fP[\fIoptions\fP]
+Turn the Organization Report off or on, possibly setting \fIoptions\fP.
+.TP
+(\fB-\fP|\fB+\fP)\fBz
+Toggle the File Size Report.
+.TP
+\fB\-\-settings
+Instead of processing any files, display in English the settings \fBanalog\fP
+would use if it ran normally. This is useful for troubleshooting.
+.TP
+\fIlogfile\fP...
+The logfiles to be analysed. Use \- for stdin.
+.SH "SEE ALSO"
+The analog home page at \fIhttp://www.analog.cx/\fP
+.br
+The analog documentation on your local machine, or from the analog home page.
+.SH BUGS
+An up to date list of known bugs and bug fixes can be found at
+\fIhttp://www.analog.cx/bugs.html\fP
+.SH AUTHORS
+.B Analog\fP and related documentation was written by Stephen Turner 
+<\fIanalog-author@lists.meer.net\fP>, with contributions from other authors.
+(See \fIacknow.html\fP in the \fBanalog\fP documentation.)
+This man page was written by Alexander Toth <\fIalex@purificator.net\fP>.
