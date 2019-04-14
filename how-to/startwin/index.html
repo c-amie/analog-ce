@@ -1,0 +1,482 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Analog HOW-TO: getting started under Windows</title>
+	<link rel="stylesheet" type="text/css" href="../anlghow.css">
+	<style type="text/css">
+	code {
+		color: #990000;
+	}
+	.centred {
+		text-align: center;
+	}
+	</style>
+</head>
+
+<body>
+
+<h1 class="centred"><a href="http://www.analog.cx/" title="Visit the Analog home page.">Analog</a> HOW-TO</h1><a name="top" id="top"></a>
+
+<h2 class="centred">Getting started under Windows</h2>
+
+<p class="centred">
+This analog How-To written by <a href="mailto:simon@fatoscar.com?Subject=Analog how-to">Simon Handfield</a> 
+<br>
+<em>This version (1.0), created 21 September 2002</em>
+</p>
+
+<h3>Contents</h3>
+
+<ol>
+	<li><a href="#purpose">Purpose</a></li>
+	<li><a href="#downloading">Downloading</a></li>
+	<li><a href="#installing">Installing</a></li>
+	<ol>
+		<li>Introduction</li>
+	</ol>
+	<li><a href="#customising">Customising your configuration</a></li>
+	<ol>
+		<li>Introduction</li>
+		<li>Running analog from the DOS command prompt</li>
+		<li>Using your own log file and changing the report location</li>
+	</ol>
+</ol>
+
+<h3><a name="purpose" id="purpose">Purpose</a></h3>
+
+<p>
+This How-To provides some basic information on how to get up and running with analog on Microsoft Windows.
+</p>
+
+<p>
+The How-To covers:
+</p>
+
+<ol>
+	<li>downloading analog</li>
+	<li>installing analog</li>
+	<li>verifying the installation using default settings</li>
+	<li>some simple customisations to get you started analysing your own log files</li>
+</ol>
+
+<p>
+Once you are comfortable with the topics covered in this How-To, I encourage you to read more from <a href="../../docs/Readme.html">the analog documentation</a> to make sure you are getting the most out of this very popular log analysis tool.
+</p>
+
+<h3><a name="downloading" id="downloading">Downloading</a></h3>
+
+<p>
+Download the latest version of analog from <a href="http://www.analog.cx/mirrors.html">your nearest mirror site</a>.  
+The latest version at the time this How-To was written was 5.24.
+</p>
+
+<ol>
+	<li>On your mirror site's home page, follow the link to the download page, look for the section that begins with the heading "Windows users" and continues:</li>
+	
+	<blockquote>
+	<em>You can download a pre-compiled executable if you have an Intel-compatible chip and Windows 95/NT or later...</em>
+	</blockquote>
+	
+	<li>There is a link to the latest version of analog for Windows (zip compressed) in that paragraph.  
+		Select this link and download the file to your PC in a place that you will remember later.</li>
+	
+</ol>
+
+<ul>
+	<img src="download.001.png" width="561" height="137" alt="You can download a pre-compiled executable if you have an Intel-compatible chip and Windows 95/NT or later..." border="1">
+	<br />
+	Select the link from your nearest analog mirror site.
+</ul>
+
+<ul>
+	<img src="download.002.png" width="441" height="281" alt="Save the file." border="1">
+</ul>
+
+<ul>
+	<img src="download.003.png" width="374" height="261" alt="Save the file." border="1">
+	<br />
+	Save the file to your computer.
+</ul>
+
+<h3><a name="installing" id="installing">Installing</a></h3>
+
+<h4>Introduction</h4>
+
+<p>
+Analog for Windows is distributed with all files organised in a zip archive, and so no installation is necessary.  
+What you <em>do</em> need to do is extract all the files from the archive into an appropriate location on your PC.
+</p>
+
+<p>
+The zip archive contains directory information for each file, so inside the directory to which you extract analog 
+it will create its own install directory which is usually:
+</p>
+
+<ul>
+<code>analog [version]</code> where <code>[version]</code> is the version of analog you've downloaded (in my case 5.24)
+</ul>
+
+<p>
+The archive will also create subdirectories for you in this new directory which will contain documentation, example configurations, images and language files.
+</p>
+
+<p>
+I'd recommend extracting the archive to your usual program files directory, which is usually <code>C:\Program Files</code>, 
+which will mean that, based on the latest archive file, your path to analog will be:
+</p>
+
+<ul>
+<code>C:\Program Files\analog 5.24</code>
+</ul>
+
+<h4>Step by step</h4>
+
+<ol>
+	<li>Open the downloaded zip archive using a decompression utility like 
+		<a href="http://www.filzip.com/">FilZip</a> (freeware) or <a href="http://www.winzip.com/">WinZip</a> (shareware)</li>
+	<li>Select your decompression utility's <code>Extract</code> action</li>
+	<li>Make sure the option to <code>Use folder names</code> is <strong>on</strong> (or all files will be extracted into the directory you select in the next step)</li>
+	<li>Select the directory where you want to put analog (usually <code>C:\Program Files</code>)</li>
+	<li>Start the extraction</li>
+</ol>
+
+<ul>
+	<img src="zip.content.001.png" width="671" height="415" alt="Open the downloaded zip archive using a decompression utility." border="1">
+	<br />
+	1. Open the downloaded zip archive using a decompression utility.
+</ul>
+
+<ul>
+	<img src="zip.content.002.png" width="180" height="294" alt="Select your decompression utility's <code>Extract</code> action." border="1">
+	<br />
+	2. Select your decompression utility's <code>Extract</code> action.
+</ul>
+
+<ul>
+	<img src="zip.content.003.png" width="488" height="273" alt="Make sure the option to 'Use folder names' is on." border="1">
+	<br />
+	3. Make sure the option to <code>Use folder names</code> is <strong>on</strong>.
+</ul>
+
+<ul>
+	<img src="zip.content.004.png" width="488" height="274" alt="Select the directory where you want to put analog." border="1">
+	<br />
+	4. Select the directory where you want to put analog (usually <code>C:\Program Files</code>.)
+</ul>
+
+<ul>
+	<img src="zip.content.005.png" width="671" height="415" alt="Start the extraction." border="1">
+	<br />
+	5. Start the extraction.
+</ul>
+
+
+<p>
+You should now have a directory (<code>C:\Program Files\analog 5.24</code>) with content similar to the following:
+</p>
+
+<p>
+<img src="analog.directory.001.png" width="748" height="408" alt="analog directory contents after unzipping." border="1">
+</p>
+
+<p>
+At this point, without doing any more, you actually have enough to run analog over the sample log file supplied (<code>logfile.log</code>) using the sample configuration file (<code>analog.cfg</code>.)
+</p>
+
+<h4>Testing installation</h4>
+
+<p>
+Testing that the installation succeeded is as simple as double-clicking the analog executable, <code>analog.exe</code>.  It will run with its defaults, using the sample configuration file (<code>analog.cfg</code>) in the same directory as <code>analog.exe</code>.
+</p>
+
+<p>
+When you double-click <code>analog.exe</code>, you should see a command prompt window or DOS window open, then without warning the window will close again after analog completes.
+</p>
+
+<p>
+<img src="first.run.001.png" width="724" height="424" alt="Testing that the installation succeeded is as simple as double-clicking the analog executable." border="1">
+</p>
+
+<p>
+While analog probably ran successfully, you can't tell by watching the command
+window.  Instead, analog writes any errors to the file
+<code>errors.txt</code>.
+</p>
+
+<p>
+You can check your analog directory and you should find a report file, <code>Report.html</code>, if analog ran successfully:
+</p>
+
+<ol>
+	<li>Open your analog install directory in Windows Explorer.  You should find a file called <code>Report.html</code> in the directory and several PNG images: this is analog's output.</li>
+	<li>If you don't see <code>Report.html</code> or analog threw errors when you tried to run it, you may need to extract your downloaded zip archive again.  Delete your analog install directory, and go back to <a href="#installing">installing</a>.</li>
+	<li>Double-click <code>Report.html</code> and you should see your first analog report open in your default web browser.</li>
+</ol>
+
+<p>
+<img src="run.004.png" width="683" height="569" alt="You should find a file called <code>Report.html</code> in the directory and several PNG images: this is analog's output" border="1">
+<br />
+You should find a file called <code>Report.html</code> in the directory and several PNG images: this is analog's output.
+</>
+	
+<p>
+<img src="run.005.png" width="670" height="430" alt="Double-click 'Report.html' and you should see your first analog report open in your default web browser." border="1">
+<br />
+Double-click <code>Report.html</code> and you should see your first analog report open in your default web browser.
+</p>
+
+</ol>
+
+<p>
+Now you have confirmed you can run analog successfully, you can go on and customise your configuration to analyse your own log files.
+</p>
+
+<h3><a name="customising" id="customising">Customising your configuration</a></h3>
+
+<h4>Introduction</h4>
+
+<p>
+analog is a very powerful log analyser.  This is great if you want to get very specific information from your log files.  
+With power however also comes some complexity in configuring analog to give you what you want.
+</p>
+
+<p>
+If you are just starting out, you are better to make small changes to your configuration, slowly working towards the 
+reports that you want than leaping in and trying to create your own configuration file from scratch.
+</p>
+
+<p>
+The sample configuration that comes with analog (<code>analog.cfg</code>) is a great place to start.  
+We'll use this as a starting point and make changes little by little to get the results we want.  
+This way you can always go back one step if you get a result you weren't expecting.
+</p>
+
+<p>
+Let's start by backing up the original config file so we can retrieve it later if we really break things badly.
+</p>
+
+<ol>
+ <li>Make a copy of <code>analog.cfg</code> and call it <code>analog.cfg.orig</code></li>
+</ol>
+
+<p>
+Now we can start editing the original config file, <code>analog.cfg</code>.
+You can edit it in any text editor, such as Notepad or Wordpad. Just make sure
+to save it as plain text.
+</p>
+
+<h4>Running analog from the DOS command prompt</h4>
+
+<p>
+Once you start creating your own configuration file, you're likely to
+encounter some errors. Analog normally writes these to the file
+<code>errors.txt</code>, but you might find it more convenient to have them
+written to the screen. To do that, find the line in the
+<code>analog.cfg</code> file that says <code>ERRFILE errors.txt</code>. Put a
+hash (<code>#</code>) at the beginning of that line, so it looks like <code>#
+ERRFILE errors.txt</code>. The hash just means that that line is a comment, so
+analog ignores it.
+</p>
+
+<p>
+To read the errors, we'll still need to get that analog command window to wait for us to read its output instead of disappearing as soon as analog has finished.
+</p>
+
+<p>
+To do this we'll open a command prompt window ourselves and call <code>analog.exe</code> from the command line.
+</p>
+
+<ol>
+	<li>Establish a command console session</li>
+	<ol>
+		<li>Click the <code>Start</code> button</li>
+		<li>Click <code>Run...</code></li>
+		<li>Type <code>cmd</code> (WinNT/2000/XP) or <code>command</code> (Win9x/Me) and click <code>OK</code></li>
+	</ol>
+	
+	<ul>
+		<img src="run.001.png" width="256" height="430" alt="Click the 'Start' button and click 'Run...'" border="1" vspace="10">
+		<br />
+		Click the <code>Start</code> button and click <code>Run...</code>
+	</ul>
+	
+	<ul>
+		<img src="run.002.png" width="347" height="179" alt="Type 'cmd' (WinNT/2000/XP) or 'command' (Win9x/Me) and click 'OK.'" border="1" vspace="5">
+		<br />
+		Type <code>cmd</code> (WinNT/2000/XP) or <code>command</code> (Win9x/Me) and click <code>OK</code>.
+	</ul>
+	
+	<li>Change directory to your analog install directory</li>
+	<ol>
+		<li>Type <code>cd "program files\analog 5.24"</code> and hit <code>enter</code></li>
+	</ol>
+	<li>Run analog using defaults</li>
+	<ol>
+		<li>Type <code>analog</code> and hit <code>enter</code></li>
+	</ol>
+	<li>analog should run and exit without writing anything to your screen, and drop you back at your command prompt</li>
+	
+	<ul>
+		<img src="run.003.png" width="588" height="306" alt="analog should run and exit without writing anything to your screen, and drop you back at your command prompt" border="1" vspace="10">
+		<br />
+		analog should run and exit without writing anything to your screen, and drop you back at your command prompt
+	</ul>
+</ol>
+
+<p>
+We have just performed the same process as we did by double-clicking the analog executable, but this way we get to see if analog encounters any errors as it runs.  This will come in very handy when you start to create your own configuration file.
+</p>
+
+<h4>Changing the report location</h4>
+
+<p>
+Probably the first things you want to do are to change where the reports are written and to analyse your own log file.
+</p>
+
+<p>
+Let's look at the line in <code>analog.cfg</code> that tells analog where to write its output:
+</p>
+
+<ul>
+<code>OUTFILE Report.html</code>
+</ul>
+
+<p>
+This tells analog to write its main report file to <code>Report.html</code> in the same directory as the analog executable.
+</p>
+
+<p>
+If we run analog on a regular basis, we're going to overwrite our previous report each time we do so.  Also this mixes our report files up with our program files and gets a bit messy.
+</p>
+
+<p>
+Let's create a new directory where we'll put all our analog reports, and make the report name dynamic so we can run analog without overwriting previous reports.
+</p>
+
+<ol>
+	<li>Create a new directory (mine is <code>d:\stats</code>.)</li>
+	<li>Now change your analog config so it writes its report to the new directory:</li>
+	<ol>
+		<li>We <em>could</em> edit the original <code>OUTFILE</code> line to look like this: <code>OUTFILE d:\stats\Report.html</code></li>
+	</ol>
+	<li>However, using a static file name means that new reports will overwrite previous reports, so I'm going to use report dates to generate a dynamic file name for my report(See analog documentation on <a href="../../docs/output.html#OUTFILE"><code>OUTFILE</code></a> and <a href="../../docs/logfile.html#datecodes"><code>LOGFILE</code></a> commands for more info.)
+		<br />
+		To do this dynamically, I'm going to use the <code>FROM</code> and <code>TO</code> commands (see <a href="../../docs/include.html#FROMTO">documentation on <code>FROM</code> and <code>TO</code> commands</a>) to tell analog the month for which the logs indicate usage
+	</li>
+	<ol>
+		<li><code>FROM 020801</code></li>
+		<li><code>TO 020831</code></li>
+		<li><code>OUTFILE d:\stats\%Y.%M.html</code></li>
+	</ol>
+</ol>
+
+<p>
+Running analog after this change causes it to output its report files to <code>d:\stats</code> with the report file name of <code>2002.08.html</code> because I'd be running the report over a log file containing stats for March 2002.  If I want to run this same report over a new set of logs next month, I'll modify the <code>FROM</code> and <code>TO</code> entries to <code>020901</code> and <code>020931</code>, it will generate a report named <code>2002.09.html</code>.
+</p>
+
+<p>
+The image files that display graphs are generated dynamically by analog when it runs and these are stored in the same directory as the report file by default.  However, they will not use the date as pert of their filename so will be overwritten with every new report run.  All the html files for different months will point to the same graphs for the latest month.
+</p>
+
+<p>
+To avoid this I'm going to use another command in my config file to save graphs with date-based file names in a new subdirectory to keep things tidy:
+</p>
+
+<ol>
+	<li>Create a new directory in <code>d:\stats</code> for the graphs:</li>
+	<ol>
+		<li><code>d:\stats\charts</code></li>
+	</ol>
+	<li>Now add a line in the config file that will tell analog to put graph files in the new directory and prepend the file name with a date string:</li>
+	<ol>
+		<li><code>LOCALCHARTDIR "d:\stats\charts\%Y.%M."</code></li>
+	</ol>
+	<li>So that analog can add correct links to the graph images I'll also need to add another config line that tells it the relative path to the images from the report file:</li>	
+	<ol>
+		<li><code>CHARTDIR "charts/%Y.%M."</code></li>
+	</ol>
+</ol>
+
+<p>
+The <code>%Y.%M.</code> segment in the last two config lines is not actually part of a directory name, but forms part of the chart filenames.  It might have been nice to separate charts for each month into separate directories, but this requires the creation of a new directory each month, which is something analog can not do for you.  Having one directory for your charts is not such a problem though as you can prepend your chart file names with dates.
+</p>
+
+<p>
+Now your reports will be written to the directory of your choice and won't overwrite each other each month when you analyse your latest log.
+</p>
+
+<h4>Using your own log file</h4>
+
+<p>
+The other important customisation you will want to make is to tell analog where you keep your log file so you don't have to copy or move it to the analog installation directory.
+</p>
+
+<p>
+analog's default config file includes a pointer to a log file:
+</p>
+
+<ul>
+	<code>LOGFILE logfile.log</code>
+</ul>
+
+<p>
+Because there is no drive letter or path information, just a file name, analog will look for this file in the same directory as the analog executable (<code>analog.exe</code>.)
+</p>
+
+<p>
+Your log files are more likely to be in <code>c:\WINNT\system32\LogFiles\W3SVC1</code> (the WindowsNT/2000 IIS default), or in some other directory to where you have transferred the from a remote web server.
+</p>
+
+<p>
+My log file is stored in <code>d:\log\apache</code> and is called <code>access.log</code>.
+</p>
+
+<p>
+To have analog process this log file, I'll change the <code>LOGFILE</code> config command:
+</p>
+
+<ul>
+	<code>LOGFILE d:\log\apache\access.log</code>
+</ul>
+
+<p>
+I have no spaces in the path to my file, so I don't need to use quotes around it, but if you have spaces in your path you must include the entire path in quotes:
+</p>
+
+<ul>
+	<code>LOGFILE "c:\my logs\w3svc1\ex0203.log"</code>
+</ul>
+
+<p>
+Running analog now should cause the program to run, analyse your chosen log file and output your report to your chosen destination.
+</p>
+
+<p>
+There are other changes you will want to make to the configuration file to generate the report you want.  You will notice that the images do not display correctly now.
+</p>
+
+<p>
+The analog icon and the red bar icons in the individual reports are stored in the <code>images</code> subdirectory of your analog install directory.  To fix this, you can move or copy this directory to the directory where you are writing your report files, or you can <a href="../../docs/output.html#IMAGEDIR">use the <code>IMAGEDIR</code> command</a> to provide a virtual path to the images from your report.
+</p>
+
+<p>
+You will also want to change the title of your report from the example <code>[my organisation]</code> value in the <code>HOSTNAME</code> command if you haven't already.
+</p>
+
+<p>
+Work through the example configuration, reading <a href="../../docs/indx.html">the comprehensive analog documentation</a> to determine what each line does and what other commands you might choose to use.
+</p>
+
+<p>
+Once you have worked through the simple example configuration, examine some of the others in the <code>examples</code> subdirectory of your analog install directory.
+</p>
+
+<hr>
+<a href="mailto:simon@fatoscar.com?Subject=Analog how-to">Simon Handfield</a>
+<p><a href="../index.html">Back to index of How-To's</a>
+
+
+</body>
+</html>

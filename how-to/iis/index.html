@@ -1,0 +1,373 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="../anlghow.css">
+<title>HOW-To Configure IIS for use with Analog</title>
+</head>
+
+<body>
+
+<h1 align="center" style="text-align: center">HOW-TO<br>
+Configure Internet Information Services for use with
+<a HREF="http://www.analog.cx/">Analog</a></h1>
+    <p align="center" style="text-align: center">Copyright &copy; 2002 by <a href="http://www.ChristopherLewis.com">Christopher G. Lewis</a><br>
+      <font size="2">Rights are given by the copyright holder to reproduce, distribute, modify, and 
+      create derivative works of this document as long as the above original 
+      copyright is not removed.</font>
+  <br>
+<FONT SIZE="2"><i>Originally written 2002-04-29. Last update 2002-05-17.</i></FONT></p>
+
+<h2>Purpose</h2>
+<p>Analog is claimed as the most popular web logfile analyzer in the world. (<a href="http://www.analog.cx/survey.html">Details</a>).
+  While originally written for unix systems, Analog has supported Win32 since
+  version 1.9beta4 (Mar-1996) and has had native Win32 support since 2.0
+  (Feb-1997).&nbsp; Configuring IIS correctly greatly simplifies the use of
+  Analog, and will allow for much better reporting.</p>
+
+<h2>System</h2>
+<p>This example was developed and tested using a default install of Windows 2000
+  server running IIS 5.0 with SP2 and all current security patches installed. It
+  should be applicable to Windows NT 4.0 with IIS 4.0, and also the new Windows
+  .NET servers which are currently in beta.</p>
+
+<p>This sample assumes that Windows 2000 Server or Advanced Server is installed
+  on the machine without IIS.</p>
+
+<h2>Installing Internet Information Services</h2>
+<p>The basic method for installing IIS is to use the Add/Remove Programs control
+  panel application, and to select Add/Remove Windows Components.&nbsp; Select
+  the Internet Information Services (IIS) checkbox, and click the Details
+  button.&nbsp; Check the appropriate check boxes for your installation needs.</p>
+
+<div align="center">
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111">
+    <tr>
+      <td width="50%" align="center">
+      <img border="0" src="IISSetup.gif" alt="IIS Configuration" width="693" height="557"></td>
+    </tr>
+  </table>
+</div>
+<h2>Configuring Internet Information Services</h2>
+<p>There are some simple steps to configure IIS to ensure that Analog functions
+  properly.&nbsp; I'll also include some of my suggestions for log file
+  directories which simplifies the use of IIS, and moves the log files off of
+  the system drive.</p>
+
+<h3>Default Configuration</h3>
+<blockquote>
+  <p>The default IIS configuration looks like this:</p>
+
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+    <tr>
+      <td width="100%">
+      <p align="center">
+        <img border="0" src="IISConfig1.gif" width="802" height="245"></td>
+    </tr>
+  </table>
+  <p>Your first step is to configure the web server logs to gather all the
+    information that Analog will need.</p>
+
+</blockquote>
+<h4>Configuring the entire server to support Analog</h4>
+<blockquote>
+  <p>Right click on the server (in this case NTLewis11) and select Properties to
+    bring up the server Properties page.</p>
+
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+    <tr>
+      <td width="100%">
+      <p align="center">
+        <img border="0" src="IISConfig2.gif" width="463" height="452"></td>
+    </tr>
+  </table>
+  <p>Click the Edit button in the Master Properties frame.</p>
+
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber3">
+    <tr>
+      <td width="100%">
+      <p align="center">
+        <img border="0" src="IISConfig3.gif" width="461" height="454"></p>
+
+      <h5>Changes to make to this screen:</h5>
+      <blockquote>
+        <p>Make sure that you change the Active log Format to &quot;W3C Extended Log
+          File Format&quot;</p>
+
+      </blockquote>
+      </td>
+    </tr>
+  </table>
+  <p>Click the Properties button in the Enable Logging frame.</p>
+
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+    <tr>
+      <td width="100%">
+      <p align="center">
+        <img border="0" src="IISConfig4.gif" width="404" height="384"></p>
+
+      <h5>Changes to make to this screen:</h5>
+      <blockquote>
+        <p>Make sure that the New Log Time Period is set to your desired
+          rotation period.&nbsp; A typical setting would be for Daily rotation,
+          although I imagine in a very high volume site, you might want to
+          select hourly.</p>
+
+        <p>You can check the &quot;Use local time for file naming and rollover&quot;
+          checkbox.&nbsp; This means that your log file rotation will occur at
+          midnight local time rather than midnight GMT.&nbsp; Note that IIS will
+          still log web hits using GMT time no matter what this check box is set
+          to.&nbsp; To compensate for GMT time formatting, you will need a
+          LOGTIMEOFFSET command before your LOGFILE&nbsp; command.&nbsp; Since
+          this offset is independent of day light savings, you will need to
+          change this twice a year in order to produce the correct times through
+          Analog.</p>
+
+        <p>Change the Log File directory to something a little easier to find.&nbsp;
+          On my default system installation (C: for System, D: for first CD-ROM,
+          E: for first data disk), I always put my log files into E:\LogFiles,
+          and then compress this folder using NTFS compression, since the log
+          files compress relatively well. </p>
+
+      </blockquote>
+      </td>
+    </tr>
+  </table>
+  <p>Click on the Extended Properties tab.</p>
+
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber5">
+    <tr>
+      <td width="100%">
+      <p align="center">
+        <img border="0" src="IISConfig5.gif" width="407" height="384"></p>
+
+      <h5>Changes to make to this screen:</h5>
+      <blockquote>
+        <p>Make sure that both the Date and Time check boxes are checked.&nbsp;
+          To simplify my installations, I check every Extended Property
+          checkbox.&nbsp; There are some specific items that could probably not
+          be included (such as Server Port for a port 80 only server), but
+          additional items typically don't add much to the file size of the log
+          files.</p>
+
+        <p>In a typical server installation, do not check the Process Accounting
+          checkbox.&nbsp; At this time, I do not believe Analog will process
+          those lines.</p>
+
+        <p>Make sure that the following are checked:</p>
+
+        <ul>
+          <li>Date</li>
+          <li>Time </li>
+          <li>Client IP Address</li>
+          <li>User Name</li>
+          <li>Server Name</li>
+          <li>Server IP Address</li>
+          <li>Method</li>
+          <li>URI Stem</li>
+          <li>URI Query</li>
+          <li>Protocol Status</li>
+          <li>Bytes Sent</li>
+          <li>Bytes Received</li>
+          <li>Time Taken</li>
+          <li>User Agent</li>
+          <li>Referrer</li>
+          <li>Cookie</li>
+        </ul>
+        <p>Note: By using W3C Extended format, your Analog.CFG file will not
+          need a LOGFORMAT line</p>
+
+      </blockquote>
+      </td>
+    </tr>
+  </table>
+</blockquote>
+<h4>Configuring a single web site to support Analog</h4>
+<blockquote>
+  <p>Configuring a single IIS web site to support Analog is similar to
+    configuring the entire server.&nbsp; Right click on the web site you'd like
+    to configure, and select Properties to bring up the web site Properties
+    page.</p>
+
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber6">
+    <tr>
+      <td width="100%">
+      <p align="center">
+        <img border="0" src="IISConfig2a.gif" width="461" height="453"></td>
+    </tr>
+  </table>
+  <p>Follow the above steps to configure the Active log format and the extended
+    properties for your log files.</p>
+
+</blockquote>
+<h2>Analog Configuration File for IIS</h2>
+<p>The basic analog.cfg file that I use has some slight changes to it to
+  accommodate IIS.&nbsp; I've added a set of&nbsp; LOGTIMEOFFSET commands to
+  deal with IIS's GMT logging (which need to be changed in October and April),
+  and DNS commands for host resolution.&nbsp; I've also eliminated some specific
+  files and directories for Exchange's Web Access and Front Page.&nbsp; Lines
+  that I've added are in <font color="#FF0000">Red</font>.</p>
+
+<blockquote>
+  <pre># Configuration file for analog 5.1
+# See http://www.analog.cx/
+#
+# Here are a couple of configuration commands to get you started. Add any more
+# you like from the Readme.
+#
+# Lines starting with # are comments.
+#
+# There is a much more extensive configuration file in examples/big.cfg
+#
+# If you need a LOGFORMAT command (most people don't -- try it without first!),
+# it must go here, above the LOGFILE commands.
+#LOGFILE logfile.log
+
+<font color="#FF0000">#CST (Winter)
+#LOGTIMEOFFSET -360
+#CDT (Summer)
+LOGTIMEOFFSET -300</font>
+
+<font color="#FF0000">LOGFILE E:\LogFiles\W3SVC1\ex*.log </font>
+
+HOSTNAME &quot;ChristopherLewis.com&quot;
+HOSTURL http://www.ChristopherLewis.com/
+
+BROWOUTPUTALIAS IWENG AOL
+SUBBROW */*
+SUBTYPE *.gz,*.Z
+
+LANGUAGE US-ENGLISH
+
+# OSCHARTEXPAND Windows
+# Add whichever of these types of pages you have on your server, or others.
+# PAGEINCLUDE *.shtml
+# PAGEINCLUDE *.asp
+# PAGEINCLUDE *.jsp
+# PAGEINCLUDE *.cfm
+# PAGEINCLUDE *.pl
+# PAGEINCLUDE *.php
+SEARCHENGINE http://*altavista.*/* q
+SEARCHENGINE http://*yahoo.*/* p
+SEARCHENGINE http://*google.*/* q
+SEARCHENGINE http://*lycos.*/* query
+SEARCHENGINE http://*aol.*/* query
+SEARCHENGINE http://*excite.*/* search
+SEARCHENGINE http://*go2net.*/* general
+SEARCHENGINE http://*metacrawler.*/* general
+SEARCHENGINE http://*msn.*/* MT
+SEARCHENGINE http://*hotbot.com/* MT
+SEARCHENGINE http://*netscape.*/* search
+SEARCHENGINE http://*looksmart.*/* key
+SEARCHENGINE http://*infoseek.*/* qt
+SEARCHENGINE http://*webcrawler.*/* search,searchText
+SEARCHENGINE http://*goto.*/* Keywords
+SEARCHENGINE http://*snap.*/* keyword
+SEARCHENGINE http://*dogpile.*/* q
+SEARCHENGINE http://*askjeeves.*/* ask
+SEARCHENGINE http://*ask.*/* ask
+SEARCHENGINE http://*aj.*/* ask
+SEARCHENGINE http://*directhit.*/* qry
+SEARCHENGINE http://*alltheweb.*/* query
+SEARCHENGINE http://*northernlight.*/* qr
+SEARCHENGINE http://*nlsearch.*/* qr
+SEARCHENGINE http://*dmoz.*/* search
+SEARCHENGINE http://*newhoo.*/* search
+SEARCHENGINE http://*netfind.*/* query,search,s
+SEARCHENGINE http://*/netfind* query
+SEARCHENGINE http://*/pursuit query
+ROBOTINCLUDE REGEXPI:robot
+ROBOTINCLUDE REGEXPI:spider
+ROBOTINCLUDE REGEXPI:crawler
+ROBOTINCLUDE Googlebot*
+ROBOTINCLUDE Infoseek*
+ROBOTINCLUDE Scooter*
+ROBOTINCLUDE Slurp*
+ROBOTINCLUDE Ultraseek*
+TYPEALIAS .html &quot;.html [Hypertext Markup Language]&quot;
+TYPEALIAS .htm &quot;.htm [Hypertext Markup Language]&quot;
+TYPEALIAS .shtml &quot;.shtml [Server-parsed HTML]&quot;
+TYPEALIAS .ps &quot;.ps [PostScript]&quot;
+TYPEALIAS .gz &quot;.gz [Gzip compressed files]&quot;
+TYPEALIAS .tar.gz &quot;.tar.gz [Compressed archives]&quot;
+TYPEALIAS .jpg &quot;.jpg [JPEG graphics]&quot;
+TYPEALIAS .jpeg &quot;.jpeg [JPEG graphics]&quot;
+TYPEALIAS .gif &quot;.gif [GIF graphics]&quot;
+TYPEALIAS .png &quot;.png [PNG graphics]&quot;
+TYPEALIAS .txt &quot;.txt [Plain text]&quot;
+TYPEALIAS .cgi &quot;.cgi [CGI scripts]&quot;
+TYPEALIAS .pl &quot;.pl [Perl scripts]&quot;
+TYPEALIAS .css &quot;.css [Cascading Style Sheets]&quot;
+TYPEALIAS .class &quot;.class [Java class files]&quot;
+TYPEALIAS .pdf &quot;.pdf [Adobe Portable Document Format]&quot;
+TYPEALIAS .zip &quot;.zip [Zip archives]&quot;
+TYPEALIAS .hqx &quot;.hqx [Macintosh BinHex files]&quot;
+TYPEALIAS .exe &quot;.exe [Executables]&quot;
+TYPEALIAS .wav &quot;.wav [WAV sound files]&quot;
+TYPEALIAS .avi &quot;.avi [AVI movies]&quot;
+TYPEALIAS .arc &quot;.arc [Compressed archives]&quot;
+TYPEALIAS .mid &quot;.mid [MIDI sound files]&quot;
+TYPEALIAS .mp3 &quot;.mp3 [MP3 sound files]&quot;
+TYPEALIAS .doc &quot;.doc [Microsoft Word document]&quot;
+TYPEALIAS .rtf &quot;.rtf [Rich Text Format]&quot;
+TYPEALIAS .mov &quot;.mov [Quick Time movie]&quot;
+TYPEALIAS .mpg &quot;.mpg [MPEG movie]&quot;
+TYPEALIAS .mpeg &quot;.mpeg [MPEG movie]&quot;
+TYPEALIAS .asp &quot;.asp [Active Server Pages]&quot;
+TYPEALIAS .jsp &quot;.jsp [Java Server Pages]&quot;
+TYPEALIAS .cfm &quot;.cfm [Cold Fusion]&quot;
+TYPEALIAS .php &quot;.php [PHP]&quot;
+TYPEALIAS .js &quot;.js [JavaScript code]&quot;
+
+<font color="#FF0000">#DNS Stuff
+DNSFILE dnscache
+DNS WRITE</font>
+
+<font color="#FF0000">#Exclude Exchange
+FILEEXCLUDE /Exchange
+FILEEXCLUDE /Exchange/*
+
+#Exclude Front Page stuff
+FILEEXCLUDE /_vti_bin/*
+FILEEXCLUDE /_derived/*
+FILEEXCLUDE /_themes/*
+FILEEXCLUDE /_vti_inf.html
+
+#minimum Requests for Daily reports... These are overridded by Analog_Run.vbs for Monthly
+REQFLOOR 1r
+ORGFLOOR 1r
+REFFLOOR 1r
+REFSITEFLOOR 1r
+HOSTFLOOR 1r</font>
+
+</pre>
+
+</blockquote>
+<h2>Conclusion</h2>
+<p>Hopefully, this will help you out with configuring IIS for use with Analog.&nbsp;
+  For a VBScript that performs Daily, Weekly, and Monthly reporting, please see
+  my web site at <a href="HTTP://www.ChristopherLewis.com">HTTP://www.ChristopherLewis.com</a>.</p>
+
+<hr>
+<p>
+  <script language="javascript">
+  <!--
+  var contact = "Christopher G. Lewis"
+  var email = "Chris"
+  var emailHost = "christopherlewis.com"
+  document.write("<a href=" + "mail" + "to:" + email + "@" + emailHost+ ">" + contact + "</a>")
+  //-->
+  </script>
+</p>
+
+<p><a href="HTTP://www.ChristopherLewis.com">
+  <img border="0" src="CGLLogo_sm.gif" width="362" height="76"></a></p>
+
+<p><a href="../index.html">Back to index of How-To's</a></p>
+
+</body>
+
+</html>

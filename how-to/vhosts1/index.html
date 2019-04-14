@@ -1,0 +1,174 @@
+<html><head>
+<link rel=stylesheet type="text/css" href="../anlghow.css">
+<title>Using Analog for Virtual Hosts (Separate Logfiles)</title>
+</head><body>
+<h1 align="center">
+HOW-TO<br>
+Use <A HREF="http://www.analog.cx/">Analog</a> for Virtual Hosts<br>
+(Using Separate Logfiles)</h1>
+
+<P ALIGN="center">This HOW-TO written by
+<A HREF="mailto:peter@cyberscreen.com">Peter Rose</a>.
+<br>Converted to HTML and Step Three added by
+<a href="mailto:analog-author@lists.meer.net">Stephen Turner</a>.
+</p>
+<p>
+One of the great things about Analog is that it can easily be used to offer
+different customised output to multiple virtual hosts on the same server.
+<p>
+This is an obvious asset if you host several domains on your server and want
+to offer all your customers the benefit of daily/weekly/monthly Analog stats,
+but not all of them require the same level of reporting or the same 'look'.
+<p>
+This real-world example is based on Apache 1.3.12 running on RedHat Linux 6.1,
+but should be applicable to any Unix-like platform. Steps Two and Three, and
+the general ideas, should be helpful on Windows NT and other operating
+systems, but for the details you'll have to ask someone else :-)
+
+<h2>Step One</h2>
+
+Make the necessary entries in the Apache Virtual Host sections.
+<p>
+Here's an example from my httpd.conf:
+<pre>
+&lt;VirtualHost 212.87.82.24&gt;
+ServerName www.ontiles.com
+SSLDisable
+DocumentRoot /home/httpd/html/tileshop
+ServerAdmin webmaster@ontiles.com
+CustomLog logs/ontiles-referer_log  referer
+TransferLog logs/ontiles.com-access_log
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost 212.87.82.24&gt;
+ServerName www.nuw-maas.co.uk
+SSLDisable
+DocumentRoot /home/httpd/html/nuwmaas
+ServerAdmin webmaster@cyberscreen.com
+TransferLog logs/nuw-maas-access_log
+&lt;/VirtualHost&gt;
+</pre>
+<p>
+Here you can see there are 2 virtual hosts with different logging requirements:
+<p>
+ontiles.com wants to get a referer report as well as the regular access
+statistics, whereas nuw-maas.co.uk only needs the basic access stats.
+
+<h2>Step Two</h2>
+
+Create a separate analog.cfg file for each domain. It's your choice whether
+you want each domain's config file to <em>replace</em> or to
+<em>supplement</em> the global analog.cfg - see Step Four for details.
+<p>
+For ontiles.com, we have a
+file called (with stunning originality) ontilesanalog.cfg.  The relevant parts
+from this are as follows:
+<pre>
+LOGFILE /etc/httpd/logs/ontiles.com-access_log
+LOGFORMAT REFERRER
+LOGFILE /etc/httpd/logs/ontiles-referer_log
+OUTFILE /home/httpd/html/cyberscreen/stats/ontiles_stats.html 
+HOSTNAME "ONTILES.COM"
+HOSTURL "http://www.ontiles.com/"
+IMAGEDIR "http://www.cyberscreen.com/images/"
+LOGO "ontileslogo.jpg"
+STYLESHEET ontilesanalogstyle.css
+</pre>
+Note the order in which the <kbd>LOGFILE</kbd> and <kbd>LOGFORMAT</kbd>
+commands appear - if the <kbd>LOGFORMAT REFERRER</kbd> is not before the
+<kbd>LOGFILE</kbd>
+/etc/httpd/logs/ontiles-referer_log, it won't work!  You can see also that
+we're giving the reports for this domain their own logo at the top of the page
+and are using a stylesheet that will match that of their website.  Not
+essential, but you can't beat the finishing touches :-)
+<p>
+Now here's the same section for the analog.cfg file for the other virtual host
+- which, yes, you've guessed it, is called nuw-maasanalog.cfg.
+<pre>
+LOGFILE /etc/httpd/logs/nuw-maas-access_log
+OUTFILE /home/httpd/html/cyberscreen/stats/nuw-maas_stats.html 
+HOSTNAME "WWW.NUW-MAAS.CO.UK"
+HOSTURL "http://www.nuw-maas.co.uk/"
+IMAGEDIR "http://www.cyberscreen.com/images/"
+LOGO "nuw-maaslogo.jpg"
+STYLESHEET nuw-maassanalogstyle.css
+</pre>
+
+So by this time, you get the idea. This domain don't need the referrer report,
+but they would like their own groovy logo and stylesheet applied to the
+output.  You can, of course, take the opportunity within each domain's
+analog.cfg file to tweak the output appearance, request floors and so on
+according to each host's requirements.
+
+<h2>Step Three</h2>
+
+We also want a report for our own use with a summary of the usage for all the
+virtual hosts. So we need to analyse all the logfiles together. The problem is
+that the filenames appear in the logfiles as just /index.html for example, but
+we want to see http://www.ontiles.com/index.html, so that we know which files
+belong to which virtual hosts. This is where the second argument to the
+<kbd>LOGFILE</kbd> command comes in. This argument specifies a prefix to add
+to the filenames in that logfile. You can see this in this configuration file,
+which we'll call all.cfg:
+<pre>
+LOGFILE /etc/httpd/logs/ontiles.com-access_log http://www.ontiles.com
+LOGFILE /etc/httpd/logs/nuw-maas-access_log    http://www.nuw-maas.co.uk
+OUTFILE /home/httpd/html/cyberscreen/stats/overall_stats.html 
+HOSTNAME "Cyberscreen"
+IMAGEDIR "http://www.cyberscreen.com/images/"
+SUBDIR http://*
+</pre>
+Notice the <kbd>SUBDIR</kbd> command at the end. This enables us to see the
+amount of traffic for each virtual host in the Directory Report. This
+information is not in the Virtual Host Report, because the virtual host name
+is just part of the filename, not an item on its own.
+<p>
+When we run this report, analog will give us a &quot;possible double
+counting&quot; warning. This just means that the dates for the logfiles
+overlap, and it's nothing to worry about because all the logfiles are from
+separate virtual hosts.
+
+<h2>Step Four</h2>
+
+Now we have to knock up a little shell script to tell Analog to make a report
+on the stats for our different hosts at runtime. This works for me:
+<pre>
+#!/bin/sh
+
+cd /etc/httpd/analog4.0
+./analog -G +gontilesanalog.cfg
+./analog -G +gnuwmaasanalog.cfg
+./analog -G +gall.cfg
+</pre>
+
+Obviously, the first line reflects the location of my analog - yours may well
+be somewhere else.  And of course, if you've put Analog in your
+<kbd>$PATH</kbd>, you won't need the <kbd>./</kbd> at the beginning of each
+line.  What we're doing here is 
+simply running Analog twice using a different config file each time.  I won't
+say you can do this ad infinitum, but I'm up to 20 virtual hosts and Analog
+processes the whole lot in seconds.  The important switches are the -G , which
+tells Analog not to use the default config file, and the +g in front of each
+cfg filename, which tells Analog to use that particular config file. No, you
+don't leave a space before the filename.
+<p>
+If you include the -G, the individual config files replace the global
+analog.cfg. If you don't include -G, then each domain will get the global
+analog.cfg plus its own analog.cfg.
+
+<h2>Step Five</h2>
+
+Save the above script as 'runanalog' (or whatever) and chmod it 755.  Now you
+can use the cron daemon to execute analog on all your virtual hosts
+automatically at whatever frequency you desire.  In the case of Linux, this is
+a definite no-brainer as under /etc you will find the directories cron.daily,
+cron.weekly or cron.monthly.  My users like to have their stats pages updated
+on a daily basis, so I just copied 'runanalog' into cron.daily, but you could
+equally run weekly or monthly. If you offer a different service to different
+hosts, you could have one 'runanalog' or the daily stats junkies and another
+version in cron.monthly with the hosts that can't handle too much information.
+<p>
+And that's it! You now have Analog reports automatically generated and
+customised for all your virtual hosts.
+<hr>
+<a href="../index.html">Back to index of How-To's</a>

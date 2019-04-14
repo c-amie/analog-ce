@@ -1,0 +1,201 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-gb">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="../anlghow.css">
+<title>Analog and web server logfile rollovers</title>
+</head>
+
+<body>
+
+<h1 align="center">
+HOW-TO<br>
+Rotate <a href="http://www.analog.cx/">Analog</a> and web server logfiles</h1>
+<p align="center">This HOW-TO written by <a href="mailto:brian@omegadm.co.uk">Brian
+Clifton</a> with thanks to <font COLOR="#000080"><a href="mailto:kerezman@kgon.com">Karel
+Kerezman</a></font> <a href="mailto:brian@omegadm.co.uk"><br>
+</a><i><font size="2">Originally written 2000-06-29. Last update 2002-01-04.</font></i></p>
+<h2>Purpose</h2>
+<p>Analog is claimed as the most popular web logfile analyser in the world. (<a href="http://www.analog.cx/survey.html">Details</a>).
+Whether running multiple virtual hosts or a single root web server, a useful
+feature is to run Analog and then roll over both the logfile just analysed and
+the Analog report file. At the same time, the logfile can be compressed and the
+Analog report e-mailed to yourself or the virtual host client. This can be achieved
+quite simply using <a href="http://www.linuxnewbie.com/">crontab</a> and <a href="http://www.linuxnewbie.com/">logrotate</a>.</p>
+<h2>System</h2>
+<p>This example was developed and tested using a default install of RedHat 6.1 using
+Apache v1.3.9-8 and Analog v4.11. Also running on RedHat 7.0 using Apache
+1.3.14.&nbsp; Please note, this is just one example and is not the only method of achieving the
+same goal!</p>
+<h2>Schematic example</h2>
+<p>Each week (or any set time period):</p>
+<ul>
+  <li>Analog runs on the selected log file</li>
+  <li>rotate and compress logfile</li>
+  <li>rotate Analog report</li>
+  <li>e-mail report to admin (or any e-mail address)</li>
+  <li>After 4 weeks (or any number) overwrite files with new ones</li>
+</ul>
+<p>This results in the following files being created:</p>
+<ul>
+  <li>combined_log.1.gz</li>
+  <li>combined_log.2.gz</li>
+  <li>combined_log.3.gz</li>
+  <li>combined_log.4.gz</li>
+  <li>combined_log.html.1</li>
+  <li>combined_log.html.2</li>
+  <li>combined_log.html.3</li>
+  <li>combined_log.html.4</li>
+</ul>
+<p>By this method combined_log.html has no meaning as upon creation it is
+immediately rotated. In this example, apache is using the 'combined' log format
+described in http.conf e.g.</p>
+<blockquote>
+  <p><font face="Courier" size="2" color="#800000"># The following directives define some format nicknames for use with<br>
+  # a CustomLog directive (see below).<br>
+  #<br>
+  LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined</font></p>
+  <p><font color="#800000"><font size="2" face="Courier">&lt;VirtualHost www.adomain.tld&gt;<br>
+  ...<br>
+  ...<br>
+  </font><font size="2" face="Courier">CustomLog /home/httpd/path_to_home_dir/logs_dir/name_of_log_file combined<br>
+  &lt;/VirtualHost></font></font></p>
+</blockquote>
+<p>&nbsp;</p>
+<h2>Method</h2>
+<p>Each minute, the system crontab checks what jobs require scheduling.
+Scheduling is set in the etc/crontab file.</p>
+<blockquote>
+  <p><font color="#800000" size="2" face="Courier">SHELL=/bin/bash<br>
+  PATH=/sbin:/bin:/usr/sbin:/usr/bin<br>
+  MAILTO=root<br>
+  HOME=/<br>
+  <br>
+  # column headings - thanks Toby<br>
+  # mins, hr, date, month, day, command<br>
+  <br>
+  # run-parts<br>
+  # Min Hr Date Month Day Owner Command File<br>
+  01 * * * * root run-parts /etc/cron.hourly<br>
+  02 4 * * * root run-parts /etc/cron.daily<br>
+  22 4 * * 0 root run-parts /etc/cron.weekly<br>
+  42 4 1 * * root run-parts /etc/cron.monthly</font></p>
+</blockquote>
+<p>and what jobs are to be run is described in for example /etc/cron.weekly. In
+the above example, the directory /etc/cron.weekly is checked at 04:22 every
+Sunday morning.</p>
+<p>My /etc/cron.weekly directory contains a :</p>
+<blockquote>
+  <p><font color="#800000" face="Courier" size="2">logrotate<br>
+  makewhatis.cron<br>
+  slocate.cron<br>
+  tmpwatch</font></p>
+</blockquote>
+<p>The important file is <b>logrotate:</b></p>
+<blockquote>
+  <p><font color="#800000" face="Courier" size="2">#!/bin/sh<br>
+  #added by bc 23/5/00 to rotate apache logs<br>
+  /usr/bin/analog -G +g/home/httpd/path_to analogue_cfg file/vdomain.cfg<br>
+  <br>
+  /usr/sbin/logrotate /etc/logrotate.conf</font><br>
+  </p>
+</blockquote>
+<p>The third line runs Analog for a virtual host. The last line does the
+rotation. logrotate.conf contains:</p>
+<blockquote>
+  <p><font color="#800000" size="2" face="Courier"># see "man logrotate" for details<br>
+  # rotate log files weekly<br>
+  weekly<br>
+  <br>
+  # keep 4 weeks worth of backlogs<br>
+  rotate 4<br>
+  <br>
+  # send errors to root<br>
+  errors your@emailaddress<br>
+  <br>
+  # create new (empty) log files after rotating old ones<br>
+  create<br>
+  <br>
+  # uncomment this if you want your log files compressed<br>
+  #compress<br>
+  <br>
+  # RPM packages drop log rotation information into this directory<br>
+  include /etc/logrotate.d<br>
+  <br>
+  # no packages own lastlog or wtmp -- we'll rotate them here<br>
+  /var/log/wtmp {<br>
+    monthly<br>
+    create 0664 root utmp<br>
+    rotate 1<br>
+  }<br>
+  <br>
+  /var/log/lastlog {<br>
+    monthly<br>
+    rotate 1<br>
+  }<br>
+  <br>
+  # system-specific logs may be configured here<br>
+  # Added by BC 22/5/00<br>
+  <br>
+  # rotate log file:<br>
+       /home/httpd/company-domains.net/logs/combined_log {<br>
+	   ifempty<br>
+           copytruncate<br>
+           rotate 4<br>
+  weekly<br>
+           mailfirst&nbsp;<br>
+  #mail your@emailaddress<br>
+           errors your@emailaddress<br>
+	   compress<br>
+           postrotate<br>
+		/usr/bin/killall -HUP httpd<br>
+	   endscript<br>
+       }<br>
+  <br>
+  # rotate Analog report:<br>
+  /home/httpd/company-domains.net/logs/combined_log.html {<br>
+	   ifempty<br>
+           copytruncate<br>
+           rotate 4<br>
+  weekly<br>
+           mailfirst&nbsp;<br>
+	   mail your@emailaddress<br>
+           errors your@emailaddress<br>
+           nocompress<br>
+       }</font></p>
+</blockquote>
+<p>Note the first part of this file (up to <font color="#800000" size="2" face="Courier"># Added by BC 22/5/00</font>)
+sets default parameters. Below my comment, parameters over-ride the defaults.
+One caveat of the default parameters is:</p>
+<blockquote>
+  <p>&nbsp;<font color="#800000" size="2" face="Courier"># send errors to root<br>
+  errors your@emailaddress</font></p>
+</blockquote>
+<p>This does not work as etc/crontab has: <font color="#800000" size="2" face="Courier">MAILTO=root</font>
+which over-rides that set in logrotate.conf</p>
+<p>The part that does the rotating/compressing/e-mailing, follows the comment:</p>
+<blockquote>
+  <p><font color="#800000" size="2" face="Courier"># system-specific logs may be configured here<br>
+  # Added by BC 22/5/00</font></p>
+</blockquote>
+<p>Read <font color="#800000" size="2" face="Courier">man logrotate </font>for
+details concerning what options may be useful to you. Another caveat is that the
+man file appears to indicate the <b>order</b> of the commands is un-important.
+For example (RedHat 6.1):</p>
+<blockquote>
+  <p><font color="#800000" size="2" face="Courier">           nocompress</font></p>
+</blockquote>
+<p>for /var/log/news/* appears after <font color="#800000" face="Courier" size="2">endscript</font>.
+However changing this to <font color="#800000" size="2" face="Courier">compress</font>
+will <b>not</b> work. It must come above <font size="2" face="Courier" color="#800000">postrotate</font>.</p>
+<hr>
+<p><a href="mailto:brian@omegadm.co.uk">Brian Clifton</a><br>
+<br><a href="../index.html">Back to index of How-To's</a>
+</p>
+
+</body>
+
+</html>

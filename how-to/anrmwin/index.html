@@ -1,0 +1,91 @@
+<html><head>
+<link rel=stylesheet type="text/css" href="../anlghow.css">
+<title>Automating Analog and Report Magic for Windows</title>
+
+<h1 align="center">
+HOW-TO<br>
+Automate <A HREF="http://www.analog.cx/">Analog</a> and
+<a href="http://www.reportmagic.org/">Report Magic</a> for Windows</h1>
+<p align=center><i>by Troy Janisch, Online Arts</i><br>
+<i>original document
+<a href="http://www.onlinearts.net/read_more.php?id=10">at Online Arts
+site</a></i></p>
+
+Analog may be the most popular Web stats analyzer in the world, but it
+isn't the most intuitive program for Windows users to automate. These
+step-by-step instructions will get the program working on your server,
+like magic.
+<p>
+For the sake of brevity, I'll assume that you can download and install
+Analog and Report Magic. If you can't do that, you probably shouldn't
+be writing scheduled batch files anyway.
+<p>
+<strong>Step 1 - Your Analog CFG file</strong><br>There is nothing
+magical about setting up a good CFG file for Analog. Since CFG files
+are roughly the same for each platform, I won't waste your time here.
+Instead, I'll provide you with a few useful links:
+<p>
+<ol>
+<li><a href="http://www.analog.cx/docs/custom.html" target="link">Analog documentation</a>  - which tells you how to create a CFG file.
+<li><a href="http://www.rix-web.com/analyzer/" target="link">The RixWeb CFG file creator</a>  - which will create a CFG file for you.
+<li>This <a href="http://www.iconinteractive.com/resources/my.cfg"
+  target="link">example CFG file</a> - which you can use for
+  inspiration
+  </ol>
+When creating your CFG file, there are just a couple of things to keep
+in mind. First, that you'll be overriding the LOGFILE setting when the
+program is run. And, second, that you only need to output a .DAT file
+if you're going to run Report Magic.
+<p>
+<a href="http://www.reportmagic.org/">Report Magic</a>  is a tool that makes Analog reports look prettier. Like Analog, its free, so there is no reason not to use it.
+<p>
+<strong>Step 2 - Your Report Magic INI file</strong><br>Report Magic
+INI files need to know where to find your DAT file and where to write
+the HTML files for the Web Stats report. In this case, here are the
+relevant links:
+<p>
+<ol>
+  <li><a href="http://www.reportmagic.org/docs/config.html" target="link">Report Magic Settings Documentation</a> - where you can read about creating an INI file.
+<li>This <a href="http://www.iconinteractive.com/resources/my.ini"
+  target="link">example INI file</a>  which you can use for inspiration.
+</ol>
+Report Magic can dynamically create file names that include date
+information. You'll probably want different INI files for monthly and
+yearly reports. It's not uncommon to have multiple Report Magic INI
+files for a single Analog CFG file.
+<p>
+<strong>Step 3 - Your Manual Batch File</strong><br>If you're setting
+up Analog or Report Magic for the first time, you'll want to create a
+batch file that generates historical reports - those for previous
+month/years that you'll want to view statistics for.
+<p>
+The manual batch file needs to include two lines for each report
+generated. The first is the Analog command. The command above
+specifies: 1) the location of analog.exe; 2) the log files to be
+included in the report; and 3) the .CFG file to be executed. For
+example:
+<blockquote>call c:\analog\analog.exe c:\LogFiles\W3SVC9\ex0203*.log +g"c:\stats\config\my.cfg" -G</blockquote>
+The second line for each report is the Report Magic command. This
+command specifies: 1) the location of the rmagic.exe; and 2) the
+location of the .INI file. For example:
+<blockquote>call c:\analog\rmagic.exe c:\stats\config\my.ini</blockquote>
+This <a href="http://www.onlinearts.net/downloads/analog/manual.bat" target="link">example</a> generates monthly reports for 2002.
+<p>
+<strong>Step 4- The Automated Batch File</strong><br>The automated
+batch file takes the same format as a manual batch file. However, at
+the beginning of the batch file you must first fetch the current
+month/year:
+<p>
+<blockquote>@ echo off<br>set yy%date:~12,2%<br>set mm=%date:~4,2%</blockquote>
+Then, use the same commands, replacing the appropriate portion of the log file name:
+<p>
+<blockquote>call c:\analog\analog.exe c:\LogFiles\W3SVC9\ex%yy%%mm%*.log +g"c:\stats\config\my.cfg" -G<br><br>
+call c:\analog\rmagic.exe c:\stats\config\my.ini</blockquote>
+This <a href="http://www.onlinearts.net/downloads/analog/nightly.bat" target="link">example</a> generates a monthly Web stats report.
+<p>
+<strong>Step 5 - Use Windows Task Scheduler</strong><br>Using Windows Task Scheduler, specify a time when you want the batch file to run.  For detailed instruction, visit the <a href="http://www.analog.cx/how-to/batch/index.html" target="link">Analog web site</a>
+<p>
+<img src="task1.jpg" width="350">
+<p>
+Ta da! You're automatically generating Analog web stats report.
+</body></html>

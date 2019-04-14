@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> <META HTTP-EQUIV="Content-Language" CONTENT="en-gb">
+	 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+	 <META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+	 <META NAME="ProgId" CONTENT="FrontPage.Editor.Document"> 
+         <LINK REL="stylesheet" TYPE="text/css" HREF="../anlghow.css">
+	 <TITLE>Using Analog with Windows&reg; 2000 Batch Files</TITLE> 
+  </HEAD> 
+  <BODY> 
+	 <H1 ALIGN="center"> HOW-TO<BR> Automate <A
+		HREF="http://www.analog.cx/">Analog</A> with Batch Files and<BR>Windows&reg;
+		2000 Task Scheduler&nbsp;</H1> 
+	 <P ALIGN="center">This HOW-TO written by
+		<A HREF="mailto:rickmc@rix-web.com">Rick McGuinness MCSE + I, MCT</A> of
+		<FONT COLOR="#000080"><A HREF="http://www.rix-web.com">Rix-Web.com</A></FONT>
+		<BR><I><FONT SIZE="2">version 1.0, April 12, 2001</FONT></I></P> 
+	 <H2>Purpose</H2> 
+	 <P>Analog is claimed as the most popular web log file analyzer in the
+		world. (<A HREF="http://www.analog.cx/survey.html">Details</A>). Whether
+		running multiple virtual hosts or a single root web server, a useful feature is
+		to run Analog at pre-determined times automatically. This can be accomplished
+		with a batch file and the Windows&reg; 2000 Task Scheduler.</P> 
+	 <H2>System</H2> 
+	 <P>This example was developed and tested using a Windows&reg; 2000 Advanced
+		Server (Service Pack 1), Internet Information Server 5.0 and Analog 4.90 beta
+		4.</P> 
+	 <H2>Batch File Example</H2> 
+	 <P><B>Each Windows&reg; batch file contains:</B></P> 
+	 <UL> 
+		<LI>The "call analog.exe" command</LI> 
+		<LI>Any <A HREF="../../docs/indx.html#clargs"
+		  TARGET="_blank">command line switches</A> you would normally run</LI> 
+	 </UL> 
+	 <P><B>To create a Windows&reg; batch file:</B></P> 
+	 <UL> 
+		<LI>Open Notepad</LI> 
+		<LI>Type "call analog.exe"</LI> 
+		<LI>Save as "mybatchfile.bat"</LI> 
+		<LI>Save in the same directory as Analog.exe</LI> 
+	 </UL> 
+	 <P><B>A Windows&reg; Batch file might look like.</B></P> 
+	 <BLOCKQUOTE> 
+		<P><FONT FACE="Courier" SIZE="2" COLOR="#800000">#
+		  rix.bat<BR>#<BR><BR>call analog.exe +g"rix.cfg" -G</FONT></P> </BLOCKQUOTE> 
+	 <P>The " <FONT FACE="Courier" SIZE="2" COLOR="#800000">+g"rix.cfg"
+		-G</FONT> " tells Analog to use the "rix.cfg" config file and to ignore the
+		default analog.cfg file. You may use any of the
+		<A HREF="../../docs/indx.html#clargs" TARGET="_blank">command line
+		switches</A> in your batch file. </P> 
+	 <P>Analog will expect to find the config file (rix.cfg) in the same
+		directory as analog.exe and rix.bat. The batch file can be executed via the
+		command line, double-clicking on a shortcut or double-clicking on the batch
+		file in Windows&reg; Explorer.</P> 
+	 <P>If this batch file were executed, it would open a DOS window, run the
+		program and close the window. If you were to add a second line to the batch
+		file "<FONT FACE="Courier" SIZE="2" COLOR="#800000">@Pause</FONT>", it would
+		open a DOS window, run the program and leave the window open saying "Press any
+		key to continue..." at the prompt. Pressing any key would close the window.</P>
+	 
+	 <P>You could also go to <A
+		HREF="http://www.rix-web.com/analyzer/">http://www.rix-web.com/analyzer/</A>,
+		fill in your choices on a web form, and have a configuration file and / or
+		Windows&reg; BAT file emailed back to you (free service). Simply save the .cfg
+		and .bat files in your analog directory and execute.</P> 
+	 <H2>Method</H2> 
+	 <P><B>Using Task Scheduler</B><BR>To use the scheduling service, in Control
+		Panel double-click the Scheduled Tasks folder. You can schedule new tasks by
+		double-clicking Add Scheduled Task, which starts the Scheduled Task wizard. You
+		can add tasks by dragging scripts, programs, or documents from Windows Explorer
+		or the desktop to the Scheduled Tasks window. You can also use Task Scheduler
+		to modify, delete, disable, or stop the tasks that you have scheduled, to view
+		a log of past scheduled tasks, or to view tasks that are scheduled on a remote
+		computer.</P> 
+	 <P><IMG SRC="task0.jpg" WIDTH="676" HEIGHT="209"
+		BORDER="0"><BR>Double-click "Add Scheduled Task."</P> 
+	 <P><IMG SRC="task1.jpg" WIDTH="441" HEIGHT="318" BORDER="0"><BR>Click
+		Next.</P> 
+	 <P><IMG SRC="task2.jpg" WIDTH="441" HEIGHT="318" BORDER="0"><BR>Click
+		Browse.</P> 
+	 <P><IMG SRC="task3.jpg" WIDTH="563" HEIGHT="347" BORDER="0"><BR>Select your
+		batch file and click Open.</P> 
+	 <P><IMG SRC="task4.jpg" WIDTH="441" HEIGHT="318" BORDER="0"><BR>Name your
+		task - Select when to perform the task - Click Next.</P> 
+	 <P><IMG SRC="task5.jpg" WIDTH="441" HEIGHT="318" BORDER="0"><BR>Select
+		Time, Day and Interval - Click Next.</P> 
+	 <P><IMG SRC="task6.jpg" WIDTH="441" HEIGHT="318" BORDER="0"><BR>Enter
+		account information - Click Next.</P> 
+	 <P><IMG SRC="task7.jpg" WIDTH="441" HEIGHT="318" BORDER="0"><BR>Confirm
+		Scheduled Task - Click Next.</P> 
+	 <P><IMG SRC="task8.jpg" WIDTH="668" HEIGHT="240" BORDER="0"></P> 
+	 <H2>Conclusion</H2> 
+	 <P>You can easily use Windows&reg; 2000 Task Scheduler to run any number of
+		Analog jobs at predetermined intervals simply by creating and scheduling batch
+		files.</P> 
+	 <P>&nbsp;</P> <HR> 
+	 <P><A HREF="mailto:rickmc@rix-web.com">Rick McGuinness</A><BR><A
+		HREF="http://www.rix-web.com"><IMG SRC="rixwebsm.jpg" ALT="RixWeb"
+		WIDTH="85" HEIGHT="58" BORDER="0"></A>
+<br><a href="../index.html">Back to index of How-To's</a></P>
+</BODY>
+</HTML>
