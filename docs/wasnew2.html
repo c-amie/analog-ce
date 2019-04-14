@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- what was new in version 2?</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="whatsnew.html">Up</a> |
+<a href="wasnew3.html">Prev</a> | <a href="wasnew1.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0:
+What was new in version 2?</h1>
+<hr size=2 noshade>
+
+This section lists the new features which were in version 2 of analog.
+
+<dl>
+  <dt><b><a href="whatsnew.html">What's new in version 6?</a></b>
+  <dt><b><a href="wasnew5.html">What was new in version 5?</a></b>
+  <dt><b><a href="wasnew4.html">What was new in version 4?</a></b>
+  <dt><b><a href="wasnew3.html">What was new in version 3?</a></b>
+  <dt><b>2.11</b> (14-Mar-97)
+  <dd>Minor bug fixes to yesterday's release.
+  <dt><b>2.1</b> (13-Mar-97)
+  <dd>Language support rewritten, causing reduction in code size of 2200 lines.
+      <br>New configuration command <kbd>LANGFILE</kbd>.
+      <br>New Acorn RiscOS version.
+      <br>Page requests per day reported.
+      <br>Bug fix: <kbd>CASE INSENSITIVE</kbd> could cause <kbd>%7E</kbd>-type
+      conversions not to take place.
+  <dt><b>2.0.2</b> (04-Mar-97)
+  <dd>DNS lookups and wildcards should now work in the Win32 version.
+      <br>New configuration command <kbd>PRINTVARS</kbd>.
+      <br>Fix for zero length hostnames after DNS lookups.
+      <br>Minor corrections in French and Spanish translations.
+  <dt><b>2.0</b> (10-Feb-97)
+  <dd>New native Win32 version.
+      <br>Wildcards allowed in filenames on Mac.
+      <br>Ignores browser &quot;-&quot;.
+  <dt><b>1.93beta</b> (18-Jan-97)
+  <dd>New commands <kbd>BROWALIAS</kbd>, <kbd>CONFIGFILE</kbd> and
+      <kbd>PROGRESSFREQ</kbd>.
+      <br>Form program can now call configuration files.
+      <br>Form program now uses the default choices if none specified.
+      <br>Domain report prints correctly in preformatted output.
+      <br>Specifying +1 and +V2 doesn't crash the program.
+      <br>-v reports dates correctly.
+      <br>Trailing dots on hostnames removed.
+      <br>Second argument to <kbd>LOGFILE</kbd> command can't be obliterated
+      by <kbd>/../</kbd>
+  <dt><b>1.92beta</b> (08-Oct-96)
+  <dd>DNS lookups added on Mac.
+      <br>Netpresenz format understood on Mac.
+      <br>New languages: Spanish, Italian and Danish.
+      <br>Extra information when debugging turned on.
+      <br><code>*.htm</code> are now pages on all machines.
+      <br>A few small bugs fixed.
+  <dt><b>1.91beta4</b> (13-Jul-96)
+  <dd>Cache file now includes page request information.
+      <br>DNS bug fixed.
+      <br>New command <kbd>DNSHASHSIZE</kbd>.
+      <br>Bug in browser reports fixed.
+  <dt><b>1.91beta3</b> (09-Jul-96)
+  <dd>BSD/OS compilation bug believed fixed.
+      <br>Fixed <kbd>HOSTALIAS</kbd> which I broke yesterday.
+      <br>DNS bug (causing too many lookups) identified,
+      although not yet fixed.
+  <dt><b>1.91beta2</b> (08-Jul-96)
+  <dd>Some bug fixes (including: <kbd>HOSTEXCLUDE</kbd> and <kbd>CASE
+      INSENSITIVE</kbd> didn't work properly; selecting &quot;no links&quot;
+      failed on the form; less fussy about what can appear on the form).
+      <br>Mac version no longer includes source code, so is much shorter.
+  <dt><b>1.91beta1</b> (05-Jul-96)
+  <dd>Now DNS code doesn't look up a name twice, even if one is a failed
+      request.
+  <dt><b>1.91beta</b> (05-Jul-96)
+  <dd>Will now output in any of several languages.
+      <br>Preformatted output introduced.
+      <br>New File Type Report.
+      <br>Can limit the number of rows in the time reports.
+      <br>Number of requests for pages (as opposed to raw requests) now
+      calculated throughout.
+      <br>DNS lookup returns, with caching across runs.
+      <br>Logfiles can include wildcards.
+      <br>Wildcards can include multiple *'s.
+      <br>Can process case insensitive logfiles.
+      <br><kbd>OUTPUTALIAS</kbd> commands introduced.
+      <br>New commands to specify exactly what is included, and what linked, in
+      the request report and referrer report.
+      <br><tt>FILEALIAS a a</tt> and <tt>FILEALIAS a b; FILEALIAS b c</tt>
+      now work.
+      <br>New <kbd>ALLOW</kbd> options to cancel <kbd>INCLUDES</kbd>.
+      <br><kbd>REPSEPCHAR</kbd> and <kbd>DECPOINT</kbd> introduced.
+      <br><kbd>DIRSUFFIX</kbd> introduced.
+      <br>Debugging reports number of corrupt lines in other logs.
+      <br>Hash sizes can now be allocated at run time.
+      <br>stdin can now be used for any input file, but not for two.
+      <br>Macintosh version now quits automatically if no warnings have been
+      issued.
+      <br>Form interface made more secure.
+      <br>&quot;Mozilla (compatible)&quot; separated out in Browser Summary.
+      <br>Major internal changes should improve speed.
+      <br>Code for non-Unix platforms integrated into main code.
+      <br>&quot;Referrer&quot; spelled correctly.
+      <br>Licence introduced.
+      <br>Update file introduced.
+      <br>Readme updated to include non-Unix instructions.
+  <dt><b>(19-Apr-96)</b>
+  <dd>First Mac version.
+  <dt><b>1.9beta6</b> (11-Apr-96)
+  <dd>Two bug fixes (number of bytes was incorrectly reported in some cases,
+      and <kbd>-v</kbd> would overwrite the <kbd>OUTFILE</kbd>).
+      <br>Documentation improved.
+  <dt><b>1.9beta5</b> (06-Mar-96)
+  <dd>More bug fixes...
+  <dt><b>1.9beta4</b> (05-Mar-96)
+  <dd>One important bug fix (I broke <kbd>GRAPHICAL OFF</kbd> in 1.9beta3).
+      <br>New form cgi options: <kbd>ch</kbd>, <kbd>gr</kbd> and
+      <kbd>ou=3</kbd>.
+      <br>Code shortened.
+  <dt><b>(05-Mar-96)</b>
+  <dd>First DOS version.
+  <dt><b>1.9beta3</b> (01-Mar-96)
+  <dd>Mainly bug fixes and improved documentation.
+      <br>Browser and referer reports now include failed requests.
+      <br>The <kbd>WARNINGS</kbd> option can now be specified on the form.
+  <dt><b>1.9beta2</b> (07-Feb-96)
+  <dd>Small bug fixes.
+  <dt><b>1.9beta</b> (06-Feb-96)
+  <dd>Lots of changes. The most important new features are
+      <ul>
+	<li>Six new reports (hourly report, browser report, browser summary,
+	    referer report, status code report and error report).
+	<li>Analysis of NCSA/Apache referer log, agent log and combined log
+	    formats.
+	<li>Graphical time reports that still work on text-based browsers.
+	<li>Configurable columns in the time reports.
+	<li>Time reports can run backwards.
+	<li>Time graphs can be plotted by bytes instead of by requests.
+	<li>Can cache old data so that old logfiles need not be kept.
+	<li>Can process several logfiles.
+	<li>Can combine logfiles from several different hosts.
+	<li>Will uncompress compressed logfiles.
+	<li>All configuration options can now be specified on the commandline.
+	<li>Mandatory configuration file added.
+	<li>Lots of new options in the form processing program.
+	<li>Wildcards greatly improved throughout.
+	<li>Alphabetical host report right-aligned.
+	<li>Bytes now quoted as MBytes etc. instead of long number.
+	<li>Produces HTML2.0 compliant output.
+	<li>New sort method <kbd>RANDOM</kbd> (saves time for long reports).
+	<li>Floors for reports now work properly.
+	<li>Can now specify a report <kbd>FROM</kbd> 100 or more days ago.
+	<li>Option to turn off warnings.
+	<li>Considerable savings in code length over previous versions.
+      </ul>
+  <dt><b><a href="wasnew1.html">What was new in version 1?</a></b>
+</dl>
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="whatsnew.html">Up</a> |
+<a href="wasnew3.html">Prev</a> | <a href="wasnew1.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

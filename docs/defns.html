@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- analog's definitions</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="meaning.html">Up</a> |
+<a href="reports.html">Prev</a> | <a href="errors.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0:
+Analog's definitions</h1>
+<hr size=2 noshade>
+
+This section describes how analog defines its terms, and exactly what is
+counted in each category. It gets a bit technical at times -- if you're just
+trying to understand the output, I recommend you read the section on
+<cite><a href="reports.html">Analog's reports</a></cite> first.
+
+<p>
+We start with some basic definitions.
+The <i>host</i> is the computer which has asked you for a file (often called
+the &quot;client&quot;). The file
+might be a <i>page</i> (i.e., an HTML document) or it might be something
+else, such as an image. By default filenames ending in (case insensitive)
+<kbd>.html</kbd>, <kbd>.htm</kbd>, or <kbd>/</kbd> count as
+pages, but you can tell analog to count any file as a page with the
+<kbd><a href="include.html#PAGEINCLUDE">PAGEINCLUDE</a></kbd> command.
+<p>
+The <i>total requests</i> counts all the files which
+have been requested, including pages, graphics, etc. (Some people call this
+the number of hits, but that word is also used in other ways by other
+people, so I avoid it). The <i>requests for pages</i> obviously only counts
+pages. One user can generate many requests by requesting lots of different
+files, or the same file many times.
+<p>
+The <i>referrer</i> for a request
+is the place that the user (or his computer) heard about your file from. If
+he followed a link to reach a page, it will be the previous page. In the
+case of a graphic on a page, the referrer will be the page containing the
+graphic.
+<p>
+Analog's kilobytes are 1024 bytes. (If you prefer to call these kibibytes, you
+can do so by <a href="output.html#LANGUAGE">editing your language file</a>.)
+<hr size=1 noshade>
+Analog recognises four categories of request, based on the HTTP status code of
+the request. You can see the total number of requests for each status code,
+and what the codes mean, in the Status Code Report. (Or see the
+<a href="http://www.w3.org/Protocols/rfc2068/rfc2068">HTTP spec</a> for a
+detailed description.)
+<p>
+First, <i>successful requests</i> are those with HTTP status codes in the 200's
+(where the document was returned) or with code 304 (where the document was
+requested but was not needed because it had not been recently modified and the
+user could use a cached copy). (Actually, you can configure code 304 to be a
+redirected request instead of a successful request with the
+<kbd><a href="include.html#304">304ISSUCCESS</a></kbd> command.)
+<i>Successful requests for pages</i> refers to
+those lines on which the file requested was named and was a page.
+<p>
+<i>Redirected requests</i> are those with other codes in the 300's, indicating
+that the user was directed to a different file instead. The most common cause
+of these requests is that the user has incorrectly requested a directory name
+without the trailing slash. The server replies with a redirection (&quot;you
+probably mean the following&quot;) and the user then makes a second connection
+to get the correct document (although usually the browser does it automatically
+without the user's intervention or knowledge). The other common cause of
+redirected requests is their use as &quot;click-thru&quot; advertising
+banners.
+<p>
+<i>Failed requests</i> are those with codes in the 400's (error in request) or
+500's (server error). They come about for a variety of reasons, but the most
+common are when the requested file is not found or is read-protected.
+<p>
+Finally, <i>requests returning informational status code</i> are those with
+status codes in the 100's. These are very rare at the moment.
+<p>
+There are a few other types of logfile lines listed in the General Summary.
+<i>Lines without status code</i> refers to those logfile lines without a
+status code, and the successful requests in the General Summary only counts
+the ones with a status code: except if the line contains the name of the file
+requested, and the filename is being counted (not starred in the
+<kbd><a href="logfmt.html#starredfmt">LOGFORMAT</a></kbd>), then it's counted
+as a success.
+<i>Unwanted logfile entries</i> are ones which you have explicitly
+<a href="include.html">excluded</a>. Finally,
+<i>corrupt logfile lines</i> are those which analog didn't manage to parse.
+(The number given is the number of unparseable lines in the whole logfile, even
+if the rest of the analysis is restricted to a small part of the logfile,
+because analog doesn't know whether a line would have been wanted if it
+couldn't parse it! You can list all the corrupt lines by turning
+<a href="debug.html#debugs">debugging</a> on.)
+<hr size=1 noshade>
+Most reports only include successful requests in calculating the number of
+requests, requests for pages, bytes, and last date: unless, of course, the
+report is a redirection or failure report. There is a further restriction on
+the time reports, the Status Code Report, the Processing Time Report, the
+File Size Report, and the bytes lines in the General Summary: the logfile
+line must also contain the name of the file requested, and the filename must
+be being counted. This is necessary to stop double counting if the server uses
+separate logs.
+<p>
+The &quot;not listed&quot; line at the bottom of each of the
+<a href="othreps.html">non-time reports</a> represents those items which were
+not listed because they were below the floor for the report. (It doesn't
+include items which you've explicitly <a href="include.html">excluded</a>.)
+<p>
+The figures in parentheses in the General Summary are for the last seven days:
+either the seven days before the <kbd>TO</kbd> time, or if no <kbd>TO</kbd>
+time is given, the seven days before the time of the program start. (It would
+be nicer to use the seven days before the last time in the logfile, but we
+don't know when this is until we've read the whole logfile, and by then it's
+too late.) The figures for the last seven days are not included if all, or
+none, of the requests fall in the last seven days.
+<p>
+In the Domain Report, &quot;domain not given&quot; means that the hostname did
+not contain a dot. &quot;Unknown domain&quot; means that it did contain a dot,
+but that the domain name was not in the <a href="domfile.html">domains
+file</a> (or that the domains file could not be read). The hosts and domains
+concerned can be listed by turning
+<a href="debug.html#debugs">debugging</a> on.
+<p>
+In the Operating System Report, which browsers count as robots is controlled
+by the <a href="include.html#ROBOTINCLUDE"><kbd>ROBOTINCLUDE</kbd> and
+<kbd>ROBOTEXCLUDE</kbd></a> commands.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="meaning.html">Up</a> |
+<a href="reports.html">Prev</a> | <a href="errors.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

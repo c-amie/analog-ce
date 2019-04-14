@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- DNS lookups</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="cache.html">Prev</a> | <a href="lowmem.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0: DNS lookups</h1>
+<hr size=2 noshade>
+
+Sometimes a logfile contains numerical IP addresses - like 131.111.20.59 -
+for the computers that have visited you, instead of names like
+lion.statslab.cam.ac.uk. This section describes how you can get analog
+to do so-called <i>DNS lookups</i> to translate these numbers into names.
+This relies on you having a suitably configured system: DNS lookups are
+not possible on some systems.
+<p>
+First a note. Because analog's DNS lookups use only standard,
+platform-independent code, they are slower than lookups optimised for
+particular platforms. (This is especially true on platforms without the
+<kbd>DNSTIMEOUT</kbd> command described below.) So if you are doing DNS
+lookups regularly, you will probably be better off using one of the many
+specialist DNS lookup programs which you can find on the
+<a href="helpers.html">helper applications</a> page.
+
+<hr size=1 noshade>
+DNS lookups are typically rather slow, because your computer
+has to ask across the network to find out the names of the hosts. For this
+reason, analog saves the addresses it has looked up in a file, so that you
+don't have to look them up again next time. The file is specified by a command
+like
+<pre>
+DNSFILE dnscache
+</pre>
+You will still need to use one of the commands in the next paragraph
+in order to actually use the file.
+If the name of the <kbd>DNSFILE</kbd> doesn't include a directory, it will be
+looked for wherever analog expects to find its DNS files. (This
+location is built in when the program is compiled.) For example, on
+Windows it would be in the same folder as the analog executable.
+<p>
+There are four possible levels of DNS activity. If you specify
+<kbd>DNS NONE</kbd>, no numerical addresses will be resolved. If you specify
+<kbd>DNS READ</kbd>, then analog will read the DNS file for old lookups, but
+no new lookups will take place. This mode is suitable if you are running
+analog while not connected to the internet. The third level is
+<kbd>DNS WRITE</kbd>. This reads the old file, looks up new addresses,
+and adds them to the file. (The first time you use <kbd>DNS WRITE</kbd>, you
+will get a missing-file warning as it tries to read the old file, but it will
+exist the next time.) The final level is <kbd>DNS LOOKUP</kbd>. This
+reads the old file and looks up new addresses, but doesn't add the new
+addresses to the file, so that they will not be remembered for next time.
+This is not normally a level that the user wants to specify, but analog will
+switch to this the behaviour if <kbd>DNS WRITE</kbd> fails for some reason.
+
+<p>
+If you are using a <kbd><a href="include.html">HOSTEXCLUDE</a></kbd> command,
+you need to exclude the numerical IP address if it can't be resolved, or the
+name if it can. In other words, exclude whatever the host is known as in the
+Host Report.
+
+<hr size=1 noshade>
+<a name="DNSLOCKFILE">If two copies</a> of analog were allowed to write to the
+DNS file at the
+same time, the file could become corrupted. So when analog is running in
+<kbd>DNS WRITE</kbd> mode, it creates a <em>lock file</em> which tells other
+copies of analog to back off to <kbd>DNS LOOKUP</kbd>. You can change the
+location of that file with the command
+<pre>
+DNSLOCKFILE filename
+</pre>
+Of course you should make sure that all copies of analog use the same lock
+file, at least if they have the same DNS file!
+Again, if the name of the <kbd>DNSLOCKFILE</kbd> doesn't include a directory,
+it will put in a canonical location, specified when the program was compiled.
+<p>
+If analog crashes, it may not
+clear up the lock file, so in that case you may have to delete it yourself.
+(Disclaimer: on some systems, race conditions may occasionally thwart this
+mechanism, but this is very unlikely.)
+
+<p>
+Analog never deletes anything from the DNS file: this means that the DNS
+file will grow, and can become quite large. You should delete the top of
+it every so often. There is a program on the <a href="helpers.html">helper
+applications</a> page to help you do this more systematically.
+
+<p>
+<a name="DNShours">There are two</a> parameters which say how long to trust
+old lookups for. If you set
+<pre>
+DNSGOODHOURS 672
+</pre>
+for example, then successful lookups will be checked again after 672 hours
+(4 weeks). You can also set the <kbd>DNSBADHOURS</kbd> similarly, to check
+failed lookups again after a certain time. By default the
+<kbd>DNSBADHOURS</kbd> is 336 (2 weeks) and the <kbd>DNSGOODHOURS</kbd> is a
+very large number (so that successful lookups are never rechecked, as long as
+they remain in the DNS file).
+
+<p>
+<a name="DNSTIMEOUT">On some platforms</a> (maybe only Unix) you can set a
+parameter called <kbd>DNSTIMEOUT</kbd>. If the DNS server still hasn't
+returned a reply within this many seconds, then the lookup will be
+aborted. <em>However</em>, this feature is off by default, because it breaks
+DNS lookups on many platforms. (The symptom is that the first few lookups
+succeed, but after a while, all lookups fail). If you try it, monitor it, and
+turn it off again if it causes problems.
+
+<p>
+Finally, there is a <a href="debug.html#debugs">debugging</a> command,
+<kbd>DEBUG +D</kbd> to show all the DNS lookups that analog is making.
+
+<hr size=1 noshade>
+Normally you need never write a DNS file: you should rely on analog to do it
+for you. But in case you need to know, the format of the file is
+<pre>
+timestamp IP_address name
+</pre>
+where the timestamp is the number of minutes since the beginning of 1970, GMT
+(i.e., &quot;Unix time&quot; divided by 60), and the name is just <kbd>*</kbd>
+if the address couldn't be resolved.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="cache.html">Prev</a> | <a href="lowmem.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

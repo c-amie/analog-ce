@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- what was new in version 1?</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="whatsnew.html">Up</a> |
+<a href="wasnew2.html">Prev</a> | Next | <a href="map.html">Map</a> |
+<a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0:
+What was new in version 1?</h1>
+<hr size=2 noshade>
+
+This section lists the new features which were in version 1 of analog.
+
+<dl>
+  <dt><b><a href="whatsnew.html">What's new in version 6?</a></b>
+  <dt><b><a href="wasnew5.html">What was new in version 5?</a></b>
+  <dt><b><a href="wasnew4.html">What was new in version 4?</a></b>
+  <dt><b><a href="wasnew3.html">What was new in version 3?</a></b>
+  <dt><b><a href="wasnew2.html">What was new in version 2?</a></b>
+  <dt><b>1.2.6</b> (08-Jun-96)
+  <dd>Minor bug fix; will only affect those with corrupt logfiles.
+  <dt><b>1.2.5</b> (05-Feb-96)
+  <dd>Minor bug fix for weekly report.
+  <dt><b>1.2.4</b> (23-Jan-96)
+  <dd>Patch for Spyglass server logfile format.
+  <dt><b>1.2.3</b> (22-Nov-95)
+  <dd>A couple of bug fixes (wild subdomains sometimes caused crashes).
+      <br><kbd>-v</kbd> option now gives the version number.
+  <dt><b>1.2.2</b> (13-Nov-95)
+  <dd>Patch for proxy servers: <kbd>http://</kbd> not translated to
+      <kbd>http:/</kbd>
+  <dt><b>1.2</b> (11-Nov-95)
+  <dd>Can configure columns in reports to give percentage requests and number
+      of bytes.
+      <br>Wild subdomains (e.g., *.com).
+      <br>Nameless subdomains.
+      <br>Subdomains now listed in alphabetical order.
+      <br>Proper support for numerical hostnames in <kbd>HOSTIGNORE</kbd>,
+      <kbd>HOSTONLY</kbd>, <kbd>SUBDOMAIN</kbd> and alphabetical sorting.
+      <br>New <kbd>BASEURL</kbd> command allowing statistics to be
+      displayed on other servers.
+      <br>Output always says how things are sorted.
+      <br>&quot;Last 7 days&quot; now behaves sensibly with <kbd>TO</kbd>.
+      <br>Filenames containing <kbd>/../</kbd>, <kbd>/./</kbd> and
+      <kbd>//</kbd> translated.
+      <br>Header and footer options removed from form (for security reasons).
+  <dt><b>1.1</b> (02-Oct-95)
+  <dd>Form interface introduced.
+      <br>ASCII output now possible as well as HTML.
+      <br>Output file can now be specified in the configuration file.
+      <br><kbd>FROM</kbd> and <kbd>TO</kbd> commands more powerful.
+      <br><kbd>DEBUG</kbd> and <kbd>BACKGROUND</kbd> introduced.
+      <br>One bug fix: alphabetical sorting doesn't now swap some hostnames.
+      <br>List of primes included in distribution.
+  <dt><b>1.0</b> (12-Sep-95)
+  <dd>Only minor changes since 0.94beta.
+  <dt><b>0.94beta</b> (30-Aug-95)
+  <dd>New configuration variables <kbd>SEPCHAR</kbd> and
+      <kbd>REPORTORDER</kbd>.
+      <br>New configuration commands <kbd>WITHARGS</kbd> and
+      <kbd>WITHOUTARGS</kbd>.
+      <br>New commandline options <kbd>+-A</kbd> and <kbd>+-x</kbd>.
+      (Config.: <kbd>ALL</kbd> and <kbd>GENERAL</kbd>).
+      <br>Logfile entries with - as the return code are now regarded
+      as successes, not corrupt entries.
+      <br>Fixed bugs in host report when aliases or numerical hosts are
+      present.
+      <br>Documentation rewritten.
+  <dt><b>0.93beta</b> (27-Jul-95)
+  <dd>Approximate hostname counting now possible in fixed memory.
+      <br>New configuration commands <kbd>ISPAGE</kbd> and
+      <kbd>ISNOTPAGE</kbd>.
+      <br>New commandline option <kbd>-v</kbd>.
+      <br>New configuration command <kbd>WEEKBEGINSON</kbd>.
+      <br>Proper error message when memory exceeded.
+      <br>Program split into several files.
+  <dt><b>0.92beta</b> (11-Jul-95)
+  <dd>New reports introduced: hostname, full daily, and weekly.
+      <br><kbd>FROM</kbd> and <kbd>TO</kbd> commands introduced.
+      <br>Header and footer files introduced.
+      <br>More helpful warning messages.
+      <br>Ability to read configuration instructions from stdin.
+      <br>Subdomain commands moved from domains file to configuration file.
+      <br>Makefile provided.
+  <dt><b>0.91beta</b> (04-Jul-95)
+  <dd>Configuration file introduced, enabling many new options.
+      <br>Some bug fixes and speed improvements.
+      <br>Ability to print &quot;top n&quot; reports (rather than
+      &quot;everything higher than n&quot;).
+      <br>Request report can print only pages.
+      <br>Ability to try and resolve numerical addresses.
+      <br>Now less fussy about the format of the domains file.
+      <br>Logo added.
+      <br>Readme converted to HTML.
+  <dt><b>0.9beta</b>
+  <dd>More speed improvements, and some bug fixes.
+      <br>Introduced <kbd>-u</kbd> option.
+      <br>Introduced subdomain analysis.
+      <br>Included &quot;not modified&quot; replies as successes, not
+      redirects.
+      <br>First public release at 0.9beta3. (29-Jun-95)
+  <dt><b>0.89beta</b> (21-Jun-95)
+  <dd>Commandline arguments.
+      <br>Efficiency improvements.
+      <br>Host count and &quot;last 7 day&quot; statistics.
+  <dt><b>0.8beta</b> (14-Jun-95)
+  <dd>Initial program, just default options.
+</dl>
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="whatsnew.html">Up</a> |
+<a href="wasnew2.html">Prev</a> | Next | <a href="map.html">Map</a> |
+<a href="indx.html">Index</a> ]
+</body> </html>

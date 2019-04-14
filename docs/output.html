@@ -1,0 +1,528 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- configuring the output</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="args.html">Prev</a> | <a href="timereps.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0:
+Configuring the output</h1>
+<hr size=2 noshade>
+
+So far we have mainly discussed commands which control how analog reads
+the logfiles. We now get on to commands for configuring the output.
+
+<hr size=1 noshade>
+<a name="outstyle">First, you can change the style</a> of the output using the
+<kbd>OUTPUT</kbd> command. There
+are seven possible output styles, called <kbd>XHTML</kbd>, <kbd>HTML</kbd>,
+<kbd>PLAIN</kbd>, <kbd>ASCII</kbd>, <kbd>XML</kbd>, <kbd>LATEX</kbd> and
+<kbd>COMPUTER</kbd>.
+<p>
+<kbd>XHTML</kbd> is the default. It produces web pages in XHTML 1.0.
+<kbd>HTML</kbd> produces web pages in HTML 2.0.
+<p>
+<kbd>PLAIN</kbd> produces plain text files, and <kbd>ASCII</kbd> is the same
+as <kbd>PLAIN</kbd> except that it uses all ASCII characters (no accents etc.)
+if possible. (This is because some applications don't understand accented
+characters).
+<p>
+<kbd>LATEX</kbd> produces LaTeX code which can be turned into PDF if you have
+the <kbd>pdflatex</kbd> command installed. (If you want to use the ordinary
+<kbd>latex</kbd> command, specify <kbd>PDFLATEX OFF</kbd>.) It's only
+available with certain European languages (US-ASCII, ISO-8859-1 and ISO-8859-2
+character sets). Yes, I know it gives overfull hboxes sometimes.
+<p>
+<kbd>COMPUTER</kbd> is a special format suitable for reading by a
+computer (useful for reading into a spreadsheet, or post-processing with a
+graphics package, for example). 
+There is a <a href="compout.html">separate section</a> about this
+format later.
+<p>
+<kbd>XML</kbd> produces an XML output which is an alternative format for
+post-processing. The DTD for the XML output is distributed with the program.
+You can find more information about the XML style, and an example of a
+post-processing program, at
+<a href="http://timian.jessen.ch/">http://timian.jessen.ch/</a>.
+<p>
+As well as a command like
+<pre>
+OUTPUT PLAIN
+</pre>
+you can also select <kbd>PLAIN</kbd> style with the command line argument
+<kbd>+a</kbd>, and <kbd>XHTML</kbd> with the command line argument
+<kbd>-a</kbd>.
+<p>
+You can also specify <kbd>OUTPUT NONE</kbd>
+for no output, if you are producing a <a href="cache.html">cache file</a>.
+<hr size=1 noshade>
+<a name="LANGUAGE">Next, you can change the language</a> of the output. There
+are two ways to do
+this. The usual way is to use the <kbd>LANGUAGE</kbd> command. For example,
+the command
+<pre>
+LANGUAGE FRENCH
+</pre>
+will give you the output in French. The available languages at the moment are
+<kbd>ARMENIAN</kbd>, <kbd>BASQUE</kbd>, <kbd>BULGARIAN</kbd> (Windows-1251),
+<kbd>BULGARIAN-MIK</kbd> (MIK-16), <kbd>CATALAN</kbd>,
+<kbd>SIMP-CHINESE</kbd> (GB2312), <kbd>TRAD-CHINESE</kbd> (Big5),
+<kbd>CZECH</kbd> (ISO Latin 2), <kbd>CZECH-1250</kbd> (Windows-1250),
+<kbd>DANISH</kbd>, <kbd>DUTCH</kbd>, <kbd>ENGLISH</kbd>,
+<kbd>US-ENGLISH</kbd>, <kbd>FINNISH</kbd>, <kbd>FRENCH</kbd>,
+<kbd>GERMAN</kbd>, <kbd>HUNGARIAN</kbd>, <kbd>INDONESIAN</kbd>,
+<kbd>ITALIAN</kbd>,
+<kbd>JAPANESE-EUC</kbd> (EUC-JP), <kbd>JAPANESE-JIS</kbd> (ISO-2022-JP),
+<kbd>JAPANESE-SJIS</kbd> (SJIS), <kbd>JAPANESE-UTF</kbd> (UTF-8),
+<kbd>KOREAN</kbd>, <kbd>LATVIAN</kbd>, <kbd>NORWEGIAN</kbd> (Bokm&aring;l),
+<kbd>NYNORSK</kbd>, <kbd>POLISH</kbd>, <kbd>PORTUGUESE</kbd>,
+<kbd>BR-PORTUGUESE</kbd>, <kbd>RUSSIAN</kbd> (KOI8-R),
+<kbd>RUSSIAN-1251</kbd> (Windows-1251), <kbd>SERBIAN</kbd>,
+<kbd>SLOVAK</kbd> (ISO Latin 2), <kbd>SLOVAK-1250</kbd> (Windows-1250),
+<kbd>SLOVENE</kbd> (ISO Latin 2),
+<kbd>SLOVENE-1250</kbd> (Windows-1250), <kbd>SPANISH</kbd>, <kbd>SWEDISH</kbd>,
+<kbd>SWEDISH-ALT</kbd> (alternative translation avoiding Anglicisms),
+<kbd>TURKISH</kbd> and <kbd>UKRAINIAN</kbd>.
+<p>
+The following languages were available for previous versions of analog, but
+have not yet been translated for version 5:
+<kbd>BOSNIAN</kbd>, <kbd>CROATIAN</kbd>, <kbd>GREEK</kbd>,
+<kbd>ICELANDIC</kbd>, <kbd>LITHUANIAN</kbd> and <kbd>ROMANIAN</kbd>.
+As and when they are translated, they will be added to the
+<a href="http://www.analog.cx/">analog home page</a>.
+If you want to translate any of them (or any other language), I would be
+delighted! See below.
+<p>
+The other way to specify a language is to use the <kbd>LANGFILE</kbd>
+command. This is useful if you want to download a new language from the
+<a href="http://www.analog.cx/">analog home page</a>, or
+if you want to translate one yourself, or even if you want to change some
+words or phrases or the way the dates and times are formatted in the output.
+The <kbd>LANGFILE</kbd> command tells analog in which file to find the various
+words and phrases for a new language. For example, the command
+<pre>
+LANGFILE guarani.lng   # or
+LANGFILE /usr/etc/httpd/analog/lang/guarani.lng
+</pre>
+would read from that file.
+If the name of the file doesn't include a directory, it will be
+looked for wherever analog normally expects to find its language files.
+<p>
+Some languages also have <a href="domfile.html">domains files</a> or
+report descriptions files available. These are normally selected automatically
+by the <kbd>LANGUAGE</kbd> command. But you can tell analog to use different
+ones with the <kbd><a href="domfile.html">DOMAINSFILE</a></kbd> and
+<kbd><a href="#DESCRIPTIONS">DESCFILE</a></kbd> commands. Also, some languages
+have translations of the <a href="form.html">form interface</a> or
+configuration file.
+<p>
+If you want to translate another language, I would be delighted! Do
+<a href="mailing.html">contact me first</a> to make sure that no-one else is
+already translating the
+same language. The file <kbd>README.txt</kbd> in the language directory, and
+the English language file, contain some brief instructions for translating new
+languages.
+<p>
+Equally, if you find any mistakes in the output in different languages, please
+do <a href="mailing.html">let me know</a> because I'm not able to check them
+all myself!
+
+<hr size=1 noshade>
+<a name="OUTFILE">You can change which file</a> the output goes to with
+a command like
+<pre>
+OUTFILE stats.htm
+</pre>
+or with a command line argument like <kbd>+Ostats.htm</kbd>. If you use the
+filename <kbd>-</kbd> or <kbd>stdout</kbd>, the output will go to standard
+output, which is normally the screen, but Unix users might like to redirect it
+to another file or even into a pipe. You can also use an absolute path name,
+like
+<pre>
+OUTFILE /usr/bin/httpd/htdocs/stats.html  # Unix
+OUTFILE "Hard Disk:Server Apps:WebSTAR:Analog:Report.html" # Mac
+</pre>
+If the name of the <kbd>OUTFILE</kbd> doesn't include a directory, it will be
+put wherever analog expects to put its output files. (This location is built
+in when the program is compiled.) For example, on Windows it would be in the
+same folder as the analog executable. But if you use the <kbd>+O</kbd> command
+line argument, the file is within the current directory.
+<p>
+You can include date codes in the <kbd>OUTFILE</kbd> in exactly the same way
+as for the <kbd><a href="logfile.html#datecodes">LOGFILE</a></kbd>.
+So for example,
+<pre>
+OUTFILE stats%y%M%D.html
+</pre>
+will produce filenames like <kbd>stats990501.html</kbd>. As with the
+<kbd>LOGFILE</kbd>, the date used is the <kbd>TO</kbd> date if one was
+specified, and otherwise the time of the start of the program.
+
+<hr size=1 noshade>
+<a name="replist">Next, you need to know how to turn the different reports on
+and off.</a> There are 44 different reports which analog can produce,
+if your web server has been configured to record the necessary data in the
+logfiles. Each one has a short name, and a code letter or number, as
+follows. (Note that the code letters are case sensitive:
+<kbd>Z</kbd> is quite different from <kbd>z</kbd>, for example).
+<pre>
+x  <kbd>GENERAL</kbd>         General Summary
+1  <kbd>YEARLY</kbd>          Yearly Report
+Q  <kbd>QUARTERLY</kbd>       Quarterly Report
+m  <kbd>MONTHLY</kbd>         Monthly Report
+W  <kbd>WEEKLY</kbd>          Weekly Report
+D  <kbd>DAILYREP</kbd>        Daily Report
+d  <kbd>DAILYSUM</kbd>        Daily Summary
+H  <kbd>HOURLYREP</kbd>       Hourly Report
+h  <kbd>HOURLYSUM</kbd>       Hourly Summary
+w  <kbd>WEEKHOUR</kbd>        Hour of the Week Summary
+4  <kbd>QUARTERREP</kbd>      Quarter-Hour Report
+6  <kbd>QUARTERSUM</kbd>      Quarter-Hour Summary
+5  <kbd>FIVEREP</kbd>         Five-Minute Report
+7  <kbd>FIVESUM</kbd>         Five-Minute Summary
+S  <kbd>HOST</kbd>            Host Report
+l  <kbd>REDIRHOST</kbd>       Host Redirection Report
+L  <kbd>FAILHOST</kbd>        Host Failure Report
+Z  <kbd>ORGANISATION</kbd>    Organisation Report
+o  <kbd>DOMAIN</kbd>          Domain Report
+r  <kbd>REQUEST</kbd>         Request Report
+i  <kbd>DIRECTORY</kbd>       Directory Report
+t  <kbd>FILETYPE</kbd>        File Type Report
+z  <kbd>SIZE</kbd>            File Size Report
+P  <kbd>PROCTIME</kbd>        Processing Time Report
+E  <kbd>REDIR</kbd>           Redirection Report
+I  <kbd>FAILURE</kbd>         Failure Report
+f  <kbd>REFERRER</kbd>        Referrer Report
+s  <kbd>REFSITE</kbd>         Referring Site Report
+N  <kbd>SEARCHQUERY</kbd>     Search Query Report
+n  <kbd>SEARCHWORD</kbd>      Search Word Report
+Y  <kbd>INTSEARCHQUERY</kbd>  Internal Search Query Report
+y  <kbd>INTSEARCHWORD</kbd>   Internal Search Word Report
+k  <kbd>REDIRREF</kbd>        Redirected Referrer Report
+K  <kbd>FAILREF</kbd>         Failed Referrer Report
+B  <kbd>BROWSERREP</kbd>      Browser Report
+b  <kbd>BROWSERSUM</kbd>      Browser Summary
+p  <kbd>OSREP</kbd>           Operating System Report
+v  <kbd>VHOST</kbd>           Virtual Host Report
+R  <kbd>REDIRVHOST</kbd>      Virtual Host Redirection Report
+M  <kbd>FAILVHOST</kbd>       Virtual Host Failure Report
+u  <kbd>USER</kbd>            User Report
+j  <kbd>REDIRUSER</kbd>       User Redirection Report
+J  <kbd>FAILUSER</kbd>        User Failure Report
+c  <kbd>STATUS</kbd>          Status Code Report
+</pre>
+For details on what the various reports mean, and a summary of the commands
+which control them, see the section on
+<cite><a href="reports.html">Analog's reports</a></cite>.
+<p>
+<a name="ONOFF">You can turn each report on or off</a> with configuration
+commands like
+<pre>
+FIVEREP OFF
+REFSITE ON
+</pre>
+or by using command line arguments like <kbd>-5</kbd> and <kbd>+s</kbd>.
+You can also turn all reports except the General Summary on or off with the
+commands <kbd>ALL ON</kbd> and <kbd>ALL OFF</kbd>, or with the command line
+arguments <kbd>+A</kbd> and <kbd>-A</kbd>.
+
+<hr size=1 noshade>
+<a name="DESCRIPTIONS">You can turn</a> the descriptions of each report off
+with the command
+<pre>
+DESCRIPTIONS OFF
+</pre>
+Even if <kbd>DESCRIPTIONS</kbd> is <kbd>ON</kbd>, the descriptions will only
+appear if analog can find a report descriptions file in your language, or if
+you specify one using the <kbd>DESCFILE</kbd> command: for example,
+<pre>
+DESCFILE descriptions.txt
+</pre>
+If the name of the descriptions file doesn't include a directory, it will be
+looked for wherever analog normally expects to find its language files.
+<p>
+<a name="GOTOS">You can turn the &quot;Go To&quot; lines</a> in the output off
+with the command
+<pre>
+GOTOS OFF
+</pre>
+<kbd>GOTOS ON</kbd> turns them on again, and <kbd>GOTOS FEW</kbd> puts the
+&quot;Go To&quot; lines just at the top and bottom. <kbd>GOTOS OFF</kbd> can
+be abbreviated with the <kbd>-X</kbd> command line argument, and
+<kbd>GOTOS ON</kbd> with <kbd>+X</kbd>.
+<p>
+<a name="RUNTIME">You can turn</a> off the &quot;Program started at&quot; line
+at the top of the output, and the &quot;Running Time&quot; line at the
+bottom, with the command
+<pre>
+RUNTIME OFF
+</pre>
+and turn them on again with <kbd>RUNTIME ON</kbd>.
+<p>
+<a name="LASTSEVEN">The figures in parentheses</a> in the General Summary are
+for the last seven days:
+either the seven days before the <kbd>TO</kbd> time, or if no <kbd>TO</kbd>
+time is given, the seven days before the time of the program start. The
+figures for the last seven days are normally included if some, but not all,
+of the requests fall in those seven days; but you can turn them off by means
+of the command
+<pre>
+LASTSEVEN OFF
+</pre>
+Of course <kbd>LASTSEVEN ON</kbd> turns them on again.
+<p>
+<a name="REPORTORDER">You can change the order</a> of the reports by means of
+the <kbd>REPORTORDER</kbd> command. You should list the
+<a href="#replist">code letters</a> for all possible reports in the order
+you want them. Non-alphanumeric characters are ignored and so can be used as
+separators. For example,
+<pre>
+REPORTORDER x-1QmdDhHw4567W-cPz-ritEIYy-SlLZo-sNnfKk-ujJ-vMR-bBp
+</pre>
+
+<hr size=1 noshade>
+<a name="GENSUMLINES">You can turn</a> the lines in General Summary on and off
+individually using the <kbd>GENSUMLINES</kbd> command. The default is
+<pre>
+GENSUMLINES ALL
+</pre>
+meaning all available lines. (You always only get the ones relevant to your
+logfile though.) You can turn lines off using a command like
+<pre>
+GENSUMLINES -KL
+</pre>
+(to turn off lines <kbd>K</kbd> &amp; <kbd>L</kbd>) and turn them on again
+with a command like
+<pre>
+GENSUMLINES +K
+</pre>
+You can specify the exact set of lines to include with a command like
+<pre>
+GENSUMLINES CDFGHM
+</pre>
+You now just need to know which lines have which code letters, which is given
+in the following table.
+<dl compact>
+  <dt><kbd>&nbsp;</kbd><dd>Successful requests (always listed)
+  <dt><kbd>B</kbd><dd>Average successful requests per day
+  <dt><kbd>C</kbd><dd>Logfile lines without status code
+  <dt><kbd>D</kbd><dd>Successful requests for pages
+  <dt><kbd>E</kbd><dd>Average successful requests for pages per day
+  <dt><kbd>F</kbd><dd>Failed requests
+  <dt><kbd>G</kbd><dd>Redirected requests
+  <dt><kbd>H</kbd><dd>Requests with informational status code
+  <dt><kbd>I</kbd><dd>Distinct files requested
+  <dt><kbd>J</kbd><dd>Distinct hosts served
+  <dt><kbd>K</kbd><dd>Corrupt logfile lines
+  <dt><kbd>L</kbd><dd>Unwanted logfile entries
+  <dt><kbd>M</kbd><dd>Data transferred
+  <dt><kbd>N</kbd><dd>Average data transferred per day
+</dl>
+
+<hr size=1 noshade>
+<a name="IMAGEDIR">There is a command called <kbd>IMAGEDIR</kbd></a>
+which tells analog where the various images used to make the output page should
+live. It should be a URL, not the actual location on your disk, and it should
+include the final slash. For example, you could have
+<pre>
+IMAGEDIR img/   # relative URL: within the same directory as the output
+IMAGEDIR /img/  # off the root directory of your server
+IMAGEDIR http://www.myother.server.com/img/  # on another server
+</pre>
+Some people are confused about the <kbd>IMAGEDIR</kbd>. It's just put in the
+&lt;img&gt; tags in the output. You can see its effect if you look at the HTML
+source of the output page.
+<p>
+<a name="PNGIMAGES">You can use gif images instead of png's</a> for the bar
+charts by specifying
+<pre>
+PNGIMAGES OFF
+</pre>
+<kbd>PNGIMAGES</kbd> doesn't affect
+the pie charts, which are always png's: but see the
+<kbd><a href="othreps.html#CHARTDIR">JPEGCHARTS</a></kbd> command for something
+similar.
+<hr size=1 noshade>
+<a name="LOGO">There are four commands</a> which affect the top line of the
+output. First,
+the <kbd>LOGO</kbd> and <kbd>LOGOURL</kbd> commands allow you to replace the
+analog logo with another image (for example, your organisation's logo). You
+can say
+<pre>
+LOGO picture.gif  # for this file
+LOGO /images/picture2.gif  # a different file
+LOGO none         # for no logo
+</pre>
+The logo is assumed to be inside the <kbd>IMAGEDIR</kbd> unless it starts
+with a slash, or contains <kbd>://</kbd>
+<p>
+The <kbd>LOGOURL</kbd> command specifies a URL to link the logo to. If you
+change the <kbd>LOGO</kbd>, you probably want to change the <kbd>LOGOURL</kbd>
+as well. For example,
+<pre>
+LOGOURL http://www.mycompany.com/
+LOGOURL none   # for no link
+</pre>
+The <kbd>LOGOURL</kbd> command only works with the XHTML output style, not
+HTML 2.0.
+<p>
+<a name="HOSTNAME">There</a> are commands <kbd>HOSTNAME</kbd> and
+<kbd>HOSTURL</kbd> which
+affect the name and link at the end of the title line. For example, I might
+specify
+<pre>
+HOSTNAME "Stephen Turner"
+HOSTURL  http://homepage.ntlworld.com/adelie/stephen/
+</pre>
+to generate the title &quot;Web Server Statistics for
+<a href="http://homepage.ntlworld.com/adelie/stephen/">Stephen Turner</a>&quot;.
+Again, you can use <kbd>none</kbd> as the <kbd>HOSTURL</kbd> to specify no
+link. Analog will normally translate characters in the hostname to HTML if
+necessary. So to include literal HTML, such as accented characters, in the
+output you need to precede them by a backslash, like this: 
+<pre>
+HOSTNAME &quot;M\&amp;uuml;ller &amp; S\&amp;ouml;hne&quot;
+</pre>
+
+<hr size=1 noshade>
+<a name="HEADERFILE">There are commands</a> called <kbd>HEADERFILE</kbd> and
+<kbd>FOOTERFILE</kbd>.
+These let you specify files to be inserted near the top and bottom of your
+output. You can also specify
+<pre>
+HEADERFILE none
+</pre>
+to cancel a previously-specified header file.
+Again, if the name of the <kbd>HEADERFILE</kbd> or <kbd>FOOTERFILE</kbd>
+doesn't include a directory, analog will assume a directory, specified
+when the program was compiled.
+
+<hr size=1 noshade>
+<a name="STYLESHEET">There is a command</a> called <kbd>STYLESHEET</kbd> to
+specify the URL of a style sheet for the output. This allows you to change the
+colours etc.
+(See <a href="http://www.w3.org/Style/css/">http://www.w3.org/Style/css/</a>
+for how to write a style sheet.) For example,
+<pre>
+STYLESHEET /housestyle.css
+STYLESHEET none   # to cancel it
+</pre>
+In the XHTML output style, if you specify a style sheet, it will
+<em>replace</em> the default one, so you might prefer to use the default one
+as a base -- you can find it in the directory <kbd>examples/css</kbd>, along
+with some other style sheets contributed by users.
+<p>
+There is a command <kbd>CSSPREFIX</kbd> to add a prefix to all the CSS class
+names used in the XHTML output style. This is useful to avoid clashes with
+other style sheets: the disadvantage is that it will make your output longer.
+For example,
+<pre>
+CSSPREFIX anlg
+CSSPREFIX none    # to cancel it
+</pre>
+Of course, if you use your own style sheet, you will have to add the
+<kbd>CSSPREFIX</kbd> to all the class names in the style sheet.
+<hr size=1 noshade>
+<a name="SEPCHAR">There are three</a> related commands called
+<kbd>SEPCHAR</kbd>,
+<kbd>REPSEPCHAR</kbd> and <kbd>DECPOINT</kbd>. These specify single characters
+to be used as the thousands separator in numbers, the thousands separator
+within the columns in the reports, and the decimal point. Normally, these will
+be set automatically for the <a href="#LANGUAGE">language</a> you choose, but
+you can change them if you want. For example, a French user might choose
+<pre>
+SEPCHAR " "
+REPSEPCHAR none
+DECPOINT ,
+</pre>
+to make &quot;three thousand and a quarter&quot; look like
+&quot;3&nbsp;000,25&quot; in text and &quot;3000,25&quot; in the reports.
+
+<p>
+<a name="RAWBYTES">There is a command</a> called <kbd>RAWBYTES</kbd>. Specify
+<kbd>RAWBYTES ON</kbd>
+if you want the exact number of bytes to be listed, or
+<kbd>RAWBYTES OFF</kbd> if you want the number of kilobytes or Megabytes
+as appropriate to be listed instead.
+<p>
+If <kbd>RAWBYTES</kbd> is <kbd>OFF</kbd>
+(which is the default), then you can use the <kbd>BYTESDP</kbd> command to
+specify how many decimal places you want the bytes rounded to. The default is
+2, which will display numbers like &quot;91.26 kilobytes&quot;.
+
+<hr size=1 noshade>
+<a name="PAGEWIDTH">There</a> are commands called
+<kbd>HTMLPAGEWIDTH</kbd>, <kbd>PLAINPAGEWIDTH</kbd> and
+<kbd>LATEXPLAINWIDTH</kbd> which specify the
+width of the page. Which one is used depends on whethere the output style is
+<kbd>HTML</kbd>/<kbd>XHTML</kbd>, <kbd>PLAIN</kbd>/<kbd>ASCII</kbd>, or
+<kbd>LATEX</kbd>. The output is not guaranteed to fit in this width, but
+analog will take notice of it when choosing the width of the time graphs,
+when sorting the Host Report alphabetically, when drawing horizontal rules,
+and when writing some bits of text.
+
+<hr size=1 noshade>
+<a name="NOROBOTS">There is a command</a> called <kbd>NOROBOTS</kbd> which
+stops robots which obey the
+<a href="http://info.webcrawler.com/mak/projects/robots/exclusion.html#meta">robots META tag</a>
+from indexing your output page or following its links. Normally this is set to
+<kbd>ON</kbd> but you can specify <kbd>NOROBOTS OFF</kbd> if you don't mind
+robots finding your other pages this way. Note that you will stop far more
+robots if you also put your stats page in your
+<kbd><a href="http://info.webcrawler.com/mak/projects/robots/exclusion.html#robotstxt">robots.txt</a></kbd>
+file; on the other hand, this file has to be kept up to date by the server
+administrator.
+
+<hr size=1 noshade>
+<a name="TIMEOFFSET">Sometimes</a> your server is not in the same timezone as
+you, or at least records the times in its logfiles in a different timezone
+(for example GMT). So that you can get your
+statistics in your local time, there is a command called
+<kbd>LOGTIMEOFFSET</kbd> to change the time by a certain number of minutes. As
+with the <kbd><a href="logfmt.html">LOGFORMAT</a></kbd> command, this only
+affects logfiles which come <em>later</em> in the <em>same</em> configuration
+file.
+<p>
+You have to be careful using this command. Because of
+daylight savings time in operation in different parts of the world at
+different times, analog cannot attempt to convert between different
+timezones. So it's your responsibility to set the right offset for different
+times of year. For example, if you were in Chicago, but your server was
+recording time in GMT, you would need to specify two different time offsets,
+one of minus five hours for summer and one of minus six hours for winter. You
+would need to split your logfiles in the right places and then run commands
+like
+<pre>
+LOGTIMEOFFSET -300
+LOGFILE summer*.log
+LOGTIMEOFFSET -360
+LOGFILE winter*.log
+</pre>
+<p>
+There is also a related command called <kbd>TIMEOFFSET</kbd>. This tells
+analog how much to offset the time of the computer on which it is running
+(rather than the computer running the server), to get your local time. 
+
+<hr size=1 noshade>
+In the following sections we shall look at some commands for configuring the
+output of particular
+reports, under the following headings: <cite><a href="timereps.html">Time
+reports</a></cite>, <cite><a href="othreps.html">Other reports</a></cite>
+and <cite><a href="hierreps.html">Hierarchical reports</a></cite>.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="args.html">Prev</a> | <a href="timereps.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

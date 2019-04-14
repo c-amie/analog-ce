@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- other reports</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="timereps.html">Prev</a> | <a href="hierreps.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0: Other reports</h1>
+<hr size=2 noshade>
+
+This section deals with the non-time reports. There are quite a lot of
+commands which control these reports, although we've seen some of them
+already.
+
+<p>
+<a name="othCOLS">First</a>, these reports have <kbd>COLS</kbd> commands, just
+like the time
+reports. (See the section on <cite><a href="timereps.html#timeCOLS">Time
+reports</a></cite> for how to use these commands.) But for these reports,
+several additional columns are available. Here is the full list of columns for
+the non-time reports
+<dl compact>
+  <dt><kbd>R</kbd><dd>Number of requests
+  <dt><kbd>r</kbd><dd>Percentage of the requests
+  <dt><kbd>S</kbd><dd>Number of requests in the last 7 days
+  <dt><kbd>s</kbd><dd>Percentage of the requests in the last 7 days
+  <dt><kbd>P</kbd><dd>Number of page requests
+  <dt><kbd>p</kbd><dd>Percentage of the page requests
+  <dt><kbd>Q</kbd><dd>Number of page requests in the last 7 days
+  <dt><kbd>q</kbd><dd>Percentage of the page requests in the last 7 days
+  <dt><kbd>B</kbd><dd>Number of bytes transferred
+  <dt><kbd>b</kbd><dd>Percentage of the bytes
+  <dt><kbd>C</kbd><dd>Number of bytes transferred in the last 7 days
+  <dt><kbd>c</kbd><dd>Percentage of the bytes in the last 7 days
+  <dt><kbd>d</kbd><dd>Date of last access
+  <dt><kbd>D</kbd><dd>Date and time of last access
+  <dt><kbd>e</kbd><dd>Date of first access
+  <dt><kbd>E</kbd><dd>Date and time of first access
+  <dt><kbd>N</kbd><dd>The number of the item in the list
+</dl>
+So, for example,
+<pre>
+REQCOLS NRSD
+</pre>
+counts the files in the Request Report, listing the number of requests for
+each, the number of requests for each in the last 7 days, and the time when
+each was last requested. The full list of
+<kbd>COLS</kbd>
+commands for non-time reports is <kbd>HOSTCOLS</kbd>, <kbd>REDIRHOSTCOLS</kbd>,
+<kbd>FAILHOSTCOLS</kbd>, <kbd>ORGCOLS</kbd>, <kbd>DOMCOLS</kbd>,
+<kbd>REQCOLS</kbd>, <kbd>DIRCOLS</kbd>, <kbd>TYPECOLS</kbd>,
+<kbd>SIZECOLS</kbd>, <kbd>PROCTIMECOLS</kbd>, <kbd>REDIRCOLS</kbd>,
+<kbd>FAILCOLS</kbd>,
+<kbd>REFCOLS</kbd>, <kbd>REFSITECOLS</kbd>, <kbd>SEARCHQUERYCOLS</kbd>,
+<kbd>SEARCHWORDCOLS</kbd>, <kbd>INTSEARCHQUERYCOLS</kbd>,
+<kbd>INTSEARCHWORDCOLS</kbd>, <kbd>REDIRREFCOLS</kbd>,
+<kbd>FAILREFCOLS</kbd>, <kbd>BROWREPCOLS</kbd>, <kbd>BROWSUMCOLS</kbd>,
+<kbd>OSCOLS</kbd>, <kbd>VHOSTCOLS</kbd>, <kbd>REDIRVHOSTCOLS</kbd>,
+<kbd>FAILVHOSTCOLS</kbd>, <kbd>USERCOLS</kbd>, <kbd>REDIRUSERCOLS</kbd>,
+<kbd>FAILUSERCOLS</kbd> and <kbd>STATUSCOLS</kbd>. Not
+every column is allowed in every report, but if you specify an illegal one,
+analog will warn you about it.
+<hr size=1 noshade>
+<a name="SORTBY">Next</a> you need to know how use a <kbd>SORTBY</kbd> command
+to specify
+how the reports should be sorted. There are ten possible ways of sorting
+reports:
+<dl>
+  <dt><kbd>REQUESTS</kbd><dd>total number of requests</dd>
+  <dt><kbd>REQUESTS7</kbd><dd>requests within the last 7 days</dd>
+  <dt><kbd>PAGES</kbd><dd>total requests for pages</dd>
+  <dt><kbd>PAGES7</kbd><dd>requests for pages within the last 7 days</dd>
+  <dt><kbd>BYTES</kbd><dd>total bytes transferred</dd>
+  <dt><kbd>BYTES7</kbd><dd>bytes transferred within the last 7 days</dd>
+  <dt><kbd>FIRSTDATE</kbd><dd>time of first request</dd>
+  <dt><kbd>DATE</kbd><dd>time of most recent request</dd>
+  <dt><kbd>ALPHABETICAL</kbd><dd>alphabetically</dd>
+  <dt><kbd>RANDOM</kbd><dd>unsorted, sometimes useful
+      for speed in very long reports</dd>
+</dl>
+
+For example, the command
+<pre>
+HOSTSORTBY ALPHABETICAL
+</pre>
+will sort the Host Report alphabetically. The full list of <kbd>SORTBY</kbd>
+commands is <kbd>HOSTSORTBY</kbd>, <kbd>REDIRHOSTSORTBY</kbd>,
+<kbd>FAILHOSTSORTBY</kbd>, <kbd>ORGSORTBY</kbd>, <kbd>DOMSORTBY</kbd>,
+<kbd>REQSORTBY</kbd>, <kbd>DIRSORTBY</kbd>, <kbd>TYPESORTBY</kbd>,
+<kbd>REDIRSORTBY</kbd>, <kbd>FAILSORTBY</kbd>, <kbd>REFSORTBY</kbd>,
+<kbd>REFSITESORTBY</kbd>, <kbd>SEARCHQUERYSORTBY</kbd>,
+<kbd>SEARCHWORDSORTBY</kbd>, <kbd>INTSEARCHQUERYSORTBY</kbd>,
+<kbd>INTSEARCHWORDSORTBY</kbd>, <kbd>REDIRREFSORTBY</kbd>,
+<kbd>FAILREFSORTBY</kbd>, <kbd>BROWREPSORTBY</kbd>, <kbd>BROWSUMSORTBY</kbd>,
+<kbd>OSSORTBY</kbd>, <kbd>VHOSTSORTBY</kbd>, <kbd>REDIRVHOSTSORTBY</kbd>,
+<kbd>FAILVHOSTSORTBY</kbd>, <kbd>USERSORTBY</kbd>, <kbd>REDIRUSERSORTBY</kbd>,
+<kbd>FAILUSERSORTBY</kbd> and <kbd>STATUSSORTBY</kbd>.
+Again, not every sort method is possible in every
+report, but you'll be warned if you choose an illegal one.
+<p>
+There is one known bug concerned with <kbd>SORTBY ALPHABETICAL</kbd>. The
+report is sorted before any
+<a href="alias.html#OUTPUTALIAS">output alias</a> is
+applied. This means that if an output alias has been specified for
+the report, then the report may appear not to be sorted correctly.
+<hr size=1 noshade>
+<a name="FLOOR">You can also</a> specify a <kbd>FLOOR</kbd> for most reports,
+saying how much activity an item needs before it is listed on the report.
+(Other items will just be accumulated together in the &quot;not listed&quot;
+line at the bottom of the report.) There are lots
+of possible ways of specifying floors, which I'll list here, using the
+<kbd>DOMFLOOR</kbd> (Domain Report <kbd>FLOOR</kbd>) command as an example.
+Essentially each one consists of a number indicating the level of the floor,
+followed by a letter indicating the floor criterion.
+<pre>
+DOMFLOOR 1000r       # all domains with at least 1000 requests
+DOMFLOOR 100s        # at least 100 requests within the last 7 days
+DOMFLOOR 1000p       # at least 1000 requests for pages
+DOMFLOOR 100q        # at least 100 requests for pages within the last 7 days
+DOMFLOOR 1000000b    # at least 1,000,000 bytes transferred
+DOMFLOOR 1kb         # at least 1 kilobyte (1024 bytes)
+DOMFLOOR 10.5Mc      # at least 10.5Mb within the last 7 days
+DOMFLOOR 0.5%r       # 0.5% of the total requests in the Domain Report
+                     # (ditto %s, %p etc.)
+DOMFLOOR 0.5:r       # 0.5% of the maximum number of requests for any domain
+                     # (ditto :s, :p etc.)
+DOMFLOOR 970701d     # last access since 1st July 1997
+DOMFLOOR 970701e     # first access since 1st July 1997
+DOMFLOOR -00-01-00d  # last access in last month (see
+                     # documentation on <a href="include.html#FROMTO">FROM and TO</a> commands)
+DOMFLOOR -100r       # domains with top 100 number of requests
+                     # (ditto -100s, p, q, b, c, d, or e)
+</pre>
+The full list of <kbd>FLOOR</kbd> commands is <kbd>HOSTFLOOR</kbd>,
+<kbd>REDIRHOSTFLOOR</kbd>, <kbd>FAILHOSTFLOOR</kbd>, <kbd>DOMFLOOR</kbd>,
+<kbd>ORGFLOOR</kbd>, <kbd>REQFLOOR</kbd>, <kbd>DIRFLOOR</kbd>,
+<kbd>TYPEFLOOR</kbd>, <kbd>REDIRFLOOR</kbd>, <kbd>FAILFLOOR</kbd>,
+<kbd>REFFLOOR</kbd>, <kbd>REFSITEFLOOR</kbd>, <kbd>SEARCHQUERYFLOOR</kbd>,
+<kbd>SEARCHWORDFLOOR</kbd>, <kbd>INTSEARCHQUERYFLOOR</kbd>,
+<kbd>INTSEARCHWORDFLOOR</kbd>, <kbd>REDIRREFFLOOR</kbd>,
+<kbd>FAILREFFLOOR</kbd>, <kbd>BROWREPFLOOR</kbd>, <kbd>BROWSUMFLOOR</kbd>,
+<kbd>OSFLOOR</kbd>, <kbd>VHOSTFLOOR</kbd>, <kbd>REDIRVHOSTFLOOR</kbd>,
+<kbd>FAILVHOSTFLOOR</kbd>, <kbd>USERFLOOR</kbd>, <kbd>REDIRUSERFLOOR</kbd>,
+<kbd>FAILUSERFLOOR</kbd> and <kbd>STATUSFLOOR</kbd>.
+Once again, not every floor method is legal for
+every report, but you'll be warned if you try and choose an illegal one.
+<hr size=1 noshade>
+<a name="othclarg">I've already told you</a> about how to turn each report on
+and off from the
+command line using its <a href="output.html#replist">code letter</a>. In fact,
+you can specify the <kbd>SORTBY</kbd> and the <kbd>FLOOR</kbd> in the same
+command. Take the example of the Referrer Report. If you follow the
+<kbd>+f</kbd> (to turn the report on) with a letter, it represents the
+sort method according to the following code:
+<dl compact>
+  <dt><kbd>r</kbd><dd><kbd>REQUESTS</kbd>
+  <dt><kbd>s</kbd><dd><kbd>REQUESTS7</kbd>
+  <dt><kbd>p</kbd><dd><kbd>PAGES</kbd>
+  <dt><kbd>q</kbd><dd><kbd>PAGES7</kbd>
+  <dt><kbd>b</kbd><dd><kbd>BYTES</kbd>
+  <dt><kbd>c</kbd><dd><kbd>BYTES7</kbd>
+  <dt><kbd>d</kbd><dd><kbd>DATE</kbd>
+  <dt><kbd>e</kbd><dd><kbd>FIRSTDATE</kbd>
+  <dt><kbd>a</kbd><dd><kbd>ALPHABETICAL</kbd>
+  <dt><kbd>x</kbd><dd><kbd>RANDOM</kbd>
+</dl>
+You can then, or alternatively, use one of the above <kbd>FLOOR</kbd> formats
+to specify the floor. If you specify a <kbd>SORTBY</kbd>, you can also leave
+off the last letter of the floor, and analog will guess it according to the
+sort method: the floor will be the same as the sort method, or by requests if
+the sort method is <kbd>ALPHABETICAL</kbd> or <kbd>RANDOM</kbd>. Here are four
+examples:
+<dl compact>
+<dt><kbd>+fp</kbd><dd>means turn the Referrer Report on and sort it by page
+    requests, but says nothing about the floor;
+<dt><kbd>+f100s</kbd><dd>means list all referrers with at least 100 requests
+    in the last 7 days, but says nothing about the sort method;
+<dt><kbd>+fb10000</kbd><dd>means list all referrers with at least 10,000 bytes,
+    sorted by bytes;
+<dt><kbd>+fa-000101d</kbd><dd>means list all referrers with accesses this year,
+    sorted alphabetically.
+</dl>
+
+<hr size=1 noshade>
+<a name="CHART">Each of these reports</a> can have a pie chart drawn at
+the top of it. The charts can be turned on and off, or plotted by a different
+criterion, using the <kbd>CHART</kbd> commands. For example,
+<pre>
+REQCHART OFF
+</pre>
+will stop you getting a pie chart on the Request Report, whereas
+<pre>
+REQCHART ON
+</pre>
+will turn it back on. You can also use the following arguments to plot the
+chart by a specific variable.
+<dl>
+  <dt><kbd>REQUESTS</kbd><dd>total number of requests</dd>
+  <dt><kbd>REQUESTS7</kbd><dd>requests within the last 7 days</dd>
+  <dt><kbd>PAGES</kbd><dd>total requests for pages</dd>
+  <dt><kbd>PAGES7</kbd><dd>requests for pages within the last 7 days</dd>
+  <dt><kbd>BYTES</kbd><dd>total bytes transferred</dd>
+  <dt><kbd>BYTES7</kbd><dd>bytes transferred within the last 7 days</dd>
+</dl>
+By default, the chart will be plotted by the
+<kbd><a href="#SORTBY">SORTBY</a></kbd> if that's one of the above six
+variables, or else by the <kbd><a href="#FLOOR">FLOOR</a></kbd> if that's one
+of the six, or failing both of those by <kbd>REQUESTS</kbd>.
+Usually you just want to stick to the default, and analog will warn you if you
+could have used the <kbd>SORTBY</kbd> or <kbd>FLOOR</kbd> and requested
+something different.
+<p>
+The full list of <kbd>CHART</kbd> commands is
+<kbd>HOSTCHART</kbd>, <kbd>REDIRHOSTCHART</kbd>,
+<kbd>FAILHOSTCHART</kbd>, <kbd>ORGCHART</kbd>, <kbd>DOMCHART</kbd>,
+<kbd>REQCHART</kbd>, <kbd>DIRCHART</kbd>, <kbd>TYPECHART</kbd>,
+<kbd>REDIRCHART</kbd>, <kbd>FAILCHART</kbd>, <kbd>REFCHART</kbd>,
+<kbd>REFSITECHART</kbd>, <kbd>SEARCHQUERYCHART</kbd>,
+<kbd>SEARCHWORDCHART</kbd>, <kbd>INTSEARCHQUERYCHART</kbd>,
+<kbd>INTSEARCHWORDCHART</kbd>, <kbd>REDIRREFCHART</kbd>,
+<kbd>FAILREFCHART</kbd>, <kbd>BROWREPCHART</kbd>, <kbd>BROWSUMCHART</kbd>,
+<kbd>OSCHART</kbd>, <kbd>VHOSTCHART</kbd>, <kbd>REDIRVHOSTCHART</kbd>,
+<kbd>FAILVHOSTCHART</kbd>, <kbd>USERCHART</kbd>, <kbd>REDIRUSERCHART</kbd>,
+<kbd>FAILUSERCHART</kbd>, <kbd>STATUSCHART</kbd>, <kbd>SIZECHART</kbd> and
+<kbd>PROCTIMECHART</kbd>. Again, not every chart method is available for every
+report. You can also use
+<pre>
+ALLCHART ON
+ALLCHART OFF
+</pre>
+to turn them all on or off simultaneously.
+<p>
+<a name="CHARTDIR">The pie charts</a> are normally written to the same
+directory as the
+<kbd><a href="output.html#OUTFILE">OUTFILE</a></kbd>. But you can specify a
+different location using the <kbd>CHARTDIR</kbd> and <kbd>LOCALCHARTDIR</kbd> 
+commands. If the <kbd>OUTFILE</kbd> is standard output, 
+you must use these commands, or you will not get any pie charts. Also, if you
+are writing two output files to the same directory, you must use these
+commands, or one set of images will overwrite the other.
+And you also need to use these commands if you are using the form interface,
+but there are <a href="form.html#formcharts">additional issues</a> in that
+case.
+<p>
+You have to use both of the commands before they have any effect.
+The <kbd>CHARTDIR</kbd> is the location of the pie chart directory on your
+server, similar to the <kbd><a href="output.html#IMAGEDIR">IMAGEDIR</a></kbd>;
+it's used for putting in the &lt;img&gt; tag to include the image. The
+<kbd>LOCALCHARTDIR</kbd> is the location on your local disk; it's where the
+image is written to. For example, you might have
+<pre>
+CHARTDIR /images/
+LOCALCHARTDIR /usr/local/apache/htdocs/images/
+</pre>
+to put the pie charts in locations like
+<kbd>/usr/local/apache/htdocs/images/dom.png</kbd> and link to them like
+<kbd>&lt;img src="/images/dom.png"&gt;</kbd>. On Windows, you will need to put
+the <kbd>LOCALCHARTDIR</kbd> in quotes, to stop the backslash at the end of
+the line being interpreted to mean that the command continues on the next
+line. For example,
+<pre>
+LOCALCHARTDIR "\webimages\analog\"
+</pre>
+Actually, the <kbd>CHARTDIR</kbd> and <kbd>LOCALCHARTDIR</kbd> are just
+prefixes to the filename, so you can specify something like
+<pre>
+CHARTDIR /stats/rep1
+LOCALCHARTDIR /usr/local/htdocs/stats/rep1
+</pre>
+to put the pie charts in locations like
+<kbd>/usr/local/htdocs/stats/rep1dom.png</kbd> and link to them like
+<kbd>&lt;img src="/stats/rep1dom.png"&gt;</kbd>. Also the names can contain
+<a href="logfile.html#datecodes">date codes</a> in the same way as the
+<kbd>LOGFILE</kbd> and <kbd>OUTFILE</kbd>.
+<p>
+If you compiled your own version of analog, and you used your version of libgd
+instead of mine (see the Makefile for how to do this), then you can use the
+command
+<pre>
+JPEGCHARTS ON
+</pre>
+to make the charts in JPEG format instead of PNG. (See the
+<kbd><a href="output.html#PNGIMAGES">PNGIMAGES</a></kbd> command for how to
+make the bar charts in the time reports into gif's instead of png's.)
+<p>
+Here are the exact rules for which wedges are plotted in the pie chart. Up to
+ten wedges, plus &quot;Other&quot;, are drawn,
+but wedges are only drawn if they are large enough. Also, wedges are only
+drawn if the item is listed in the main table for the report. And the whole
+chart will not be plotted if it would contain only one wedge.
+<p>
+If you want to plot more detail on the pie charts, for example Windows 98
+&amp; Windows NT instead of just Windows on the Operating System Report chart,
+see <a href="hierreps.html#CHARTEXPAND">the next section</a>.
+<hr size=1 noshade>
+<a name="REPORTSPAN">You can list</a> the time period covered by each report.
+This is off by default because it uses a lot of memory to calculate it, but
+if different reports cover different time periods (which can happen if your
+log format has changed at some point), it's useful to turn it on with the
+command
+<pre>
+REPORTSPAN ON
+</pre>
+There is also a command called <kbd>REPORTSPANTHRESHOLD</kbd> (which can be
+abbreviated <kbd>RSTHRESH</kbd>). This says that each report span should only
+be listed if it differs from the overall span of the whole report -- listed at
+the top of the page -- by at least this many minutes at one end. For example,
+<pre>
+REPORTSPANTHRESHOLD 60
+</pre>
+will only list a report span if that report starts at least an hour after the
+start of the logfile, or ends at least an hour before the end of the logfile.
+You can set
+<pre>
+REPORTSPANTHRESHOLD 0
+</pre>
+to make sure that the report span is listed on all the reports.
+
+<hr size=1 noshade>
+We've already seen some other commands affecting what was listed in the
+non-time reports. The <a href="include.html#outputexcludes">output
+<kbd>INCLUDE</kbd> and <kbd>EXCLUDE</kbd></a> commands specified lines to omit
+from each report, and the
+<a href="alias.html#OUTPUTALIAS">output alias</a> commands specified
+some aliasing to do on the names before they were listed. There were also
+<a href="include.html#LINKINCLUDE"><kbd>LINKINCLUDE</kbd> and
+<kbd>LINKEXCLUDE</kbd></a> commands to control what was linked to in the
+reports. You might want to have another look at these paragraphs.
+<p>
+<a name="BASEURL">There's one other command</a> which affects the links in the
+Request Report, Redirection Report and Failure Report.
+The command <kbd>BASEURL</kbd> prepends an additional string to the URLs
+in the target of the link. For example, after the command
+<pre>
+BASEURL http://www.statslab.cam.ac.uk
+</pre>
+<kbd>/~sret1/</kbd> will be linked to
+<kbd>http://www.statslab.cam.ac.uk/~sret1/</kbd>, not just to
+<kbd>/~sret1/</kbd>. This is very useful if you want to display the
+statistics on a different server from the server they refer to. If you want the
+file to be listed as <kbd>http://www.statslab.cam.ac.uk/~sret1/</kbd>, rather
+than just to be linked to that address, you need to use the second argument to
+the <kbd><a href="logfile.html#secondarg">LOGFILE</a></kbd> command instead.
+<p>
+In the next section, we'll look at commands for generating
+<a href="hierreps.html">hierarchical reports</a>, which are closely related
+to the commands in this section.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="timereps.html">Prev</a> | <a href="hierreps.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

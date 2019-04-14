@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- what was new in version 3?</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="whatsnew.html">Up</a> |
+<a href="wasnew4.html">Prev</a> | <a href="wasnew2.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0:
+What was new in version 3?</h1>
+<hr size=2 noshade>
+
+This section lists the new features which were in version 3 of analog.
+
+<dl>
+  <dt><b><a href="whatsnew.html">What's new in version 6?</a></b>
+  <dt><b><a href="wasnew5.html">What was new in version 5?</a></b>
+  <dt><b><a href="wasnew4.html">What was new in version 4?</a></b>
+  <dt><b><a name="new332">3.32</a></b> (02-Sep-99)
+  <dd>Bug fixes, including:
+      <ul>
+	<li>Drag-and-drop on Mac now works.
+	<li>Unsafe characters in hyperlinks now escaped.
+	<li>One bug that caused crashes when printing deep Directory Reports
+	    fixed.
+      </ul>
+      New VMS build scripts. Let me know of any compilation problems.
+      <br>Computer-readable output now reports version of analog used.
+      <br>Improved some diagnostic messages.
+      <br>New language Serbo-Croatian; new domains files for Italian and
+      Russian; corrected Polish language files.
+      <br>New documentation on
+      <cite><a href="reports.html">Analog's reports</a></cite> and
+      <cite><a href="quickref.html">Quick reference</a></cite>.
+      <br>Now uses named anchors throughout the documentation, so that
+      cross-references link to the right part of a page.
+  <dt><b><a name="new331">3.31</a></b> (19-Jun-99)
+  <dd>New command <kbd><a href="timereps.html#BARSTYLE">BARSTYLE</a></kbd>;
+      you will need to <a href="update.html#up33">use new images</a>.
+      <br>Russian language file corrected.
+      <br>Some bug fixes, including one important one correcting cache file
+      output.
+  <dt><b><a name="new33">3.3</a></b> (19-May-99)
+  <dd>New commands <kbd><a href="debug.html#ERRFILE">ERRFILE</a></kbd>,
+      <kbd><a href="dns.html">DNSLOCKFILE</a></kbd>,
+      <kbd><a href="logfmt.html#Apache">APACHELOGFORMAT</a></kbd> and
+      <kbd><a href="logfmt.html#DEFAULTLOGFORMAT">APACHEDEFAULTLOGFORMAT</a></kbd>.
+      <br>Can include the date in the name of the
+      <kbd><a href="output.html#OUTFILE">OUTFILE</a></kbd> and the
+      <kbd><a href="cache.html">CACHEOUTFILE</a></kbd>.
+      <br>Support for WebSite logfiles.
+      <br>New token <kbd>%U</kbd> in <a href="logfmt.html#fmtstrings">log
+      formats</a> for &quot;Unix time&quot; (seconds since 1970).
+      <br>Won't overwrite old cache files.
+      <br>Now works properly on SunOS 4.
+      <br>Fix for occasional crashes on Windows.
+      <br>Checks language files are not too long.
+      <br>&quot;Last seven days&quot; data now calculated more accurately and
+      displayed more clearly.
+      <br>Computer-readable output now reports <kbd>SORTBY</kbd>'s as well as
+      floors.
+      <br>Revised Makefile will work with older make's.
+      <br>Corrected Catalan language files.
+      <br>Includes form interfaces in French and Japanese.
+      <br><kbd>LOGFORMAT</kbd> documentation now includes the
+      <a href="logfmt.html#fmtexamples"><kbd>LOGFORMAT</kbd> commands</a> for
+      all built-in log formats.
+  <dt><b><a name="new32">3.2</a></b> (04-May-99)
+  <dd>Bug fixes: in particular <kbd>REFLINKINCLUDE pages</kbd> now works;
+      and cache files now include all items even if they're not wanted for the
+      main report.
+      <br>Lines without a particular item now work properly with
+      <kbd>INCLUDE</kbd> and <kbd>EXCLUDE</kbd> commands. This can cause
+      <a href="update.html#up311">differences in results</a> from previous
+      versions.
+      <br>New version of form interface to work round bug in Microsoft
+      Internet Information Server.
+      <br>New command <kbd><a href="output.html#NOROBOTS">NOROBOTS</a></kbd>.
+      <br>Backslashes are now coerced to forward slashes in filenames and
+      usernames. While not always correct technically, it usually is in
+      practice, and it makes them behave correctly in other parts of the
+      program.
+      <br>Usernames are now treated as case insensitive. Let me know if this
+      causes a problem on any system.
+      <br>Computer-readable output style now reports floors.
+      <br>Rewritten Unix Makefile, and VMS build script. Let me know of any
+      compilation problems.
+      <br>New languages: Catalan, Icelandic, Japanese, Korean, Latvian,
+      Lithuanian. Corrected Spanish language files and French domains file.
+      <br><kbd>LANGUAGE</kbd> now selects local domains file automatically,
+      where available.
+      <br>Removed support for NetPresenz logs. The reasons are in the section
+      on <a href="update.html#up311">how to upgrade</a>.
+      <br><a href="form.html">Form interface documentation</a> rewritten;
+      <a href="faq.html">FAQ</a> broken into sections; sections on
+      <a href="logfile.html">logfiles</a> and <a href="logfmt.html">log
+      formats</a> separated and rewritten; new section on
+      <a href="helpers.html">helper applications</a>; and dozens of other
+      improvements to the documentation.
+  <dt><b><a name="new311">3.11</a></b> (26-Nov-98)
+  <dd>Bug fix version.
+      <br>Microsoft's attempt at W3 extended format is now understood even if
+      there is a second <tt>#Fields:</tt> line in the logfile.
+      <br>There is also a fix for a new Microsoft bug which results in an
+      non-standard common format.
+      <br>Intermittent crashes under Windows fixed.
+      <br>Mailing lists announced.
+  <dt><b><a name="new31">3.1</a></b> (17-Oct-98)
+  <dd>Understands Microsoft's attempt at W3 extended format.
+      <br>Several bugs fixed, including one that caused occasional
+      crashes and one that caused the output to grow and grow.
+      <br>Form interface works on Windows.
+      <br>Allows aliases with two or more *'s on left hand side, if
+      right hand side contains no *'s.
+      <br>Aliases work properly with <kbd>CASE INSENSITIVE</kbd>.
+      <br>Numerical <kbd>SUBDOMAIN</kbd>s fixed.
+      <br>Understands more WebSTAR and Netscape tokens.
+      <br>Accents in domains file work.
+      <br><kbd>LOGFORMAT</kbd> removed from form interface as
+      <a href="http://www.analog.cx/security1.html">security risk</a>.
+      <br>Several warning messages improved.
+      <br>Report aliases and in/exclusions shown in <kbd>settings</kbd>
+      output.
+      <br>Character set declared at top of output.
+      <br>Spanish, Dutch, Norwegian (Bokm&aring;l and Nynorsk), Finnish,
+      Turkish, Greek, Polish, Russian &amp; Chinese language files included.
+  <dt><b><a name="new30">3.0</a></b> (15-Jun-98)
+  <dd>Corrected W3 extended format.
+      <br>Fix for broken <kbd>strcmp()</kbd> function on SunOS 5.
+      <br>Portuguese, Brazilian Portuguese, Danish and Hungarian language
+      files included.
+      <br>Precompiled executable for OS/2 available.
+  <dt><b><a name="new291b1">2.91beta1</a></b> (04-Jun-98)
+  <dd>Form interface included.
+      <br>Uses less memory when compiling reports.
+      <br>New operating system, BS2000/OSD, and code for EBCDIC character set.
+      <br>New command
+      <kbd><a href="logfmt.html#DEFAULTLOGFORMAT">DEFAULTLOGFORMAT</a></kbd>.
+      <br><kbd><a href="output.html#LASTSEVEN">LASTSEVEN</a></kbd> and
+      <kbd><a href="othreps.html#BASEURL">BASEURL</a></kbd> reinstated.
+      <br>More information added to <kbd>PRINTVARS</kbd> output.
+      <br>AppleScript support for Unix-style command lines added to Mac
+      version.
+      <br>Now works on SunOS 4, and other small bug fixes.
+      <br>French, German, Swedish, Czech, Slovak, Slovene and Romanian
+      language files included.
+      <br>One page version of the Readme included in the documentation.
+  <dt><b><a name="new290b4">2.90beta4</a></b> (09-Apr-98)
+  <dd>Mended DNS cache file reading, which I broke in yesterday's release.
+  <dt><b><a name="new290b3">2.90beta3</a></b> (08-Apr-98)
+  <dd>Fixed bug that caused a crash while giving warning messages on SunOS;
+      bug that caused configuration files that called other configuration
+      files not to be completed; and other smaller bugs.
+      <br>Italian language files included.
+  <dt><b><a name="new290b2">2.90beta2</a></b> (03-Apr-98)
+  <dd>Separate <kbd>LOGFORMAT</kbd>s for North American and international
+      date formats, when using Microsoft or Netpresenz logs.
+      <br>Understands the AppleShare IP server's attempt at the WebSTAR format.
+      <br>Directory report now works properly even if you use the second
+      argument to the <kbd><a href="logfile.html#secondarg">LOGFILE</a></kbd>
+      command.
+      <br>Wild cards in filenames work properly on the Mac.
+      <br>Other small bug fixes.
+      <br>One speed improvement (I gain about 3%).
+      <br>Several corrections and clarifications to the documentation.
+  <dt><b><a name="new290b1">2.90beta1</a></b> (27-Mar-98)
+  <dd>This version is a completely rewritten version. Every single line of
+      code is new. The whole code is shorter despite considerable improvements
+      in functionality. Several people have reported that it is significantly
+      faster. The most important new features are:
+      <ul>
+	<li>Eleven new reports (Quarter-Hour, Five-Minute, Redirection,
+	    Failure, File Size, Referring Site, Redirected Referrer, Failed
+	    Referrer, Virtual Host, User, User Failure).
+	<li>Reads logfiles in user-customisable format.
+	<li>Analyses user and virtual host data, and failed requests.
+	<li>Hierarchical reports list subdirectories under directories, and
+	    allow analysis of browser version numbers.
+	<li>Faster sorting of long reports.
+	<li>Floor and sort method made independent.
+	<li>&quot;Last date&quot; column in reports, and can floor and sort by
+	    date.
+	<li>Busiest time period at bottom of time reports.
+	<li>&quot;Not listed&quot; line at bottom of other report.
+	<li>Knows HTTP/1.1 status codes.
+	<li>General Summary can go anywhere in the report.
+	<li>General Summary and &quot;Go To&quot;s can now be turned on and
+	    off independently.
+	<li>Status Code Report can be sorted in different ways.
+	<li><a href="output.html#TIMEOFFSET">Time offset</a> commands.
+	<li>Much better checking of invalid configuration options and invalid
+	    logfile lines.
+	<li>Only reads logfiles it might need.
+	<li>Improvements in DNS functionality: can now read the DNS file
+	    without further lookups: also, separate recheck intervals for
+	    successful and failed lookups.
+	<li>Hash sizes now chosen automatically.
+	<li>More flexible language support.
+	<li>Mac version reads gzipped logfiles.
+	<li>Mac version supports drag-and-drop onto program icon.
+	<li>Readme files completely re-written. Broken into lots of files,
+	    and new sections on <cite><a href="start.html">Starting to use
+	    analog</a></cite> and <cite><a href="meaning.html">What the
+	    results mean</a></cite>, as well as an
+	    <a href="indx.html">index</a>.
+      </ul>
+      <a name="abolished290b1">The following features</a> have been abolished.
+      <ul>
+	<li>No Error Report. The error log was always intended for humans
+	    rather than computers to read. Moreover, its format varied from
+	    server to server, and even between different versions of the same
+	    server. The place of the Error Report has largely been taken by
+	    the new reports, particularly the Failure Report.
+	<li>The approximate host counting has been abolished for the time
+	    being. I can put it back if there is a significant demand for it.
+	<li>Only one <kbd>*</kbd> can now appear on the left-hand side of
+	    aliases. This is to avoid ambiguities.
+	<li>For changes in the names and syntax of configuration options and
+	    command line arguments, see the section about
+	    <a href="update.html">upgrading</a>.
+      </ul>
+      The following features are not yet present, but will be added by
+      version 3.
+      <ul>
+	<li>The form interface.
+	<li>Most of the languages.
+      </ul>
+  <dt><b><a href="wasnew2.html">What was new in version 2?</a></b>
+  <dt><b><a href="wasnew1.html">What was new in version 1?</a></b>
+</dl>
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="whatsnew.html">Up</a> |
+<a href="wasnew4.html">Prev</a> | <a href="wasnew2.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

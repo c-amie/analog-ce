@@ -1,0 +1,430 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- form interface and CGI program</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="debug.html">Prev</a> | <a href="meaning.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0:
+Form interface and CGI program</h1>
+<hr size=2 noshade>
+
+The form interface provides an HTML front end to analog, on Unix or Windows
+platforms (and maybe others). That means that users can select options from a
+web page, instead of having to create a configuration file.
+
+<p>
+<strong>Important:</strong> For <strong><a href="#notcgi">security
+reasons</a></strong>, you must not attempt to run analog itself as a CGI
+program, or even leave it in the directory or folder with your web files or
+CGI programs. When the form interface runs analog for you, it checks that
+analog isn't given any dangerous options. Without this check, your system
+could be vulnerable to attack.
+
+<p>
+The form interface is suitable for ordinary users to use, but it <b>needs to be
+set up by a system administrator</b> or other expert. In order to set it up,
+you have to be running a web server. You need to know what CGI programs
+are, where they live on your server, and how to set up their permissions
+properly. You also need to know how to write HTML forms. I shall assume this
+level of background knowledge for the rest of this section. And you have to be
+running Perl 5.001 or later: see <cite><a href="#formtech">Technical
+details</a></cite> below for other system requirements. (Actually, if you're
+on Windows and don't have Perl, you can download an executable version of the
+form interface from the <a href="helpers.html">helper applications page</a>.)
+
+<p>
+Please don't try and set up the form until analog has been set up and is
+running properly on its own. It just adds another level of complexity to
+troubleshoot. And unlike analog itself, the form interface will <em>not</em>
+run &quot;out of the box&quot;. You have to <strong>read the whole of this
+section to find out how to set it up safely.</strong>
+
+<p>
+<strong>Warning:</strong> CGI programs can contain security loopholes which
+allow an unscrupulous user to harm your system. (If you don't know about this,
+you shouldn't be running CGI programs at all. Read and understand the
+<a href="http://www.w3.org/Security/Faq/">World Wide Web Security FAQ</a> and
+the <a href="http://www.improving.org/paulp/cgi-security/safe-cgi.txt">CGI
+Security FAQ</a> first.) I have tried to make this form interface safe, but I
+cannot guarantee it. Even the most carefully-designed CGI programs can
+accidentally have serious security bugs. And I take no responsibility if
+anything goes wrong: you use it at your own risk. (See the
+<a href="Licence.txt">licence</a>.)  Furthermore, you should be aware that
+unless you take special measures like password protection or limiting
+<kbd>anlgform.pl</kbd> to specific hostnames, setting up the form interface
+implies making analog executable, and your logfiles analysable, by anyone on
+the internet. It's usually a bad idea to allow this, because it has obvious
+negative implications both for privacy and for the load on your system: an
+attacker can run multiple copies of analog causing a denial-of-service attack.
+There are more <a href="#security">notes on security design</a>
+in this program towards the end of this section.
+
+<p>
+The form interface consists of two parts: a form (called
+<kbd>anlgform.html</kbd>) to choose the options, and a cgi program (called
+<kbd>anlgform.pl</kbd>) to pass them to the analog
+program. Both <kbd>anlgform.html</kbd> and <kbd>anlgform.pl</kbd> <b>must</b>
+be configured to your system before they will work at all. There are
+instructions at the top of both files explaining how to do this.
+
+<p>
+The form which is distributed with the program should only be regarded as an
+example form. You can find forms in languages other than English in the
+<kbd>lang</kbd> directory. Or you can write your own if you prefer. In fact
+you don't actually need the form at all: if you want just to create a link
+to the cgi program, with the arguments passed after a question mark in the URL
+in the usual way, then that's fine.
+
+<hr size=1 noshade>
+Almost every analog configuration command can be specified on the form, just
+by including a form element with that name on the form. So, for example, if
+you wanted to add a field for users to choose a logfile, you could write
+<pre>
+Logfile name: &lt;input type=text name="LOGFILE"&gt;
+</pre>
+or maybe something like
+<pre>
+&lt;select name=LOGFILE size=1&gt;
+  &lt;option value="/var/log/apache/fred"&gt; Fred's logfile
+  &lt;option value="/var/log/apache/jane"&gt; Jane's logfile
+&lt;/select&gt;
+</pre>
+
+<p>
+There are a few commands which you can't specify on the form for security or
+performance reasons. The full list is <kbd>*LOGFORMAT</kbd>,
+<kbd>LANGFILE</kbd>, <kbd>DESCFILE</kbd>, <kbd>HEADERFILE</kbd>,
+<kbd>FOOTERFILE</kbd>, <kbd>UNCOMPRESS</kbd>, <kbd>OUTFILE</kbd>,
+<kbd>CACHEOUTFILE</kbd>, <kbd>ERRFILE</kbd>, <kbd>LOCALCHARTDIR</kbd>,
+<kbd>DNS</kbd> and <kbd>SETTINGS</kbd>;
+and the person setting up the form can add more. See the
+<a href="#security">security notes</a> below for the reasons for these
+exclusions, and for some more commands you might want to add to the forbidden
+list. You can, if you prefer, specify the commands which are allowed, rather
+than those which are forbidden.
+
+<hr size=1 noshade>
+Some commands are most conveniently specified in two halves. First, there are
+commands which take two arguments (for example
+<a href="alias.html"><kbd>ALIAS</kbd>es</a> or
+<kbd><a href="logfile.html#secondarg">LOGFILE</a></kbd>). You can cope with
+these by
+sending two commands from the form, called <kbd>COMMAND1</kbd> and
+<kbd>COMMAND2</kbd>. For example,
+<pre>
+Alias this file: &lt;input type=text name="FILEALIAS1"&gt;
+To this one: &lt;input type=text name="FILEALIAS2"&gt;
+</pre>
+You can only specify one such pair this way, so there's no way to specify
+several of the same <kbd>ALIAS</kbd>, for example. Only the last
+<kbd>COMMAND1</kbd> and the last <kbd>COMMAND2</kbd> you specify count.
+
+<p>
+Then there are <a href="othreps.html#FLOOR"><kbd>FLOOR</kbd></a> commands. To
+avoid users of the form having to know the syntax of these commands, you can
+if you want specify them in two halves, <kbd>FLOORA</kbd> and
+<kbd>FLOORB</kbd>, and they will be stuck together. For example, the form
+distributed with the program specifies
+<pre>
+&lt;br&gt;Include all domains with at least
+&lt;input type=TEXT name="DOMFLOORA" maxlength=6 size=6&gt;
+&lt;select name="DOMFLOORB"&gt;
+  &lt;option value=r&gt;requests
+  &lt;option value=p&gt;requests for pages
+  &lt;option value=b selected&gt;bytes
+&lt;/select&gt;
+</pre>
+If <kbd>DOMFLOORA</kbd> contains <kbd>5%</kbd> and <kbd>DOMFLOORB</kbd>
+contains <kbd>r</kbd>, then <kbd>DOMFLOOR 5%r</kbd> will be sent to the
+program. (Or <kbd>DOMFLOORA=5</kbd> and <kbd>DOMFLOORB=%r</kbd> would work
+too, if you chose to present the form that way.)
+
+<hr size=1 noshade>
+<a name="formqv">There are a couple</a> of extra non-analog commands which can
+be sent from the form. First, if the option <kbd>qv=1</kbd> is set, then
+analog is not run, but a list of the configuration commands which would have
+been sent to analog is printed instead. This is useful for checking that the
+CGI program is working properly. It can also allow users to produce a
+configuration file from form settings.
+
+<p>
+Secondly, you can specify other configuration files to be included at specific
+times. When analog is called by the CGI program, it first processes the
+<a href="syntax.html#specialcfgs">default configuration file</a> as usual.
+Then it processes any configuration file specified by an option with name
+<kbd>cg</kbd>. Then it processes all the other commands which the CGI program
+specifies. After that, it processes any configuration file specified by an
+option with name <kbd>cm</kbd>. Finally, it processes the
+<a href="syntax.html#specialcfgs">mandatory configuration file</a> as usual.
+(You may therefore want two copies of analog, one for form use and one for
+non-form use, with different configuration files compiled in.) Note that
+the commands in the default and mandatory configuration files will contribute
+to the configuration: some of them may even override options specified on the
+form. For example, if the default configuration file contains an
+<kbd><a href="include.html">INCLUDE</a></kbd> command, this may cause
+<kbd>INCLUDE</kbd> and <kbd>EXCLUDE</kbd> commands specified on the form to
+behave unexpectedly.
+
+<hr size=1 noshade>
+<kbd>anlgform.pl</kbd> usually sends the commands to analog in the order in which
+it received them, which should be the same as the order they occurred in the
+form. But there are some exceptions. First, all commands of the same name are
+grouped together. So an interleaved sequence of <kbd>INCLUDE</kbd>s and
+<kbd>EXCLUDE</kbd>s won't work, for example. Secondly, even though the names
+of commands are case-insensitive, commands of the same name but in different
+cases may come in the wrong order. Keep them in the same case! Thirdly,
+<kbd>WARNINGS</kbd> and <kbd>LOGTIMEOFFSET</kbd> are sent first (and thus the
+<kbd>LOGTIMEOFFSET</kbd> applies to any logfiles specified on the form).
+
+<p>
+<a name="formalways">There are</a> a couple of commands which the form always
+sets. These may override what you have set elsewhere. First, it sets either
+<kbd>DNS READ</kbd> (if a <kbd>DNSFILE</kbd> is set on the form) or <kbd>DNS
+NONE</kbd> (otherwise). Do <strong>not</strong> attempt to override this --
+not only will you get timeout problems, but an attacker can then write to any
+file by setting <kbd>DNSFILE</kbd>.
+<p>
+The second command which the form always sets is <kbd>WARNINGS FL</kbd>, so
+that the less
+important warnings don't fill up your server's error log. You can override
+this by sending an explicit <kbd>WARNINGS</kbd> command from the form. And
+thirdly, it sets <kbd>DEBUG -C</kbd> to avoid filling up the error log if the
+<kbd>LOGFORMAT</kbd> is incorrectly configured: this can't be overridden from
+the form, only from the mandatory configuration file.
+
+<p>
+<a name="formcharts">You won't get pie charts</a> on the form unless you set a
+<kbd>CHARTDIR</kbd> and <kbd>LOCALCHARTDIR</kbd> in your default configuration
+file (<kbd>LOCALCHARTDIR</kbd> is disabled from the form for security
+reasons). And even if you do this, there will be a problem if two users try
+and run the form interface at the same time, because they will be trying to
+write the same images, so they may see broken images or each other's charts.
+
+<p>
+<a name="formuncompress">There is one small point</a> about compressed
+logfiles. For security reasons, when using the form interface you need to
+specify the full pathname to the uncompression command in the
+<kbd><a href="logfile.html#UNCOMPRESS">UNCOMPRESS</a></kbd> command in your
+configuration file.
+
+<p>
+<a name="formcharsets">Again for security reasons,</a> analog checks the input
+from configuration commands more carefully when using the form interface
+before outputting it. One side-effect of this is that the
+<kbd>JAPANESE-JIS</kbd> character set won't work. Use one of the other
+Japanese character sets instead.
+
+<hr size=1 noshade><h3><a name="trouble">Form troubleshooting</a></h3>
+Here is what to do if you are having problems setting up the form interface.
+
+<p>
+First, does analog run properly on its own without anlgform?
+
+<p>
+Next, you can run <kbd>anlgform.pl</kbd> from the (DOS or Unix) command
+line. <em>This is good enough to debug most problems</em>. You can specify
+options in pairs like this:
+<pre>
+anlgform.pl qv=1 LOGFILE=/some/log REQINCLUDE=pages
+</pre>
+If you include <kbd>qv=1</kbd> in the argument list as above, you will see
+what <kbd>anlgform.pl</kbd> is trying to send to analog. If you don't include
+<kbd>qv=1</kbd>, <kbd>anlgform.pl</kbd> will try and run analog.
+
+<p>If it still doesn't work, check the following points:
+<ol>
+  <li>Have you edited <kbd>anlgform.pl</kbd> and <kbd>anlgform.html</kbd> as
+      instructed at the top of those files?
+  <li>Do other CGI programs work on your server? Is <kbd>anlgform.pl</kbd> in
+      the right place to be recognised as a CGI program by the server?
+  <li>Look in the server's error log for clues. You might want to set
+      <kbd>WARNINGS ON</kbd> before you do this, because by default only
+      warnings in categories <kbd>F</kbd> and <kbd>L</kbd> are reported.
+  <li>Sometimes it's helpful to set the <kbd>ERRFILE</kbd> in your analog
+      configuration file (it won't work from the form) to catch any errors and
+      warnings which may be getting lost. This is especially true on IIS which
+      incorrectly sends errors to the browser instead of to an error log. If
+      you are using Internet Explorer you will probably also need to disable
+      the &quot;friendly&quot; error messages so that you can see the actual
+      error message.
+  <li>Are all relevant files (analog itself, logfiles, configuration files,
+      auxiliary files such as domain files...) executable/readable by your web
+      server?
+  <li>If some form options don't seem to take effect, then check whether they
+      are being overridden by a command in a configuration file. (Although
+      <kbd>SETTINGS</kbd> is forbidden from the form, you might find it useful
+      to set it in your default configuration file.)
+  <li>If you get a long wait, then no data returned, the server is probably
+      timing out the request before analog has finished. The remedy is to
+      increase the timeout interval.
+  <li>As explained <a href="#formalways">above</a>, the form always sets
+      <kbd>DNS READ</kbd> or <kbd>DNS NONE</kbd>, <kbd>WARNINGS FL</kbd>, and
+      <kbd>DEBUG -C</kbd>,
+      overriding your default configuration file.
+  <li>Again as explained <a href="#formcharts">above</a>, pie charts may not
+      appear or may appear wrongly.
+  <li>Again as explained <a href="#formuncompress">above</a>,
+      uncompressing of compressed logfiles doesn't work unless you use the
+      full pathname in the <kbd>UNCOMPRESS</kbd> command.
+  <li>And once again as explained <a href="#formcharsets">above</a>, the
+      <kbd>JAPANESE-JIS</kbd> character set won't work from the form interface.
+</ol>
+
+<hr size=1 noshade><h3><a name="security">Security notes</a></h3>
+
+As I said above, CGI programs can often contain security loopholes. (See the
+<a href="http://www.w3.org/Security/Faq/">World Wide Web Security FAQ</a> and
+the <a href="http://www.go2net.com/people/paulp/cgi-security/safe-cgi.txt">CGI
+Security FAQ</a> for more on this.) Although I
+<a href="Licence.txt">don't guarantee</a> that the form interface is safe, I
+have done my best to make it so. Here I shall explain my design decisions.
+Comments on them are of course welcome: if they need to remain confidential,
+you can email me privately at <kbd><a href="mailto:analog-author@lists.meer.net">analog-author@lists.meer.net</a></kbd>.
+<p>
+First, you should think about who can run the form interface. Unless you take
+special measures like password protection or limiting <kbd>anlgform.pl</kbd>
+to specific hostnames, adding the form interface to your site implies making
+analog executable, and your logfiles analysable, by anyone on the internet, as
+often as they want. It's usually a bad idea to allow this, because
+of the obvious concerns both about privacy and about the load on your
+system. Unless you limit the total CPU available to any analog processes, it is
+easy for an attacker to run multiple copies of analog, causing a
+denial-of-service attack.
+<p>
+Certain commands are ignored by <kbd>anlgform.pl</kbd> and not passed to
+analog. The list of them can be found at the top of <kbd>anlgform.pl</kbd>.
+Here are the reasons for them. <kbd>HEADERFILE</kbd> and <kbd>FOOTERFILE</kbd>
+would place any file on your system within the output. The
+<kbd>*LOGFORMAT</kbd> commands would also allow any file to be read, because
+someone could designate each line to be a single filename and then just list
+the filenames. <kbd>OUTFILE</kbd>, <kbd>CACHEOUTFILE</kbd>, <kbd>ERRFILE</kbd>
+and <kbd>LOCALCHARTDIR</kbd> would allow people to write to your filespace;
+<kbd>ERRFILE</kbd> would also divert warnings away from your server's error
+log. <kbd>UNCOMPRESS</kbd> would allow a user to execute any command.
+<kbd>DNS</kbd> is forbidden because setting it higher than <kbd>READ</kbd>
+would normally cause the process to time out, and also because with
+<kbd>DNS WRITE</kbd>, the <kbd>DNSFILE</kbd> would be a file to write,
+not just a file to read. <kbd>CGI</kbd> would allow the
+user to generate syntactically incorrect output. <kbd>PROGRESSFREQ</kbd> would
+allow a user to conduct a denial-of-service attack by filling up your error
+log really, really fast (and <kbd>DEBUG C</kbd> is <a href="#formalways">also
+disabled</a> for the same reason.) 
+<p>
+None of the above should be deleted (unless you are really, really sure that
+it's completely impossible for anyone other than yourself to run
+<kbd>anlgform.pl</kbd>). There are three other commands which are forbidden by
+default but which you could consider removing from the forbidden list.
+<kbd>SETTINGS</kbd> is included because it will give away the locations of
+some files on your system. But it is useful for diagnostic purposes, and you
+could consider removing it <em>temporarily</em> if you have trouble setting up
+the form. The other commands which are included are <kbd>LANGFILE</kbd> and
+<kbd>DESCFILE</kbd>. They are included because it is possible that another
+file could be exactly the right number of lines long to be accepted as a
+language file or report descriptions file, and then parts of it would get into
+the output. But it would have to be exactly the right number of lines long
+first. These commands shouldn't really be needed if your copy of analog is
+installed correctly, because the <kbd>LANGUAGE</kbd> command should find the
+right files. But if you want them, and you're prepared to take the risk
+described above, you can remove <kbd>LANGFILE</kbd> and/or <kbd>DESCFILE</kbd>
+from the list.
+<p>
+There are other commands which you might consider adding to the list. For
+example, it is theoretically possible (though rather unlikely), that another
+file on your system could conform sufficiently closely to one of the
+predefined log formats that analog could be persuaded to analyse it and so
+reveal some of its contents. If you're worried about this, or even if you want
+to force only one particular logfile to be analysed from the form, you can add
+the <kbd>LOGFILE</kbd> command to the list of forbidden commands. And you could
+add <kbd>DOMAINSFILE</kbd> for similar reasons. Or if you wanted to stop a
+user having control over which analog warnings were written to the error log,
+you could add <kbd>WARNINGS</kbd> to the list. (Possible attempted security
+violations detected by anlgform will always be written.)
+<p>
+You can of course add any command you like to the list. For example, 
+a user can use any configuration file on your system unless you add
+<kbd>CONFIGFILE</kbd>. If you add a command,
+you must also add any aliases for it. Have a look in the source file
+<kbd>globals.c</kbd> for the same command under different names -- some
+commands have legacy names which I don't admit to in the documentation.
+<p>
+For more certainty, you can, if you prefer, configure anlgform so that you
+specify the commands which are allowed, rather than those which are forbidden.
+See the top of <kbd>anlgform.pl</kbd> for how to do this.
+<hr size=1 noshade>
+For those who know about CGI security issues, here are some more technical
+comments on my design. <kbd>anlgform.pl</kbd> sets the <kbd>$PATH</kbd>
+environment variable to be empty. It opens <kbd>analog</kbd> as a pipe in
+order to pass arguments into analog's standard input. User-specified data is
+not used for the <kbd>open()</kbd> function, only passed down the pipe.
+<kbd>anlgform.pl</kbd> is run with the <kbd>-T</kbd> flag on Unix. (Does
+anyone know how to get this working under Windows?)
+<p>
+The arguments to <kbd>LOGFILE</kbd> and <kbd>CACHEFILE</kbd> commands are
+checked for containing only certain allowed characters (specifically, letters,
+digits, <kbd>/\.:_*?</kbd> space, and <kbd>-</kbd> between two {letter, digit,
+underscore}'s). This is because they could match an <kbd>UNCOMPRESS</kbd>
+command and thus be passed to the shell when the uncompress command is
+<kbd>popen()</kbd>'ed.
+<p>
+Apart from that, command names are checked for containing only letters and the
+digits 1 and 2; and the arguments to commands are checked for not containing
+control characters (actually characters 0-32 and 127-159; in particular
+newline characters are prohibited). The length of the commands isn't checked
+by <kbd>anlgform.pl</kbd>, but buffer overflow shouldn't be an issue as
+configuration commands are checked for length by analog.
+<p>
+<a name="notcgi">By the way</a>, the reason that I advise that analog itself
+shouldn't be used as a CGI program is that some servers, notably Microsoft
+IIS, allow users to pass command line arguments into a CGI program. And even
+if the program doesn't return the proper CGI headers, the output can be sent
+back to the user. This means that all the above checking of arguments is then
+thwarted. Of course, on servers on which you can't pass command line arguments
+to a CGI program, there are not the same security concerns, but then analog
+isn't very useful as a CGI program because if you can't pass any arguments,
+you can only get the default output.
+
+<hr size=1 noshade><h3><a name="formtech">Technical details</a></h3>
+You need to be running Perl 5.001 or later (unless you're on Windows and
+download the executable version of the form interface from the
+<a href="helpers.html">helper applications page</a>). You can get the latest
+version of Perl free from <a href="http://www.perl.org/">www.perl.org</a> (or
+from <a href="http://www.activestate.com/Products/ActivePerl/">http://www.activestate.com/Products/ActivePerl/</a>
+if you're on Windows). You also need the module
+<kbd><a href="http://www.cpan.org/modules/by-module/CGI/">CGI.pm</a></kbd>,
+but this should have come with Perl anyway.
+
+<p>
+On Windows, you have to associate the <kbd>.pl</kbd> extension with the Perl
+executable so that Perl scripts are executed by Perl.
+
+<p>
+<kbd>anlgform.pl</kbd> will understand the <kbd>GET</kbd> or <kbd>POST</kbd>
+methods of form submission. The
+<a href="http://www.w3.org/TR/REC-html40/interact/forms.html#h-17.13.1">HTML
+spec</a> says that <kbd>GET</kbd> should be used when, as in this case,
+running the program has no side effects. However, section 15.1.3 of the
+<a href="ftp://ftp.isi.edu/in-notes/rfc2616.txt">HTTP spec</a> says that
+<kbd>POST</kbd> should be used if some of the options being passed might be
+confidential. Also, very long URLs, formed by specifying lots of options, can
+cause trouble to some older servers. So <kbd>anlgform.html</kbd> uses the
+<kbd>POST</kbd> method by default. However, the <kbd>GET</kbd> method will
+also work. For example, you could make a normal link to <kbd>anlgform.pl</kbd>
+with options specified after a question mark in the usual <kbd>GET</kbd> way.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="debug.html">Prev</a> | <a href="meaning.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- the domains file</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="hierreps.html">Prev</a> | <a href="compout.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0: The domains file</h1>
+<hr size=2 noshade>
+
+The domains file tells analog which country is represented by each domain.
+You can tell analog where to find your domains file with a command like
+<pre>
+DOMAINSFILE mydomains.tab
+</pre>
+Normally you don't need this command, because if there is a domains file in
+your language, it should be selected automatically. But the
+<kbd>DOMAINSFILE</kbd> command can be useful if you want to use a domains file
+in a new language, for example.
+If the name of the file doesn't include a directory, it will be
+looked for wherever analog normally expects to find its language files.
+<p>
+You should have got a domains file with the program, but if you've lost it,
+you can download one from
+<a href="http://www.analog.cx/ukdom.tab">http://www.analog.cx/ukdom.tab</a>.
+It should contain on each line a domain code, followed by a number, followed
+by its location, like this:
+<pre>
+ad  2  Andorra
+ae  3  United Arab Emirates
+[...]
+</pre>
+It does not need to be in alphabetical order, though humans may prefer it that
+way. Subdomains do not go in the domains file: you can list them in the Domain
+Report using the <kbd><a href="hierreps.html">SUBDOMAIN</a></kbd> command.
+
+<hr size=1 noshade>
+<a name="orgrules">The number</a> beside each domain represents how many
+levels deep an &quot;organisation&quot; is
+considered to be, for the purposes of the Organisation Report. For example,
+consider the hostname <kbd>www.sta.ad</kbd>. The organisation is
+<kbd>sta.ad</kbd>, at the second level, so Andorra has a 2 in the above
+list. But in the UAE, a host looks like <kbd>www.economy.gov.ae</kbd>.
+There is an extra level in the hierarchy, so the UAE has its organisations at
+level 3.
+<p>
+There are some problems with this. A few countries have organisations at both
+levels 2 and 3 (for example <kbd>asaspace.at</kbd> and
+<kbd>univie.ac.at</kbd>). In those cases I've favoured false negatives over
+false positives by using the bigger number. (Also there is a correction which
+will make most of them right again: the first component is always removed from
+a hostname of three or more components.) For other
+countries, I don't have enough information to tell what the level should
+be. I've just given those a 1. Do <a href="mailing.html">let me know</a> if
+you have any more information, or corrections, for the numbers.
+<p>
+For numerical addresses, the organisation is considered to be at level 2 if
+the first component is 24, 61-68, 80-81 or 128-255; and otherwise at level 1.
+Again this is only an approximation -- for example, many organisations use two
+adjacent blocks of numbers, or subdivided blocks -- but it's the best we can
+do without looking up every address we come across. (Note that you can always
+see more detail using the <kbd><a href="hierreps.html">SUBORG</a></kbd>
+command).
+
+<hr size=1 noshade>
+<a name="unkdoms">Only domains</a> which occur in the domains file will get
+their own line in the
+Domain Report: the rest are probably spurious, and will be accumulated
+together as "unknown domains". If analog couldn't find the domains file, then
+all the domains will be unknown. If you have
+<a href="debug.html#debugs">debugging</a>
+turned on, you can see which domains were unknown.
+
+<p>
+Lines starting with a hash (<kbd>#</kbd>) in the domains file are considered
+to be comments.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="hierreps.html">Prev</a> | <a href="compout.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

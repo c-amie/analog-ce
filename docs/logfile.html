@@ -1,0 +1,388 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- choosing a logfile</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="syntax.html">Prev</a> | <a href="logfmt.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0: Choosing a logfile</h1>
+<hr size=2 noshade>
+
+The basic command for selecting a logfile is
+<pre>
+LOGFILE logfilename
+</pre>
+or just to put the logfile name on the command line without any arguments,
+e.g., <kbd>analog logfilename</kbd>. In the Mac version, you can also analyse
+a particular single logfile by dragging it onto the analog icon.
+All logfiles must be within your computer's
+file system (on disk, or at least mounted under Unix, or on a mapped drive
+under NT) -- analog won't use FTP or HTTP to fetch them from the internet.
+
+<p>
+A <kbd>-</kbd> sign or the word <kbd>stdin</kbd> is interpreted as standard
+input: this is useful on Unix systems for constructing pipes. There is also an
+optional second argument to the <kbd>LOGFILE</kbd> command which is explained
+<a href="#secondarg">below</a>.
+
+<p>
+You can have several <kbd>LOGFILE</kbd> commands. You can include wildcards in
+the logfile name (but not necessarily in the directory name: this is
+system-dependent), and you can use a list of logfiles separated by commas
+(without spaces). So the following commands would tell analog to read
+<kbd>logfile1</kbd>, <kbd>c:\logs\logfile2</kbd>, and all files ending in
+<kbd>.log</kbd>:
+<pre>
+LOGFILE logfile1,*.log
+LOGFILE c:\logs\logfile2
+</pre>
+Or if you were on a Mac, you might use something like
+<pre>
+LOGFILE "Hard Drive:Internet Applications:Analog:Logs:*"
+</pre>
+You can also use the special command
+<pre>
+LOGFILE none
+</pre>
+to erase the list of logfiles specified so far.
+<p>
+If the name of a logfile in a <kbd>LOGFILE</kbd> command doesn't include a
+directory, it will be looked for wherever analog expects to find logfiles.
+(This location is built in when the program is compiled.) For example, on
+Windows it would be in the same folder as the analog executable.
+But logfile names given on the command line are within the current directory.
+<p>
+<a name="datecodes">You can also include the date</a> in the
+<kbd>LOGFILE</kbd> name, by using the following codes.
+<pre>
+%D  date of month
+%m  month name, in English
+%M  month number
+%y  two-digit year
+%Y  four-digit year
+%H  hour
+%n  minute
+%w  day of week, in English
+</pre>
+So for example,
+<pre>
+LOGFILE access_log%Y%M.log
+</pre>
+will look for the logfile <kbd>access_log200109.log</kbd>, if it's September
+2001. The date used is actually the
+<kbd><a href="include.html#FROMTO">TO</a></kbd> date if one was specified, and
+otherwise the time of the start of the program. So for example, you can look
+at all of last month's logfiles with the commands
+<pre>
+TO -00-0131                   # to end of last month
+LOGFILE access_log%Y%M??.log  # finds access_log200108??.log in Sep 2001
+</pre>
+<p>
+The <kbd>LOGFILE</kbd> commands are cumulative, except that any logfiles
+on the command line or in configuration files specified on the command line
+override any in the <a href="syntax.html#specialcfgs">default configuration
+file</a> or configuration files loaded from there, and are themselves
+overridden by any in the <a href="syntax.html#specialcfgs">mandatory
+configuration file</a> or configuration files loaded from there.
+Usually you don't need to worry about this, and it will do what you expect!
+(Actually I should have said &quot;logfiles or cache files&quot; -- but we'll
+get on to that <a href="cache.html">later</a>).
+
+<hr size=1 noshade>
+Analog knows about several different types of logfile. By default it will
+attempt to see if your logfile is of one of the types it knows about, based
+on the first line. The types it can usually diagnose are the common log
+format, the NCSA combined format, referrer log and browser log, the W3
+extended log format, the Microsoft IIS format, the Netscape format, the
+WebSTAR format, the WebSite format and the MacHTTP format.
+<a href="#formats">Examples of all
+these formats</a> are given at the end of this section. If you have
+<a href="debug.html#debugs">debugging</a> on, analog will report what type of
+logfile it thinks yours is.
+
+<p>
+If your logfile is not in one of the standard formats, you will probably still
+be OK, because it is possible to tell analog about other formats using a
+<kbd>LOGFORMAT</kbd> command. This is explained in the
+<a href="logfmt.html">next section</a>. But most users don't
+ever need to know about this because they have logfiles in a standard
+format. So the best thing to do is just to try analysing your logfile and see
+if analog will understand it. If it does, you don't need to worry about
+<kbd>LOGFORMAT</kbd>s.
+
+<p>
+<a name="corruptlines">If analog can't understand</a> your logfile, it will
+warn you that it can't detect
+the format, or possibly that it found a lot of corrupt lines. There are
+basically five reasons why this might happen:
+<ol>
+  <li>Many people try and use a <kbd>LOGFORMAT</kbd> command when they don't
+      need one. Always try without one first.
+  <li>Some log formats are not very well designed and analog can't analyse
+      them reliably. In this case it will give up, usually with a helpful
+      message, rather than risk doing a bad job. For example, you might get
+      &quot;<em>Logfile with ambiguous dates</em>&quot; or &quot;<em>Time
+      without date</em>.&quot; In this case you should read the
+      <a href="#formats">notes on all the built-in formats</a> below where
+      some common problems with those formats are described.
+  <li>Since analog tries to deduce the format based on the first line of the
+      logfile, it could just be that the first line is corrupt. In this case,
+      you could tell analog the format, or you could just fix the first line.
+  <li>For the same reason, if the format changes midway through the log,
+      analog will count the remaining lines as corrupt. In this case, you will
+      find that your output page contains a partial analysis but with a large
+      number of corrupt lines too. You will need to give analog two
+      <kbd>LOGFORMAT</kbd> commands to tell it about the two different formats.
+  <li>Finally, some logfiles really aren't in one of the standard formats.
+      In this case you will need to <a href="logfmt.html">read the next
+      section</a> and learn how to tell analog about your format.
+</ol>
+If you can't see what's wrong with your logfile, you can specify
+<kbd><a href="debug.html#debugs">DEBUG ON</a></kbd>, and analog will report
+where each line was corrupt.
+
+<hr size=1 noshade>
+<a name="secondarg">There is also an optional second argument</a> to the
+<kbd>LOGFILE</kbd> command, which specifies a
+prefix to add to all the filenames in that logfile. This is useful if
+you've got several different servers or virtual hosts, when the same
+filename may occur on each of the servers.
+For example,
+<pre>
+LOGFILE mydomain.log http://www.mydomain.com
+</pre>
+would translate a filename <kbd>/file.html</kbd> in <kbd>mydomain.log</kbd> to
+<kbd>http://www.mydomain.com/file.html</kbd>. (If you only have logfiles from
+one server, and you just want the prefix so that you can host the output on
+a different server, then you probably want the
+<a href="othreps.html#BASEURL"><kbd>BASEURL</kbd></a> command instead.)
+
+<p>
+Note that because this actually changes the name of the file, any
+<kbd><a href="include.html">FILEINCLUDE</a></kbd>,
+<kbd><a href="include.html">FILEEXCLUDE</a></kbd> or
+<kbd><a href="alias.html#useraliases">FILEALIAS</a></kbd> command will have to
+refer to the new name, including the prefix.
+
+<p>
+If you are using this command to combine logfiles from several different
+virtual hosts, then the Virtual Host Report doesn't tell you about the
+different virtual hosts. The virtual host name has just become part of the
+filename. So you want to look in the Directory Report instead. (And you will
+probably want to use the <kbd><a href="hierreps.html">SUBDIR</a></kbd> command
+as well.)
+
+<p>
+If the logfile contains the name of the virtual host on each line, then the
+argument can contain a <kbd>%v</kbd>, and the name of the virtual host will
+be inserted at that point. If <kbd>%v</kbd> is included and the logfile line
+doesn't have a virtual host, then that line will be marked as corrupt.
+
+<hr size=1 noshade>
+<a name="UNCOMPRESS">It is often convenient</a> to store logfiles compressed
+to save disk space.
+Analog will automatically read logfiles compressed using gzip, zip or bzip2.
+But if you have
+logfiles compressed using some other program, analog can still read them
+provided that you use an <kbd>UNCOMPRESS</kbd> command to say how to
+uncompress them.
+<p>
+You need to supply the types of file that you want to
+uncompress in a comma-separated list, together with the name of a command that
+will uncompress the files to standard output (rather than to a file). For
+example, on Unix you might use
+<pre>
+UNCOMPRESS *.Z "/usr/bin/uncompress -c"
+</pre>
+whereas on Windows NT, you might use
+<pre>
+UNCOMPRESS *.Z ("c:\Program Files\uncompress\uncompress" -c)
+</pre>
+<p>
+If analog determines that a logfile which it's uncompressing isn't wanted for
+the analysis, a &quot;broken pipe&quot; error can be reported. This is
+produced by the uncompressing command and is out of analog's control, but it's
+harmless.
+<p>
+(Hint: There's nothing to stop you using the <kbd>UNCOMPRESS</kbd> command for
+other types of preprocessing, for example DNS resolution.)
+
+<hr size=1 noshade>
+<h3><a name="formats">Logfile</a> formats</h3>
+
+Here is a summary of the various logfile formats which analog knows about.
+To illustrate them, I have used the same (fictional) request as it might be
+recorded in the different formats.
+
+<p>
+<a name="commonfmt">The common</a> logfile format is written by most
+servers. Its lines look like
+<pre>
+jay.bird.com - fred [25/Dec/1998:17:45:35 +0000]
+"GET /~sret1/ HTTP/1.0" 200 1243
+</pre>
+(except all on one line).
+Some versions of Microsoft software have a buggy version of this with an extra
+quote mark before the <kbd>HTTP</kbd> like this:
+<pre>
+jay.bird.com - fred [25/Dec/1998:17:45:35 +0000]
+"GET /~sret1/ "HTTP/1.0" 200 1243
+</pre>
+Analog will understand these, but (as with any two formats) it will reject
+lines if the format changes half way through.
+
+<hr size=1 noshade>
+<a name="reffmt">The NCSA referrer log</a> looks like
+<pre>
+[25/Dec/1998:17:45:35] http://www.site.com/ -> /~sret1/
+</pre>
+<a name="browfmt">and the browser (or agent) log</a> looks like
+<pre>
+[25/Dec/1998:17:45:35] Mozilla/2.0 (X11; I; HP-UX A.09.05)
+</pre>
+In the referrer log, the date can be omitted.
+
+<hr size=1 noshade>
+<a name="combinedfmt">The NCSA combined log</a> is the same as the common log,
+except that
+it has the referrer and browser on the end in quotes, like this:
+<pre>
+jay.bird.com - fred [25/Dec/1998:17:45:35 +0000] "GET /~sret1/ HTTP/1.0"
+200 1243 "http://www.site.com/" "Mozilla/2.0 (X11; I; HP-UX A.09.05)"
+</pre>
+(except all one line). If you are using the Apache server, you can generate
+this with the <kbd>mod_log_config</kbd> module, using the Apache command
+<pre>
+LogFormat "%h %l %u %t \"%r\" %s %b \"%{Referer}i\" \"%{User-Agent}i\""
+</pre>
+It is usually better to use the combined log than separate logs, because it
+stores more information in less space.
+
+<hr size=1 noshade>
+<a name="IISfmt">The Microsoft IIS logfile</a> looks like
+<pre>
+192.64.25.41, -, 25/12/98, 17:45:35, W3SVC1, HOST1, 192.16.225.10,
+2178, 303, 1243, 200, 0, GET, /~sret1/, -,
+</pre>
+(except all on one line; and sometimes with four-digit years).
+However, the format is extremely badly designed, in that the date follows local
+conventions: in other words, in North America the above example would have the
+date <kbd>12/25/98</kbd> instead. Analog will diagnose which form the logfile
+is in if possible: but if both the date and the month are at most 12, there
+is no way to tell which format it is. In this case, it will advise you to use
+the command
+<kbd>LOGFORMAT MICROSOFT-NA</kbd> for North American date
+format, or <kbd>LOGFORMAT MICROSOFT-INT</kbd> for international date format.
+In some countries, the date will not be in either of these formats, in which
+case you need to write your own <kbd>LOGFORMAT</kbd> command, based on the
+examples in the <a href="logfmt.html#msnafmtex">next section</a>.
+<p>
+There are also various third-party extensions to the Microsoft format to
+include, for example, the browser and referrer. But they all do it in
+different ways, so analog can't automatically diagnose them, and again, you
+need to write a <kbd>LOGFORMAT</kbd> command for them.
+
+<hr size=1 noshade>
+<a name="websitefmt">The WebSite format</a> looks like
+<pre>
+12/25/98 17:45:35  jay.bird.com  host1  Server  fred  GET  /~sret1/
+http://www.site.com/    Mozilla/2.0 (X11; I; HP-UX A.09.05)  200  1243  2178
+</pre>
+(except all on one line, and with the fields separated by tabs). It suffers
+from the same problem with ambiguous dates as the IIS logfile (above), so
+again you might have to use <kbd>LOGFORMAT WEBSITE-NA</kbd> or <kbd>LOGFORMAT
+WEBSITE-INT</kbd>, or even have to write your own <kbd>LOGFORMAT</kbd> command.
+
+<hr size=1 noshade>
+<a name="machttpfmt">The MacHTTP format</a> looks like
+<pre>
+12/25/98  17:45:35   OK    jay.bird.com  /~sret1/  1243
+</pre>
+with the fields separated by tabs.
+
+<hr size=1 noshade>
+<a name="restfmts">The W3 extended log</a>, the Netscape log, and the WebSTAR
+log can be recognised
+because they <b>must</b> include at or near the top a line telling analog
+what format to expect on subsequent lines. (They may also contain later lines
+changing the format). If the header line is missing, analog won't be able to
+interpret the subsequent lines and so won't be able to analyse the logfile. In
+this case, you will have to either replace the missing header or use a
+<kbd>LOGFORMAT</kbd> command to tell analog your format.
+<p>
+<a name="dateonly">If analog</a> finds that the header line is corrupt, it
+will usually tell you what was wrong with it.
+The most common problem is that
+you're not allowed the time without the date or vice
+versa -- in particular, having the date just at the top of the logfile is not
+sufficient; you must have it on each line. By default, Microsoft servers
+produce extended
+logs with the date only at the top. But if the date changes during the
+logfile, the server doesn't then write a new date line. This means that
+missing days or corrupt entries can make analog get a day out in either
+direction, with no way to rescue or even recognise the situation!
+<p>
+For this reason analog knows that it
+can't analyse such logfiles safely, so instead it insists that the date should
+be on every line. There are some programs on the
+<a href="helpers.html">helper applications page</a> to put the date on each 
+line. If you already have such a logfile you might want to use one of these
+programs, but they have to assume that the date doesn't change during the
+logfile, so it would be much safer to tell your server to log the date on every
+line in future.
+<p>
+<a name="extendedfmt">The extended log</a> is described at
+<a href="http://www.w3.org/TR/WD-logfile.html">http://www.w3.org/TR/WD-logfile.html</a>.
+Its header line looks like
+<pre>
+#Fields: date time cs-uri
+</pre>
+In the rest of the logfile, the fields can be separated by spaces or tabs.
+Remember the logfile <b>must</b> contain the date as well as the time on every
+line -- see <a href="#dateonly">above</a>.
+<p>
+There is also Microsoft's attempt at the extended format -- unfortunately they
+didn't read the spec., so they didn't enclose the browser and referrer in
+quotes, they replaced spaces in the browser name with <kbd>+</kbd>'s, and they
+put the time taken to serve the request in milliseconds instead of seconds.
+And there is WebSTAR's attempt which is very nearly right except that they
+erroneously used the <kbd>CS-HOST</kbd> field as the client hostname instead
+of the server hostname. Analog will understand all of these versions.
+<p>
+Extended logs always record the time in GMT, so you will probably need to use a
+<kbd><a href="output.html#TIMEOFFSET">LOGTIMEOFFSET</a></kbd> command to
+convert to your local timezone.
+<p>
+<a name="webstarfmt">The WebSTAR format</a> is described at <a href="http://www.starnine.com/webstar/docs/ws4manual.3f.html">http://www.starnine.com/webstar/docs/ws4manual.3f.html</a>.
+It has a header line like
+<pre>
+!!LOG_FORMAT DATE TIME RESULT URL BYTES_SENT HOSTNAME
+</pre>
+In the rest of the logfile, the fields are separated by tabs. The WebSTAR
+server also records the time in GMT, so again you will probably need to use a
+<kbd><a href="output.html#TIMEOFFSET">LOGTIMEOFFSET</a></kbd> command to
+convert to your local timezone. Some other Mac servers also use the WebSTAR
+format, or something looking like it. Analog will understand these too.
+<p>
+<a name="netscapefmt">Finally, the Netscape</a> header line looks like
+<pre>
+format=%Ses->client.ip% [%SYSDATE%] "%Req->reqpb.clf-request%"
+%Req->srvhdrs.clf-status% %Req->srvhdrs.content-length%
+</pre>
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="syntax.html">Prev</a> | <a href="logfmt.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

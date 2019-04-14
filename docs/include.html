@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- inclusions and exclusions</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="alias.html">Prev</a> | <a href="args.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0:
+Inclusions and exclusions</h1>
+<hr size=2 noshade>
+
+After aliasing each item, analog decides whether that item is wanted or not.
+The whole line is only counted if all the items are wanted.
+Whether an item is wanted or not is determined by <kbd>INCLUDE</kbd> and
+<kbd>EXCLUDE</kbd> commands specified by the user. These commands can be used
+to exclude requests from your local users, for example, or to analyse only
+files in a subdirectory. For example
+<pre>
+HOSTEXCLUDE mycomputer.myisp.com
+</pre>
+would exclude all requests by that computer from the statistics. (To exclude
+lines just from one specific report, see <a href="#outputexcludes">below</a>.)
+<p>
+The rule for determining whether an item is included or excluded is as
+follows. All the <kbd>INCLUDE</kbd> and <kbd>EXCLUDE</kbd> commands for that
+item are considered one by one in order, and the item is included or excluded
+according to the last command it matched. Items which don't match any of
+the <kbd>INCLUDE</kbd> or <kbd>EXCLUDE</kbd> commands are included if the first
+command was an exclusion, and excluded if the first command was an inclusion.
+For example, the configuration
+<pre>
+FILEINCLUDE /~sret1/*
+FILEEXCLUDE /~sret1/backgammon/*,/~sret1/analog/*
+FILEINCLUDE /~sret1/backgammon/*.gif
+</pre>
+would instruct the program to examine only my files, excluding my
+backgammon and analog files, but including gifs in my backgammon directory.
+On the other hand,
+<pre>
+FILEEXCLUDE /~sret1/*/img/*
+</pre>
+would analyse all files, except for images in my various directories.
+(If you get confused with all the inclusions and
+exclusions, remember that you can always use
+<kbd><a href="syntax.html#settings">SETTINGS ON</a></kbd>
+to see what the options you have specified represent.)
+Note that inclusions and exclusions can contain any number of wildcards, and
+can be lists separated by commas (but no spaces).
+<p>
+The full list of these commands is <kbd>HOSTINCLUDE</kbd> and
+<kbd>HOSTEXCLUDE</kbd>; <kbd>FILEINCLUDE</kbd> and <kbd>FILEEXCLUDE</kbd>;
+<kbd>BROWINCLUDE</kbd> and <kbd>BROWEXCLUDE</kbd>; <kbd>REFINCLUDE</kbd> and
+<kbd>REFEXCLUDE</kbd>; <kbd>USERINCLUDE</kbd> and <kbd>USEREXCLUDE</kbd>;
+<kbd>VHOSTINCLUDE</kbd> and <kbd>VHOSTEXCLUDE</kbd>; and
+<kbd>STATUSINCLUDE</kbd> and <kbd>STATUSEXCLUDE</kbd>.
+<hr size=1 noshade>
+Some notes on these commands.
+<p>
+Because the inclusions and exclusions take place <em>after</em> the aliasing,
+the name you must use is the aliased name. (In the absence of
+<a href="alias.html#OUTPUTALIAS">output alias</a> commands, this is
+the name of the item in the output.)
+<p>
+<a name="incblank">Sometimes</a> a line doesn't contain a particular sort of
+item, either because there is no field reserved for it on the line, or because
+the browser didn't send it for that request, or because it was present but
+corrupt. You can include or exclude these lines by making a
+special blank entry in the <kbd>INCLUDE</kbd> or <kbd>EXCLUDE</kbd>
+command. For example,
+<pre>
+USERINCLUDE jim
+USERINCLUDE ""
+</pre>
+would include lines from user <kbd>jim</kbd> and lines without any user
+specified. 
+<p>
+The behaviour of <kbd>REQINCLUDE</kbd> and <kbd>REFINCLUDE</kbd> can be
+slightly unintuitive if the file has <a href="args.html#unintuitive">search
+arguments</a>.
+<p>
+<a name="incregexp">You can also use regular expressions</a> for the
+inclusions and exclusions by prefixing the expression with
+&quot;<kbd>REGEXP:</kbd>&quot; or &quot;<kbd>REGEXPI:</kbd>&quot;. I've
+already described this at length in the context of aliases, so you can
+<a href="alias.html#aliasregexp">look there</a> for all the details.
+A regular expression must be on a line on its own, not within a
+comma-separated list.
+<hr size=1 noshade>
+<a name="HOSTINCLUDE">With</a> <kbd>HOSTINCLUDE</kbd> and
+<kbd>HOSTEXCLUDE</kbd>, you have to use numerical addresses if your web server
+records numerical addresses in the logfile, or names if it records names
+(or if you're resolving the numerical addresses with analog's
+<a href="dns.html">DNS resolution</a>). For numerical addresses, you
+can use some special formats, like this:
+<pre>
+HOSTINCLUDE 131.111.20.18      # simple IP address
+HOSTINCLUDE 131.111.20.*       # wildcard
+HOSTINCLUDE 131.111.20         # the same meaning
+HOSTINCLUDE 131.111.20-23      # a range of class C addresses
+HOSTINCLUDE 131.111.20.18/23   # subnet mask
+</pre>
+<hr size=1 noshade>
+<a name="STATUSINCLUDE">The <kbd>STATUSINCLUDE</kbd> and
+<kbd>STATUSEXCLUDE</kbd></a> commands are slightly different from the rest.
+They work on HTTP status codes. (These codes are defined in the
+<a href="http://www.w3.org/Protocols/rfc2068/rfc2068">HTTP spec</a>, and
+viewable in the Status Code Report. But if you don't already know about them,
+you really don't want to use these commands anyway!) The arguments to the
+commands are a comma-separated list of ranges. One end of the range can be
+blank, meaning from the first, or to the last, status code. For example
+<pre>
+STATUSINCLUDE 200-206,304,500-
+</pre>
+would mean only look at lines with status codes 200-206, 304 or 500-599.
+<p>
+<a name="304">Some people want to exclude status code 304 (Not Modified)</a>
+to stop those requests appearing in the Request Report. But there is a better
+solution. By default, analog counts code 304 as a successful request, because
+it assumes that the cached version of the document is then presented to the
+user. But you can count it as a redirected request with the command
+<pre>
+304ISSUCCESS OFF
+</pre>
+For most people this is the wrong option, because code 304 is really the same
+as code 200 to the user. So again, if you don't understand this, stick with
+the default.
+<hr size=1 noshade>
+<a name="FROMTO">There is also</a> one other pair of commands which belongs in
+this category,
+namely the <kbd>FROM</kbd> and <kbd>TO</kbd> commands. These specify a time
+period to restrict the analysis to. The simplest usage of these commands is
+<kbd>FROM yyMMdd</kbd> or <kbd>FROM yyMMdd:hhmm</kbd>, where <kbd>yy</kbd>
+represents the last two digits of the year (analog assumes that the year is
+between 1970 and 2069), <kbd>MM</kbd> represents the month,
+<kbd>dd</kbd> is the date, <kbd>hh</kbd> the hour, and <kbd>mm</kbd> the
+minute. So, for example, to analyse only requests from
+1st July 1999 to 1pm on 15th June 2000 I would use the configuration
+<pre>
+FROM 990701
+TO   000615:1300
+</pre>
+Alternatively, each of the components can be preceded by <kbd>+</kbd> or
+<kbd>-</kbd> to represent time relative to the time at which the program was
+invoked. In this case, the date can have more than 2 digits. This allows
+constructions like
+<pre>
+FROM -01-00+01   # from tomorrow last year
+TO -00-0131  # to the end of last month (OK even if last month
+             # didn't have 31 days)
+FROM -00-00-112
+TO   -00-00-01  # statistics for the last 16 weeks
+FROM -00-00-00:-06+01  # statistics for the last 6 hours
+</pre>
+There are command line abbreviations <kbd>+F</kbd> and <kbd>+T</kbd>
+for the <kbd>FROM</kbd> and <kbd>TO</kbd> commands; for example,
+<kbd>+T-00-00-01:1800</kbd> looks at statistics until 6pm yesterday.
+<kbd>-F</kbd> and <kbd>-T</kbd> turn off the from and to, as do <kbd>FROM
+OFF</kbd> and <kbd>TO OFF</kbd>.
+<hr size=1 noshade>
+<a name="outputexcludes">There are also</a> <kbd>INCLUDE</kbd> and
+<kbd>EXCLUDE</kbd> commands for most of the reports. Unlike the
+<kbd>INCLUDE</kbd> and <kbd>EXCLUDE</kbd> commands discussed
+<a href="include.html">above</a>, these don't exclude <em>logfile lines</em>
+but <em>individual lines from particular reports</em>.
+<p>
+So, for example, the command
+<pre>
+REFREPEXCLUDE http://your.site.com/*
+</pre>
+would exclude your internal referrers from the Referrer Report. However, it
+would <em>not</em> exclude them from the Failed Referrer Report, the Referring
+Site Report, etc. (you need to use <kbd>FAILREFEXCLUDE</kbd>,
+<kbd>REFSITEEXCLUDE</kbd> etc. for that); nor would it prevent other analysis
+of logfile lines with those referrers, as <kbd>REFEXCLUDE</kbd> would.
+<p>
+The full list of these commands is
+<kbd>REQINCLUDE</kbd> and <kbd>REQEXCLUDE</kbd>;
+<kbd>REDIRINCLUDE</kbd> and <kbd>REDIREXCLUDE</kbd>;
+<kbd>FAILINCLUDE</kbd> and <kbd>FAILEXCLUDE</kbd>;
+<kbd>TYPEINCLUDE</kbd> and <kbd>TYPEEXCLUDE</kbd>;
+<kbd>DIRINCLUDE</kbd> and <kbd>DIREXCLUDE</kbd>;
+<kbd>HOSTREPINCLUDE</kbd> and <kbd>HOSTREPEXCLUDE</kbd>;
+<kbd>REDIRHOSTINCLUDE</kbd> and <kbd>REDIRHOSTEXCLUDE</kbd>;
+<kbd>FAILHOSTINCLUDE</kbd> and <kbd>FAILHOSTEXCLUDE</kbd>;
+<kbd>DOMINCLUDE</kbd> and <kbd>DOMEXCLUDE</kbd>;
+<kbd>ORGINCLUDE</kbd> and <kbd>ORGEXCLUDE</kbd>;
+<kbd>REFREPINCLUDE</kbd> and <kbd>REFREPEXCLUDE</kbd>;
+<kbd>REFSITEINCLUDE</kbd> and <kbd>REFSITEEXCLUDE</kbd>;
+<kbd>SEARCHQUERYINCLUDE</kbd> and <kbd>SEARCHQUERYEXCLUDE</kbd>;
+<kbd>SEARCHWORDINCLUDE</kbd> and <kbd>SEARCHWORDEXCLUDE</kbd>;
+<kbd>INTSEARCHQUERYINCLUDE</kbd> and <kbd>INTSEARCHQUERYEXCLUDE</kbd>;
+<kbd>INTSEARCHWORDINCLUDE</kbd> and <kbd>INTSEARCHWORDEXCLUDE</kbd>;
+<kbd>REDIRREFINCLUDE</kbd> and <kbd>REDIRREFEXCLUDE</kbd>;
+<kbd>FAILREFINCLUDE</kbd> and <kbd>FAILREFEXCLUDE</kbd>;
+<kbd>BROWSUMINCLUDE</kbd> and <kbd>BROWSUMEXCLUDE</kbd>;
+<kbd>BROWREPINCLUDE</kbd> and <kbd>BROWREPEXCLUDE</kbd>;
+<kbd>OSINCLUDE</kbd> and <kbd>OSEXCLUDE</kbd>;
+<kbd>VHOSTREPINCLUDE</kbd> and <kbd>VHOSTREPEXCLUDE</kbd>;
+<kbd>REDIRVHOSTREPINCLUDE</kbd> and <kbd>REDIRVHOSTREPEXCLUDE</kbd>;
+<kbd>FAILVHOSTREPINCLUDE</kbd> and <kbd>FAILVHOSTREPEXCLUDE</kbd>;
+<kbd>USERREPINCLUDE</kbd> and <kbd>USERREPEXCLUDE</kbd>;
+<kbd>REDIRUSERREPINCLUDE</kbd> and <kbd>REDIRUSERREPEXCLUDE</kbd>;
+and <kbd>FAILUSERINCLUDE</kbd> and <kbd>FAILUSEREXCLUDE</kbd>.
+<p>
+The inclusion or exclusion applies to the
+<em>unaliased</em> name, if you are doing any
+<a href="alias.html#OUTPUTALIAS">output aliases</a>. (This contrasts with the
+behaviour of normal <kbd>INCLUDE</kbd> and <kbd>EXCLUDE</kbd> commands, which
+apply to the aliased name.)
+<p>
+All directory names end in slashes, so <kbd>DIRINCLUDE</kbd> and
+<kbd>DIREXCLUDE</kbd>, and <kbd>REFSITEINCLUDE</kbd> and
+<kbd>REFSITEEXCLUDE</kbd>, implicitly add a trailing slash even if you don't
+give one. This sometimes catches people out in the following situation.
+<pre>REFSITEEXCLUDE http://my.host.com/*     # probably not what you want</pre>
+means not to list subdirectories of the referring site
+<kbd>http://my.host.com/</kbd>, but to keep the site itself in the list.
+To exclude the site completely, just use
+<pre>REFSITEEXCLUDE http://my.host.com/</pre>
+<p>
+<!-- not just in output IN/EXCLUDEs, although the layout of this text might -->
+<!-- imply that so as to present REQINCLUDE pages in the right place -->
+You can also use the symbolic word <kbd>pages</kbd> in suitable
+<kbd>INCLUDE</kbd> and <kbd>EXCLUDE</kbd> commands; one very common command is
+<pre>
+REQINCLUDE pages
+</pre>
+to include only pages in the Request Report.
+<hr size=1 noshade>
+<a name="PAGEINCLUDE">There are</a> some miscellaneous <kbd>INCLUDE</kbd> and
+<kbd>EXCLUDE</kbd> commands which I'll describe now. First, analog determines
+which files should count as pages (and thus which requests
+count as page requests) using an <kbd>INCLUDE</kbd>/<kbd>EXCLUDE</kbd>
+pair called <kbd>PAGEINCLUDE</kbd> and <kbd>PAGEEXCLUDE</kbd>.
+By default, (case insensitive) <kbd>*.html</kbd> and <kbd>*.htm</kbd>,
+and directories (<kbd>*/</kbd>) count as pages. But you
+change the list by commands like
+<pre>
+PAGEINCLUDE *.asp
+PAGEEXCLUDE /sret1.html
+</pre>
+I.e., <kbd>*.asp</kbd> are pages, but <kbd>/sret1.html</kbd>
+isn't. (If the file has <a href="args.html">search arguments</a>, the
+<kbd>PAGEINCLUDE</kbd> and <kbd>PAGEEXCLUDE</kbd> are reckoned just on the
+part of the filename before the question mark.)
+<hr size=1 noshade>
+<a name="LINKINCLUDE">In some of the reports</a>, analog can link to the files
+which it's listing. You can specify exactly which files are linked to with the
+<kbd>LINKINCLUDE</kbd> family of commands. For example,
+<pre>
+REQLINKINCLUDE pages,*.pdf
+</pre>
+would link to pages and PDF files in the Request Report. The full set of these
+commands is <kbd>REQLINKINCLUDE</kbd> and <kbd>REQLINKEXCLUDE</kbd>
+(Request Report), <kbd>REDIRLINKINCLUDE</kbd> and <kbd>REDIRLINKEXCLUDE</kbd>
+(Redirection Report), <kbd>FAILLINKINCLUDE</kbd> and <kbd>FAILLINKEXCLUDE</kbd>
+(Failure Report), <kbd>REFLINKINCLUDE</kbd> and <kbd>REFLINKEXCLUDE</kbd>
+(Referrer Report), <kbd>REDIRREFLINKINCLUDE</kbd> and
+<kbd>REDIRREFLINKEXCLUDE</kbd> (Redirected Referrer Report), and
+<kbd>FAILREFLINKINCLUDE</kbd> and <kbd>FAILREFLINKEXCLUDE</kbd>
+(Failed Referrer Report).
+Note that the target of the links is also affected by the
+<kbd><a href="othreps.html#BASEURL">BASEURL</a></kbd> command.
+<hr size=1 noshade>
+<a name="ROBOTINCLUDE">Finally</a>, there is a pair of commands called
+<kbd>ROBOTINCLUDE</kbd> and <kbd>ROBOTEXCLUDE</kbd>, which determine which
+browsers count as &quot;robots&quot; in the Operating System Report. For
+example,
+<pre>
+ROBOTINCLUDE Googlebot/*
+</pre>
+<hr size=1 noshade>
+There is one final set of <kbd>INCLUDE</kbd> and <kbd>EXCLUDE</kbd> commands
+to include or exclude the search arguments at the end of URLs. But there are
+some slightly complicated issues surrounding those, so they deserve a
+<a href="args.html">new section</a>.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="alias.html">Prev</a> | <a href="args.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

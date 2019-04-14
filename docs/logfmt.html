@@ -1,0 +1,411 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- log formats</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="logfile.html">Prev</a> | <a href="alias.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0: Log formats</h1>
+<hr size=2 noshade>
+
+This section is about how to tell analog the format of your logfile. <b>Most
+people don't need to do this because analog can detect the format
+automatically</b> -- try it first and see, because you will save yourself a
+lot of trouble! But if you do need to specify the log format explicitly, here
+is how to do it.
+
+<p>
+The basic command to specify a log format looks like
+<pre>
+LOGFORMAT format
+</pre>
+-- we'll discuss what the formats can be in a minute. Or if you are using the
+Apache server, you will probably find it more convenient to use
+<pre>
+APACHELOGFORMAT apacheformat
+</pre>
+instead.
+<p>
+The <kbd>LOGFORMAT</kbd> and <kbd>APACHELOGFORMAT</kbd>
+commands only apply to logfiles specified with a <kbd>LOGFILE</kbd> command
+<em>later</em> in the <em>same</em> configuration file. So you must put the
+<kbd>LOGFORMAT</kbd> above the <kbd>LOGFILE</kbd> to which it refers. If you
+declare your logfiles on the command line, or drag them onto the app on the
+Mac, you must use <a href="#DEFAULTLOGFORMAT"><kbd>DEFAULTLOGFORMAT</kbd> or
+<kbd>APACHEDEFAULTLOGFORMAT</kbd></a> instead. This is so that different
+logfiles can have different formats, like this:
+<pre>
+LOGFILE log0
+LOGFORMAT format1
+LOGFILE log1
+LOGFORMAT format2
+LOGFILE log2
+LOGFILE log3
+</pre>
+In this example, <kbd>log1</kbd> is in <kbd>format1</kbd>, <kbd>log2</kbd> and
+<kbd>log3</kbd> are in <kbd>format2</kbd>, and <kbd>log0</kbd> isn't in either
+format -- analog will try and detect which format it's in.
+
+<hr size=1 noshade>
+<a name="Apache">The <kbd>APACHELOGFORMAT</kbd> command</a> is followed by the
+<kbd>LogFormat</kbd> from your Apache <kbd>httpd.conf</kbd> file. For example,
+if your <kbd>httpd.conf</kbd> contained the following lines:
+<pre>
+LogFormat "%h %l %u %t %v \"%r\" %&gt;s %b" myformat
+CustomLog /var/log/apache/access.log myformat
+</pre>
+then your <kbd>analog.cfg</kbd> should contain
+<pre>
+APACHELOGFORMAT (%h %l %u %t %v \"%r\" %&gt;s %b)
+LOGFILE /var/log/apache/access.log
+</pre>
+(Use parentheses instead of quotes round the argument if the argument already
+contains quotes.) Analog
+understands all Apache log formats, with the exception that it won't parse
+Apache's <kbd>&quot;%...{format}t&quot;</kbd> construction for customised
+times: if you have this construction, you will have to use ordinary
+<kbd>LOGFORMAT</kbd> instead. (This is because
+<kbd>&quot;%...{format}t&quot;</kbd> is sometimes localised.)
+
+<hr size=1 noshade>
+<a name="fmtsyntax">The possible formats</a> for use with the
+<kbd>LOGFORMAT</kbd> command are of two
+types. First there are some symbolic words, and then there are <i>log format
+strings</i>. We'll look at the words first.
+
+<p>
+<a name="fmtwords">There are format words</a> for all the built-in formats
+analog knows about.
+You might need one of these words if your logfile is in a standard format, but
+analog can't detect which format it's in for some reason; for example, maybe
+the first line is corrupt; or maybe analog can't tell whether you're using
+North American or international dates. So for example
+<pre>
+LOGFORMAT COMMON
+</pre>
+will select common format; you can also have <kbd>COMBINED</kbd>,
+<kbd>REFERRER</kbd>, <kbd>BROWSER</kbd>, <kbd>EXTENDED</kbd>,
+<kbd>MICROSOFT-NA</kbd> (North American date format),
+<kbd>MICROSOFT-INT</kbd> (international date format),
+<kbd>WEBSITE-NA</kbd>, <kbd>WEBSITE-INT</kbd>,
+<kbd>MS-EXTENDED</kbd> (Microsoft's attempt at extended format),
+<kbd>WEBSTAR-EXTENDED</kbd> (WebSTAR's version of extended format),
+<kbd>MS-COMMON</kbd> (a buggy version of common format in some versions
+of Microsoft software), <kbd>NETSCAPE</kbd>, <kbd>WEBSTAR</kbd> or
+<kbd>MACHTTP</kbd>. All these
+formats were defined at the end of the <a href="logfile.html#formats">previous
+section</a>. You can also use the special word <kbd>AUTO</kbd> to return to
+automatic detection.
+
+<p>
+<a name="fmtstrings">If your logfile</a> is not in one of the recognised
+formats, you can tell analog
+about your format using a log format string. You only ever need this if your
+logfile has lines which are not in one of the standard formats. (And even if it
+isn't in a standard format, if you're using the Apache web server, you will
+find <kbd><a href="#Apache">APACHELOGFORMAT</a></kbd> easier.)
+<p>
+The format string consists of a template for the logfile line, with the
+various fields and special characters replaced by codes as follows. Please
+note that these codes are case sensitive -- for example, <kbd>%b</kbd> is
+completely different from <kbd>%B</kbd>!
+<dl compact>
+  <dt><kbd>%S</kbd><dd>host (the client hostname, or address of the computer
+      making the request)
+  <dt><kbd>%s</kbd><dd>numerical IP address of client (if recorded in a
+      separate field; used when <kbd>%S</kbd> is empty)
+  <dt><kbd>%r</kbd><dd>file requested
+  <dt><kbd>%q</kbd><dd>query string (part of filename after <kbd>?</kbd>, if
+      recorded in a separate field)
+  <dt><kbd>%B</kbd><dd>browser
+  <dt><kbd>%A</kbd><dd>browser with <kbd>+</kbd>'s instead of spaces
+  <dt><kbd>%f</kbd><dd>referrer
+  <dt><kbd>%u</kbd><dd>user (tip: a cookie or session id can usefully be
+      defined as <kbd>%u</kbd> too)
+  <dt><kbd>%v</kbd><dd>virtual host (the server hostname, also called the
+      virtual domain)
+  <dt><kbd>%d</kbd><dd>day of the month
+  <dt><kbd>%m</kbd><dd>month in digits
+  <dt><kbd>%M</kbd><dd>month, three letter English abbreviation
+  <dt><kbd>%y</kbd><dd>year, last two digits
+  <dt><kbd>%Y</kbd><dd>year, four digits
+  <dt><kbd>%Z</kbd><dd>year, two or four digits (less efficient)
+  <dt><kbd>%h</kbd><dd>hour of the day
+  <dt><kbd>%n</kbd><dd>minute of the hour
+  <dt><kbd>%a</kbd><dd><kbd>a</kbd> or <kbd>A</kbd> for am, or <kbd>p</kbd> or
+      <kbd>P</kbd> for pm, if <kbd>%h</kbd> is in the 12-hour clock. (So to
+      match &quot;am&quot; you need <kbd>%am</kbd> and to match &quot;AM&quot;
+      you need <kbd>%aM</kbd>)
+  <dt><kbd>%U</kbd><dd>&quot;Unix time&quot; (seconds since beginning of 1970,
+      GMT). If it includes decimals, use <kbd>%U.%j</kbd>
+  <dt><kbd>%b</kbd><dd>number of bytes transferred
+  <dt><kbd>%t</kbd><dd>processing time in seconds
+  <dt><kbd>%T</kbd><dd>processing time in milliseconds
+  <dt><kbd>%D</kbd><dd>processing time in microseconds
+  <dt><kbd>%c</kbd><dd>HTTP status code
+  <dt><kbd>%C</kbd><dd>code words used instead of HTTP status code in some
+      servers -- only used internally
+  <dt><kbd>%j</kbd><dd>junk: ignore this field (field can be empty too)
+  <dt><kbd>%w</kbd><dd>white space: spaces or tabs
+  <dt><kbd>%W</kbd><dd>optional white space
+  <dt><kbd>%%</kbd><dd><kbd>%</kbd> sign
+  <dt><kbd>\n</kbd><dd>new line
+  <dt><kbd>\t</kbd><dd>tab stop
+  <dt><kbd>\\</kbd><dd>single backslash
+</dl>
+So for example, the common log format, which looks like
+<pre>
+jay.bird.com - fred [25/Dec/1998:17:45:35 +0000]
+"GET /~sret1/ HTTP/1.0" 200 1243
+</pre>
+(except all on one line)
+could be represented by the <kbd>LOGFORMAT</kbd> command
+<pre>
+LOGFORMAT (%S - %u [%d/%M/%Y:%h:%n:%j %j] "%j %r %j" %c %b)
+</pre>
+In other words, it's just the sample line but with the hostname replaced by
+<kbd>%S</kbd>, the username by <kbd>%u</kbd> etc.
+(The parentheses are needed because the argument contains spaces.)
+Or take another example: if you had lines which looked like
+<pre>
+Fri 25/12/98 5:45pm, /~sret1/, jay.bird.com, 200, 1243,
+http://www.site.com, Mozilla/2.0 (X11; I; HP-UX A.09.05)
+</pre>
+(all on one line again), you could use the format
+<pre>
+LOGFORMAT (%j %d/%m/%y %h:%n%am, %r, %S, %c, %b, %f, %B)
+</pre>
+Remember: if you have trouble writing a <kbd>LOGFORMAT</kbd> string, you can
+<a href="debug.html#debugs">turn debugging on</a>, and analog will
+report where each line was corrupt. If you still have trouble, you can write
+to the <a href="mailing.html">analog-help mailing list</a>.
+<hr size=1 noshade>
+A logfile can sometimes have lines in several different formats. So you can
+specify several <kbd>LOGFORMAT</kbd> commands in a row, and they will all
+apply to the next logfile. This is also useful if the format of your logfile
+changes half way through. So in this example:
+<pre>
+LOGFORMAT COMMON
+LOGFORMAT COMBINED
+LOGFILE log1
+LOGFORMAT (%j %d/%m/%y %h:%n%am, %r, %S, %c, %b, %f, %B)
+LOGFILE log2
+LOGFILE log3
+</pre>
+<kbd>log1</kbd> has lines in both common and combined format, whereas
+<kbd>log2</kbd> and <kbd>log3</kbd> have lines just in the format in the
+previous example.
+<p>
+If you specify several formats, analog tries to match each line to the first
+format first, then if that fails the next, and so on, so the order of the
+formats is important. Usually you want to specify the most common one
+first, to minimise the time spent trying to match lines to inappropriate
+formats. 
+
+<hr size=1 noshade>
+<a name="DEFAULTLOGFORMAT">I suggested above</a> that any logfile which
+doesn't have a <kbd>LOGFORMAT</kbd>
+command earlier in the same configuration file, or is specified on the command
+line, is auto-detected. But this
+isn't quite true. Actually such logfiles get a special format called the
+<em>default log format</em>. The default format starts off as auto-detection,
+but you can change it if you want with the <kbd>DEFAULTLOGFORMAT</kbd>
+command. This command works exactly the same as the <kbd>LOGFORMAT</kbd>
+command -- it understands the same formats, and if you have several
+<kbd>DEFAULTLOGFORMAT</kbd> commands, they accumulate in the same way. The
+difference is that they don't need to be put in any particular place. (There
+is also <kbd>APACHEDEFAULTLOGFORMAT</kbd>, which has the same effect but uses
+the Apache LogFormat strings.)
+<p>
+So let's go back to the first example:
+<pre>
+LOGFILE log0
+LOGFORMAT format1
+LOGFILE log1
+LOGFORMAT format2
+LOGFILE log2
+LOGFILE log3
+</pre>
+Here <kbd>log0</kbd> actually gets the default log format. If there are no
+<kbd>DEFAULTLOGFORMAT</kbd> commands, the default will be auto-detection. But
+if there are <kbd>DEFAULTLOGFORMAT</kbd> commands, even in another
+configuration file, that will be the format of <kbd>log0</kbd>.
+<p>
+The times you need to use the <kbd>DEFAULTLOGFORMAT</kbd> instead of the
+<kbd>LOGFORMAT</kbd> are if you want to change the format of logfiles which
+aren't given in a <kbd>LOGFILE</kbd> command -- for example, ones specified on
+the command line, or dragged onto the program icon on a Mac, or compiled in.
+
+<hr size=1 noshade>
+<a name="fmtmisc">A couple more technical details</a> and tips about
+<kbd>LOGFORMAT</kbd> commands.
+
+<p>
+The &quot;Unix time&quot;, <kbd>%U</kbd>, is always recorded in GMT. So you
+will probably need to use a
+<kbd><a href="output.html#TIMEOFFSET">LOGTIMEOFFSET</a></kbd>
+command to convert to your local timezone. Also, it's just the integer part of
+the time, so if you have decimals you will have to use <kbd>%U.%j</kbd> .
+
+<p>
+The log formats which analog can handle are those which are known as
+<i>instantaneously decipherable</i>: in practice, this means that the character
+which terminates a string can never occur in the string. So for example, in
+common format, which looks like
+<pre>
+LOGFORMAT (%S - %u [%d/%M/%Y:%h:%n:%j %j] "%j %r %j" %c %b)
+</pre>
+if the hostname ever contained a space, the line would be marked as corrupt,
+because analog terminates the host at the first space, <em>not</em> at the
+first occurrence of space-dash-space, and then the rest of the line wouldn't
+match. Of course, hostnames should never contain spaces, so this shouldn't be a
+problem. There are a couple of other restrictions: if there is any date or
+time information, then the year, month, date, hour and minute must all be
+present: and the same information may not occur twice in the format (so you
+can't have both <kbd>%m</kbd> and <kbd>%M</kbd>, for example, because these
+both represent the month; make one of them a <kbd>%j</kbd> to have it ignored).
+
+<p>
+<a name="starredfmt">Sometimes</a> you need to read one of the fields in a
+logfile, but not analyse it.
+For example, if you have a separate common log and referrer log, the referrer
+log might look like
+<pre>
+http://guide-p.infoseek.com/Titles -> /~sret1/analog/
+</pre>
+But the requests for <kbd>/~sret1/analog/</kbd> would already have been
+counted when reading the main logfile, so you don't want to count them again
+now. You get round this by specifying a <kbd>*</kbd> in that item in the
+format string, like this:
+<pre>
+LOGFORMAT (%f -> %*r)
+</pre>
+
+<p>
+A tip: sometimes it is more efficient to specify two or more adjacent fields
+to ignore with a single <kbd>%j</kbd>, as long as the whole group ends with a
+recognisable character. So common format is more efficiently specified as
+<pre>
+LOGFORMAT (%S - %u [%d/%M/%Y:%h:%n:%j] "%j %r %j" %c %b)
+</pre>
+-- in the date and time <kbd>[25/Dec/1998:17:45:35 +0000]</kbd>, the seconds
+and the timezone can be ignored with a single <kbd>%j</kbd>, extending until
+the close-bracket.
+
+<p>
+Another tip: <kbd>%j</kbd> can also be used to ignore whole lines, rather than
+just fields analog doesn't use. For example, the extended log format ignores
+lines beginning with <kbd>#</kbd> by using
+<pre>
+LOGFORMAT #%j
+</pre>
+and the Microsoft format ignores lines corresponding to FTP requests with
+<pre>
+LOGFORMAT (%*S, %*u, %m/%d/%y, %h:%n:%j, %j)
+</pre>
+If those formats had not been used, the lines would have been incorrectly
+marked as corrupt.
+<hr size=1 noshade>
+<a name="fmtexamples">Finally</a>, both for reference and as examples, here is
+a list of all the fixed formats that analog understands, together with the
+example lines from the <a href="logfile.html#formats">previous section</a>
+and their built-in definitions (split over two lines where necessary).
+<dl>
+  <dt><a name="commonfmtex">Common format</a>, <kbd>LOGFORMAT COMMON</kbd>
+  <dd><pre>
+jay.bird.com - fred [25/Dec/1998:17:45:35 +0000]
+      "GET /~sret1/ HTTP/1.0" 200 1243
+LOGFORMAT (%S %j %u [%d/%M/%Y:%h:%n:%j] "%j%w%r%wHTTP%j" %c %b)
+LOGFORMAT (%S %j %u [%d/%M/%Y:%h:%n:%j] "%j%w%r" %c %b)
+LOGFORMAT (%S %j %u [%d/%M/%Y:%h:%n:%j] "%r" %c %b)
+</pre>
+  <dt><a name="mscommonfmtex">Microsoft common format</a>,
+      <kbd>LOGFORMAT MS-COMMON</kbd>
+  <dd><pre>
+jay.bird.com - fred [25/Dec/1998:17:45:35 +0000]
+      "GET /~sret1/ "HTTP/1.0" 200 1243
+LOGFORMAT (%S %j %u [%d/%M/%Y:%h:%n:%j] "%j%w%r%w"HTTP%j" %c %b)
+LOGFORMAT (%S %j %u [%d/%M/%Y:%h:%n:%j] "%j%w%r" %c %b)
+LOGFORMAT (%S %j %u [%d/%M/%Y:%h:%n:%j] "%r" %c %b)
+</pre>
+  <dt><a name="combinedfmtex">Combined log</a>, <kbd>LOGFORMAT COMBINED</kbd>
+  <dd><pre>
+jay.bird.com - fred [25/Dec/1998:17:45:35 +0000] "GET /~sret1/ HTTP/1.0" 200
+      1243 "http://www.site.com/" "Mozilla/2.0 (X11; I; HP-UX A.09.05)"
+LOGFORMAT (%S %j %u [%d/%M/%Y:%h:%n:%j] "%j%w%r%wHTTP%j" %c %b "%f" "%B")
+LOGFORMAT (%S %j %u [%d/%M/%Y:%h:%n:%j] "%j%w%r" %c %b "%f" "%B")
+LOGFORMAT (%S %j %u [%d/%M/%Y:%h:%n:%j] "%r" %c %b "%f" "%B")
+</pre>
+  <dt><a name="reffmtex">Referrer log</a>, <kbd>LOGFORMAT REFERRER</kbd>
+  <dd><pre>
+[25/Dec/1998:17:45:35] http://www.site.com/ -> /~sret1/
+<i>or</i> http://www.site.com/ -> /~sret1/
+LOGFORMAT ([%d/%M/%Y:%h:%n:%j] %f -> %*r)
+LOGFORMAT (%f -> %*r)
+</pre>
+  <dt><a name="browfmtex">Browser log</a>, <kbd>LOGFORMAT BROWSER</kbd>
+  <dd><pre>
+[25/Dec/1998:17:45:35] Mozilla/2.0 (X11; I; HP-UX A.09.05)
+LOGFORMAT ([%d/%M/%Y:%h:%n:%j] %B)
+</pre>
+  <dt><a name="msnafmtex">Microsoft log, North American dates</a>,
+      <kbd>LOGFORMAT MICROSOFT-NA</kbd>
+  <dd><pre>
+192.64.25.41, -, 12/25/98, 17:45:35, W3SVC1, HOST1, 192.16.225.10,
+      2178, 303, 1243, 200, 0, GET, /~sret1/, -,
+192.64.25.41, -, 12/25/2001, 17:45:35, W3SVC1, HOST1, 192.16.225.10,
+      2178, 303, 1243, 200, 0, GET, /~sret1/, -,
+LOGFORMAT (%S, %u, %m/%d/%Z, %h:%n:%j, W3SVC%j, %j, %v,
+      %T, %j, %b, %c, %j, %j, %r, %q,)
+LOGFORMAT (%*S, %*u, %m/%d/%Z, %h:%n:%j, %j)
+</pre>
+  <dt><a name="msintfmtex">Microsoft log, international dates</a>,
+      <kbd>LOGFORMAT MICROSOFT-INT</kbd>
+  <dd><pre>
+192.64.25.41, -, 25/12/98, 17:45:35, W3SVC1, HOST1, 192.16.225.10,
+      2178, 303, 1243, 200, 0, GET, /~sret1/, -,
+192.64.25.41, -, 25/12/2001, 17:45:35, W3SVC1, HOST1, 192.16.225.10,
+      2178, 303, 1243, 200, 0, GET, /~sret1/, -,
+LOGFORMAT (%S, %u, %d/%m/%Z, %h:%n:%j, W3SVC%j, %j, %v,
+      %T, %j, %b, %c, %j, %j, %r, %q,)
+LOGFORMAT (%*S, %*u, %d/%m/%Z, %h:%n:%j, %j)
+</pre>
+  <dt><a name="websitenafmtex">WebSite log, North American dates</a>,
+      <kbd>LOGFORMAT WEBSITE-NA</kbd>
+  <dd><pre>
+12/25/98 17:45:35  jay.bird.com  host1  Server  fred  GET  /~sret1/
+   http://www.site.com/    Mozilla/2.0 (X11; I; HP-UX A.09.05)  200  1243  2178
+LOGFORMAT (%m/%d/%y %h:%n:%j\t%S\t%v\t%j\t%u\t%j\t%r\t%f\t%j\t%B\t%c\t%b\t%T)
+</pre>
+  <dt><a name="websiteintfmtex">WebSite log, international dates</a>,
+      <kbd>LOGFORMAT WEBSITE-INT</kbd>
+  <dd><pre>
+25/12/98 17:45:35  jay.bird.com  host1  Server  fred  GET  /~sret1/
+   http://www.site.com/    Mozilla/2.0 (X11; I; HP-UX A.09.05)  200  1243  2178
+LOGFORMAT (%d/%m/%y %h:%n:%j\t%S\t%v\t%j\t%u\t%j\t%r\t%f\t%j\t%B\t%c\t%b\t%T)
+</pre>
+  <dt><a name="machttpfmtex">MacHTTP format</a>, <kbd>LOGFORMAT MACHTTP</kbd>
+  <dd><pre>
+12/25/98  17:45:35   OK    jay.bird.com  /~sret1/  1243
+LOGFORMAT (%m/%d/%y\t%h:%n:%j \t%C%w%S\t%r\t%b)
+</pre>
+</dl>
+The extended log, Netscape log and WebSTAR log don't have any built-in
+formats: analog constructs their formats from their header lines.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="logfile.html">Prev</a> | <a href="alias.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

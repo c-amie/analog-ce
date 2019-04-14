@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- coping with low memory</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="dns.html">Prev</a> | <a href="debug.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0:
+Coping with low memory</h1>
+<hr size=2 noshade>
+
+This section describes how to run analog with lower amounts of memory. For
+a normal logfile this will make analog run a bit slower. But if your computer
+is running out of memory when running analog, it will go very slowly indeed:
+so for large logfiles, this can make analog run much faster, or even make an
+analysis possible that wouldn't otherwise be possible.
+
+<p>
+Recall what happens to an item when it has been read in. First it is
+<a href="alias.html">aliased</a>. Secondly, it is checked to see whether
+it is <a href="include.html">included or excluded</a>. Then finally, if all
+the items are wanted, one request is added to its score.
+
+<p>
+Normally the name of the item is saved before the aliasing takes place. This
+avoids analog having to do the aliasing again next time the same item is
+encountered. But this can take up more memory than necessary. So there is a
+family of <kbd>LOWMEM</kbd> commands provided, which tell analog to record the
+name at a later stage, or even not at all. If you use these commands, analog
+will have to do a bit more work than normal, but it will use less memory.
+On most sites, the hosts take up most of the memory, so I'll use the
+<kbd>HOSTLOWMEM</kbd> command as an example.
+
+<p>
+The command
+<pre>
+HOSTLOWMEM 0
+</pre>
+represents the normal case, when the hostname is recorded before being aliased.
+If you specify
+<pre>
+HOSTLOWMEM 1
+</pre>
+instead, then the hostname is not recorded until after the aliasing. If you
+specify
+<pre>
+HOSTLOWMEM 2
+</pre>
+then the name is not recorded until after the inclusion and exclusion lookup
+has been done as well. And finally, if you give the command
+<pre>
+HOSTLOWMEM 3
+</pre>
+then the hostname is not saved at all, and the Host Report will not be
+constructed, even if you've asked for it. (The Domain Report can still be
+constructed though.) The analogous commands for the other items are
+<kbd>FILELOWMEM</kbd>, <kbd>BROWLOWMEM</kbd>, <kbd>REFLOWMEM</kbd>,
+<kbd>USERLOWMEM</kbd> and <kbd>VHOSTLOWMEM</kbd>.
+
+<hr size=1 noshade>
+So what should you do if analog runs out of memory? First, look in your
+logfile to see which items are taking up all the memory. If you have lots
+of different filenames, ones you generate on the fly for example, you would
+want to use the <kbd>FILELOWMEM</kbd> commands. Maybe you could combine all
+the similar filenames into one with a <kbd>FILEALIAS</kbd> command, and use
+<kbd>FILELOWMEM 1</kbd>. (If you have lots of different filenames caused by
+different search arguments, then using
+<kbd><a href="args.html#ARGSINCLUDE">ARGSEXCLUDE</a></kbd> might solve your
+problem
+without any need to use <kbd>LOWMEM</kbd> at all). But for most users, it
+is the hostnames which cause the problem. If you only want to analyse requests
+from certain hosts, then you could use <kbd>HOSTLOWMEM 2</kbd> to exclude
+the others before recording those that are left. If you don't want to exclude
+any hosts, and you haven't got enough memory to record all the different
+hostnames, then <kbd>HOSTLOWMEM 3</kbd> would be appropriate.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="dns.html">Prev</a> | <a href="debug.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

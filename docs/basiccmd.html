@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- basic commands</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="custom.html">Prev</a> | <a href="syntax.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0: Basic commands</h1>
+<hr size=2 noshade>
+
+Here is a list of basic configuration commands to get you started with
+analog. These commands should be added to your configuration file,
+<kbd>analog.cfg</kbd>, as explained in the section on
+<cite><a href="start.html">Starting to use analog</a></cite>.
+We'll see all the possible configuration commands in later sections.
+Or you can read a summary of the commands which control each report in the
+section on <cite><a href="reports.html">Analog's reports</a></cite>.
+
+<hr size=1 noshade>
+Analog reads logfiles produced by your web server, and produces an output file
+based on the data in them. So you need to know how to specify which logfile to
+read, and which file to send the output to. The relevant commands look like
+<pre>
+LOGFILE my_logfile
+OUTFILE output.html
+</pre>
+where, of course, you should substitute the names of the files you want to use.
+The logfile must be stored locally -- analog won't use FTP or HTTP to fetch
+it from the internet, so you may have to fetch it yourself first.
+You can read several logfiles by giving several logfile commands, or by giving
+a comma-separated list, or by using wildcards in the logfile name. So, for
+example, if you use the commands
+<pre>
+LOGFILE new1.log,old*.log
+LOGFILE new2.log
+</pre>
+analog will analyse the logfiles <kbd>new1.log</kbd>, <kbd>new2.log</kbd>,
+and all the old logfiles. Analog will recognise logfiles in several different
+formats. You can read more about this in the section on
+<cite><a href="logfile.html">Choosing a logfile</a></cite>.
+
+<hr size=1 noshade>
+There are a couple of other commands you need to know right at the beginning,
+not because they're particularly important in themselves, but because the
+output will look silly if you don't know them. First, you need to know how to
+put your own organisation's name and URL at the top of the output. For this,
+you need two commands such as
+<pre>
+HOSTNAME "Spam Widgets Inc."
+HOSTURL http://www.spam-widgets.com/
+</pre>
+
+<p>
+If you have broken images in the output instead of graphs, you need to say in
+which directory on your server the images are stored. You do this by a
+command like
+<pre>
+IMAGEDIR /analog/images/
+</pre>
+(This is just put in the &lt;img&gt; tags in the output page, so it's the URL
+of a directory, not the name of the directory on your disk. The images are
+distributed with the program - you will have to move them to whichever
+directory you choose.)
+
+<hr size=1 noshade>
+Next you will want to know how to turn individual reports on and off. Analog
+can produce up to 44 different reports if your web server has been configured
+to record the necessary data in your logfiles,
+but here are the most important ones. Try them and
+see what happens. You can turn each report on with an <kbd>ON</kbd> command,
+or off with an <kbd>OFF</kbd> command. You can also use the commands <kbd>ALL
+ON</kbd> and <kbd>ALL OFF</kbd> to turn all reports on or off.
+<pre>
+MONTHLY ON       # one line for each month
+WEEKLY ON        # one line for each week
+DAILYREP ON      # one line for each day
+DAILYSUM ON      # one line for each day of the week
+HOURLYREP ON     # one line for each hour of the day
+GENERAL ON       # the General Summary at the top
+REQUEST ON       # which files were requested
+FAILURE ON       # which files were not found
+DIRECTORY ON     # Directory Report
+HOST ON          # which computers requested files
+ORGANISATION ON  # which organisations they were from
+DOMAIN ON        # which countries they were in
+REFERRER ON      # where people followed links from
+FAILREF ON       # where people followed broken links from
+SEARCHQUERY ON   # the phrases and words they used...
+SEARCHWORD ON    # ...to find you from search engines
+BROWSERSUM ON    # which browser types people were using
+OSREP ON         # and which operating systems
+FILETYPE ON      # types of file requested
+SIZE ON          # sizes of files requested
+STATUS ON        # number of each type of success and failure
+</pre>
+The full list of reports is in the section on
+<cite><a href="output.html#replist">Configuring the output</a></cite>.
+Some reports, for example the Referrer, Browser and Operating System Reports,
+will only appear if your web server has been configured to record the
+necessary data in its logfiles.
+<p>
+You can configure lots of other things about each
+report, such as how many rows are listed, which columns are included, and
+how the reports are sorted. For example, the command
+<pre>
+REQINCLUDE pages
+</pre>
+tells analog only to list pages, rather than all files, in the Request Report,
+and
+<pre>
+REQFLOOR 10r
+</pre>
+tells analog to include in the Request Report all files with at least 10
+requests.
+You can read a summary of all the reports and the commands which control them
+in the section on <cite><a href="reports.html">Analog's reports</a></cite>.
+
+<hr size=1 noshade>
+<a name="basiclang">You can have</a> the output in several different
+languages, by using a
+<kbd>LANGUAGE</kbd> command. For example, the command
+<pre>
+LANGUAGE FRENCH
+</pre>
+will give you the output in French. The available languages at the moment
+include
+<kbd>ARMENIAN</kbd>, <kbd>BASQUE</kbd>, <kbd>BULGARIAN</kbd>,
+<kbd>CATALAN</kbd>,
+<kbd>SIMP-CHINESE</kbd> (GB2312), <kbd>TRAD-CHINESE</kbd> (Big5),
+<kbd>CZECH</kbd>, <kbd>DANISH</kbd>,
+<kbd>DUTCH</kbd>, <kbd>ENGLISH</kbd>, <kbd>US-ENGLISH</kbd>,
+<kbd>FINNISH</kbd>, <kbd>FRENCH</kbd>, <kbd>GERMAN</kbd>,
+<kbd>HUNGARIAN</kbd>, <kbd>INDONESIAN</kbd>, <kbd>ITALIAN</kbd>,
+<kbd>JAPANESE</kbd>, <kbd>KOREAN</kbd>, <kbd>LATVIAN</kbd>,
+<kbd>NORWEGIAN</kbd> (Bokm&aring;l), <kbd>NYNORSK</kbd>, <kbd>POLISH</kbd>,
+<kbd>PORTUGUESE</kbd>, <kbd>BR-PORTUGUESE</kbd>, <kbd>RUSSIAN</kbd>,
+<kbd>SERBIAN</kbd>, <kbd>SLOVAK</kbd>,
+<kbd>SLOVENE</kbd>, <kbd>SPANISH</kbd>, <kbd>SWEDISH</kbd>, <kbd>TURKISH</kbd>
+and <kbd>UKRAINIAN</kbd>.
+<p>
+The following languages were available for previous versions of analog, but
+have not yet been translated for version 5:
+<kbd>BOSNIAN</kbd>, <kbd>CROATIAN</kbd>, <kbd>GREEK</kbd>,
+<kbd>ICELANDIC</kbd>, <kbd>LITHUANIAN</kbd> and <kbd>ROMANIAN</kbd>.
+As and when they are translated, they will be added to the
+<a href="http://www.analog.cx/">analog home page</a>.
+See the section on <cite><a href="output.html#LANGUAGE">Configuring the
+output</a></cite> for how to download, or even translate, new languages.
+
+<hr size=1 noshade>
+Two other common things you might want to do are to <i>alias</i> files or
+hosts (for example, to tell analog that two different filenames are really
+the same file), or to <i>include</i> or <i>exclude</i> certain files, hosts
+or dates (to ignore accesses from your site, for example, or to do an analysis
+only of a certain subdirectory or a certain time period). For these, see the
+later sections on <cite><a href="alias.html">Aliases</a></cite> and
+<cite><a href="include.html">Inclusions and exclusions</a></cite>.
+
+<p>
+As I said, these are only a few of the commands available. To find out about
+all the commands, you'll have to read the remaining sections of the Readme,
+starting with a short section on the <a href="syntax.html">syntax of
+configuration commands</a>.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="custom.html">Prev</a> | <a href="syntax.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

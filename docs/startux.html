@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- starting to use analog (other platforms)</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="start.html">Up</a> |
+<a href="start.html">Prev</a> | <a href="custom.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0:
+Starting to use analog on other platforms</h1>
+<hr size=2 noshade>
+
+Here is the really short summary:
+<ol>
+  <li>Edit <kbd>anlghead.h</kbd> and compile, if necessary
+  <li>Edit <kbd>analog.cfg</kbd>
+  <li>Run analog
+</ol>
+
+<hr size=1 noshade>
+Many platforms have a precompiled version of analog available. Before
+compiling analog, have a look at the
+<a href="http://www.analog.cx/">analog home page</a> to see if yours does.
+<p>
+If you're not using one of the platforms for which a precompiled version
+is available, you'll have to compile your own
+version from the source. But don't worry -- it's written in
+standard C throughout, so it will compile out of the box on most platforms.
+(The source code is the same for all platforms.)
+
+<p>
+First, change to the <kbd>src/</kbd> directory.
+
+<p>
+Then look at the file anlghead.h, and see if there's anything you
+want to edit.
+
+<p>
+When you have done that, you need to compile the program. How to do that
+depends on which operating system you're using.
+
+<hr size=1 noshade>
+<b><a name="compileux">Compiling under Unix</a></b>. First edit anlghead.h as
+described above. Then just type
+<pre>
+make
+</pre>
+within the <kbd>src/</kbd> directory
+to compile the program. On most systems, that will be sufficient, and the
+compiled program should appear in the parent directory. If it
+fails to compile, have a look in the Makefile to see if there's anything that
+you need to change to suit your configuration, and try again. It says in that
+file what to do. In particular, <b>Solaris 2 (SunOS 5+)</b> users need to
+change the <kbd>LIBS=</kbd> line.
+<p>
+(Experts can pass some arguments in on the <kbd>make</kbd> command line
+instead of by editing <kbd>anlghead.h</kbd>: e.g.
+<pre>
+make DEFS='-DLANGDIR=\"/usr/etc/apache/analog/lang/\"'
+</pre>
+This is useful if you have a script to compile analog.)
+<p>
+If you haven't got gcc, you will need to change the compiler - try acc or cc
+instead.
+<p>
+<b><a name="compileVMS">Compiling under OpenVMS</a></b>.
+You can find OpenVMS build scripts within the
+<kbd>src/build</kbd> directory.  Unzip them within the <kbd>src</kbd>
+directory. Then to build Analog interactively from the command line, type
+<pre>
+$ @ Build_Analog
+</pre>
+or to submit the Build_Analog procedure to a batch queue, type
+<pre>
+$ Submit /NoPrint /Keep Batch.com
+</pre>
+The command procedure will use MMS (or MMK) if it is available, otherwise it
+will compile everything from raw command procedures.
+<p>
+<b><a name="compileRiscOS">Compiling under Acorn RiscOS</a></b>. The Makefile
+can be found in the <kbd>src/build</kbd> directly, although at this point it
+has not been updated for version 5 of analog.
+You will have to make directories called <kbd>C</kbd>,
+<kbd>H</kbd> and <kbd>O</kbd>, and move the sources files into the appropriate
+directories: e.g., <kbd>alias.c</kbd> must be renamed <kbd>C.alias</kbd>. And
+you will find that there are some filenames in the header file
+<kbd>anlghead.h</kbd> that you want to change to fit into the RiscOS directory
+structure.
+<p>
+<b><a name="compileOS2">Compiling under OS/2</a></b>.
+To compile analog for OS/2, you will need the
+<a href="ftp://hobbes.nmsu.edu/pub/os2/dev/emx/">EMX package</a>. You should
+edit the Makefile to have <kbd>OS=OS2</kbd> and <kbd>LIBS=-lsocket</kbd>.
+Then after editing anlghead.h and running Make, you need to run the command
+<pre>
+EMXBIND -b ANALOG
+</pre>
+to generate the analog.exe executable.
+<hr size=1 noshade>
+After you've compiled the program, leave the <kbd>src/</kbd> directory and
+then just type
+<pre>
+analog
+</pre>
+to run the program. (Or <kbd>./analog</kbd> if for some reason <kbd>.</kbd>
+isn't in your <kbd>$PATH</kbd>.)
+
+<p>
+You can configure analog by putting commands in the configuration file,
+which is called <kbd>analog.cfg</kbd> by default. Two commands you will need
+straight away are
+<pre>
+LOGFILE logfilename      # to set where your logfile lives
+OUTFILE outputfile.html  # to send the output to a file instead of the screen
+</pre>
+The logfile must be stored locally -- analog won't use FTP or HTTP to fetch
+it from the internet. There's a sample logfile supplied with the program.
+For help in interpreting the output, see <cite><a href="meaning.html">What the
+results mean</a></cite>.
+
+<p>
+There are already some configuration commands to get you started in the
+configuration file, but there are lots of others available. You can find the
+most common ones in the section on <a href="basiccmd.html">basic commands</a>
+later in the Readme, and you can read about all of them in
+the section on <a href="custom.html">customising analog</a>.
+There are also some sample configuration files in the examples directory.
+<p>
+There is one other way to give options to analog, via command line arguments,
+given on the command line after the program name. These are just shortcuts for
+configuration file commands.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="start.html">Up</a> |
+<a href="start.html">Prev</a> | <a href="custom.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

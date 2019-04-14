@@ -1,0 +1,319 @@
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- analog's reports</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="meaning.html">Up</a> |
+<a href="webworks.html">Prev</a> | <a href="defns.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0: Analog's reports</h1>
+<hr size=2 noshade>
+
+This section summarises all of analog's reports, and the main commands which
+control them. For details on these commands, see the sections on
+<cite><a href="timereps.html">Time reports</a></cite>,
+<cite><a href="othreps.html">Other reports</a></cite> and
+<cite><a href="hierreps.html">Hierarchical reports</a></cite>.
+For exact details on what is counted in each report, see the section on
+<cite><a href="defns.html">Analog's definitions</a></cite>.
+<p>
+You can get descriptions of each report within the output by using the
+<a href="output.html#DESCRIPTIONS"><kbd>DESCRIPTIONS</kbd> and
+<kbd>DESCFILE</kbd></a> commands.
+<p>
+Note: The examples below are in the HTML output style. Most people are using
+the XHTML output style, but I've used the HTML output style for the
+documentation to make sure that it works on all browsers.
+
+<h3><a name="reptop">Top lines</a></h3>
+
+<hr size=1 noshade>
+Program started at Thu-24-Sep-1998 13:48.
+<br>Analysed requests from Wed-16-Sep-1998 09:52 to Mon-21-Sep-1998
+  02:04 (4.7 days).
+<hr size=1 noshade>
+
+The top two lines of the output tell you when the program was run, and
+which dates it includes data from. (The second line includes all non-excluded
+requests, even failures, whereas most reports only include successful
+requests.)
+
+<h3><a name="repgen">General Summary</a></h3>
+
+<hr size=1 noshade>
+(Figures in parentheses refer to the 7 days to 24-Sep-1998 13:48).
+<br><b>Successful requests:</b> 79,646 (48,947)
+<br><b>Average successful requests per day:</b> 17,036 (6,992)
+<br><b>Successful requests for pages:</b> 31,138 (18,689)
+<br><b>Average successful requests for pages per day:</b> 6,660 (2,669)
+<br><b>Failed requests:</b> 9,008 (6,378)
+<br><b>Redirected requests:</b> 344 (235)
+<br><b>Distinct files requested:</b> 8,180 (2,884)
+<br><b>Distinct hosts served:</b> 6,640 (4,991)
+<br><b>Corrupt logfile lines:</b> 2
+<br><b>Data transferred:</b> 976.92 Mbytes (627.06 Mbytes)
+<br><b>Average data transferred per day:</b> 208.96 Mbytes (89.58 Mbytes)
+<hr size=1 noshade>
+
+The General Summary contains some overall statistics about the data being
+analysed: the most important being the number of <b>requests</b> (the total
+number of files downloaded, including graphics); the number of <b>requests for
+pages</b> (just counting the various pages on your site); the number of
+<b>distinct hosts</b> (the number of different computers requests have come
+from); and the amount of <b>data transferred</b> in bytes. For exactly what
+the various lines mean, see the section on <cite><a href="defns.html">Analog's
+definitions</a></cite>. Bear in mind that one user can generate many requests
+by viewing lots of different pages or images, or by viewing the same page many
+times.
+<p>
+The figures in parentheses represent the seven days given at the top of this
+report: it's the seven days before the <kbd>TO</kbd> time if there was a
+<kbd>TO</kbd> command, or if not the seven days before the program was run.
+<p>
+You can't find out the number of visitors or visits you've had, and don't
+believe any program which tells you that you can. See the section on
+<cite><a href="webworks.html">How the web works</a></cite> for a discussion of
+this.
+<p>
+You can turn this report on or off with the
+<kbd><a href="output.html#replist">GENERAL</a></kbd> command.
+You can control which lines are included using the
+<kbd><a href="output.html#GENSUMLINES">GENSUMLINES</a></kbd> command.
+You can include
+or exclude the figures for the last seven days with the
+<kbd><a href="output.html#LASTSEVEN">LASTSEVEN</a></kbd> command.
+You may get slightly different lines to those above, depending on exactly
+what's in your logfile.
+
+<h3><a name="reptime">Time reports</a></h3>
+
+<hr size=1 noshade>
+Each unit (<img src="barb1.gif" alt="+">) represents 800 requests for pages, or part thereof.
+<pre><tt>week beg.: #reqs: pages: 
+---------: -----: -----: 
+13/Sep/98: 69614: 25277: <img src="barb32.gif" alt="++++++++++++++++++++++++++++++++">
+20/Sep/98: 10032:  5861: <img src="barb8.gif" alt="++++++++">
+</tt></pre>
+Busiest week: week beginning 13/Sep/98 (26,654 requests for pages).
+<hr size=1 noshade>
+
+These reports tell you how many requests there were in each time
+period. They also tell you which was the busiest time period.
+<p>
+The timezone is whatever your server records time in -- usually your server's
+local time, or sometimes GMT. You can adjust it to another timezone with the
+<kbd><a href="output.html#TIMEOFFSET">LOGTIMEOFFSET</a></kbd> command.
+
+<p>You can control whether each report is included or not with the appropriate
+<a href="output.html#replist"><kbd>ON</kbd> or <kbd>OFF</kbd></a> command.
+You can control which columns are listed by the
+<kbd><a href="timereps.html#timeCOLS">COLS</a></kbd> commands. You can control
+which measurement to use for the bar charts and the &quot;busiest&quot; line
+by the <kbd><a href="timereps.html#GRAPH">GRAPH</a></kbd> commands. You can
+determine how many rows are displayed with the
+<kbd><a href="timereps.html#ROWS">ROWS</a></kbd> commands. You can display the
+lines backwards or forwards in time by the
+<kbd><a href="timereps.html#BACK">BACK</a></kbd> commands. You can change the
+graphic used for the bar charts with the
+<kbd><a href="timereps.html#BARSTYLE">BARSTYLE</a></kbd> command.
+
+<h3><a name="reptimesum">Time summaries</a></h3>
+
+<hr size=1 noshade>
+Each unit (<img src="barb1.gif" alt="+">) represents 150 requests for pages, or part thereof.
+<pre><tt>day: #reqs: pages: 
+---: -----: -----: 
+Sun:  2031:  1193: <img src="barb8.gif" alt="++++++++">
+Mon:  8001:  4668: <img src="barb32.gif" alt="++++++++++++++++++++++++++++++++">
+Tue:     0:     0: 
+Wed: 13934:  5915: <img src="barb32.gif" alt="++++++++++++++++++++++++++++++++++++++++"><img src="barb8.gif" alt="">
+[etc.]
+</tt></pre>
+<hr size=1 noshade>
+
+These reports tell you the total number of requests in each day or hour of the
+week, or in each period of the day, summed over all the weeks or days in the
+report. (It's not the average, nor is it the figures for just the last week or
+last day).
+
+<p>You can control whether each report is included or not with the appropriate
+<a href="output.html#replist"><kbd>ON</kbd> or <kbd>OFF</kbd></a> command.
+You can control which columns are listed by the
+<kbd><a href="timereps.html#timeCOLS">COLS</a></kbd> commands. You can control
+which measurement to use for the bar charts by the
+<kbd><a href="timereps.html#GRAPH">GRAPH</a></kbd> commands. You can change the
+graphic used for the bar charts with the
+<kbd><a href="timereps.html#BARSTYLE">BARSTYLE</a></kbd> command.
+
+
+<h3><a name="repoth">Other reports</a></h3>
+
+<hr size=1 noshade>
+Listing the first 5 files by the number of requests, sorted by 
+  the number of requests.
+<pre><tt>#reqs: %bytes:       last date: file
+-----: ------: ---------------: ----
+ 4123:  2.29%: 21/Sep/98 01:57: /~sret1/analog/
+ 3064:  0.15%: 21/Sep/98 01:54: /~sret1/analog/analogo.gif
+ 1737:  0.01%: 21/Sep/98 01:53: /~sret1/images/bar1.gif
+ 1692:  0.01%: 21/Sep/98 01:53: /~sret1/images/bar16.gif
+ 1685:  0.01%: 21/Sep/98 01:53: /~sret1/images/bar8.gif
+67345: 97.54%: 21/Sep/98 02:04: [not listed: 8,175 files]
+</tt></pre>
+<hr size=1 noshade>
+
+The rest of the reports are all quite similar. Here is a list of them. If
+you're unfamiliar with some of the terms, see the section on
+<cite><a href="defns.html">Analog's definitions</a></cite>.
+<ul>
+<li>The Host Report lists all <b>computers</b> which downloaded files from you.
+<li>The Domain Report lists which <b>countries</b> those computers came
+    from. (If you only get &quot;unresolved numerical addresses&quot;, see the
+    <a href="faq.html#faq140">FAQ</a>.)
+<li>The Organisation Report <a href="domfile.html#orgrules">attempts</a> to
+    list the <b>organisations</b> (companies, institutions, ISPs etc.) which
+    the computer was registered under.
+<li>The Host Redirection Report and Host Failure Report list all computers
+    which encountered redirections or errors.
+<li>The Request Report (the example above) lists which <b>files</b> were
+    downloaded.
+<li>The Directory Report lists which <b>directories</b> those files came from.
+<li>The File Type Report lists the <b>file types</b> (actually, extensions) of
+    those files.
+<li>The File Size Report breaks them down by <b>size</b>.
+<li>The Processing Time Report shows the <b>time taken</b> to serve each file.
+<li>The Redirection Report lists the filenames which resulted in redirections:
+    mainly directories without the final slash, and
+    &quot;<b>click-thru</b>&quot;'s.
+<li>The Failure Report lists the filenames which caused errors.
+<li>The Referrer Report lists which pages <b>linked</b> to your files (and
+    also pages which included your images).
+<li>The Referring Site Report lists the servers those referrers were on.
+<li>The Search Query Report and the Search Word Report list which <b>search
+    terms</b> people used to find your site (provided you've used the
+    appropriate <kbd><a href="args.html#SEARCHENGINE">SEARCHENGINE</a></kbd>
+    commands).
+<li>The Internal Search Query Report and Internal Search Word Report list the
+    search terms people used on scripts within your site (provided
+    you've used the appropriate
+    <kbd><a href="args.html#SEARCHENGINE">INTSEARCHENGINE</a></kbd> commands).
+<li>The Redirected Referrer Report lists the referrers which led to
+    redirections.
+<li>The Failed Referrer Report is essentially a <b>broken link</b> report.
+<li>The Browser Report lists the detailed versions of <b>browsers</b> used,
+    and the Browser Summary collects them by vendor. You should be aware that
+    browsers can lie about what sort of browser they are.
+<li>The Operating System Report lists the <b>operating systems</b> of the
+    visitors whose browser types you know (as far as possible: it's not always
+    possible to distinguish accurately between different Windows versions, for
+    example, because the same browser can run on more than one Windows
+    version).
+    Which browsers count as robots is controlled by the
+    <a href="include.html#ROBOTINCLUDE"><kbd>ROBOTINCLUDE</kbd> and
+      <kbd>ROBOTEXCLUDE</kbd></a> commands.
+<li>The Virtual Host Report lists the activity of your various <b>virtual
+    domains</b>.
+<li>The Virtual Host Redirection Report and Virtual Host Failure Report give
+    the number of redirections and errors on each of those domains.
+<li>The User Report lists your <b>visitors</b> if your server requires
+    authentication; or perhaps the visitors' cookies or session ids.
+<li>The User Redirection Report and User Failure Report list the users who
+    encountered redirections or errors.
+<li>The Status Code Report lists the number of each
+    <b>HTTP status code</b> that you had.
+</ul>
+Usually you can only get some of these reports, depending on what information
+is recorded in your logfile.
+
+<p>There are lots of commands which control these reports.
+As usual, you can control whether each report is included or not with the
+appropriate <a href="output.html#replist"><kbd>ON</kbd> or <kbd>OFF</kbd></a>
+command.
+You can control which columns are listed with the
+<kbd><a href="othreps.html#othCOLS">COLS</a></kbd> commands.
+You can change how the reports are sorted with the
+<kbd><a href="othreps.html#SORTBY">SORTBY</a></kbd> commands.
+You can control how many items are listed with the
+<kbd><a href="othreps.html#FLOOR">FLOOR</a></kbd> commands.
+You can control whether and how the pie charts are plotted with the
+<kbd><a href="othreps.html#CHART">CHART</a></kbd> commands.
+You can list the time period covered by each report with the
+<a href="othreps.html#REPORTSPAN"><kbd>REPORTSPAN</kbd></a> command.
+You can include or
+exclude individual items with the <a href="include.html#outputexcludes">output
+<kbd>INCLUDE</kbd> and <kbd>EXCLUDE</kbd></a> commands.
+You can change the names of items in the reports with the
+<a href="alias.html#OUTPUTALIAS">output alias</a> commands.
+Which files are linked to in the reports is controlled by the
+<a href="include.html#LINKINCLUDE"><kbd>LINKINCLUDE</kbd> and
+<kbd>LINKEXCLUDE</kbd></a> commands. The links are also affected by the
+<kbd><a href="othreps.html#BASEURL">BASEURL</a></kbd> command.
+
+<p>The &quot;not listed&quot; line at the bottom counts those items which
+didn't get enough traffic to get above the <kbd>FLOOR</kbd> for the report.
+(It doesn't include items which you've explicitly
+<a href="include.html">excluded</a>.)
+
+<p>Most of these reports have a hierarchical structure, like this example for
+the Domain Report:
+<hr size=1 noshade>
+Listing the first 5 domains by the number of requests, sorted by 
+  the number of requests.
+<pre><tt>no.: #reqs: %bytes: domain
+---: -----: ------: ------
+  1: 13243: 16.23%: .com (Commercial)
+   :  1262:  1.26%:   aol.com
+  2: 11783: 25.64%: .jp (Japan)
+   :  9592: 22.19%:   ad.jp
+   :  1043:  1.97%:   co.jp
+  3: 10073: 11.62%: .net (Network)
+   :  1926:  1.71%:   uu.net
+  4:  9657: 13.31%: [unresolved numerical addresses]
+  5:  7388:  8.04%: .uk (United Kingdom)
+   :  5792:  5.74%:   ac.uk
+   :  1510:  1.99%:   co.uk
+   : 18502: 25.16%: [not listed: 82 domains]
+</tt></pre>
+<hr size=1 noshade>
+Notice that the lower levels are always listed with their parents, so they
+break up the sort order. Also, they don't count towards the total number of
+items listed, so there are only 5 domains listed in the example above, as you
+can see in the first column. (The <a href="othreps.html#othCOLS"><kbd>N</kbd>
+column</a> is particularly useful in hierarchical reports for this reason.)
+<p>
+You can control which items are listed on the lower levels by the
+<a href="hierreps.html"><kbd>SUB</kbd></a> family of commands.
+There are also separate
+<a href="hierreps.html#SUBSORTBY">sub-<kbd>SORTBY</kbd></a> and
+<a href="hierreps.html#SUBFLOOR">sub-<kbd>FLOOR</kbd></a> commands for the
+lower levels. (These commands are called
+<a href="hierreps.html#ARGSSORTBY"><kbd>ARGSSORTBY</kbd></a> and
+<a href="hierreps.html#ARGSFLOOR"><kbd>ARGSFLOOR</kbd></a> for some reports,
+such as the Request Report.) You can plot the lower levels instead of the
+top-level items on the pie charts using the 
+<kbd><a href="hierreps.html#CHARTEXPAND">CHARTEXPAND</a></kbd> commands.
+
+<h3><a name="repbot">Bottom lines</a></h3>
+
+<hr size=1 noshade>
+<i>This analysis was produced by <a HREF="http://www.analog.cx/">analog 6.0</a>.
+<br><b>Running time:</b> 8 seconds.</i>
+<hr size=1 noshade>
+
+At the end of the output you can see which version of analog produced the
+report, and how long it took.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="meaning.html">Up</a> |
+<a href="webworks.html">Prev</a> | <a href="defns.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

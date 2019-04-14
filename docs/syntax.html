@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- syntax of configuration commands</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="basiccmd.html">Prev</a> | <a href="logfile.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0:
+Syntax of configuration commands</h1>
+<hr size=2 noshade>
+
+This section describes how analog finds configuration commands, and what the
+syntax of a configuration file should be. The syntax of individual commands is
+given in the <cite><a href="quickref.html">Quick reference</a></cite> section
+later.
+
+<hr size=1 noshade>
+When analog starts up, it first reads options from configuration files
+and the command line (assuming that you are running analog from an operating
+system with a command line). Defaults for many of these options will have
+already been set in the files <kbd>anlghead.h</kbd> and <kbd>anlghea2.h</kbd>
+at the time the program
+was compiled. So if you compile your own version of analog, rather than
+downloading a pre-compiled executable, you can also set some options in
+those files before compiling. Those options are all documented there.
+
+<hr size=1 noshade>
+<a name="specialcfgs">The first file</a> which analog reads is the <i>default
+configuration file</i>,
+normally called <kbd>analog.cfg</kbd>. You can stop this file being read by
+specifying the option <kbd>-G</kbd> on the command line. Then the command line
+arguments are read, in the order in which they appear. Finally, the
+<i>mandatory configuration file</i> is read, if you specified one when you
+compiled the program. This is a configuration file which cannot be overridden
+by the user: if it is not found, analog exits immediately. This allows a
+system administrator to prevent users analysing certain files or producing
+certain reports, for example. <i><strong>However</strong></i>, note that the
+only certain way to prevent users analysing things is to deny them access to
+the logfile. Otherwise there is nothing to stop them analysing the logfile
+using another copy of analog or another program.
+
+<hr size=1 noshade>
+<a name="CONFIGFILE">You can include</a> another configuration file by a
+command like
+<pre>
+CONFIGFILE other.cfg
+</pre>
+The commands in the other configuration file are read immediately, in order.
+The program then continues reading the first configuration file where it left
+off. Note that reading in several configuration files does <b>not</b> produce
+several output pages, but a single output page based on all the options.
+<p>
+You can also include another configuration file from the command line by
+using a command like <kbd>+gother.cfg</kbd>. (Note that there is no space
+between <kbd>+g</kbd> and the filename; this is true of all command line
+arguments.) But note that reading an alternative configuration file
+does <b>not</b> stop the default configuration file (usually
+<kbd>analog.cfg</kbd>) being read as well. To do that you have to specify
+<kbd>-G</kbd> as well as the <kbd>+g</kbd> command. This is because if you want
+several different configurations, it's most convenient to put all the common
+options in <kbd>analog.cfg</kbd>, and options specific to each configuration
+in a separate file. Then the <kbd>+g</kbd> command line option will read both
+those files.
+
+<p>
+If the name of a configuration file given in a <kbd>CONFIGFILE</kbd> command
+doesn't include a directory, it will be looked for wherever analog expects to
+find its configuration files. (This location is a compile-time option.) For
+example, in the Windows version it would be in the same folder as the analog
+executable.
+This applies to the default and mandatory configuration files as well.
+But configuration files given with <kbd>+g</kbd> are relative to the current
+directory at the time you run the program.
+
+<p>
+In the Mac version, you can start up a program with a particular configuration
+file instead of the default one by dragging the configuration file onto the
+analog icon. The file must start with "<kbd># </kbd>".
+
+<p>
+<a name="plusC">You can also</a> specify any configuration command on the
+command line even if it
+doesn't have a command line abbreviation, by use of the <kbd>+C</kbd> command.
+(NB The <kbd>C</kbd> must be upper case.)
+For example, <kbd>+C"UNCOMPRESS *.gz gzcat"</kbd> will include that command.
+
+<hr size=1 noshade>
+<a name="commandsyntax">Here are the syntax rules</a> for configuration
+commands. A configuration file contains several commands, normally on separate
+lines; any text after a hash (<kbd>#</kbd>) on a line is ignored as a comment.
+Configuration commands can be continued across lines by using a backslash as
+the last character on the line (but can't then have comments until the end of
+all the lines; also the total length can't be more than 254 characters). 
+Each command consists of the command name followed by one or two arguments. An
+argument to a command may optionally be placed in single or double quotes or
+parentheses, and it must be if the argument contains a hash or a space, or if
+the last character of the last argument is a backslash. So, for
+example, here are some valid configuration commands.
+<pre>
+DAILYSUM   OFF   # We don't want a Daily Summary
+DAILYREP  "ON"   # We want a full Daily Report instead 
+HOSTNAME (Spam Widgets Inc.)  # Spaces, so quotes or brackets needed
+LOGFILE logfile1.log,\
+logfile2.log     # This line and the previous one are one command
+</pre>
+Generally later commands override earlier ones if you can have only one of
+that thing (e.g., for the <kbd>OUTFILE</kbd>), or supplement them
+if you can have several (e.g., for the <kbd>LOGFILE</kbd>, because you can
+read several logfiles). Apart from that, the order of commands doesn't matter,
+except that <kbd><a href="logfmt.html">LOGFORMAT</a></kbd>
+and <kbd><a href="output.html#TIMEOFFSET">LOGTIMEOFFSET</a></kbd>
+commands must come earlier in the same configuration file than the
+<kbd>LOGFILE</kbd> to which they refer.
+
+<hr size=1 noshade>
+<a name="settings">If all the options</a> seem a bit confusing, just run
+<pre>
+analog -settings [other options]
+</pre>
+from the command line,
+or include <kbd>SETTINGS ON</kbd> in the configuration commands.
+Then instead of running normally, analog will just tell you what the values of
+all the variables will be, based on
+the defaults in <kbd>anlghead.h</kbd> and <kbd>anlghea2.h</kbd>, the
+configuration commands, and the
+command line options. If you're on Unix or Windows, remember that you can send
+the output to a file with
+<pre>
+analog -settings > file
+</pre>
+Also, <kbd>analog -version</kbd> will just give the version number.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="basiccmd.html">Prev</a> | <a href="logfile.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

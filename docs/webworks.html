@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- how the web works</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="meaning.html">Up</a> |
+<a href="meaning.html">Prev</a> | <a href="reports.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0: How the web works</h1>
+<hr size=2 noshade>
+
+This section is about what happens when somebody connects to your web site, and
+what statistics you can and can't calculate. There is a lot of confusion
+about this. It's not helped by statistics programs which claim to calculate
+things which cannot really be calculated, only estimated. The simple fact is
+that certain data which we would like to know and which we expect to know are
+simply not available. And the estimates used by other programs are not just a
+bit off, but can be very, very wrong. For example (you'll see why below),
+<em>if your home page has 10 graphics on, and an AOL user visits it, most
+programs will count that as 11 different visitors!</em>
+<p>
+This section is fairly long, but it's worth reading carefully. If you
+understand the basics of how the web works, you will understand what your web
+statistics are really telling you.
+
+<hr size=1 noshade>
+<b>1. The basic model.</b> Let's suppose I visit your web site. I follow a
+link from somewhere else to your front page, read some pages, and then follow
+one of your links out of your site.
+<p>
+So, what do you know about it? First, I make one request for your front
+page. You know the date and time of the request and which page I asked for
+(of course), and the internet address of my computer (my <i>host</i>). I also
+usually tell you which page referred me to your site, and the make and model
+of my browser. I do not tell you my username or my email address.
+<p>
+Next, I look at the page (or rather my browser does) to see if it's got any
+graphics on it. If so, and if I've got image loading turned on in my browser,
+I make a separate connection to retrieve each of these graphics. I never log
+into your site: I just make a sequence of requests, one for each new file I
+want to download. The referring page for each of these graphics is your front
+page. Maybe there are 10 graphics on your front page. Then so far I've made 11
+requests to your server.
+<p>
+After that, I go and visit some of your other pages, making a new request for
+each page and graphic that I want. Finally, I follow a link out of your site.
+You never know about that at all. I just connect to the next site without
+telling you.
+
+<hr size=1 noshade>
+<b>2. Caches.</b> It's not always quite as simple as that. One major problem
+is caching. There are two major types of caching. First, my browser
+automatically caches files when I download them. This means that if I visit
+them again, the next day say, I don't need to download the whole page
+again. Depending on the settings on my browser, I might check with you that
+the page hasn't changed: in that case, you do know about it, and analog will
+count it as a new request for the page. But I might set my browser not to
+check with you: then I will read the page again without you ever knowing about
+it.
+<p>
+The other sort of cache is on a larger scale. Almost all ISPs now have their
+own cache. This means that if I try to look at one of your pages and
+<em>anyone else from the same ISP</em> has looked at that page recently, the
+cache will have saved it, and will give it out to me without ever telling
+you about it. (This applies whatever my browser settings.) So hundreds of
+people could read your pages, even though you'd only sent it out once.
+<hr size=1 noshade>
+<b>3. What you can know.</b> The only things you can know for certain are the
+number of requests made to your server, when they were made, which files were
+asked for, and which host asked you for them.
+<p>
+You can also know what people told you their browsers were, and what the
+referring pages were. You should be aware, though, that many browsers lie
+deliberately about what sort of browser they are, or even let users configure
+the browser name.
+And some people use &quot;anonymizers&quot; which deliberately send false
+browsers and referrers.
+
+<hr size=1 noshade>
+<b>4. What you can't know.</b>
+<ol type=i>
+  <li><i>You can't tell the identity of your readers</i>.
+      Unless you explicitly require users to provide a password, you don't
+      know who connected or what their email addresses are.
+  <li><i>You can't tell how many visitors you've had</i>.
+      You can guess by looking at the number of distinct hosts that have
+      requested things from you. Indeed this is what many programs mean when
+      they report &quot;visitors&quot;. But this is not always a good estimate
+      for
+      three reasons. First, if users get your pages from a local cache server,
+      you will never know about it. Secondly, sometimes many users appear to
+      connect from the same host: either users from the same company or ISP,
+      or users using the same cache server. Finally, sometimes one user
+      appears to connect from many different hosts. AOL now allocates users a
+      <a href="http://webmaster.info.aol.com/network.html">different hostname
+      for <i>every request</i></a>. So <em>if your home page has
+      10 graphics on, and an AOL user visits it, most programs will count that
+      as 11 different visitors!</em>
+  <li><i>You can't tell how many visits you've had</i>.
+      Many programs, under pressure from advertisers' organisations, define a
+      &quot;visit&quot; (or &quot;session&quot;) as a sequence of requests
+      from the same host until there is a half-hour gap. This is an unsound
+      method for several reasons. First, it assumes that each host corresponds
+      to a separate person and vice versa. This is simply not true in the real
+      world, as discussed in the last paragraph. Secondly, it assumes that
+      there is never a half-hour gap in a genuine visit. This is also untrue.
+      I quite often follow a link out of a site, then step back in my browser
+      and continue with the first site from where I left off. Should it really
+      matter whether I do this 29 or 31 minutes later? Finally, to make the
+      computation tractable, such programs also need to assume that your
+      logfile is in chronological order: it isn't always, and analog will
+      produce the same results however you jumble the lines up.
+  <li><i>Cookies don't solve these problems</i>.
+      Some sites try to count their visitors by using cookies. This reduces
+      the errors. But it can't solve the problem unless you refuse to let
+      people read your pages who can't or won't take a cookie. And you still
+      have to assume that your visitors will use the same cookie for their
+      next request.
+  <li><i>You can't follow a person's path through your site</i>.
+      Even if you assume that each person corresponds one-to-one to a host,
+      you don't know their path through your site. It's very common for people
+      to go back to pages they've downloaded before. You never know about
+      these subsequent visits to that page, because their browser has cached
+      them. So you can't track their path through your site accurately.
+  <li><i>You often can't tell where they entered your site, or where they
+      found out about you from</i>.
+      If they are using a cache server, they will often be able to retrieve
+      your home page from their cache, but not all of the subsequent pages
+      they want to read. Then the first page you know about them requesting
+      will be one in the middle of their true visit.
+  <li><i>You can't tell how they left your site, or where they went next</i>.
+      They never tell you about their connection to another site, so there's no
+      way for you to know about it.
+  <li><i>You can't tell how long people spent reading each page</i>.
+      Once again, you can't tell
+      which pages they are reading between successive requests for pages. They
+      might be reading some pages they downloaded earlier. They might have
+      followed a link out of your site, and then come back
+      later. They might have interrupted their reading for a quick game of
+      Minesweeper. You just don't know.
+  <li><i>You can't tell how long people spent on your site</i>.
+      Apart from the problems in the previous point, there is one other
+      complete show-stopper. Programs which report the time on the site count
+      the time between the first and the last request. But they don't count
+      the time spent on the final page, and this is often the majority of the
+      whole visit.
+</ol>
+
+There are lots of other things you can't know. These are just examples. The
+summary is that you can know what happens at your server, but you can't know
+what the user or the user's browser does with the data you have sent.
+
+<hr size=1 noshade>
+<b>5. Real data.</b>
+Of course, the important question is how much difference these theoretical
+difficulties make. In a recent paper (<cite>World Wide Web</cite>, <b>2</b>,
+29-45 (1999):
+<a href="http://www.parc.xerox.com/istl/projects/uir/pubs/pdf/UIR-1999-02-Pirolli-WebJournal-Paths.pdf">PDF 228kb</a>),
+Peter Pirolli and James Pitkow of Xerox Palo Alto Research Center examined
+this question using a ten day long logfile from the <kbd>xerox.com</kbd> web
+site. One of their most striking conclusions is that different commonly-used
+methods can give very different results. For example, when trying to measure
+the median length of a visit, they got results from 137 seconds to 629
+seconds, depending exactly what you count as a new visitor or a new visit. As
+they were looking at a fixed logfile, they didn't consider the effect of
+server configuration changes such as refusing caching, which would change the
+results still more.
+
+<hr size=1 noshade>
+<b>6. Conclusion.</b>
+The bottom line is that HTTP is a stateless protocol. That means that people
+don't log in and retrieve several documents: they make a separate connection
+for each file they want. And <em>a lot of the time they don't even behave as
+if they were logged into one site</em>. The world is a lot messier than this
+na&iuml;ve view implies. That's why analog reports requests, i.e. what is
+going on at your server, which you know, rather than guessing what the users
+are doing.
+<p>
+Defenders of counting visits etc. claim that these are just small
+approximations. I disagree. For example, almost everyone is now accessing the
+web through a cache. If the proportion of requests retrieved from the cache is
+50% (a not unrealistic figure) then half of the users' requests aren't being
+seen by the servers.
+<p>
+Other defenders of these methods claim that they're still useful because they
+measure <em>something</em> which you can use to compare sites. But this
+assumes that the approximations involved are comparable for different sites,
+and there's no reason to suppose that this is true. Pirolli &amp; Pitkow's
+results show that the figures you get depend very much on how you count them,
+as well as on your server configuration. And even once you've agreed on
+methodology, different users on different sites have different patterns of
+behaviour, which affect the approximations in different ways: for example,
+Pirolli &amp; Pitkow found different characteristics of weekday and weekend
+users at their site.
+<p>
+Still other people say that at least the trend over time of these numbers
+tells you something. But even that may not be true, because you may not be
+comparing like with like. Consider what would happen if a large ISP decided to
+change its proxy server configuration. It could substantially change your
+apparent number of visits, even if there was no actual change in the traffic
+levels at your site.
+<p>
+I've presented a somewhat negative view here, emphasising what you
+can't find out. Web statistics are still informative: it's just important not
+to slip from &quot;this page has received 30,000 requests&quot; to
+&quot;30,000 people have read this page.&quot;
+In some sense these problems are not really new to the web -- they are present
+just as much in print media too. For example, you only know how many magazines
+you've sold, not how many people have read them. In print media we have learnt
+to live with these issues, using the data which are available, and it would
+be better if we did on the web too, rather than making up spurious numbers.
+
+<hr size=1 noshade>
+<b>7. Acknowledgements and further reading.</b>
+Many other people have made these points too. While originally writing
+this section, I benefited from three earlier expositions:
+<cite><a href="http://www.ario.ch/etc/webstats.html">Interpreting WWW
+Statistics</a></cite> by Doug Linder;
+<cite>Getting Real about Usage Statistics</cite> by Tim Stehle; and
+<cite>Making Sense of Web Usage Statistics</cite> by Dana Noonan.
+(The last two don't seem to be available on the web any more.)
+<p>
+Another, extremely well-written document on these ideas is <cite>Measuring Web
+Site Usage: Log File Analysis</cite> by Susan Haigh and Janette Megarity.
+Being on a Canadian government site, it's available in both
+<a href="http://www.nlc-bnc.ca/publications/1/p1-256-e.html">English</a> and
+<a href="http://www.nlc-bnc.ca/publications/1/p1-256-f.html">French</a>.
+Or for an even more negative point of view, you could read
+<cite><a href="http://www.goldmark.org/netrants/webstats/">Why Web Usage
+Statistics are (Worse Than) Meaningless</a></cite> by Jeff Goldberg.
+
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="meaning.html">Up</a> |
+<a href="meaning.html">Prev</a> | <a href="reports.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

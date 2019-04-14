@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- aliases</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="logfmt.html">Prev</a> | <a href="include.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0: Aliases</h1>
+<hr size=2 noshade>
+
+<a name="CASE">After</a> analog has read each logfile entry, it then applies
+aliases to each
+of the items. First, if you have a case insensitive filesystem, analog
+converts the filename to lower case. Usually analog assumes that Unix and BeOS
+filesystems are case sensitive and other systems are case insensitive. You
+might want to override its choice, if, for example, you have transferred files
+from one machine to another, so as to use the convention on the original
+machine. You can do this by the commands
+<pre>
+CASE INSENSITIVE
+CASE SENSITIVE
+</pre>
+There are similar commands for usernames, if your logfile records these. By
+default, usernames are always case insensitive, but you can specify
+<pre>
+USERCASE SENSITIVE
+</pre>
+to override this.
+
+<hr size=1 noshade>
+<a name="DIRSUFFIX">Next it</a> applies built-in aliases to each item. For
+example, it knows that
+<kbd>%7E</kbd> in a filename or referrer is equivalent to <kbd>~</kbd> and
+translates it accordingly. It also strips off the directory suffix from any
+filenames which have it. This suffix is normally <kbd>index.html</kbd>, but
+you can specify another one instead with a command such as
+<pre>
+DIRSUFFIX default.htm
+</pre>
+(You can only have one <kbd>DIRSUFFIX</kbd>.) There are other built-in
+aliases for other items: for example, hostnames are converted to lower case
+at this point.
+
+<hr size=1 noshade>
+<a name="useraliases">After this</a>, it applies user-specified aliases to
+each item. These aliases are
+useful if, for example, you know that two filenames correspond to the same
+file, or if you want to translate local hostnames to their internet
+equivalents. You specify aliases by commands like
+<pre>
+FILEALIAS /football.html /soccer.html
+HOSTALIAS lion lion.statslab.cam.ac.uk
+</pre>
+There is also the special command <kbd>FILEALIAS none</kbd>, which cancels
+any other file aliases which might have been specified.
+
+<p>
+The alias commands for the other items are called <kbd>BROWALIAS</kbd>,
+<kbd>REFALIAS</kbd>, <kbd>USERALIAS</kbd> and <kbd>VHOSTALIAS</kbd>.
+Only one alias is ever applied to any item. So after
+<pre>
+FILEALIAS /football.html /soccer.html
+FILEALIAS /soccer.html /brazil.html
+</pre>
+the file <kbd>/soccer.html</kbd> would get translated to
+<kbd>/brazil.html</kbd>, but <kbd>/football.html</kbd> would only get
+translated to <kbd>/soccer.html</kbd> and would not see the second alias.
+<p>
+You can also use wildcards in <kbd>ALIAS</kbd> commands: <kbd>?</kbd> matches
+any one character and <kbd>*</kbd> matches any number of characters (including
+none).
+And on the right-hand side, you can use <kbd>$1</kbd>, <kbd>$2</kbd> etc. to
+represent the parts of the original name matched by the <kbd>*</kbd>'s.
+As a special abbreviation, if there is exactly one <kbd>*</kbd> on the
+left-hand side, then a <kbd>*</kbd> on the right-hand side can be used to
+represent <kbd>$1</kbd>. So, for example,
+<pre>
+FILEALIAS /*/football/* /soccer/
+</pre>
+would translate <kbd>/sport/football/rules.html</kbd> to just
+<kbd>/soccer/</kbd>, but either of
+<pre>
+FILEALIAS /*/football/* /$1/soccer/$2         # or
+FILEALIAS /sport/football/* /sport/soccer/*
+</pre>
+would translate <kbd>/sport/football/rules.html</kbd> to
+<kbd>/sport/soccer/rules.html</kbd>.
+<p>
+You can use <kbd>$$</kbd> to get an actual <kbd>$</kbd> on the right-hand side.
+Or you can prefix the right-hand side with &quot;<kbd>PLAIN:</kbd>&quot; to
+treat any <kbd>$</kbd>'s and <kbd>*</kbd>'s on the right-hand side literally.
+For example
+<pre>
+FILEALIAS /*/football/* PLAIN:/$1/soccer/$2
+</pre>
+would translate <kbd>/sport/football/rules.html</kbd> to exactly
+<kbd>/$1/soccer/$2</kbd>
+<p>
+Analog's <kbd>*</kbd>'s are un-greedy: if there are two possible ways of
+matching, the part of the expression on the left matches as little as
+possible. This is more often what you want. But it contrasts with Perl's
+regular expressions, for example. (Oh, two consecutive <kbd>*</kbd>'s are
+completely useless, but if you try it they are collapsed into one before
+counting the <kbd>$1</kbd>, <kbd>$2</kbd>, etc.)
+<p>
+The behaviour of <kbd>FILEALIAS</kbd> and <kbd>REFALIAS</kbd> can be
+slightly unintuitive if the file has <a href="args.html#unintuitive">search
+arguments</a>.
+<p>
+A warning to Unix users: if you put an <kbd>ALIAS</kbd> command on the
+command line with <kbd><a href="syntax.html#plusC">+C</a></kbd>, the shell
+may try and expand <kbd>$1</kbd> etc., which is not what you want. To stop
+the shell doing this, put the command in single quotes instead of double
+quotes.
+<hr size=1 noshade>
+<a name="OUTPUTALIAS">There is another set</a> of alias commands, called
+<i>output aliases</i>. They don't alias <em>items</em>, but <em>individual
+lines from particular reports</em> (and they never combine lines, even if two
+lines end up with the same name). For example, the command
+<pre>
+TYPEALIAS .txt ".txt (Plain text files)"
+</pre>
+would provide an explanation of that line in the File Type Report.
+
+<p>
+There can be some confusion between some normal alias and
+output alias commands. For example, what is the difference between
+<kbd>FILEALIAS</kbd> and <kbd>REQALIAS</kbd>? In fact, there are
+several differences because of the different things the aliases are doing.
+<kbd>FILEALIAS</kbd> applies to the <em>files themselves</em>,
+but <kbd>REQALIAS</kbd> only applies to the <em>lines in the Request
+Report</em>. This means that <kbd>FILEALIAS</kbd> also affects the other
+reports which use the filenames, such as the Directory Report, whereas
+<kbd>REQALIAS</kbd> only affects the Request Report.
+<p>
+Another difference is that
+<kbd>REQALIAS</kbd> applies separately to each line of the Request
+Report. This means that if two separate files translate to the same thing in a
+<kbd>FILEALIAS</kbd> command, they will become one file for all the reports.
+But if you were to use the same <kbd>REQALIAS</kbd> command, they would
+still be two files, and would still be listed on separate lines in the Request
+Report, but with the same name.
+<p>
+So in summary, when should you use each command? <kbd>FILEALIAS</kbd> should
+be used if a single file has two different names; i.e., if your web server
+returns the same file for two different URLs. <kbd>REQALIAS</kbd>, on the
+other hand, would typically be used to annotate or clarify the Request Report.
+Sometimes it's useful to use both; first combine some files with
+<kbd>FILEALIAS</kbd>, and then annotate them in the Request Report with
+<kbd>REQALIAS</kbd>.
+<p>
+The full list of output aliases is <kbd>REQALIAS</kbd>, <kbd>REDIRALIAS</kbd>,
+<kbd>FAILALIAS</kbd>, <kbd>TYPEALIAS</kbd>, <kbd>DIRALIAS</kbd>,
+<kbd>HOSTREPALIAS</kbd>, <kbd>REDIRHOSTALIAS</kbd>, <kbd>FAILHOSTALIAS</kbd>,
+<kbd>DOMALIAS</kbd>, <kbd>ORGALIAS</kbd>, <kbd>REFREPALIAS</kbd>,
+<kbd>REFSITEALIAS</kbd>, <kbd>REDIRREFALIAS</kbd>, <kbd>FAILREFALIAS</kbd>,
+<kbd>BROWREPALIAS</kbd>, <kbd>BROWSUMALIAS</kbd>, <kbd>OSALIAS</kbd>,
+<kbd>VHOSTREPALIAS</kbd>, <kbd>REDIRVHOSTREPALIAS</kbd>,
+<kbd>FAILVHOSTREPALIAS</kbd>, <kbd>USERREPALIAS</kbd>,
+<kbd>REDIRUSERALIAS</kbd> and <kbd>FAILUSERALIAS</kbd>.
+<p>
+There is one known bug with the output aliases. The report is sorted
+before the alias is applied. This means that if the
+<kbd><a href="othreps.html#SORTBY">SORTBY</a></kbd> for the report is set to
+<kbd>ALPHABETICAL</kbd>, then the report will not be sorted correctly.
+<hr size=1 noshade>
+<a name="aliasregexp">You can also use regular expressions</a> in the
+<kbd>ALIAS</kbd> commands.
+Sorry, I'm not going to teach you how to use regular expressions
+here if you don't already know: if you're on Unix try typing <kbd>man
+perlre</kbd> or <kbd>man regex</kbd> or <kbd>man grep</kbd>. There are lots of
+implementations of regular expressions. The ones which analog uses are
+Perl-syntax regular expressions. In general, these are a superset of the
+extended regular expressions used by Unix <kbd>egrep</kbd> or GNU
+<kbd>grep&nbsp;-E</kbd>.
+<p>
+You include regular expressions in an <kbd>ALIAS</kbd> command by prefixing
+the left-hand side of the alias with &quot;<kbd>REGEXP:</kbd>&quot;. Or you can
+specify a case-insensitive match, like Perl <kbd>m//i</kbd> or
+Unix <kbd>egrep&nbsp;-i</kbd>, by using
+&quot;<kbd>REGEXPI:</kbd>&quot;. (It's automatically case-insensitive for many
+items, such as hostnames, or filenames if you have specified
+<kbd><a href="#CASE">CASE INSENSITIVE</a></kbd>.)
+<p>
+On the
+right-hand side of the alias you can use <kbd>$1</kbd>, <kbd>$2</kbd> etc. to
+represent the first, second etc. bracketed expression on the left-hand side,
+counting in order of the left brackets. (Again, you can't put <kbd>$1</kbd>,
+<kbd>$2</kbd> etc. on the command line unless you put them in single quotes.)
+<p>
+Regular expressions match if they match just part of the string. If you want
+them to have to match the whole of the string, you have to anchor them to the
+ends of the string with <kbd>^</kbd> and <kbd>$</kbd>.
+<p>
+For example,
+<pre>
+REQALIAS REGEXP:^(/~(.+?)/.*) "[$2] $1"
+</pre>
+would translate <pre>/~sret1/backgammon/rules.html</pre> to
+<pre>[sret1] /~sret1/backgammon/rules.html</pre> in the Request
+Report. Or
+<pre>
+HOSTALIAS REGEXP:^([^.]*)$ $1.mycompany.com
+</pre>
+would add <kbd>.mycompany.com</kbd> to all hostnames not containing a dot.
+(See the <a href="faq.html#faq174">FAQ</a> for a discussion about whether
+this is a good idea.)
+<p>
+Regular expressions are greedy: if there are two possible ways of matching,
+the part of the expression on the left matches as much as possible.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="logfmt.html">Prev</a> | <a href="include.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

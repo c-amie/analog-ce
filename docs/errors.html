@@ -1,0 +1,315 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- errors and warnings</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="Readme.html">Up</a> |
+<a href="defns.html">Prev</a> | <a href="faq.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0:
+Errors and warnings</h1>
+<hr size=2 noshade>
+
+This section lists all the errors and warnings which analog can produce,
+together with a short explanation.
+
+<p>
+First, you should understand the difference between a crash, an error, a
+warning, and a debugging message. First, a <i>crash</i> is when analog exits
+prematurely, without producing the whole output file. The system might give a
+message, but analog will not give one of its own messages. Analog should never
+crash. If it does crash, please <a href="mailing.html">tell me about it</a>.
+
+<p>
+An <i>error</i> is something which stops analog finishing its job. Whenever
+an error is detected, analog gives a message starting something like
+<kbd>analog: Fatal error:</kbd> and will then tell you what type of thing went
+wrong before quitting.
+
+<p>
+A <i>warning</i> is a problem which is not fatal to analog: it will keep on
+with its processing. These vary from the possibly serious, such as files which
+could not be found, to purely informational. They produce a message starting
+<kbd>analog: Warning</kbd>. You can turn warnings off using the
+<kbd><a href="debug.html#WARNINGS">WARNINGS</a></kbd> command.
+
+<p>
+Finally, a <i>debugging message</i> gives information on the state of the
+program. They just begin with a single code letter followed by a colon. You
+don't get any debugging messages unless you've
+<a href="debug.html#debugs">asked for them</a>.
+
+<p>
+If you want to send these messages to a file instead of to the screen, you can
+use the <kbd><a href="debug.html#ERRFILE">ERRFILE</a></kbd> command.
+To tell analog the width of your screen for these messages, you can use the
+<kbd><a href="debug.html#ERRLINELENGTH">ERRLINELENGTH</a></kbd> command.
+
+<p>
+Now I shall describe all the possible <a href="#errs">errors</a> and
+<a href="#warns">warnings</a> in detail.
+<hr size=1 noshade>
+<h3><a name="errs">Errors</a></h3>
+<dl>
+  <dt><b>Ran out of memory: cannot continue</b>
+  <dd>Analog ran out of memory. Try increasing the memory available to the
+      process, if your operating system will allow it, or using the
+      <kbd><a href="lowmem.html">LOWMEM</a></kbd> commands.
+  <dt><b>Cannot ignore mandatory configuration file</b>
+  <dd>See the section in the Readme on the
+      <a href="syntax.html#specialcfgs">mandatory configuration file</a>.
+  <dt><b>Can't find language file
+      <br>Language file too short
+      <br>Language file too long
+      <br>Language file contains excessively long lines</b>
+  <dd>Analog can't run without a well-formed language file. See the
+      documentation on <a href="output.html#LANGUAGE">language files</a>.
+  <dt><b>Attempted to read more than 50 configuration files</b>
+  <dd>The most likely explanation for this is that you have accidentally
+      created a loop using the
+      <kbd><a href="syntax.html#CONFIGFILE">CONFIGFILE</a></kbd> command, for
+      example if a configuration file includes itself.
+  <dt><b>Incorrect default given in <kbd>anlghead.h</kbd>
+      <br>Default given in <kbd>anlghead.h</kbd> too short</b>
+  <dd>If you've compiled your own version, and you've specified an incorrect
+      configuration in the file <kbd>anlghead.h</kbd>, analog gives up to
+      allow you to fix it.
+  <dt><b>Failed to open output file for writing</b>
+  <dd>Analog couldn't create, or couldn't write to, the output file you
+      specified.
+  <dt><b>Cache output file already exists: won't overwrite</b>
+  <dd>Analog won't overwrite an old cache file. You must move or delete it
+      yourself first.
+  <dt><b><kbd>OUTFILE</kbd> and <kbd>CACHEOUTFILE</kbd> are the same</b>
+  <dt><b><kbd>OUTFILE</kbd> and <kbd>CACHEOUTFILE</kbd> both set to stdout</b>
+  <dd>This can't be what you wanted, because one would overwrite the other.
+  <dt><b><kbd>OUTPUT NONE</kbd> and <kbd>CACHEOUTFILE none</kbd> selected</b>
+  <dd>You requested no output.
+  <dt><b><kbd>OUTPUT LATEX</kbd> only available with <kbd>US-ASCII</kbd>,
+      <kbd>ISO-8859-1</kbd> and <kbd>ISO-8859-2</kbd> character sets</b>
+  <dd>The LaTeX output style only works with certain European languages
+      because the standard LaTeX distribution doesn't contain the characters
+      for other languages.
+</dl>
+<hr size=1 noshade>
+<h3><a name="warns">Warnings</a></h3>
+Remember that warnings are not fatal: in fact some are rarely even serious.
+You can turn them off using the
+<kbd><a href="debug.html#WARNINGS">WARNINGS</a></kbd> command. The possible
+warnings come in several different categories, shown by a letter in the warning
+message. The categories are as follows.
+<dl compact>
+  <dt><kbd>C</kbd><dd>invalid configuration specified
+  <dt><kbd>D</kbd><dd>dubious configuration specified
+  <dt><kbd>E</kbd><dd><kbd>ERRFILE</kbd> command used
+  <dt><kbd>F</kbd><dd>files missing or corrupt
+  <dt><kbd>G</kbd><dd>corrupt lines in support files
+  <dt><kbd>L</kbd><dd>apparent problems in logfiles
+  <dt><kbd>M</kbd><dd>possible problems in logfiles
+  <dt><kbd>R</kbd><dd>turning off empty reports
+</dl>
+<p>
+<h4><a name="warnsC">Category C</a></h4>
+This category indicates an incorrect configuration. Analog will either ignore
+what you said, or try and do the best it can with it. There are too many
+warnings in this category to list completely. You will have to consult the
+documentation for the particular <a href="custom.html">configuration
+command</a> that gave an error. If you get an error for a command which used
+to work in a previous version of analog, have a look in the section
+<cite><a href="update.html">Updating from older versions</a></cite>.
+<p>
+<h4><a name="warnsD">Category D</a></h4>
+This is for configurations which might be intended, but which look suspicious.
+Analog will not override what you've specified in this case.
+<dl>
+  <dt><b><kbd>LOGFORMAT</kbd> with no subsequent logfile</b>
+  <dd>You have specified a <kbd>LOGFORMAT</kbd> command, but no
+      subsequent logfile to which it could be applied. Most likely
+      you put the <kbd>LOGFORMAT</kbd> after the <kbd>LOGFILE</kbd> command.
+      You must put the <kbd>LOGFORMAT</kbd> before the <kbd>LOGFILE</kbd>
+      command or use <kbd>DEFAULTLOGFORMAT</kbd> instead. See the section on
+      <cite><a href="logfmt.html">Specifying a log format</a></cite> for
+      more details.
+  <dt><b>Offset not a multiple of 30
+      <br>Offset more than 25 hours</b>
+  <dd>The <a href="output.html#TIMEOFFSET">time offsets</a> are meant to be for
+      correcting between differences in time zones. These differences are
+      usually multiples of 30 minutes between -25 and +25 hours. Maybe you
+      specified the offset in hours instead of minutes by mistake, or
+      something like that.
+  <dt><b><kbd>FROM</kbd> time is later than the present</b>
+  <dd>Usually this will mean that no entries are counted. Analog doesn't
+      try and correct it in case the clock on your computer or your server is
+      wrong -- but you would be better using
+      <kbd><a href="output.html#TIMEOFFSET">TIMEOFFSET</a></kbd> or
+      <kbd><a href="output.html#TIMEOFFSET">LOGTIMEOFFSET</a></kbd> to correct
+      those clocks.
+  <dt><b><kbd>SORTBY</kbd> doesn't match <kbd>FLOOR</kbd>
+      <br><kbd>SORTBY</kbd> doesn't match <kbd>SUBSORTBY</kbd>
+      (or <kbd>FLOOR</kbd>/<kbd>SUBFLOOR</kbd>)
+      <br><kbd>SORTBY</kbd> (or <kbd>FLOOR</kbd> or <kbd>GRAPH</kbd>) isn't
+      included in <kbd>COLS</kbd></b>
+  <dd>Within one report, it's helpful to your readers to have the sort methods
+      and the floors compatible, and all included in the <kbd>COLS</kbd>.
+      (See the section on <cite><a href="othreps.html">Non-time
+      reports</a></cite>).
+  <dt><b>Column <kbd>N</kbd> with <kbd>SORTBY ALPHABETICAL/RANDOM</kbd></b>
+  <dd>Numbering off the items when they're not in order of busyness is
+      probably a mistake.
+  <dt><b>Time reports have not all got same value of <kbd>BACK</kbd></b>
+  <dd>It's usually helpful to have all the <a href="timereps.html#BACK">time
+      reports</a> running in the same direction.
+  <dt><b>Report contains no <kbd>COLS</kbd></b>
+  <dd>You've got an empty <kbd>COLS</kbd> list for one report, so you'll just
+      get a list of names, not any information about them.
+  <dt><b><kbd>LOWMEM 3</kbd> prevents that item being cached</b>
+  <dd>You're making a <a href="cache.html">cache file</a>, but one item is
+      not being recorded because of a
+      <kbd><a href="lowmem.html">LOWMEM</a></kbd> command, and will therefore
+      not be saved in the cache file.
+</dl>
+<p>
+<h4><a name="warnsE">Category E</a></h4>
+There is only one warning in this category.
+<dl>
+  <dt><b>Redirecting future diagnostic messages</b>
+  <dd>You've used an <kbd>ERRFILE</kbd> command to change the destination of
+      errors, warnings, debugging and <kbd>PROGRESSFREQ</kbd>
+      diagnostics. This is just warning you so that you don't miss any
+      messages.
+</dl>
+<p>
+<h4><a name="warnsF">Category F</a></h4>
+This category is for diagnosing files which couldn't be opened or read
+successfully. These can be serious, but most of the messages should be
+self-explanatory. There are a few worth mentioning specifically.
+<dl>
+<dt><b>Can't auto-detect format of logfile</b>
+<dd>The <kbd><a href="logfmt.html">LOGFORMAT</a></kbd> is set to automatic
+    detection, but the first line of the logfile is not in any of the
+    standard formats. This error can often be generated when you try and
+    specify your own <kbd>LOGFORMAT</kbd> but put it after the
+    <kbd>LOGFILE</kbd> command so that it is not in effect for that logfile.
+<dt><b>Logfile with ambiguous dates</b>
+<dd>Some servers, notably IIS and WebSite, record dates in their logfiles
+    according to local conventions. Then if analog encounters 2/1/99, for
+    example, it doesn't know whether it's the 2nd January or 1st February.
+    This problem, and what to do about it, is described in more detail in the
+    section on
+    <cite><a href="logfile.html#IISfmt">Choosing a logfile</a></cite>.
+<dt><b>Logfile seems to be in Microsoft format</b>
+<dd>The most common cause of this message is that your IIS logfile uses local
+    conventions for listing dates which analog doesn't know about -- e.g.
+    25.12.98 instead of 25/12/98. Again, see the section on
+    <cite><a href="logfile.html#IISfmt">Choosing a logfile</a></cite> for help.
+<dt><b>Ignoring corrupt format line in logfile</b>
+<dd>The format line within a W3 extended log, Netscape log or WebSTAR log is
+    invalid in some way. Analog will always tell you what's wrong with it. The
+    most common problem is that the date only appears at the top of the
+    logfile, not on every line, which is not allowed. The reason for this, and
+    what to do about it, are in the section on
+    <cite><a href="logfile.html#dateonly">Choosing a logfile</a></cite>.
+<dt><b>Failed to open domains file</b>
+<dd>In this case, all domains will be counted as "unknown domains".
+<dt><b>Failed to open DNS input file</b>
+<dd>The first time you use DNS lookups, you don't have a DNS cache file, so
+    you get this warning. Assuming you are using <kbd>DNS WRITE</kbd>, the
+    message will go away next time you run analog.
+<dt><b>DNS lock file already exists</b>
+<dd>To stop two copies of analog trying to write the DNS file at the same
+    time, an empty &quot;lock file&quot; is created, which tells the second
+    copy of analog to use <kbd>DNS LOOKUP</kbd> instead of <kbd>DNS
+    WRITE</kbd>. If analog crashes, it may not delete its lock file. So if you
+    get the &quot;already exists&quot; message even though no other copy of
+    analog is running, you may need to delete the lock file yourself.
+</dl>
+<p>
+<h4><a name="warnsG">Category G</a></h4>
+This category is used when there is a bad line in the DNS file, domains file
+or report descriptions file. Analog will still use the rest of the file. All
+the messages should be self-explanatory.
+<p>
+<h4><a name="warnsL">Category L</a></h4>
+When analog finishes reading a logfile, it checks whether there might have
+been something wrong with it.
+<dl>
+  <dt><b>Large number of corrupt lines</b>
+  <dd>This could indicate a problem with the logfile, or with the
+      <kbd><a href="logfmt.html">LOGFORMAT</a></kbd> specification.
+      The possible causes are described in the section on
+      <cite><a href="logfile.html#corruptlines">Choosing a logfile</a></cite>.
+      If you specify <kbd><a href="debug.html#debugs">DEBUG ON</a></kbd>,
+      analog will report where each line was corrupt.
+  <dt><b>Logfiles overlap: possible double counting</b>
+  <dd>This means that two logfiles which were counting the same type of item
+      overlapped in time. Because it's only based on the time period of the
+      logfiles, not the actual entries, this may or may not indicate a genuine
+      problem. It is a problem if you read the same logfile twice. Or maybe
+      you used the cache file feature
+      <a href="cache.html#cacheproc">incorrectly</a>.
+      Or maybe your web server produces several logfiles, and your
+      <kbd><a href="logfmt.html#starredfmt">LOGFORMAT</a></kbd> specification
+      should have told analog to ignore some of the items in some of the
+      logfiles. It is not a problem if the logfiles are in fact completely
+      disjoint; for example if you analyse logfiles from two different virtual
+      hosts. In this case, the statistics produced will still be correct.
+</dl>
+<p>
+<h4><a name="warnsM">Category M</a></h4>
+This category is for warnings about logfile formats which might make analog
+produce unexpected results.
+<dl>
+  <dt><b>Logfile contains lines with no [whatevers], which are being
+      filtered</b>
+  <dd>This is usually harmless. It is perhaps best explained by
+      example. Suppose you are <a href="include.html">excluding</a> certain
+      files from the analysis, but that you are also analysing a browser log
+      which just contains information about the browsers used, not which files
+      they read. Then we can't exclude the browsers which read the excluded
+      files, because we don't know which they were, so all browsers will be
+      included.
+  <dt><b>Logfile contains lines with no file names (or bytes): page (or byte)
+      counts may be low</b>
+  <dd>If a logfile line doesn't contain a file name, analog will assume that
+      the request wasn't for a page. Similarly, if it doesn't give the number
+      of bytes transferred, analog will make the bytes zero. So the number of
+      page requests or bytes credited to the other items on that line will
+      then be too low.
+  <dt><b>Old-style cache file doesn't contain data on first-request times of
+      items; so these may be overestimated</b>
+  <dd>Cache files now contain the first-request time of each item. But if you
+      read a cache file from an older version of analog, this data will not
+      have been recorded, and so the last-request time will be used instead.
+  <dt><b>Cache file doesn't contain last-seven-day statistics</b>
+  <dd>It is impossible for cache files to record the number of requests in the
+      last 7 days, because the data would be wrong at the time the cache file
+      was read.
+</dl>
+<p>
+<h4><a name="warnsR">Category R</a></h4>
+This is used when analog turns off an empty report. This could be because none
+of the relevant items were included in any of the logfiles, or perhaps
+beacause a <kbd><a href="lowmem.html">LOWMEM</a></kbd> command stopped them
+being recorded. It is also used when analog turns off a pie chart which would
+have contained only one wedge.
+<p>
+<h4><a name="brokenpipe">Broken Pipe</a></h4>
+This warning is not generated by analog, but it can occur when analog decides
+that it doesn't need a logfile which it's uncompressing, and so doesn't finish
+reading it. It's harmless.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="Readme.html">Up</a> |
+<a href="defns.html">Prev</a> | <a href="faq.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

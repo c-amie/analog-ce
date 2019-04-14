@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- debugging</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="lowmem.html">Prev</a> | <a href="form.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0: Debugging</h1>
+<hr size=2 noshade>
+
+This section lists commands to help you debug analog, if you think it's
+going wrong. There's another section later which lists all the
+<a href="errors.html">errors and warnings</a> which analog can generate,
+and what they all mean, and another section which tells you
+<a href="mailing.html">how to report bugs</a>.
+
+<p>
+First, remember the option we mentioned before, to list the current settings
+of all of analog's variables. To get this, just put <kbd>-settings</kbd> on
+the command line, or <kbd>SETTINGS ON</kbd> in one of your configuration
+files, along with your other commands. Then analog will produce the list of
+settings instead of running in the normal way.
+
+<hr size=1 noshade>
+<a name="debugs">There are commands</a> which control how much debugging
+information and warning
+information analog gives out while it is running. By default you get all the
+warnings and no debugging, but you can change this by means of the commands
+<kbd>DEBUG</kbd> and <kbd>WARNINGS</kbd>. If you say
+<pre>
+DEBUG ON
+</pre>
+you get all the debugging. (And <kbd>DEBUG OFF</kbd> turns it all off.)
+You can also get just certain categories of debugging. The categories are
+<dl compact>
+  <dt><kbd>C</kbd><dd>list all corrupt logfile lines
+  <dt><kbd>D</kbd><dd>information about DNS lookups
+  <dt><kbd>F</kbd><dd>information about file opening and closing
+  <dt><kbd>S</kbd><dd>summary information about each logfile when it's closed
+  <dt><kbd>U</kbd><dd>list unknown domains
+  <dt><kbd>V</kbd><dd>list hosts without a domain (i.e., without a dot)
+</dl>
+So, for example, the command
+<pre>
+DEBUG FS
+</pre>
+would give you information about file opening and closing, and what was in
+each logfile, but none of the other sorts of debugging. Each line of debugging
+information is prepended with its code letter. You can also specify
+<pre>
+DEBUG +CD
+</pre>
+to add <kbd>C</kbd> and <kbd>D</kbd> category debugging to whatever you've
+already got, and
+<pre>
+DEBUG -CD
+</pre>
+to remove those two categories.
+<p>
+There is also a command line abbreviation for this command. Use
+<kbd>+V</kbd> (for <kbd>ON</kbd>), <kbd>-V</kbd> (for <kbd>OFF</kbd>),
+<kbd>+VFS</kbd> (to select exactly options <kbd>FS</kbd>), <kbd>+V+FS</kbd>
+(to add those options), and <kbd>+V-FS</kbd> (to remove them).
+<p>
+The <kbd>C</kbd> messages actually come on two lines. The first line gives the
+logfile line which was corrupt. The second line indicates where analog first
+noticed a problem. (This is usually, but not always, close to where the
+problem
+actually was!) In fact, each &quot;line&quot; of the message may spread over
+more than one line on your screen, and you have to be careful to take that into
+account when trying to find out where the logfile line was corrupt.
+<hr size=1 noshade>
+<a name="WARNINGS">The <kbd>WARNINGS</kbd></a> command acts similarly to the
+<kbd>DEBUG</kbd> command (see the syntax <a href="#debugs">above</a>). By
+default all warnings are on. As well as <kbd>WARNINGS ON</kbd> and
+<kbd>WARNINGS OFF</kbd>, you can turn warnings on and off in the following
+categories.
+<dl compact>
+  <dt><kbd>C</kbd><dd>invalid configuration specified
+  <dt><kbd>D</kbd><dd>dubious configuration specified
+  <dt><kbd>E</kbd><dd><kbd>ERRFILE</kbd> command used (see below)
+  <dt><kbd>F</kbd><dd>files missing or corrupt
+  <dt><kbd>L</kbd><dd>apparent problems in logfiles
+  <dt><kbd>M</kbd><dd>possible problems in logfiles
+  <dt><kbd>R</kbd><dd>turning off empty reports
+</dl>
+See the section on <cite><a href="errors.html#warns">Errors and
+warnings</a></cite> for more details about the various categories. Again,
+warnings are printed with their code letters.
+<p>
+Warnings range from the probably harmless to the usually serious.
+So it is generally not a good idea to turn all warnings off, or you might miss
+some important information. If you want to ignore a particular warning, turn
+just its category off.
+<p>
+There is also a command line version of the <kbd>WARNINGS</kbd> command,
+looking like <kbd>+q</kbd>, <kbd>-q</kbd>, <kbd>+q&lt;options&gt;</kbd>,
+<kbd>+q+&lt;options&gt;</kbd> or <kbd>+q-&lt;options&gt;</kbd>. (The syntax is
+the same as the <kbd>+V</kbd> command <a href="#debugs">above</a>.)
+<hr size=1 noshade>
+<a name="ERRFILE">By default</a> all these messages go to <i>standard
+error</i>, which is
+normally just the screen. But you can change that by means of a command like
+<pre>
+ERRFILE newfile
+</pre>
+If you do this, analog will warn you that it's redirecting the messages, just
+so that you don't miss any. To change back to standard error, use
+<pre>
+ERRFILE stderr
+</pre>
+The <kbd>ERRFILE</kbd> command will also erase any previous contents of that
+file. (So don't use the same <kbd>ERRFILE</kbd> command twice, or you may lose
+messages!)
+If the name of the <kbd>ERRFILE</kbd> doesn't include a directory, it will be
+put in whichever directory was specified for that purpose when the program was
+compiled. For example, on Windows it would be in the same folder as the analog
+executable.
+
+<hr size=1 noshade>
+<a name="ERRLINELENGTH">There is a command</a> called <kbd>ERRLINELENGTH</kbd>
+to tell analog the width of screen you want these messages to fit in. As a
+special case,
+<pre>
+ERRLINELENGTH 0
+</pre>
+specifies an unlimited screen width.
+
+<hr size=1 noshade>
+<a name="PROGRESSFREQ">There is one more command</a> which is useful when
+trying to debug analog. If you give the command
+<pre>
+PROGRESSFREQ 20000  # say
+</pre>
+then analog will produce a little message after every 20,000 lines it reads
+from the logfile. (This message is sent to the screen and to the
+<kbd><a href="#ERRFILE">ERRFILE</a></kbd>.) This is useful to determine
+whether the program has really stopped or (as is more likely) is just being
+slow for some reason (such as using DNS lookups).
+
+<hr size=1 noshade>
+There is just one more section about analog's configuration commands and
+command line arguments, but it's a rather long one, on the
+<a href="form.html">form interface</a>. (This is a way of running analog by
+selecting options from a web page.) You might prefer to go straight onto the
+section on <cite><a href="meaning.html">What the results mean</a></cite>.
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="lowmem.html">Prev</a> | <a href="form.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

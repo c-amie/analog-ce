@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- search arguments</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="include.html">Prev</a> | <a href="output.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0: Search arguments</h1>
+<hr size=2 noshade>
+
+Sometimes a URL contains arguments after a question mark. For example, the URL
+<pre>
+/cgi-bin/script.pl?x=1&amp;y=2
+</pre>
+runs the <kbd>/cgi-bin/script.pl</kbd> program with arguments <kbd>x=1</kbd>
+and <kbd>y=2</kbd>. (Sometimes the server records these arguments in a separate
+field in the logfile, but if so you can use the <kbd>%q</kbd> field in the
+<kbd><a href="logfmt.html#fmtstrings">LOGFORMAT</a></kbd> command, and analog
+will translate the filename to the above format).
+<p>
+You can tell analog either to read or to ignore the arguments using the
+commands <kbd>ARGSINCLUDE</kbd> and <kbd>ARGSEXCLUDE</kbd> which we'll discuss
+<a href="#ARGSINCLUDE">in a minute</a>. But by default, all arguments are
+read, and as this is usually what you want, you don't usually need those
+commands.
+<p>
+You don't always see the arguments in the reports, even if they're being
+read, because analog doesn't show them if there aren't enough of them. In
+order to see them, you have to set the corresponding
+<kbd><a href="hierreps.html#ARGSFLOOR">ARGSFLOOR</a></kbd> parameter low
+enough.
+<p>
+Also note that within a report, the search arguments are listed immediately
+under the file to which they refer. This temporarily interrupts the normal
+order of the files. It may be clearer if you turn the
+<a href="othreps.html#othCOLS"><kbd>N</kbd> column</a> on.
+<hr size=1 noshade>
+Assuming that the arguments are being read, analog treats the file
+<kbd>/cgi-bin/script.pl?x=1&amp;y=2</kbd> as a different file from
+<kbd>/cgi-bin/script.pl</kbd> (or from
+<kbd>/cgi-bin/script.pl?y=2&amp;x=1</kbd> for that matter). It doesn't look
+like that in the Request Report because you see a grand total for
+<kbd>/cgi-bin/script.pl</kbd> with all its different arguments. But it matters
+if you want to do <a href="include.html">inclusions and exclusions</a> or
+<a href="alias.html#useraliases">aliases</a> on the file.
+<p>
+<a name="unintuitive">The reason</a> is that, for example, the command
+<pre>
+FILEINCLUDE /cgi-bin/script.pl
+</pre>
+<em>doesn't</em> match the file <kbd>/cgi-bin/script.pl?x=1&amp;y=2</kbd>. To
+match that, you would have to use something like
+<pre>
+FILEINCLUDE /cgi-bin/script.pl*
+</pre>
+instead. Similarly
+<pre>
+FILEALIAS /cgi-bin/script.pl /script.pl
+</pre>
+will change <kbd>/cgi-bin/script.pl</kbd> itself, but not
+<kbd>/cgi-bin/script.pl?x=1&amp;y=2</kbd>. You might want to use something
+like
+<pre>
+FILEALIAS /cgi-bin/script.pl?* /script.pl?$1
+</pre>
+as well. (However, <kbd>PAGEINCLUDE</kbd> and <kbd>PAGEEXCLUDE</kbd> always
+refer to the part of the filename before the question mark.)
+<p>
+Conversely, because in the Request Report files with arguments are only
+included if their parent file is included, you can't just
+<pre>
+REQINCLUDE /cgi-bin/script.pl?*x=1*
+</pre>
+or you will end up with nothing listed. You have to
+<pre>
+REQINCLUDE /cgi-bin/script.pl
+</pre>
+as well.
+<hr size=1 noshade>
+<a name="ARGSINCLUDE">The alternative</a> is to tell analog not to read the
+search arguments. There are commands called <kbd>ARGSINCLUDE</kbd> and
+<kbd>ARGSEXCLUDE</kbd>, and <kbd>REFARGSINCLUDE</kbd> and
+<kbd>REFARGSEXCLUDE</kbd>, to do this. They work the same as the
+<a href="include.html">other <kbd>INCLUDE</kbd> and <kbd>EXCLUDE</kbd></a>
+commands which we discussed in the previous section. So, for example, if the
+command
+<pre>
+ARGSEXCLUDE /cgi-bin/script.pl
+</pre>
+were given, analog would ignore the arguments to that file, and so read
+<kbd>/cgi-bin/script.pl?x=1&amp;y=2</kbd> as just
+<kbd>/cgi-bin/script.pl</kbd>. On the other hand, if
+<pre>
+ARGSINCLUDE /cgi-bin/script.pl
+</pre>
+were specified, analog would read the arguments, and so treat
+<kbd>/cgi-bin/script.pl?x=1&amp;y=2</kbd> as a different file from
+<kbd>/cgi-bin/script.pl</kbd>.
+<kbd>REFARGSINCLUDE</kbd> and <kbd>REFARGSEXCLUDE</kbd> are the same
+for referrers.
+<p>
+Technical note: the check for whether the arguments should be included happens
+before the filename has been subject to either built-in or user-specified
+<a href="alias.html">aliases</a>. So you have to use the unaliased name,
+exactly as it occurs in the logfile. For example,
+<kbd>ARGSINCLUDE&nbsp;/~sret1/script.pl</kbd> won't match
+<kbd>/%7Esret1/script.pl</kbd> even though they are really the same
+file. It also means that you can't use &quot;<kbd>pages</kbd>&quot; in the
+<kbd>ARGSINCLUDE</kbd> or <kbd>ARGSEXCLUDE</kbd> command, because we don't
+know whether a file is a page until after it's been aliased.
+<hr size=1 noshade>
+<a name="SEARCHENGINE">There are related commands</a> called
+<kbd>SEARCHENGINE</kbd> and <kbd>INTSEARCHENGINE</kbd>. If you have referrers
+with search arguments, usually
+from search engines, you can tell analog which field corresponds to the search
+term. It uses this information to compile the Search Query Report and the
+Search Word Report. For example, consider the referrer
+<pre>
+http://www.altavista.com/cgi-bin/query?pg=q&amp;kl=XX&amp;q=carrot+cake
+</pre>
+The search term is in the field <kbd>q=</kbd> so the appropriate
+<kbd>SEARCHENGINE</kbd> command is
+<pre>
+SEARCHENGINE http://www.altavista.com/cgi-bin/query q
+</pre>
+(or even better
+<pre>
+SEARCHENGINE http://*altavista.*/* q
+</pre>
+to allow for all their mirror sites in different countries.)
+<p>
+The command <kbd>INTSEARCHENGINE</kbd> is the same for search engines, or
+other scripts which take arguments, within your site. For example, you might
+have requests for files like
+<pre>
+/cgi-bin/search?trm=chocolate+cake
+</pre>
+in which case you would specify
+<pre>
+INTSEARCHENGINE /cgi-bin/search trm
+</pre>
+and (assuming you haven't done an
+<kbd><a href="#ARGSINCLUDE">ARGSEXCLUDE</a></kbd> for that file)
+&quot;chocolate cake&quot; would then appear in your Internal Search Query
+Report.
+<p>
+Sometimes a search engine has two or more possible fields for the search
+term. In that case you can list all of them separated by commas, like this:
+<pre>
+SEARCHENGINE http://*webcrawler.*/* search,searchText
+</pre>
+<hr size=1 noshade>
+The rest of this section is a bit technical, and you usually don't need to
+worry about it. On a first reading, you probably want to
+<a href="output.html">skip it</a>.
+<p>
+<a name="SCC">I said</a> <a href="alias.html#DIRSUFFIX">previously</a> that
+<kbd>%7E</kbd> in a URL is automatically converted to <kbd>~</kbd>, etc. In
+fact this is only done to the ASCII-printable characters <kbd>%20-%7E</kbd>,
+because these are the only characters that are the same in every character
+set. (In fact, even that isn't true. Experts might want to know that
+<kbd>?</kbd>, <kbd>&amp;</kbd>, <kbd>;</kbd> and <kbd>=</kbd> aren't converted
+either, to
+distinguish them from query-string delimiters: an encoded <kbd>?</kbd>,
+<kbd>&amp;</kbd>, <kbd>;</kbd> or <kbd>=</kbd> is one that is not intended to
+be a delimiter. Also <kbd>%</kbd> isn't converted, to avoid confusing
+<kbd>%25nm</kbd> with <kbd>%nm</kbd>.)
+<p>
+But in the Search Query Report and Search Word Report it is useful to be able
+to convert non-ASCII characters too, so that you can see the actual words
+people typed, rather than get the <kbd>%nm</kbd> codes in place of all
+accented letters. So in these reports analog also converts characters
+<kbd>%A0-%FF</kbd> (if you are using an ISO-8859-* character set) or
+<kbd>%80-%FF</kbd> (for most other character sets).
+<p>
+However, there are reasons why you might not want this feature, and you can
+turn it off with the command
+<pre>
+SEARCHCHARCONVERT OFF
+</pre>
+These reasons include:
+<ol>
+  <li>The character set in which the query was submitted to the search engine
+      may not be the same as that in which the page reached was written, or
+      that in which the analog output page is being written. So converting to
+      the character set of the analog output page may give garbage anyway.
+      This is particularly a problem with languages, such as Russian,
+      which have two or more characters sets in common use. It is also a
+      problem for sites which host resources in many languages.
+  <li>Not all of the character positions correspond to printable characters in
+      every character set. Analog knows that <kbd>%80-%9F</kbd> are
+      non-printable in the ISO-8859-* character sets, but apart from that it
+      converts everything in <kbd>%80-%FF</kbd>. So you may end up with
+      non-printable characters in your output.
+</ol>
+<kbd>SEARCHCHARCONVERT</kbd> is always turned off if the output is in ASCII;
+and it defaults to off if the output is in a multibyte character set because it
+doesn't work well in that case.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="include.html">Prev</a> | <a href="output.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

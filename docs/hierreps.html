@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- hierarchical reports</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="othreps.html">Prev</a> | <a href="domfile.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0:
+Hierarchical reports</h1>
+<hr size=2 noshade>
+
+Some of the non-time reports have a hierarchical (or tree) structure:
+so, for example, each domain in the Domain Report can have subdomains
+listed under it, which in turn can have sub-subdomains, and so on. This
+section describes commands for managing hierarchical reports.
+
+<p>
+First, you need to be able to control what gets listed in the reports.
+For this you need to use the <kbd>SUB</kbd> family of commands. So, for
+example, the command
+<kbd>
+SUBDIR /~sret1/*
+</kbd>
+would ensure that the Directory Report would not only contain an entry for
+the sum of my files, but also one for each of my subdirectories, something
+like this:
+<pre>
+29,111: /~sret1/
+10,234:   /~sret1/analog/
+ 5,179:   /~sret1/backgammon/
+11,908: /~steve/
+</pre>
+You can have more than one <kbd>*</kbd> in the command. For example
+<pre>
+SUBDOMAIN *.*
+</pre>
+would list the whole Domain Report two levels deep.
+
+<p>
+If you specify a <kbd>SUB</kbd> command, all the intermediate levels are
+included automatically. So, for example, after
+<pre>
+SUBDOMAIN statslab.cam.ac.uk
+</pre>
+<kbd>cam.ac.uk</kbd> and <kbd>ac.uk</kbd> will be included in the Domain
+Report too, and after <kbd>*.*.ac.uk</kbd>, <kbd>*.ac.uk</kbd> will be
+included.
+
+<p>
+Here are examples of the other four <kbd>SUB</kbd> commands:
+<pre>
+SUBTYPE *.gz         # in the File Type Report
+SUBBROW */*          # e.g. Netscape/4 in the Browser Summary
+SUBBROW Netscape/*.*  # add minor version numbers for Netscape
+REFDIR http://search.yahoo.com/*   # Referring Site Report
+SUBORG *.aol.com     # Organisation Report
+SUBORG *.*.com       # Break down all .com's
+</pre>
+
+<p>
+<a name="subdomtwoarg">The</a> <kbd>SUBDOMAIN</kbd> command (but none of the
+others) can include a second
+argument describing the subdomain. For example
+<pre>
+SUBDOMAIN cam.ac.uk 'University of Cambridge'
+</pre>
+Then that subdomain will be listed with its translation in the Domain Report.
+You can also have numerical subdomains: e.g.,
+<pre>
+SUBDOMAIN 131.111 'University of Cambridge'
+</pre>
+If you sort the subdomains alphabetically, the numerical ones will also be
+sorted alphabetically, not numerically. I don't think this will cause any
+problems.
+
+<p>
+One other use for the <kbd>SUBDIR</kbd> command is if you have used the
+second argument to the <kbd><a href="logfile.html#secondarg">LOGFILE</a></kbd>
+command. Suppose you have translated files like <kbd>/index.html</kbd> into
+<kbd>http://www.mycompany.com/index.html</kbd>. Then the command
+<pre>
+SUBDIR http://*    # or
+SUBDIR http://*/*
+</pre>
+would be appropriate to make the Directory Report look right.
+
+<hr size=1 noshade>
+<a name="SUBFLOOR">The</a> <a name="SUBSORTBY">lower</a> levels of each report
+have <kbd>FLOOR</kbd> and <kbd>SORTBY</kbd>
+commands which work exactly the same as those we have
+<a href="othreps.html#SORTBY">already seen</a> for the
+top level. These commands are <kbd>SUBDIRFLOOR</kbd>, <kbd>SUBDOMFLOOR</kbd>,
+<kbd>SUBORGFLOOR</kbd>,
+<kbd>SUBTYPEFLOOR</kbd>, <kbd>SUBBROWFLOOR</kbd> and <kbd>REFDIRFLOOR</kbd>;
+and <kbd>SUBDIRSORTBY</kbd>, <kbd>SUBDOMSORTBY</kbd>, <kbd>SUBORGSORTBY</kbd>,
+<kbd>SUBTYPESORTBY</kbd>, <kbd>SUBBROWSORTBY</kbd> and <kbd>REFDIRSORTBY</kbd>.
+
+<p>
+A sub-item is listed in a hierarchical report only if it is above the
+sub-<kbd>FLOOR</kbd>, <i>and</i> it is included with a <kbd>SUB</kbd> command,
+<i>and</i> it is not excluded because of an
+<a href="include.html#outputexcludes"><kbd>INCLUDE</kbd> or
+<kbd>EXCLUDE</kbd></a> command, <i>and</i> its immediate parent is listed. For
+example, specifying
+<pre>
+SUBDIR /*/*/
+SUBDIRFLOOR -3r
+SUBDIRSORTBY REQUESTS
+</pre>
+would list the three subdirectories with most requests under each directory.
+<kbd>SUBDIRFLOOR 1:r</kbd> would have listed any subdirectory with at least
+1% of the maximum number of requests of any <em>top level</em> directory.
+<p>
+<a name="ARGSFLOOR">The</a> <a name="ARGSSORTBY">three</a> file reports
+(Request Report, Redirection Report and Failure
+Report) and the three referrer reports (Referrer Report, Redirected Referrer
+Report and Failed Referrer Report) are not fully hierarchical, but they do
+list <a href="args.html">search arguments</a> together under the file to which
+they refer (provided that the arguments have been read in: see the
+<kbd><a href="args.html#ARGSINCLUDE">ARGSINCLUDE</a></kbd> command).
+So they have
+similar sub-<kbd>FLOOR</kbd> and sub-<kbd>SORTBY</kbd> commands, namely
+<kbd>REQARGSFLOOR</kbd>, <kbd>REDIRARGSFLOOR</kbd>, <kbd>FAILARGSFLOOR</kbd>,
+<kbd>REFARGSFLOOR</kbd>, <kbd>REDIRREFARGSFLOOR</kbd> and
+<kbd>FAILREFARGSFLOOR</kbd>; and <kbd>REQARGSSORTBY</kbd>,
+<kbd>REDIRARGSSORTBY</kbd>, <kbd>FAILARGSSORTBY</kbd>,
+<kbd>REFARGSSORTBY</kbd>, <kbd>REDIRREFARGSSORTBY</kbd> and
+<kbd>FAILREFARGSSORTBY</kbd>.  The same
+applies to the Operating System Report with its subdivisions of operating
+systems: it has <kbd>SUBOSFLOOR</kbd> and <kbd>SUBOSSORTBY</kbd>.
+<hr size=1 noshade>
+The lower levels of a hierarchical report temporarily interrupt the top
+level, and even though they are indented, this can sometimes make it look as
+if the report is out of order. If you have a lot of sub-items, for example in
+the Referrer Report if there are a lot of search arguments, then including the
+<a href="othreps.html#othCOLS"><kbd>N</kbd> column</a> can help to make it
+clearer again.
+<hr size=1 noshade>
+<a name="CHARTEXPAND">Sometimes one item</a> in the
+<a href="othreps.html#CHART">pie chart</a> takes up most of the pie. In this
+case, you can elect to plot its sub-items on the chart instead, by using the
+<kbd>*CHARTEXPAND</kbd> family of commands. For example
+<pre>
+OSCHARTEXPAND Windows
+</pre>
+will use Windows 98, Windows NT etc. as wedges in the pie chart, instead of
+accumulating all the Windows versions together in one wedge.
+The complete list of these commands is
+<kbd>DIRCHARTEXPAND</kbd>, <kbd>DOMCHARTEXPAND</kbd>,
+<kbd>ORGCHARTEXPAND</kbd>, <kbd>TYPECHARTEXPAND</kbd>,
+<kbd>BROWCHARTEXPAND</kbd>, <kbd>OSCHARTEXPAND</kbd>,
+<kbd>REQCHARTEXPAND</kbd>, <kbd>REDIRCHARTEXPAND</kbd>,
+<kbd>FAILCHARTEXPAND</kbd>, <kbd>REFCHARTEXPAND</kbd>,
+<kbd>REDIRREFCHARTEXPAND</kbd>, <kbd>FAILREFCHARTEXPAND</kbd> and
+<kbd>REFSITECHARTEXPAND</kbd>. The <kbd>CHARTEXPAND</kbd> commands can take a
+comma-separated list (without spaces) as an argument, but not wildcards.
+<p>
+Just as for top-level items, sub-items will only be included if they are listed
+in the main table for the report. And so if an item does not have any
+sub-items listed, it will not be expanded, even if you asked for it to be.
+This means that you may need to use the appropriate
+<a href="hierreps.html"><kbd>SUB</kbd></a> commands or
+<a href="#SUBFLOOR"><kbd>SUBFLOOR</kbd></a> commands to make sure that the
+sub-items do get listed. For example
+<pre>
+SUBDOMAIN *.com
+DOMCHARTEXPAND .com
+</pre>
+<p>
+Also, sub-items will only appear on the pie chart if they are large enough to
+get on in their own right. Note that if an item has any sub-items listed, and
+is expanded, then the item itself will no longer appear on the chart, only
+any sub-items which are large enough.
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="othreps.html">Prev</a> | <a href="domfile.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

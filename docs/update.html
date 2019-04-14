@@ -1,0 +1,520 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- upgrading from earlier versions</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="whatsnew.html">Up</a> |
+<a href="whatsnew.html">Prev</a> | <a href="wasnew4.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0:
+Upgrading from earlier versions</h1>
+<hr size=2 noshade>
+
+This section lists those commands which existed in older versions of analog,
+but which have been changed or abolished in this version. It also lists reasons
+why the same input might now produce different output. The new features in this
+version are listed in the section <cite><a href="whatsnew.html">What's new in
+this version?</a></cite>.
+<p>
+If you are upgrading from a previous version of analog, you should keep your
+old <kbd>analog.cfg</kbd>, and your old <kbd>anlghead.h</kbd> if you are
+compiling your own copy of analog rather than using one of the precompiled
+versions.
+
+<h2><a name="up5911">Upgrading from 5.91beta1 and earlier</a></h2>
+<ul>
+  <li>The <kbd><a href="dns.html#DNSTIMEOUT">DNSTIMEOUT</a></kbd> command is
+  now off by default. On platforms where it's available, you have to specify
+  it explicitly if you want it.
+</ul>
+  
+<h2><a name="up5902">Upgrading from 5.90beta2 and earlier</a></h2>
+<ul>
+  <li>The <a href="compout.html">computer-readable output style</a> now forces
+  English language output. The idea is to have a consistent output style, and
+  let the post-processor do any necessary localisation. But this may break some
+  existing applications.
+</ul>
+
+<h2><a name="up532">Upgrading from 5.32 and earlier</a></h2>
+<ul>
+  <li>The default output style is now XHTML, not HTML. Also the command-line
+      argument &quot;<kbd>-a</kbd>&quot; selects XHTML, not HTML.
+  <li>If you are using a style sheet for HTML output, it probably won't work
+      well with XHTML output, because it <em>replaces</em> the default style
+      sheet. So you will probably need to write a new one for XHTML.
+  <li>The default for <kbd><a href="output.html#PNGIMAGES">PNGIMAGES</a></kbd>
+      is now <kbd>ON</kbd>, so bar charts are made from png's not gif's by
+      default. Some users may need to copy the png versions of the bar charts
+      into their images directory.
+</ul>
+
+<h2><a name="up531">Upgrading from 5.31 and earlier</a></h2>
+<ul>
+  <li>More browsers are recognised, which will also reduce
+      the Mozilla numbers.
+</ul>
+
+<h2><a name="up524">Upgrading from 5.24 and earlier</a></h2>
+<ul>
+  <li>In the Operating System Report, Macintosh is no longer split into PPC
+      and 68k. (68k is now so rare that it's not worth it. Unfortunately,
+      it's not possible to distinguish OS 9 from OS X, because the browsers
+      don't all report it.)
+  <li>The language files have changed, so don't try and use the old ones.
+  <li>Some dead search engines have been removed from the default
+      configuration file, and some new ones added.
+  <li>Kilobytes, megabytes etc. are now listed to two not three decimal places
+      by default; but you can configure the number of decimal places with the
+      new <kbd><a href="output.html#RAWBYTES">BYTESDP</a></kbd> command.
+</ul>
+
+<h2><a name="up523">Upgrading from 5.23 and earlier</a></h2>
+<ul>
+  <li>There will be small changes to the browser and operating system reports
+      thanks to better parsing of recent Netscape and Mozilla browsers.
+  <li>In version 5.23 and earlier, earlier <kbd>UNCOMPRESS</kbd> commands took
+      precedence over later ones. This has been corrected in 5.24.
+</ul>
+      
+<h2><a name="up521">Upgrading from 5.21 and earlier</a></h2>
+<ul>
+  <li>As a side-effect of the security fix in version 5.22, the
+      <kbd>JAPANESE-JIS</kbd> character set no longer works from the form
+      interface.
+</ul>
+
+<h2><a name="up51">Upgrading from 5.1 and earlier</a></h2>
+<ul>
+  <li>The language files have all changed, so don't try and use the old ones.
+  <li>The rules for generating &quot;organisations&quot; from numerical
+      addresses have changed, which will change the Organisation Report.
+  <li>Filenames given on the command line, as opposed to in configuration
+      commands, are now relative to the current directory, not the analog
+      directory. This will probably only affect Unix users.
+</ul>
+
+<h2><a name="up503">Upgrading from 5.03 and earlier</a></h2>
+<ul>
+  <li>The code to generate the Browser Summary has been completely rewritten.
+      Apart from now recognising Konqueror and Galeon, and distinguishing
+      Mozilla and Netscape, this may result in other small changes to the
+      reported numbers. Also, if you are using a configuration file from an
+      earlier version, remove the line that reads
+      <pre>BROWOUTPUTALIAS Mozilla Netscape</pre>
+  <li>Similarly, the code to generate the Operating System Report has been
+      slightly modified, in addition to recognising Windows XP.
+  <li>Numerical addresses are now included in the Organisation Report, which
+      will change that report.
+  <li>Some <a href="errors.html#warns">warnings</a> have moved from category C
+      to category F or to the new category G.
+  <li><a href="args.html#SCC"><kbd>SEARCHCHARCONVERT</kbd></a> is now always
+      turned off in multibyte character sets.
+  <li>The <a href="othreps.html#CHART">default plotting method</a> for the pie
+      charts will now take the <kbd>FLOOR</kbd> into account as well as the
+      <kbd>SORTBY</kbd>.
+  <li>The <a href="output.html#outstyle"><kbd>LATEX</kbd> output style</a> now
+      produces LaTeX suitable for converting to PDF with the
+      <kbd>pdflatex</kbd> command. If you want to use the ordinary
+      <kbd>latex</kbd> command, specify <kbd>PDFLATEX OFF</kbd>.
+</ul>
+
+<h2><a name="up502">Upgrading from 5.02 and earlier</a></h2>
+<ul>
+  <li>The order of the lines in the report descriptions files has changed, so
+      don't try to use the old versions.
+</ul>
+
+<h2><a name="up501">Upgrading from 5.01 and earlier</a></h2>
+<ul>
+  <li><kbd>LANGUAGE JAPANESE</kbd> now selects the JIS character set instead
+      of EUC. (Four Japanese character sets can be chosen explicitly through
+      the <kbd><a href="output.html#LANGUAGE">LANGUAGE</a></kbd> command.)
+</ul>
+
+<h2><a name="up50">Upgrading from 5.0 and earlier</a></h2>
+<ul>
+  <li>The language files have all changed, so don't try and use the old ones.
+  <li>Organisations in Belgium are now considered to be at depth 3, which will
+      change the Organisation Report.
+  <li>There are some new images in the <kbd>images/</kbd> directory, which you
+      will have to copy into your <kbd>IMAGEDIR</kbd>.
+</ul>
+
+<h2><a name="up4911">Upgrading from 4.91beta1 and earlier</a></h2>
+<ul>
+  <li><kbd>LOCALCHARTDIR</kbd> and <kbd>DESCFILE</kbd> can no longer be
+      specified from the form interface, for
+      <a href="form.html#security">security reasons</a>.
+</ul>
+
+<h2><a name="up4904">Upgrading from 4.90beta4 and earlier</a></h2>
+<ul>
+  <li>Previously, when an <a href="include.html#outputexcludes">output
+      <kbd>INCLUDE</kbd> or <kbd>EXCLUDE</kbd></a> command was in operation,
+      the excluded items were still included in the &quot;not listed&quot;
+      line at the bottom of the report. This is no longer the case.
+      Also, percentages of the requests and bytes are now calculated
+      <em>ignoring</em> the excluded items, which will make those numbers
+      larger, make their wedges in the pie charts larger, and change what is
+      included by <a href="othreps.html#FLOOR">floors</a> specified in terms of
+      percentages.
+</ul>
+
+<h2><a name="up4903">Upgrading from 4.90beta3 and earlier</a></h2>
+<ul>
+<li>The Operating System Report, Browser Report &amp; Browser Summary are now
+    sorted by page requests instead of raw requests by default.
+</ul>
+
+<h2><a name="up4901">Upgrading from 4.90beta1 and earlier</a></h2>
+<ul>
+  <li>There are some new files (with names beginning with <kbd>sq</kbd>) in
+      the <kbd>images/</kbd> directory. These will need to be copied into your
+      <kbd>IMAGEDIR</kbd>.
+  <li><kbd>*.asp</kbd> is no longer included in the
+      <a href="defns.html">default definition of &quot;pages&quot;</a> (which
+      it was from 4.11 to 4.90beta1) because there are too many other equally
+      well qualified candidates. But you can easily re-enable it in
+      <kbd>analog.cfg</kbd>.
+  <li>The format of the &quot;busiest time&quot; and floor/sortby lines has
+      changed in the <a href="compout.html">computer-readable output</a>.
+  <li>The default <a href="dns.html#DNShours"><kbd>DNSGOODHOURS</kbd> and
+      <kbd>DNSBADHOURS</kbd></a> have been increased. In particular, the
+      default <kbd>DNSGOODHOURS</kbd> is now as near infinity as makes no
+      difference!
+</ul>
+
+<h2><a name="up416">Upgrading from 4.16 and earlier</a></h2>
+<ul>
+  <li>Some languages have still not been translated for version 5 yet:
+      see the list of available languages in the
+      <cite><a href="whatsnew.html">What's new?</a></cite> section.
+  <li>All files are now looked for in sensible directories, specified at
+      compile time, if no other directory is specified. On platforms where
+      these directories are not known at compile time, analog formerly looked
+      in the current working directory, but now looks in (its guess at) the
+      directory of the analog binary. However, filenames specified in command
+      line arguments are within the current working directory since version
+      5.2.
+  <li>The cache file now includes data on the first-request time of each
+      item. But if you read a cache file from an older version of analog, this
+      data will not have been recorded, and so the last-request time will be
+      used instead. Analog will warn you about this.
+  <li>If you specify a <kbd>CACHEFILE</kbd> command but no <kbd>LOGFILE</kbd>
+      command, analog won't read the default (compile-time) logfile. This is
+      much more intuitive behaviour, but some users may have been relying on
+      the old behaviour. The actual rule is given in the documentation on
+      <cite><a href="cache.html">Cache files</a></cite>.
+  <li>Some browsers will be rediagnosed as robots in the Operating System
+      Report. This will mainly reduce the &quot;OS unknown&quot; total, but
+      may also reduce other categories.
+  <li>US English now uses the 12-hour clock by default. If you
+      want to continue to use the 24-hour clock, use the language file
+      <kbd>us24.lng</kbd> instead. (Either use a
+      <kbd><a href="output.html#LANGUAGE">LANGFILE</a></kbd> command, or
+      rename <kbd>us24.lng</kbd> to <kbd>us.lng</kbd>). Conversely, you can
+      get British English with the 12-hour clock by using <kbd>uk12.lng</kbd>.
+  <li>Because of the twelve new reports, if you use a
+      <kbd><a href="output.html#REPORTORDER">REPORTORDER</a></kbd> command,
+      you should include the corresponding new
+      <a href="output.html#replist">letters</a>: <kbd>1Q76wLlMRjyY</kbd>.
+  <li><a href="compout.html">Computer readable output</a> now has an extra
+      line reporting the busiest time period for the time reports.
+  <li>The <a href="logfile.html#datecodes">date codes</a> in the
+      <kbd>OUTFILE</kbd> and <kbd>CACHEOUTFILE</kbd> commands now always
+      produce dates in English.
+  <li>The <kbd>REFLINKINCLUDE</kbd> command now only controls links in the
+      Referrer Report. Use <kbd>REDIRREFLINKINCLUDE</kbd> and
+      <kbd>FAILREFLINKINCLUDE</kbd> for the Redirected and Failed Referrer
+      Reports.
+  <li>When doing a negative <a href="othreps.html#FLOOR">floor</a>, items are
+      no longer included if they have 0 of the criterion in question, even if
+      there aren't enough items otherwise. For example <kbd>FLOOR -25p</kbd>
+      will list fewer than 25 items if there aren't 25 items with requests for
+      pages, even if there are other items with 0 requests for pages.
+  <li>When a logfile line contains bytes but no filename, analog previously
+      ignored the bytes. It now counts them for other items on the line, but
+      doesn't put them in the File Size Report or General Summary (to avoid
+      double-counting).
+  <li>There are no longer any HTML language files containing HTML entities. So,
+      for example, the HTML output will always contain a literal &eacute;
+      instead of the code &amp;eacute;. This <em>should</em> make no
+      difference to the reader, but please do tell me about any problems.
+  <li>The source files have moved to the <kbd>src/</kbd> directory. And there
+      are new source files in subdirectories of the <kbd>src/</kbd> directory.
+      Also the  header files have different variables in them. This means that
+      automatic build scripts will have to be rewritten.
+</ul>
+
+<h2><a name="up413">Upgrading from 4.13 and earlier</a></h2>
+<ul>
+  <li>Regular expressions in an <kbd>INCLUDE</kbd> or <kbd>EXCLUDE</kbd>
+      command must now occur on a line on their own, not within a
+      comma-separated list.
+  <li>The search terms reported in the Search Word and Search Query Reports
+      are no longer converted to lower case if you are using a multibyte
+      character set.
+  <li>Unprintable characters in the output are now replaced by '?', except for
+      multibyte character sets.
+</ul>
+
+<h2><a name="up411">Upgrading from 4.11 and earlier</a></h2>
+<ul>
+  <li><kbd>*INCLUDE ""</kbd> and <kbd>*EXCLUDE ""</kbd> (see
+      <a href="include.html#incblank">documentation</a>) now apply to items
+      which were present but corrupt. This may have the effect of including or
+      excluding some new lines.
+  <li>There has been a tiny change in <a href="compout.html">computer-readable
+      output style</a>. Previously if a time was blank, it took up only one
+      column. Now it takes up as many columns as if it had been present.
+</ul>
+
+<h2><a name="up41">Upgrading from 4.1 and earlier</a></h2>
+<ul>
+  <li>The <a href="defns.html">default definition of &quot;pages&quot;</a> is
+      now case insensitive: so it includes <kbd>*.HTM</kbd> and even
+      <kbd>*.hTmL</kbd> etc. This will serve to increase the page count.
+</ul>
+
+<h2><a name="up404">Upgrading from 4.04 and earlier</a></h2>
+<ul>
+  <li>There is better parsing of extended format and WebSTAR format logs,
+      which may cause differences in some cases.
+  <li>All referrers now count as &quot;pages&quot; irrespective of
+      any <kbd>PAGEINCLUDE</kbd> and <kbd>PAGEEXCLUDE</kbd> commands.
+      Consequently, for example,
+      &quot;<kbd>REFLINKINCLUDE&nbsp;pages</kbd>&quot; is now the
+      same as &quot;<kbd>REFLINKINCLUDE&nbsp;*</kbd>&quot;. You can recreate
+      the previous behaviour with
+      &quot;<kbd>REFLINKINCLUDE&nbsp;*.html,*.htm,*/</kbd>&quot;.
+  <li>The default <kbd>REPORTORDER</kbd> has changed.
+  <li>New anchor names are used internally to the output page.
+</ul>
+
+<h2><a name="up403">Upgrading from 4.03 and earlier</a></h2>
+<ul>
+  <li>There may be slight differences in the results in this version owing to
+      stripping anchors off filenames.
+</ul>
+
+<h2><a name="up40">Upgrading from 4.0 and earlier</a></h2>
+<ul>
+  <li>Some of the default paths have changed in <kbd>anlghead.h</kbd>.
+</ul>
+
+<h2><a name="up390b1">Upgrading from 3.90beta1 and earlier</a></h2>
+<ul>
+  <li>It is now recommended that you don't run analog as a CGI program, or put
+      it in the directory with your CGI programs, for
+      <a href="form.html#notcgi">security reasons</a>.
+  <li>Each browser in the Browser Summary is now sorted by major version
+      number then minor version number. So <kbd>SUBBROW&nbsp;*/*</kbd> will now
+      only show the major versions. To get all the minor versions, you need
+      <kbd>SUBBROW&nbsp;*/*.*</kbd>
+  <li><kbd>PAGEWIDTH</kbd> has been replaced by
+      <kbd><a href="output.html#PAGEWIDTH">HTMLPAGEWIDTH</a></kbd> and
+      <kbd><a href="output.html#PAGEWIDTH">ASCIIPAGEWIDTH</a></kbd>.
+  <li><kbd>PRINTVARS</kbd> has been renamed
+      <kbd><a href="syntax.html#settings">SETTINGS</a></kbd>.
+</ul>
+
+<h2><a name="up332">Upgrading from 3.32 and earlier</a></h2>
+<ul>
+  <li>The form interface has been completely rewritten, and old versions of
+      <kbd>anlgform.html</kbd> will not work with this version.
+  <li>The Browser Summary now diagnoses MSIE, Opera and WebTV browsers
+      better. This will cause differences in output from previous versions.
+  <li>With <kbd>RAWBYTES OFF</kbd>, bytes are now listed as, for example,
+      47.68 Mbytes instead of 48,832 kbytes. This should be less confusing.
+  <li>The <a href="dns.html">DNS file</a> has a new time encoding. It's only a
+      few hours different, so I haven't made any special provision for it. The
+      effect is that the <kbd><a href="dns.html">DNSGOODHOURS</a></kbd> and
+      <kbd><a href="dns.html">DNSBADHOURS</a></kbd> may be a few hours out
+      for existing entries (but not for new ones).
+</ul>
+
+<h2><a name="up33">Upgrading from 3.3 and earlier</a></h2>
+<ul>
+  <li>There is a new set of graphics in the <kbd>images</kbd> directory, which
+      you will have to move to your web directory.
+  <li>In the Mac version, if a configuration file is dragged onto the analog
+      icon, it is used instead of, not as well as, the default configuration
+      file.
+</ul>
+
+<h2><a name="up32">Upgrading from 3.2 and earlier</a></h2>
+<ul>
+  <li>In the <a href="compout.html">computer-readable output style</a>, the
+      line <kbd>L7</kbd>, the time the last seven days begins after, has been
+      replaced by <kbd>E7</kbd>, the time the last seven days ends. This is
+      for consistency with the other output styles.
+  <li>Also in the computer-readable output, there is a new line reporting the
+      floor and the <kbd>SORTBY</kbd> for the report. In 3.11 and earlier,
+      this didn't exist, and in 3.2 it only reported the floor, not the
+      <kbd>SORTBY</kbd>.
+  <li><kbd>%R</kbd> (Mac-style filename) has been abolished in the
+      <kbd>LOGFORMAT</kbd>. Just use plain <kbd>%r</kbd> instead.
+  <li>It is no longer allowed to set the <kbd>CACHEOUTFILE</kbd> to be the
+      same as a previous cache file.
+  <li>The definition of the common log format and related formats changed
+      between 3.11 &amp; 3.2, and again between 3.2 &amp; 3.3. This could
+      cause differences in output, but they are likely to be only very minor.
+</ul>
+
+<h2><a name="up311">Upgrading from 3.11 and earlier</a></h2>
+<ul>
+  <li>Lines without a particular item now work properly with
+      <kbd>INCLUDE</kbd> and <kbd>EXCLUDE</kbd> commands. For example, if
+      you do an <kbd>INCLUDE</kbd> to look at only certain lines, then lines
+      without that type of item at all will not now be included, whereas
+      previously they would have been. This can make the results lower than in
+      these earlier versions.
+  <li>I have reluctantly removed support for NetPresenz logs. This hasn't
+      worked for some time, and I have already been advising NetPresenz users
+      not to use newer versions of analog because they could get wrong
+      results. Unfortunately, fixing it would require a complete rewrite of
+      the entire parsing code, which isn't going to happen any time soon. So
+      my advice remains the same: continue to use version 2.11 or (even
+      better) pre-process your logfiles into a form which analog can handle
+      safely.
+  <li>The English domains file has changed name from <kbd>domains.tab</kbd>
+      to <kbd>ukdom.tab</kbd>.
+</ul>
+
+<h2><a name="up30winform">Upgrading from 3.0, Win32 form interface</a></h2>
+<ul>
+<li>If using the form interface on Windows, it is now necessary to put the
+analog executable at <kbd>\analog\analog.exe</kbd> instead of
+<kbd>\Program&nbsp;Files\analog\analog.exe</kbd>
+</ul>
+
+<h2><a name="up290b1">Upgrading from 2.90beta1</a></h2>
+<ul>
+  <li><kbd>LOGFORMAT MICROSOFT</kbd> has been replaced by
+      <kbd>LOGFORMAT MICROSOFT-NA</kbd> and <kbd>LOGFORMAT MICROSOFT-INT</kbd>;
+      and similarly for <kbd>LOGFORMAT NETPRESENZ</kbd>.
+</ul>
+
+<h2><a name="up211">Upgrading from 2.11 and earlier</a></h2>
+<ul>
+  <li>It is possible that there may be small discrepancies between the results
+      from previous versions and the results from this version because the
+      parsing code has changed, but any such differences should be minor.
+      However...
+  <li>If you used to use <kbd>REFEXCLUDE</kbd> or <kbd>BROWEXCLUDE</kbd>, you
+      most likely now want
+      <kbd><a href="include.html#outputexcludes">REFREPEXCLUDE</a></kbd> or
+      <kbd><a href="include.html#outputexcludes">BROWREPEXCLUDE</a></kbd>
+      instead, or you will exclude lots of lines that were previously included.
+  <li>It is possible that this version may not automatically parse a logfile
+      that previous versions could parse, because it checks more carefully
+      that the logfile is in the format claimed. If so, you will have to use a
+      <kbd><a href="logfmt.html">LOGFORMAT</a></kbd> command.
+  <li>Approximate host counting has been abolished, unless there's a
+      significant demand for it.
+  <li>Count of number of new hosts in last seven days abolished. It was too
+      confusing because it depended on which old logfiles you analysed.
+  <li>The Error Report has been abolished (together with the configuration
+      commands <kbd>ERROR</kbd>, <kbd>ERRLOG</kbd> and <kbd>ERRMINOCCS</kbd>).
+      See the <cite><a href="whatsnew.html">What's new?</a></cite> page.
+  <li>The <kbd>BROWLOG</kbd> and <kbd>REFLOG</kbd> commands have also been
+      abolished: just use <kbd><a href="logfile.html">LOGFILE</a></kbd>
+      instead.
+  <li>The <kbd>HASHSIZE</kbd> commands have been abolished: analog now chooses
+      the size of the hash tables itself.
+  <li>The <kbd>MINREQS</kbd> and similar options have been replaced by the
+      <kbd><a href="othreps.html#FLOOR">FLOOR</a></kbd> commands.
+  <li>Only one <kbd>*</kbd> is now allowed on the left-hand side of aliases,
+      to avoid ambiguities.
+  <li>Automatic detection of log type is now on a per-file rather than a
+      per-line basis.
+  <li><kbd>ISPAGE</kbd> is now called
+      <kbd><a href="include.html#PAGEINCLUDE">PAGEINCLUDE</a></kbd>.
+  <li><kbd>WITHARGS</kbd> and <kbd>REFWITHARGS</kbd> are now called
+      <kbd><a href="args.html#ARGSINCLUDE">ARGSINCLUDE</a></kbd> and
+      <kbd><a href="args.html#ARGSINCLUDE">REFARGSINCLUDE</a></kbd>.
+  <li><kbd>MONTHLYBACK</kbd> is now called <kbd>MONTHBACK</kbd>.
+  <li><kbd>FULLHOSTS</kbd> is now just called <kbd>HOST</kbd>.
+  <li>The old <kbd>LOGOURL</kbd> command is now called <kbd>LOGO</kbd>.
+      <kbd>LOGOURL</kbd> now has a new function, namely where to link the logo
+      to.
+  <li>The <kbd>UNIT</kbd> commands have been abolished. They weren't very
+      useful, and they didn't make much sense with the different ways of
+      displaying the time report bar charts. The unit is now always chosen
+      automatically.
+  <li><kbd>DIRLEVEL</kbd> has been abolished, because the
+      <kbd><a href="hierreps.html">SUBDIR</a></kbd> command is more general.
+      Use <kbd>SUBDIR */*</kbd> or whatever instead.
+  <li>Comments aren't allowed in the <a href="domfile.html">domains file</a>.
+      I don't think this should cause a problem.
+  <li><kbd>GRAPHICAL</kbd> is abolished. Instead, use lower case letters with
+      the <kbd>GRAPH</kbd> commands.
+  <li><kbd>NUMLOOKUP</kbd> has been replaced by
+      <kbd><a href="dns.html">DNS</a></kbd>, and <kbd>DNSFRESHHOURS</kbd>
+      by the commands <kbd><a href="dns.html">DNSGOODHOURS and
+      DNSBADHOURS</a></kbd>.
+  <li>DNS cache files from previous versions are not compatible with this
+      version.
+  <li>You can't use <kbd>PAGES</kbd> in the columns or <kbd>SORTBY</kbd> or
+      <kbd>FLOOR</kbd> for the Request Report. Use <kbd>REQINCLUDE pages</kbd>
+      instead.
+  <li><kbd>-</kbd> as a synonym for <kbd>none</kbd> has been abolished in some
+      places, e.g., <kbd>HOSTURL</kbd>.
+  <li>The following command line arguments have been abolished from earlier
+      versions, many of the letters getting new meanings: <kbd>7</kbd>,
+      <kbd>l</kbd>, <kbd>n</kbd>, <kbd>p</kbd>, <kbd>s</kbd>, <kbd>u</kbd>,
+      <kbd>v</kbd>, <kbd>w</kbd>. (<kbd>-v</kbd> has moved to
+      <kbd>-settings</kbd>.) Others have been changed since version 1.2 as
+      well.
+</ul>
+
+<h2><a name="up20win">Upgrading from 2.0, Win32 users</a></h2>
+
+<ul>
+  <li>Filenames for logfiles etc. should now be given DOS-style, with
+      backslashes, rather than Unix-style with forward slashes.
+</ul>
+
+<h2><a name="up192mac">Upgrading from 1.92 and earlier, Mac users</a></h2>
+
+<ul>
+  <li>There is no longer an automatic progress report. Use the
+     <kbd><a href="debug.html#PROGRESSFREQ">PROGRESSFREQ</a></kbd> command
+      instead.
+</ul>
+
+<h2><a name="up19b">Upgrading from 1.9beta's</a></h2>
+
+<ul>
+  <li>Use <kbd><a href="include.html#outputexcludes">REQINCLUDE</a></kbd> and
+      <kbd><a href="include.html#LINKINCLUDE">LINKINCLUDE</a></kbd> instead of
+      <kbd>REQTYPE</kbd> and <kbd>PAGELINKS</kbd>.
+</ul>
+
+<h2><a name="up12">Upgrading from 1.2's and earlier</a></h2>
+
+<ul>
+  <li>Use <a href="include.html"><kbd>*INCLUDE</kbd> and
+      <kbd>*EXCLUDE</kbd></a> instead of <kbd>*ONLY</kbd> and
+      <kbd>*IGNORE</kbd>.
+  <li>The syntax of the <kbd>*FLOOR</kbd> commands has changed.
+  <li>Use <kbd>*SORTBY REQUESTS</kbd> or <kbd>BYTES</kbd> instead of
+      <kbd>*SORTBY BYREQUESTS</kbd> or <kbd>BYBYTES</kbd>.
+</ul>
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="whatsnew.html">Up</a> |
+<a href="whatsnew.html">Prev</a> | <a href="wasnew4.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

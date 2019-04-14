@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- what was new in version 4?</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="whatsnew.html">Up</a> |
+<a href="update.html">Prev</a> | <a href="wasnew3.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0:
+What was new in version 4?</h1>
+<hr size=2 noshade>
+
+This section lists the new features which were in version 4 of analog.
+
+<dl>
+  <dt><b><a href="whatsnew.html">What's new in version 6?</a></b>
+  <dt><b><a href="wasnew5.html">What was new in version 5?</a></b>
+  <dt><b><a name="new4.16">4.16</a></b> (13-Feb-01)
+  <dd>Security fix for <a href="http://www.analog.cx/security2.html">buffer
+      overflow bug</a>.
+      <br>Small correction to Brazilian Portuguese language file.
+  <dt><b><a name="new4.15">4.15</a></b> (01-Feb-01)
+  <dd>Bug fixes for accented letters in dates and for EBCDIC character set.
+  <dt><b><a name="new4.14">4.14</a></b> (22-Jan-01)
+  <dd>Commas are allowed in regular expressions.
+      <br>Can do a <kbd>FLOOR</kbd> beyond Terabytes.
+      <br>OS X &amp; MPE/iX ports.
+      <br>Bug fixes, especially for multibyte character sets.
+      <br>Unprintable characters in the report are now replaced by '?'.
+      <br>Traditional Chinese, Portuguese, Brazilian Portuguese, US English
+      and corrected French domains files.
+      <br>Rewrote the documentation on <cite><a href="cache.html">Cache
+      files</a></cite>. Added some new data to
+      <cite><a href="webworks.html">How the Web Works</a></cite>.
+  <dt><b><a name="new4.13">4.13</a></b> (11-Oct-00)
+  <dd>Corrected infelicity in compilation procedure.
+  <dt><b><a name="new4.12">4.12</a></b> (05-Oct-00)
+  <dd>Recognises Windows Me for Operating System Report.
+      <br>Can count beyond Terabytes.
+      <br>PCRE code upgraded to version 3.4.
+      <br>AS/400 port. Patches to compile cleanly on Cygwin and 64-bit Solaris.
+      <br>Bulgarian and Croatian language files. Catalan and Finnish domains
+      files.
+      <br>Various bug fixes.
+      <br>New <a href="Licence.txt">Licence</a> (mostly less restrictive than
+      the previous one).
+  <dt><b><a name="new4.11">4.11</a></b> (31-May-00)
+  <dd>The <a href="defns.html">default definition of &quot;pages&quot;</a> is
+      now <a href="update.html#up41">case insensitive</a>, and also includes
+      <kbd>*.asp</kbd>.
+      <br>Reads the extended logs from IIS 5 correctly.
+      <br>Version number displayed before any warning or debugging messages.
+      <br>The &quot;number of days&quot; at the top of the report now obeys
+      <kbd>DECPOINT</kbd> (and is also now to 2 decimal places).
+      <br>Improved OpenVMS build procedure.
+      <br>Hungarian and Romanian language files, and corrected Spanish
+      language files and English domains files.
+      <br>Italian and Spanish form interfaces.
+      <br>The FAQ now has a <a href="faq.html#faqcontents">list of
+      contents</a>.
+  <dt><b><a name="new41">4.1</a></b> (30-Mar-00)
+  <dd>Regular expressions in <kbd>ALIAS</kbd>es and <kbd>INCLUDE</kbd>s are
+      now available on all platforms.
+      <br>Regular expressions are now Perl-syntax regular expressions.
+      (Thanks to Philip Hazel's <a href="http://www.pcre.org/">PCRE</a>
+      library.)
+      <br>&quot;Repeated fields&quot; in logfile header lines are now allowed.
+      <br>New commands
+      <a href="include.html#STATUSINCLUDE"><kbd>STATUSINCLUDE</kbd> and
+      <kbd>STATUSEXCLUDE</kbd></a>, and
+      <kbd><a href="include.html#304">304ISSUCCESS</a></kbd>.
+      <br>New <a href="output.html#outstyle">output style <kbd>PLAIN</kbd></a>
+      (like <kbd>ASCII</kbd> but with accents). New language files for this.
+      <br>In the <a href="compout.html">computer-readable output</a>,
+      hierarchical reports now have an extra column, indicating the depth of
+      the item in the hierarchy.
+      <br>All referrers now count as &quot;pages.&quot; (See
+      <a href="update.html#up404">upgrade notes</a>.)
+      <br>Configuration commands can be continued across lines with a
+      backslash.
+      <br><a href="logfmt.html#fmtstrings">New token <kbd>%s</kbd></a> in
+      <kbd>LOGFORMAT</kbd>, allowing per-line selection of client-name and
+      client-IP fields.
+      <br>New log format <kbd>WEBSTAR-EXTENDED</kbd> to allow for a small bug
+      in WebSTAR's implementation of the extended log format.
+      <br>Korean language files. Also alternative Swedish translation.
+  <dt><b><a name="new404">4.04</a></b> (21-Mar-00)
+  <dd>The analog home page has moved to
+      <a href="http://www.analog.cx/">www.analog.cx</a>
+      <br>New <a href="othreps.html#othCOLS">column <kbd>d</kbd></a> in
+      non-time reports.
+      <br>The <kbd>RUNTIME</kbd> command now turns off the &quot;Program
+      started at&quot; line as well as the &quot;Running Time&quot; line.
+      <br>Non-alphanumeric characters are now allowed in the
+      <kbd>REPORTORDER</kbd> as separators.
+      <br>Correctly parses more <kbd>APACHELOGFORMAT</kbd>s.
+      <br>Better detection of Windows 2000 in Operating System Report.
+      <br>Better warning messages when the erroneous command contains a space.
+      <br>Code for NeXTSTEP operating system.
+      <br>Better treatment of multibyte character sets.
+      <br>Icelandic language files. Corrections to Bosnian, French, Italian,
+      Japanese &amp; Swedish.
+  <dt><b><a name="new403">4.03</a></b> (21-Feb-00)
+  <dd>Fixed several small bugs.
+      <br>New command <kbd><a href="output.html#RUNTIME">RUNTIME</a></kbd>.
+      <br>Brazilian Portuguese language files and Swedish domains files.
+      Corrections to Dutch.
+  <dt><b><a name="new402">4.02</a></b> (31-Jan-00)
+  <dd>New command <kbd><a href="args.html#SCC">SEARCHCHARCONVERT</a></kbd>.
+      <br>Support for Apache's new <kbd>%q</kbd> code in
+      <kbd>APACHELOGFORMAT</kbd>.
+      <br>Fix for search reports causing crashes on Windows.
+      <br>New language: Czech. Corrections for Serbian, Slovene and Ukrainian.
+  <dt><b><a name="new401">4.01</a></b> (17-Dec-99)
+  <dd>New command <kbd><a href="alias.html#CASE">USERCASE</a></kbd>.
+      <br>Some of the default paths have changed in <kbd>anlghead.h</kbd>.
+      <br>Improvements to OpenVMS port.
+      <br>Language files included for Armenian, Bosnian, Catalan,
+      traditional Chinese, Dutch, Finnish, German, Italian, Slovak, Slovene,
+      Spanish, Swedish &amp; Ukrainian; corrections to Russian &amp; Turkish.
+  <dt><b><a name="new40">4.0</a></b> (16-Nov-99)
+  <dd>Simplified Chinese, Danish, Japanese, Portuguese &amp; Serbian language
+      files included.
+      <br>Otherwise only small changes since 3.90beta2.
+  <dt><b><a name="new390b2">3.90beta2</a></b> (02-Nov-99)
+  <dd>It is now recommended that you don't run analog as a CGI program for
+      <a href="form.html#notcgi">security reasons</a>. (The <kbd>CGI</kbd>
+      command is still present, but it is now not documented.)<br>
+      The Organisation Report is now
+      <a href="hierreps.html">hierarchical</a>.<br>
+      The Browser Summary is now arranged by major version number. (See
+      <a href="update.html#up390b1">notes on upgrading</a>.)<br>
+      Non-exact bytes are now given to 3 decimal places.<br>
+      <kbd><a href="output.html#GOTOS">GOTOS FEW</a></kbd> puts the &quot;Go
+      To&quot; lines just at the top and bottom of the output.<br>
+      <kbd>PRINTVARS</kbd> has been renamed
+      <kbd><a href="syntax.html#settings">SETTINGS</a></kbd>.<br>
+      <kbd><a href="syntax.html#settings">-settings</a></kbd> output improved,
+      especially with <kbd>OUTPUT NONE</kbd>.<br>
+      Split <kbd>PAGEWIDTH</kbd> into
+      <kbd><a href="output.html#PAGEWIDTH">HTMLPAGEWIDTH</a></kbd> and
+      <kbd><a href="output.html#PAGEWIDTH">ASCIIPAGEWIDTH</a></kbd>.<br>
+      Includes language files for French, Greek, Norwegian (Bokm&aring;l
+      &amp; Nynorsk), Polish, Russian and Turkish.<br>
+      New configuration file <kbd>examples/big.cfg</kbd> containing most
+      commands.
+  <dt><b><a name="new390b1">3.90beta1</a></b> (07-Oct-99)
+  <dd>First beta test for version 4. The most important new features are:
+      <ul>
+	<li>Five new reports: Organisation Report, Operating System Report,
+	    Search Word Report, Search Query Report, Processing Time Report.
+	<li>Browser Summary improved (will <a href="update.html#up332">change
+	    results</a>).
+	<li><a href="form.html">Form interface</a> completely rewritten, and
+	    considerably simplified.
+	<li>Multiple *'s now allowed on left-hand side of
+	    <a href="alias.html#useraliases"><kbd>ALIAS</kbd>es</a>.
+	<li>Regular expressions allowed in
+	    <a href="include.html#incregexp"><kbd>INCLUDE</kbd>s &amp;
+	    <kbd>EXCLUDE</kbd>s</a>, and
+	    <a href="alias.html#aliasregexp"><kbd>ALIAS</kbd>es</a>.
+	<li>The <a href="include.html#outputexcludes">output
+	    <kbd>INCLUDE</kbd>s and <kbd>EXCLUDE</kbd>s</a> now apply to the
+	    lower levels of a <a href="hierreps.html">hierarchical report</a>
+	    as well as the top level.
+	<li>New commands: <kbd><a href="form.html">CGI</a></kbd>,
+	    <kbd><a href="output.html#STYLESHEET">STYLESHEET</a></kbd> and
+	    <kbd><a href="debug.html#ERRLINELENGTH">ERRLINELENGTH</a></kbd>.
+	<li>New <a href="othreps.html#othCOLS">column <kbd>N</kbd></a> in most
+	    reports.
+	<li><kbd><a href="debug.html#debugs">DEBUG C</a></kbd> now reports
+	    which part of a corrupt logfile line is corrupt.
+	<li>Non-exact bytes are now displayed as, e.g., 47.68 Mbytes instead of
+	    48,832 kbytes. This should be less confusing.
+	<li>Timestamps added to
+	    <kbd><a href="debug.html#PROGRESSFREQ">PROGRESSFREQ</a></kbd>
+	    reports.
+	<li>The <a href="dns.html">DNS file</a> has a new time encoding.
+	<li>Header files split up to make <kbd>anlghead.h</kbd> simpler.
+	<li>Form interfaces in German and U.S. English included.
+	<li>New documentation about <a href="args.html">search arguments</a>.
+	<li>New <kbd>examples</kbd> directory.
+	<li>New <a href="Licence.txt">licence</a>. (Nearly the same, just
+	    clarified, and slightly loosened).
+      </ul>
+  <dt><b><a href="wasnew3.html">What was new in version 3?</a></b>
+  <dt><b><a href="wasnew2.html">What was new in version 2?</a></b>
+  <dt><b><a href="wasnew1.html">What was new in version 1?</a></b>
+</dl>
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="whatsnew.html">Up</a> |
+<a href="update.html">Prev</a> | <a href="wasnew3.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

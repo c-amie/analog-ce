@@ -1,0 +1,300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- what was new in version 5?</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="whatsnew.html">Up</a> |
+<a href="update.html">Prev</a> | <a href="wasnew3.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0:
+What was new in version 5?</h1>
+<hr size=2 noshade>
+
+This section lists the new features which were in version 5 of analog.
+
+<dl>
+  <dt><b><a href="whatsnew.html">What's new in version 6?</a></b>
+  <dt><b><a name="new5.32">5.32</a></b> (23-Mar-03)
+  <dd>Recognises Safari and Camino browsers.
+  <dd>New <a href="logfmt.html#fmtstrings"><kbd>LOGFORMAT</kbd>
+      specification</a>&nbsp;<kbd>%D</kbd> (processing time in microseconds).
+  <dd>Understands <kbd>%A</kbd> and <kbd>%D</kbd> in
+      <kbd><a href="logfmt.html#Apache">APACHELOGFORMAT</a></kbd>.
+  <dt><b><a name="new5.31">5.31</a></b> (11-Jan-03)
+  <dd>Recognises Phoenix and Chimera browsers.
+  <dd>Fixes for Mac, OpenVMS and RISC OS ports.
+  <dd>Various other small bug fixes.
+  <dt><b><a name="new5.30">5.30</a></b> (30-Nov-02)
+  <dd>Reads gzipped logfiles without the need for an <kbd>UNCOMPRESS</kbd>
+      command.
+  <dd>Host inclusions and exclusions can now use
+      <a href="include.html#HOSTINCLUDE">IP address ranges and subnet
+      masks</a>.
+  <dd>New command <kbd><a href="output.html#RAWBYTES">BYTESDP</a></kbd>
+      command to list kilobytes etc. to a chosen number of decimal places. The
+      default number of decimal places has changed from three to two.
+  <dd>New code for RISC OS port, including wildcards in filenames.
+      (Thanks to Stefan Bellon for this code).
+  <dd>Various bug fixes.
+  <dd>Indonesian and Slovak language files.
+  <dd>New <a href="../how-to/startwin/index.html">How-To</a> entitled
+      <cite>Getting started under Windows</cite>. (Thanks to Simon Handfield).
+  <dt><b><a name="new5.24">5.24</a></b> (25-Jun-02)
+  <dd>Recognises Netscape 7 browser. Also better diagnosis of Windows
+      operating systems for Netscape and Mozilla browsers.
+  <dd>New version of <a href="../how-to/iis/index.html">IIS How-To</a>.
+  <dd>Later <kbd>UNCOMPRESS</kbd> commands now correctly override earlier ones.
+  <dd><kbd><a href="args.html#SCC">SEARCHCHARCONVERT</a></kbd> can now be
+      turned on for multibyte character sets, though it's not recommended.
+  <dd>French report descriptions files.
+  <dd>New versions of Polish and alternative Swedish language files.
+  <dd>East Timor country code is now .tl.
+  <dt><b><a name="new5.23">5.23</a></b> (14-May-02)
+  <dd>Added <kbd>PROGRESSFREQ</kbd> to the list of forbidden commands from the
+      form interface, because it allows a
+      <a href="http://www.analog.cx/security5.html">denial-of-service
+      attack</a>.
+  <dd>Also <a href="form.html#security">emphasised</a> in the documentation
+      that allowing untrusted users to run analog through the form interface
+      is inherently open to a denial-of-service attack.
+  <dd>Fixed two bugs which caused occasional crashes while outputting.
+  <dd>Russian language files included (KOI8-R and Windows-1251 character sets).
+  <dd>Added new domains to the French domains files.
+  <dd>New <a href="../how-to/iis/index.html">How-To</a> on configuring IIS.
+  <dt><b><a name="new5.22">5.22</a></b> (20-Mar-02)
+  <dd>Security fix for
+      <a href="http://www.analog.cx/security4.html">cross-site scripting
+      security bug</a>.
+  <dd>Upgraded zlib code to version 1.1.4 (although analog wasn't vulnerable
+      to the security bug in zlib 1.1.3).
+  <dd>The <kbd><a href="debug.html#PROGRESSFREQ">PROGRESSFREQ</a></kbd>
+      messages now go to the screen as well as to the
+      <kbd><a href="debug.html#ERRFILE">ERRFILE</a></kbd>.
+  <dd>The <a href="hierreps.html#subdomtwoarg">second argument to
+      <kbd>SUBDOMAIN</kbd></a> can now contain <kbd>*</kbd>'s and
+      <kbd>$</kbd>'s.
+  <dd>Added eight new domains to many of the domains files.
+  <dd>Revised Japanese language files.
+  <dt><b><a name="new5.21">5.21</a></b> (20-Feb-02)
+  <dd>Corrected the MacHTTP log format, which didn't work in 5.2.
+  <dd>All the <a href="timereps.html#BARSTYLE"><kbd>BARSTYLE</kbd>s</a>
+      redrawn, and two new <kbd>BARSTYLE</kbd>s added, adapted from an idea by
+      Dave Holle. (You will have to move the new graphics into your
+      <kbd>IMAGEDIR</kbd> in order to use them.)
+  <dt><b><a name="new5.2">5.2</a></b> (13-Feb-02)
+  <dd>You can now plot the lower levels of hierarchical reports on the pie
+      charts by using the new
+      <kbd><a href="hierreps.html#CHARTEXPAND">CHARTEXPAND</a></kbd> family
+      of commands.
+  <dd>Added <kbd>MACHTTP</kbd> to the list of built-in log formats that analog
+      recognises automatically.
+  <dd>Recognises <kbd>;</kbd> as well as <kbd>&</kbd> as query-string
+      separator.
+  <dd>The <a href="domfile.html#orgrules">rules for generating
+      &quot;organisations&quot;</a> from numerical addresses have changed.
+  <dd>Filenames given on the command line are now relative to the current
+      directory, not the analog directory.
+  <dd>Ignores completely blank lines at the top of a logfile.
+  <dd>Makefiles for Microsoft Visual C++ can be found in the new
+      <kbd>src/build</kbd> directory. Makefiles for other platforms have moved
+      out of the source tree into there too.
+  <dd>You can now refer to kilobytes as kibibytes by
+      <a href="output.html#LANGUAGE">editing your language file</a>.
+  <dd>Revised versions of Japanese language files.
+  <dd>Revised the <a href="Licence.txt">Licence</a>.
+  <dd>Advertised new <a href="http://www.analog.cx/donations/">donations
+      page</a>.
+  <dt><b><a name="new5.1">5.1</a></b> (07-Nov-01)
+  <dd>The Browser Summary now recognises the Konqueror and Galeon browsers,
+      and distinguishes Mozilla and Netscape. (If you are using a
+      configuration file from an older version of analog, you need to
+      <a href="update.html#up503">remove one line</a>.)
+  <dd>The Operating System Report now recognises Windows XP.
+  <dd>Numerical addresses are now <a href="domfile.html#orgrules">included in
+      the Organisation Report</a>.
+  <dd>Logfile and cache file names can now contain
+      <a href="logfile.html#datecodes">date codes</a>, in the same way
+      as the <kbd>OUTFILE</kbd>.
+  <dd>The person setting up the form interface can now
+      <a href="form.html#security">specify a list of allowed commands</a>,
+      rather than a list of forbidden commands.
+  <dd>The <a href="output.html#outstyle"><kbd>LATEX</kbd> output style</a> now
+      works with the ISO-Latin-2 character set as well as ISO-Latin-1. New
+      command <a href="output.html#outstyle"><kbd>PDFLATEX</kbd></a>.
+  <dd>New <a href="logfmt.html#fmtstrings"><kbd>LOGFORMAT</kbd> token</a>
+      <kbd>%Z</kbd> for two- or four-digit years.
+  <dd>In the <kbd><a href="compout.html">COMPSEP</a></kbd>, you can now use
+      <kbd>\t</kbd> to represent a tab.
+  <dd>New <a href="errors.html#warns">warnings</a> category G; some warnings
+      reclassified.
+  <dd>Various small bugs fixed. Also there is some rewriting internally, but
+      it should be transparent to the user.
+  <dd>The Windows executable has been compiled using
+      <a href="http://www.mingw.org/">MinGW</a> instead of Microsoft
+      Visual C++.
+  <dd>Finnish translation, and corrections to German and Serbian. Brazilian
+      Portuguese report descriptions files.
+  <dt><b><a name="new5.03">5.03</a></b> (07-Jul-01)
+  <dd>Bug fixes, including one bug that caused a crash under Windows.
+  <dd>Spanish translation, and corrections to <kbd>SWEDISH-ALT</kbd>
+      translation.
+  <dt><b><a name="new5.02">5.02</a></b> (23-Jun-01)
+  <dd>Understands the new IIS log format with four-digit years.
+  <dd>Traditional Chinese and Brazilian Portuguese language files.
+  <dd>Japanese is now available in four character sets.
+  <dd>Four language files which were already distributed with the program are
+      now available through the
+      <kbd><a href="output.html#LANGUAGE">LANGUAGE</a></kbd> command:
+      <kbd>BULGARIAN-MIK</kbd> (MIK-16 charset),
+      <kbd>CZECH-1250</kbd> and <kbd>SLOVENE-1250</kbd> (Windows-1250), and
+      <kbd>SWEDISH-ALT</kbd> (alternative translation avoiding Anglicisms).
+  <dt><b><a name="new5.01">5.01</a></b> (19-May-01)
+  <dd>New command <kbd><a href="output.html#PNGIMAGES">PNGIMAGES</a></kbd>.
+  <dd>New token &quot;<kbd>PLAIN:</kbd>&quot; in
+      <a href="alias.html#useraliases"><kbd>ALIAS</kbd> commands</a>.
+  <dd>Unix man page included in source distribution.
+  <dd>New example configuration file <kbd>examples/bigbyrep.cfg</kbd>.
+  <dd>A few small bug fixes.
+  <dd>Italian report descriptions files; corrections to German language files.
+  <dt><b><a name="new5.0">5.0</a></b> (01-May-01)
+  <dd><a href="../how-to/index.html">How-To's</a> introduced.
+  <dd>Wildcards now allowed in <kbd>LOGFILE</kbd> names from the form
+      interface.
+  <dd><kbd>UNCOMPRESS</kbd> now works on filenames with spaces in, and other
+      small bug fixes.
+  <dd>Makefiles and build scripts for OpenVMS.
+  <dd>This version is available in 24 languages: Armenian, Bulgarian, Catalan,
+      Czech, Danish, Dutch, English, US English, French, German, Hungarian,
+      Italian, Japanese, Korean, Latvian, Norwegian (Bokm&aring;l &amp;
+      Nynorsk), Polish, Portuguese, Serbian, Slovene, Swedish, Turkish and
+      Ukrainian.
+  <dt><b><a name="new4.91beta1">4.91beta1</a></b> (10-Apr-01)
+  <dd>Output <kbd>EXCLUDE</kbd>s are now more fully excluded, producing
+      <a href="update.html#up4904">significant changes in results</a>.
+  <dd>New <kbd><a href="othreps.html#CHARTDIR">JPEGCHARTS</a></kbd> command
+      (only available if you compile analog yourself, with your own libgd).
+  <dd>New <a href="mailing.html">mailing list instructions</a> to include
+      subscriptions over the web, and the digest version of the analog-help
+      list.
+  <dd>Mac version decompresses pkzip and bzip2 logfiles.
+  <dd>Ports to Mac OS X (Carbon) and IBM OS/390.
+  <dd>Pie charts work with EBCDIC character sets; and other improved EBCDIC
+      support.
+  <dd>Wildcards in <kbd>LOGFILE</kbd> directories now work under more Unices.
+  <dd>The one-page version of the documentation, whole.html, is no longer
+      distributed with the program. (It's still available at my site.)
+  <dd>This version is available in 21 languages: Armenian, Bulgarian, Catalan,
+      Dutch, English, US English, French, German, Italian, Japanese, Korean,
+      Latvian, Norwegian (Bokm&aring;l &amp; Nynorsk), Polish, Portuguese,
+      Serbian, Slovene, Swedish, Turkish and Ukrainian.
+  <dt><b><a name="new4.90beta4">4.90beta4</a></b> (26-Mar-01)
+  <dd>Wildcards in directory names in <kbd>LOGFILE</kbd> commands now work
+      under Unix. (Thanks to Owen Cliffe for this code.)
+  <dd>The <a href="othreps.html#CHARTDIR"><kbd>CHARTDIR</kbd> and
+      <kbd>LOCALCHARTDIR</kbd></a> can now contain date codes, in the same way
+      as the <kbd>OUTFILE</kbd>.
+  <dd>My own configuration file included in the <kbd>examples</kbd> directory.
+  <dd>This version is available in sixteen languages: Armenian, Bulgarian,
+      Catalan, English, US English, French, German, Italian, Japanese, Korean,
+      Latvian, Polish, Portuguese, Slovene, Swedish and Ukrainian.
+  <dt><b><a name="new4.90beta3">4.90beta3</a></b> (13-Feb-01)
+  <dd>Security fix for <a href="http://www.analog.cx/security2.html">buffer
+      overflow bug</a>.
+  <dt><b><a name="new4.90beta2">4.90beta2</a></b> (05-Feb-01)
+  <dd>New commands <a href="othreps.html#CHARTDIR"><kbd>CHARTDIR</kbd> and
+      <kbd>LOCALCHARTDIR</kbd></a>.
+  <dd>The pie charts are now easier to read, and work properly in non-European
+      character sets.
+  <dd><kbd>*.asp</kbd> is no longer included in the
+      <a href="defns.html">default definition of &quot;pages&quot;</a>.
+      (See <a href="update.html#up4901">how to upgrade</a>).
+  <dd>The <a href="compout.html">computer-readable output style</a> now gives
+      the <kbd><a href="othreps.html#REPORTSPAN">REPORTSPAN</a></kbd>s.
+  <dd>On Unix, now follows symlinks when finding the name of the analog binary
+      to construct other filenames.
+  <dd>Various other minor bug fixes from 4.90beta1.
+  <dd>This version is available in nine languages: Armenian, Bulgarian,
+      Catalan, English, US English, French, Portuguese, Swedish and Ukrainian.
+  <dt><b><a name="new4.90beta1">4.90beta1</a></b> (22-Jan-01)
+  <dd>This is the first beta test for version 5.
+  <ul>
+    <li>Twelve new reports: Yearly Report, Quarterly Report, Five-Minute
+	Summary, Quarter-Hour Summary, Hour of the Week Summary, Host Failure
+	Report, Host Redirection Report, Virtual Host Failure Report, Virtual
+	Host Redirection Report, User Redirection Report, Internal Search Word
+	Report and Internal Search Query Report.
+    <li>Pie charts are now included at the top of most reports.
+	<kbd><a href="othreps.html#CHART">*CHART</a></kbd> commands to control
+	them.
+    <li>New command
+	<kbd><a href="output.html#GENSUMLINES">GENSUMLINES</a></kbd> to control
+	which lines are listed in the General Summary.
+    <li>The &quot;Distinct hosts&quot; line now appears in the General
+	Summary even if you aren't making a Host, Organisation or Domain
+	Report.
+    <li>New commands
+	<a href="output.html#DESCRIPTIONS"><kbd>DESCRIPTIONS</kbd> and
+	<kbd>DESCFILE</kbd></a> to provide descriptions of each report.
+    <li>New commands
+	<a href="othreps.html#REPORTSPAN"><kbd>REPORTSPAN</kbd> and
+	<kbd>REPORTSPANTHRESHOLD</kbd></a> to list the time period covered by
+	each report.
+    <li>New commands
+	<a href="include.html#ROBOTINCLUDE"><kbd>ROBOTINCLUDE</kbd> and
+	<kbd>ROBOTEXCLUDE</kbd></a> for listing robots in the Operating System
+	Report.
+    <li>New command
+	<kbd><a href="args.html#SEARCHENGINE">INTSEARCHENGINE</a></kbd> to
+	allow the internal search reports.
+    <li>New command <kbd><a href="dns.html#DNSTIMEOUT">DNSTIMEOUT</a></kbd>
+	(on some platforms) to reduce the time taken for failed DNS lookups.
+    <li>New <a href="include.html#LINKINCLUDE"><kbd>LINKINCLUDE</kbd> and
+	<kbd>LINKEXCLUDE</kbd></a> commands. (See
+	<a href="update.html#up415">how to upgrade</a>).
+    <li><a href="othreps.html#othCOLS">New columns</a> <kbd>E</kbd> and
+	<kbd>e</kbd> for time of first request; and <kbd>S</kbd>,
+	<kbd>s</kbd>, <kbd>Q</kbd>, <kbd>q</kbd>, <kbd>C</kbd> and <kbd>c</kbd>
+	for data in last 7 days; also corresponding
+	<a href="othreps.html#SORTBY"><kbd>SORTBY</kbd></a> and
+	<a href="othreps.html#FLOOR"><kbd>FLOOR</kbd></a> commands.
+    <li>Substantial internal changes to allow these new columns without
+	using extra memory if they are not wanted, and to substantially reduce
+	code size (from what it would have been otherwise!).
+    <li><a href="output.html#outstyle">LaTeX output style</a>.
+    <li>All files are now looked for in the &quot;right&quot; directories.
+	This should improve usability substantially, especially from the form
+	interface. (See <a href="update.html#up415">how to upgrade</a>).
+    <li>If you specify a <kbd>CACHEFILE</kbd> command but no
+	<kbd>LOGFILE</kbd> command, analog won't read the default logfile. (See
+	<a href="update.html#up415">how to upgrade</a>).
+    <li>US English now uses the 12-hour clock by default. (See
+	<a href="update.html#up415">how to upgrade</a>).
+    <li><a href="compout.html">Computer readable output</a> now reports the
+	busiest time period for the time reports.
+    <li>Several commands have changed to better names, but the old names
+	should still work.
+  </ul>
+  <dd>In addition, version 4.14 was also released on the same date, and this
+      version includes all <a href="wasnew4.html#new4.14">its changes</a>.
+  <dd>This version is only available in English and US English.
+  <dt><b><a href="wasnew4.html">What was new in version 4?</a></b>
+  <dt><b><a href="wasnew3.html">What was new in version 3?</a></b>
+  <dt><b><a href="wasnew2.html">What was new in version 2?</a></b>
+  <dt><b><a href="wasnew1.html">What was new in version 1?</a></b>
+</dl>
+
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="whatsnew.html">Up</a> |
+<a href="update.html">Prev</a> | <a href="wasnew3.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

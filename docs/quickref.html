@@ -1,0 +1,1060 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel=stylesheet type="text/css" href="anlgdocs.css">
+<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>Readme for analog -- quick reference</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | Up | Prev | Next |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1><img src="analogo.gif" alt=""> Analog 6.0: Quick reference</h1>
+<hr size=2 noshade>
+
+This section is list of all of analog's configuration commands, together with a
+quick reference to their syntax and some examples. It's designed for those who
+are already familiar with the program, so it's pretty useless for trying to
+learn the program: to learn about the commands, read the section on 
+<cite><a href="custom.html">Customising analog</a></cite> instead, or consult
+the <a href="indx.html">index</a> for a reference. Command line arguments
+aren't listed here, but there is a  list of them in the
+<a href="indx.html#clargs">index</a>. Not all commands are available on all
+platforms.
+
+<p>
+This section is divided into the following parts:
+<ul>
+  <li><a href="#quicknot">Notation</a>
+  <li><a href="#quickfiles">Input and output files</a>
+  <li><a href="#quickfmt"><kbd>LOGFORMAT</kbd> commands</a>
+  <li><a href="#quickalias"><kbd>ALIAS</kbd> commands</a>
+  <li><a href="#quickinclude"><kbd>INCLUDE/EXCLUDE</kbd> commands</a>
+  <li><a href="#quickdns">DNS commands</a>
+  <li><a href="#quicksub">Sub-item commands</a>
+  <li><a href="#quicklowmem"><kbd>LOWMEM</kbd> commands</a>
+  <li><a href="#quickrep">Report commands</a>
+  <li><a href="#quickgraph"><kbd>GRAPH</kbd> commands</a>
+  <li><a href="#quickback"><kbd>BACK</kbd> commands</a>
+  <li><a href="#quickrows"><kbd>ROWS</kbd> commands</a>
+  <li><a href="#quickcols"><kbd>COLS</kbd> commands</a>
+  <li><a href="#quicksortby"><kbd>SORTBY</kbd> commands</a>
+  <li><a href="#quickfloor"><kbd>FLOOR</kbd> commands</a>
+  <li><a href="#quickchart"><kbd>CHART</kbd> commands</a>
+  <li><a href="#quicklinks">Hyperlinks</a>
+  <li><a href="#quicklang">Language commands</a>
+  <li><a href="#quickcosmetic">Cosmetic and miscellaneous commands</a>
+  <li><a href="#quickdebug">Diagnostics</a>
+</ul>
+
+<h3><a name="quicknot">Notation</a></h3>
+The syntax for each command is given using the following notation.
+<pre>
+"stuff"        the word stuff
+x y            x followed by y
+(x | y)        x or y
+[x]            optional x
+subset("...")  any letters from the string, in any order
+perm("...")    all the letters from the string, in any order
+*x             x may contain wildcards * and ? (and often comma-separated list)
+x := y         x is defined to be y
+COMMAND        the command under discussion
+</pre>
+In addition, I use the following names for different types of argument.
+<pre>
+char           a single character
+string         a string
+digit          a digit
+number         a non-negative integer (i.e. a string of digits)
+real           a non-negative real number
+regexp         a Perl-syntax regular expression
+file           a filename within your server's filespace;
+                   e.g. /index.html
+localfile      a filename within your system's filespace;
+                   e.g. /usr/local/analog.html
+                      or analog.html
+                 if no directory specified, placed within suitable
+                 directory specified at compile-time
+localfmtfile   as localfile, but may contain <a href="logfile.html#datecodes">date codes</a>;
+                   e.g. /usr/local/analog%y%M.html
+referrer       a URL of a referring page;
+                   e.g. http://search.yahoo.com/
+URL            a URL which may be absolute, or relative to the output page;
+                   e.g. images/ or /~fred/images/
+                      or http://www.fred.com/images/
+fmtURL         as URL, but may contain <a href="logfile.html#datecodes">date codes</a>
+</pre>
+
+<p>Note: I have occasionally opted for clarity above strict accuracy where I
+don't think it will cause any confusion!
+
+<p>The syntax for commands in general was given
+<a href="syntax.html">earlier</a>: remember that an argument which contains a
+hash or a space must be put in quotes or parentheses.
+
+<h3><a name="quickfiles">Input and output files</a></h3>
+
+<dl>
+<dt><i>Syntax</i>
+<dd><kbd>
+<a href="logfile.html">LOGFILE</a> (*localfmtfile | "-" | "none") [prefix_string]
+<br><a href="output.html#OUTFILE">OUTFILE</a> (localfmtfile | "-" | "none")
+<br><a href="cache.html">CACHEFILE</a> (*localfmtfile | "-" | "none")
+<br><a href="cache.html">CACHEOUTFILE</a> (localfmtfile | "-" | "none")
+<br><a href="logfile.html#UNCOMPRESS">UNCOMPRESS</a> *localfile program
+</kbd>
+<dt><i>Examples</i>
+<dd><kbd>
+LOGFILE /httpd/logs/*
+<br>LOGFILE c:\logs\log1,c:\logs\log2
+<br>OUTFILE "Hard Disk:Report%Y%M.html"
+<br>UNCOMPRESS *.Z "/usr/bin/uncompress -c"</kbd>
+</dl>
+    
+<h3><a name="quickfmt"><kbd>LOGFORMAT</kbd> commands</a></h3>
+
+<dl>
+<dt><i>Syntax</i>
+<dd><pre>
+format_string := (<a href="logfmt.html#fmtstrings">see documentation</a>)
+Apache_format_string := (see <a href="http://httpd.apache.org/docs-2.0/mod/mod_log_config.html#formats">Apache documentation</a>)
+logformat := ("COMMON" | "COMBINED" | "REFERRER" | "BROWSER" | "EXTENDED" |
+              "MICROSOFT-NA" | "MICROSOFT-INT" | "WEBSITE-NA" | "WEBSITE-INT" |
+              "MS-EXTENDED" | "WEBSTAR-EXTENDED" | "MS-COMMON" | "NETSCAPE" |
+              "WEBSTAR" | "MACHTTP" | "AUTO" | format_string)
+<a href="logfmt.html">LOGFORMAT</a> logformat
+<a href="logfmt.html#DEFAULTLOGFORMAT">DEFAULTLOGFORMAT</a> logformat
+<a href="logfmt.html#Apache">APACHELOGFORMAT</a> Apache_format_string
+<a href="logfmt.html#DEFAULTLOGFORMAT">APACHEDEFAULTLOGFORMAT</a> Apache_format_string
+</pre>
+
+<dt><i>Notes</i>
+<dd><kbd>LOGFORMAT</kbd> and <kbd>APACHELOGFORMAT</kbd> only affect logfiles
+    occurring later in the same configuration file.
+
+<dt><i>Examples</i>
+<dd><kbd>
+LOGFORMAT (%S - %u [%d/%M/%Y:%h:%n:%j %j] "%j %r %j" %c %b)
+<br>DEFAULTLOGFORMAT MS-EXTENDED
+<br>APACHELOGFORMAT (%h %l %u %t \"%r\" %s %b)</kbd>
+</dl>
+
+
+<h3><a name="quickalias"><kbd>ALIAS</kbd> commands</a></h3>
+
+<dl>
+<dt><i>1. Commands (items)</i>
+<dd><kbd>
+<a href="alias.html#useraliases">FILEALIAS</a>,
+<a href="alias.html#useraliases">HOSTALIAS</a>,
+<a href="alias.html#useraliases">BROWALIAS</a>,
+<a href="alias.html#useraliases">REFALIAS</a>,
+<a href="alias.html#useraliases">USERALIAS</a>,
+<a href="alias.html#useraliases">VHOSTALIAS</a></kbd>
+
+<dt><i>Syntax</i>
+<dd><kbd>
+COMMAND *olditem ["PLAIN:"]newitem
+<br>COMMAND ("REGEXP:" | "REGEXPI:")regexp ["PLAIN:"]newitem</kbd>
+
+<dt><i>Notes</i>
+<dd>Aliases item in all reports. Items with the same resultant name are
+    combined. <kbd>newitem</kbd> may contain <kbd>$1</kbd>, <kbd>$2</kbd>
+    etc., representing the <kbd>*</kbd>'s in <kbd>olditem</kbd> or the
+    bracketed subexpressions in <kbd>regexp</kbd>. (<kbd>PLAIN:</kbd> makes
+    <kbd>$</kbd>'s on the right-hand side into literal <kbd>$</kbd>'s.)
+
+<dt><i>Examples</i>
+<dd><kbd>FILEALIAS /*/football/* /$1/soccer/$2</kbd>
+<dd><kbd>USERALIAS REGEXP:^([^U].*) U$1</kbd>
+	
+<p><dt><i>2. Commands (reports)</i>
+<dd><kbd>
+<a href="alias.html#OUTPUTALIAS">TYPEALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">HOSTREPALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">REDIRHOSTALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">FAILHOSTALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">REQALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">REDIRALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">FAILALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">DIRALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">DOMALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">ORGALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">REFREPALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">REFSITEALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">REDIRREFALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">FAILREFALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">BROWREPALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">BROWSUMALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">OSALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">VHOSTREPALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">REDIRVHOSTALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">FAILVHOSTALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">USERREPALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">REDIRUSERALIAS</a>,
+<a href="alias.html#OUTPUTALIAS">FAILUSERALIAS</a></kbd>
+    
+<dt><i>Syntax</i>
+<dd><kbd>
+COMMAND *item ["PLAIN:"]string
+<br>COMMAND ("REGEXP:" | "REGEXPI:")regexp ["PLAIN:"]string</kbd>
+
+<dt><i>Notes</i>
+<dd>Aliases item on one line of one report only. <kbd>$1</kbd>, <kbd>$2</kbd>
+    etc. in <kbd>string</kbd> are interpreted as explained above.
+
+<dt><i>Examples</i>
+<dd><kbd>REQALIAS /football/ "/football/ (Main football page)"</kbd>
+<dd><kbd>REFREPALIAS&nbsp;REGEXP:^(http://([^/]*\.)?(maths|stats)\.uxy\.edu.*)&nbsp;([$3]&nbsp;$1)</kbd>
+    
+<p><dt><i>3. Other commands: syntax</i>
+<dd><kbd>
+<a href="alias.html#CASE">CASE</a> ("SENSITIVE" | "INSENSITIVE")
+<br><a href="alias.html#CASE">USERCASE</a> ("SENSITIVE" | "INSENSITIVE")
+<br><a href="args.html#SCC">SEARCHCHARCONVERT</a> ("ON" | "OFF")
+<br><a href="alias.html#DIRSUFFIX">DIRSUFFIX</a> suffix
+<br><a href="output.html#TIMEOFFSET">LOGTIMEOFFSET</a> ["+" | "-"] number
+<br><a href="output.html#TIMEOFFSET">TIMEOFFSET</a> ["+" | "-"] number
+<br><a href="include.html#304">304ISSUCCESS</a> ("ON" | "OFF")</kbd>
+<dt><i>Examples</i>
+<dd><kbd>
+CASE SENSITIVE
+<br>DIRSUFFIX index.htm
+<br>LOGTIMEOFFSET -300
+</kbd>
+</dl>
+
+
+<h3><a name="quickinclude"><kbd>INCLUDE/EXCLUDE</kbd> commands</a></h3>
+
+<dl>
+<dt><i>1. Commands (items)</i>
+<dd><kbd>
+<a href="include.html">FILEINCLUDE</a>,
+<a href="include.html">FILEEXCLUDE</a>,
+<a href="include.html">HOSTINCLUDE</a>,
+<a href="include.html">HOSTEXCLUDE</a>,
+<a href="include.html">BROWINCLUDE</a>,
+<a href="include.html">BROWEXCLUDE</a>,
+<a href="include.html">REFINCLUDE</a>,
+<a href="include.html">REFEXCLUDE</a>,
+<a href="include.html">USERINCLUDE</a>,
+<a href="include.html">USEREXCLUDE</a>,
+<a href="include.html">VHOSTINCLUDE</a>,
+<a href="include.html">VHOSTEXCLUDE</a></kbd>
+
+<dt><i>Syntax</i>
+<dd><kbd>
+COMMAND (*item | "")
+<br>COMMAND ("REGEXP:" | "REGEXPI:")regexp</kbd>
+
+<dt><i>Notes</i>
+<dd>Excludes all logfile entries containing an excluded item from all reports.
+Includes and excludes are done after aliases, so the <kbd>item</kbd> is the
+aliased name, if applicable. <kbd>HOSTINCLUDE</kbd> and
+<kbd>HOSTEXCLUDE</kbd> can also take <a href="include.html#HOSTINCLUDE">IP
+address ranges and subnet masks</a>.
+    
+<dt><i>Examples</i>
+<dd><kbd>
+FILEINCLUDE /jim/*,/jane/*
+<br>FILEINCLUDE REGEXP:^/~[^/]*/$
+<br>HOSTEXCLUDE proxy*.aol.com
+<br>USEREXCLUDE ""
+</kbd>
+
+<p><dt><i>2. Syntax (including and excluding status codes)</i>
+<dd><kbd>
+range := (number | number "-" number | number "-" | "-" number | "*")
+<br><a href="include.html#STATUSINCLUDE">STATUSINCLUDE</a> range [, ranges]
+<br><a href="include.html#STATUSINCLUDE">STATUSEXCLUDE</a> range [, ranges]
+</kbd>
+<dt><i>Notes</i>
+<dd>All numbers must be in the range 100-599.
+<dt><i>Example</i>
+<dd><kbd>
+STATUSINCLUDE 200-299,304
+</kbd>
+    
+<p><dt><i>3. Syntax (including and excluding dates)</i>
+<dd><kbd>
+partdate := ["+" | "-"] digit digit
+<br>date :=  partdate partdate partdate [":" partdate partdate]
+<br><a href="include.html#FROMTO">FROM</a> date
+<br><a href="include.html#FROMTO">TO</a> date</kbd>
+<dt><i>Examples</i>
+<dd><kbd>
+FROM 990719:1200
+<br>TO -00-0101
+</kbd>
+    
+<p><dt><i>4. Commands (reports)</i>
+<dd><kbd>
+<a href="include.html#outputexcludes">REQINCLUDE</a>,
+<a href="include.html#outputexcludes">REQEXCLUDE</a>,
+<a href="include.html#outputexcludes">REDIRINCLUDE</a>,
+<a href="include.html#outputexcludes">REDIREXCLUDE</a>,
+<a href="include.html#outputexcludes">FAILINCLUDE</a>,
+<a href="include.html#outputexcludes">FAILEXCLUDE</a>,
+<a href="include.html#outputexcludes">TYPEINCLUDE</a>,
+<a href="include.html#outputexcludes">TYPEEXCLUDE</a>,
+<a href="include.html#outputexcludes">DIRINCLUDE</a>,
+<a href="include.html#outputexcludes">DIREXCLUDE</a>,
+<a href="include.html#outputexcludes">HOSTREPINCLUDE</a>,
+<a href="include.html#outputexcludes">HOSTREPEXCLUDE</a>,
+<a href="include.html#outputexcludes">REDIRHOSTINCLUDE</a>,
+<a href="include.html#outputexcludes">REDIRHOSTEXCLUDE</a>,
+<a href="include.html#outputexcludes">FAILHOSTINCLUDE</a>,
+<a href="include.html#outputexcludes">FAILHOSTEXCLUDE</a>,
+<a href="include.html#outputexcludes">DOMINCLUDE</a>,
+<a href="include.html#outputexcludes">DOMEXCLUDE</a>,
+<a href="include.html#outputexcludes">ORGINCLUDE</a>,
+<a href="include.html#outputexcludes">ORGEXCLUDE</a>,
+<a href="include.html#outputexcludes">REFREPINCLUDE</a>,
+<a href="include.html#outputexcludes">REFREPEXCLUDE</a>,
+<a href="include.html#outputexcludes">REFSITEINCLUDE</a>,
+<a href="include.html#outputexcludes">REFSITEEXCLUDE</a>,
+<a href="include.html#outputexcludes">SEARCHQUERYINCLUDE</a>,
+<a href="include.html#outputexcludes">SEARCHQUERYEXCLUDE</a>,
+<a href="include.html#outputexcludes">SEARCHWORDINCLUDE</a>,
+<a href="include.html#outputexcludes">SEARCHWORDEXCLUDE</a>,
+<a href="include.html#outputexcludes">INTSEARCHQUERYINCLUDE</a>,
+<a href="include.html#outputexcludes">INTSEARCHQUERYEXCLUDE</a>,
+<a href="include.html#outputexcludes">INTSEARCHWORDINCLUDE</a>,
+<a href="include.html#outputexcludes">INTSEARCHWORDEXCLUDE</a>,
+<a href="include.html#outputexcludes">REDIRREFINCLUDE</a>,
+<a href="include.html#outputexcludes">REDIRREFEXCLUDE</a>,
+<a href="include.html#outputexcludes">FAILREFINCLUDE</a>,
+<a href="include.html#outputexcludes">FAILREFEXCLUDE</a>,
+<a href="include.html#outputexcludes">BROWREPINCLUDE</a>,
+<a href="include.html#outputexcludes">BROWREPEXCLUDE</a>,
+<a href="include.html#outputexcludes">BROWSUMINCLUDE</a>,
+<a href="include.html#outputexcludes">BROWSUMEXCLUDE</a>,
+<a href="include.html#outputexcludes">OSINCLUDE</a>,
+<a href="include.html#outputexcludes">OSEXCLUDE</a>,
+<a href="include.html#outputexcludes">VHOSTREPINCLUDE</a>,
+<a href="include.html#outputexcludes">VHOSTREPEXCLUDE</a>,
+<a href="include.html#outputexcludes">REDIRVHOSTINCLUDE</a>,
+<a href="include.html#outputexcludes">REDIRVHOSTEXCLUDE</a>,
+<a href="include.html#outputexcludes">FAILVHOSTINCLUDE</a>,
+<a href="include.html#outputexcludes">FAILVHOSTEXCLUDE</a>,
+<a href="include.html#outputexcludes">USERREPINCLUDE</a>,
+<a href="include.html#outputexcludes">USERREPEXCLUDE</a>,
+<a href="include.html#outputexcludes">REDIRUSERINCLUDE</a>,
+<a href="include.html#outputexcludes">REDIRUSEREXCLUDE</a>,
+<a href="include.html#outputexcludes">FAILUSERINCLUDE</a>,
+<a href="include.html#outputexcludes">FAILUSEREXCLUDE</a></kbd>
+
+<dt><i>Syntax</i>
+<dd><kbd>
+COMMAND *item
+<br>COMMAND ("REGEXP:" | "REGEXPI:")regexp</kbd>
+
+<dt><i>Notes</i>
+<dd>Excludes an excluded item from one report only.
+<kbd>HOSTREP*</kbd>, <kbd>REDIRHOST*</kbd> and <kbd>FAILHOST*</kbd>
+can also take <a href="include.html#HOSTINCLUDE">IP address ranges and subnet
+masks</a>.
+    
+<dt><i>Example</i>
+<dd><kbd>REQINCLUDE pages</kbd>
+
+<p><dt><i>5. Commands (hyperlinks)</i>
+<dd>See <a href="#quicklinks">below</a>.
+    
+<p><dt><i>6. Syntax (miscellaneous)</i>
+<dd><kbd>
+<a href="include.html#PAGEINCLUDE">PAGEINCLUDE</a> *file
+<br><a href="include.html#PAGEINCLUDE">PAGEEXCLUDE</a> *file
+<br><a href="args.html#ARGSINCLUDE">ARGSINCLUDE</a> *file
+<br><a href="args.html#ARGSINCLUDE">ARGSEXCLUDE</a> *file
+<br><a href="args.html#ARGSINCLUDE">REFARGSINCLUDE</a> *referrer
+<br><a href="args.html#ARGSINCLUDE">REFARGSEXCLUDE</a> *referrer
+<br><a href="include.html#ROBOTINCLUDE">ROBOTINCLUDE</a> *browser
+<br><a href="include.html#ROBOTINCLUDE">ROBOTEXCLUDE</a> *browser</kbd>
+<dt><i>Notes</i>
+<dd>These can be regular expressions too.
+<dt><i>Examples</i>
+<dd><kbd>
+PAGEINCLUDE *.jsp
+<br>ROBOTINCLUDE *crawler*
+</kbd>
+</dl>
+
+<h3><a name="quickdns">DNS commands</a></h3>
+
+<dl>
+  <dt><i>Syntax</i>
+  <dd><kbd>
+<a href="dns.html">DNSFILE</a> localfile
+<br><a href="dns.html">DNS</a> ("NONE" | "READ" | "LOOKUP" | "WRITE")
+<br><a href="dns.html">DNSLOCKFILE</a> localfile
+<br><a href="dns.html">DNSGOODHOURS</a> number
+<br><a href="dns.html">DNSBADHOURS</a> number
+<br><a href="dns.html">DNSTIMEOUT</a> number</kbd>
+<dt><i>Examples</i>
+<dd><kbd>
+DNSFILE dnscache.txt
+<br>DNS WRITE
+<br>DNSBADHOURS 48
+</kbd>
+</dl>
+
+<h3><a name="quicksub">Sub-item commands</a></h3>
+
+<dl>
+  <dt><i>Syntax</i>
+  <dd><kbd>
+<a href="hierreps.html">SUBDIR</a> *file
+<br><a href="hierreps.html">SUBDOMAIN</a> *subdomain
+<br><a href="hierreps.html">SUBDOMAIN</a> subdomain name
+<br><a href="hierreps.html">SUBORG</a> *subdomain
+<br><a href="hierreps.html">SUBTYPE</a> *extension
+<br><a href="hierreps.html">SUBBROW</a> *browser
+<br><a href="hierreps.html">REFDIR</a> *referrer</kbd>
+<dt><i>Examples</i>
+<dd><kbd>
+SUBDIR /jim/*/*
+<br>SUBTYPE *.gz
+</kbd>
+</dl>
+
+<h3><a name="quicklowmem"><kbd>LOWMEM</kbd> commands</a></h3>
+
+<dl>
+<dt><i>Commands</i>
+<dd><kbd><a href="lowmem.html">FILELOWMEM</a>,
+<a href="lowmem.html">HOSTLOWMEM</a>,
+<a href="lowmem.html">BROWLOWMEM</a>,
+<a href="lowmem.html">REFLOWMEM</a>,
+<a href="lowmem.html">USERLOWMEM</a>,
+<a href="lowmem.html">VHOSTLOWMEM</a></kbd>
+<dt><i>Syntax</i>
+<dd><kbd>
+COMMAND ("0" | "1" | "2" | "3")</kbd>
+<dt><i>Example</i>
+<dd><kbd>
+HOSTLOWMEM 3
+</kbd>
+</dl>
+
+<h3><a name="quickrep">Report commands</a></h3>
+
+<dl>
+<dt><i>Commands</i>
+<dd><kbd><a href="output.html#replist">GENERAL</a>,
+<a href="output.html#replist">ALL</a>,
+<a href="output.html#replist">YEARLY</a>,
+<a href="output.html#replist">QUARTERLY</a>,
+<a href="output.html#replist">MONTHLY</a>,
+<a href="output.html#replist">WEEKLY</a>,
+<a href="output.html#replist">DAILYREP</a>,
+<a href="output.html#replist">DAILYSUM</a>,
+<a href="output.html#replist">HOURLYREP</a>,
+<a href="output.html#replist">HOURLYSUM</a>,
+<a href="output.html#replist">WEEKHOUR</a>,
+<a href="output.html#replist">QUARTERREP</a>,
+<a href="output.html#replist">QUARTERSUM</a>,
+<a href="output.html#replist">FIVEREP</a>,
+<a href="output.html#replist">FIVESUM</a>,
+<a href="output.html#replist">HOST</a>,
+<a href="output.html#replist">REDIRHOST</a>,
+<a href="output.html#replist">FAILHOST</a>,
+<a href="output.html#replist">ORGANISATION</a>,
+<a href="output.html#replist">DOMAIN</a>,
+<a href="output.html#replist">REQUEST</a>,
+<a href="output.html#replist">DIRECTORY</a>,
+<a href="output.html#replist">FILETYPE</a>,
+<a href="output.html#replist">SIZE</a>,
+<a href="output.html#replist">PROCTIME</a>,
+<a href="output.html#replist">REDIR</a>,
+<a href="output.html#replist">FAILURE</a>,
+<a href="output.html#replist">REFERRER</a>,
+<a href="output.html#replist">REFSITE</a>,
+<a href="output.html#replist">SEARCHQUERY</a>,
+<a href="output.html#replist">SEARCHWORD</a>,
+<a href="output.html#replist">INTSEARCHQUERY</a>,
+<a href="output.html#replist">INTSEARCHWORD</a>,
+<a href="output.html#replist">REDIRREF</a>,
+<a href="output.html#replist">FAILREF</a>,
+<a href="output.html#replist">BROWSERREP</a>,
+<a href="output.html#replist">BROWSERSUM</a>,
+<a href="output.html#replist">OSREP</a>,
+<a href="output.html#replist">VHOST</a>,
+<a href="output.html#replist">REDIRVHOST</a>,
+<a href="output.html#replist">FAILVHOST</a>,
+<a href="output.html#replist">USER</a>,
+<a href="output.html#replist">REDIRUSER</a>,
+<a href="output.html#replist">FAILUSER</a>,
+<a href="output.html#replist">STATUS</a></kbd>
+
+<dt><i>Syntax</i>
+<dd><kbd>
+REPORTCOMMAND ("ON" | "OFF")</kbd>
+<dt><i>Examples</i>
+<dd><kbd>
+ALL OFF
+<br>HOURLYREP ON
+</kbd>
+</dl>
+
+<h3><a name="quickgraph"><kbd>GRAPH</kbd> commands</a></h3>
+
+<dl>
+<dt><i>Commands</i>
+<dd><kbd><a href="timereps.html#GRAPH">ALLGRAPH</a>,
+<a href="timereps.html#GRAPH">YEARGRAPH</a>,
+<a href="timereps.html#GRAPH">QUARTERLYGRAPH</a>,
+<a href="timereps.html#GRAPH">MONTHGRAPH</a>,
+<a href="timereps.html#GRAPH">WEEKGRAPH</a>,
+<a href="timereps.html#GRAPH">DAYREPGRAPH</a>,
+<a href="timereps.html#GRAPH">DAYSUMGRAPH</a>,
+<a href="timereps.html#GRAPH">HOURREPGRAPH</a>,
+<a href="timereps.html#GRAPH">HOURSUMGRAPH</a>,
+<a href="timereps.html#GRAPH">WEEKHOURGRAPH</a>,
+<a href="timereps.html#GRAPH">QUARTERREPGRAPH</a>,
+<a href="timereps.html#GRAPH">QUARTERSUMGRAPH</a>,
+<a href="timereps.html#GRAPH">FIVESUMGRAPH</a>,
+<a href="timereps.html#GRAPH">FIVEREPGRAPH</a></kbd>
+<dt><i>Syntax</i>
+<dd><kbd>
+COMMAND ("R" | "r" | "P" | "p" | "B" | "b")</kbd>
+<dt><i>Example</i>
+<dd><kbd>
+ALLGRAPH B
+</kbd>
+</dl>
+
+<h3><a name="quickback"><kbd>BACK</kbd> commands</a></h3>
+
+<dl>
+<dt><i>Commands</i>
+<dd><kbd><a href="timereps.html#BACK">ALLBACK</a>,
+<a href="timereps.html#BACK">YEARBACK</a>,
+<a href="timereps.html#BACK">QUARTERLYBACK</a>,
+<a href="timereps.html#BACK">MONTHBACK</a>,
+<a href="timereps.html#BACK">WEEKBACK</a>,
+<a href="timereps.html#BACK">DAYREPBACK</a>,
+<a href="timereps.html#BACK">HOURREPBACK</a>,
+<a href="timereps.html#BACK">QUARTERREPBACK</a>,
+<a href="timereps.html#BACK">FIVEREPBACK</a></kbd>
+<dt><i>Syntax</i>
+<dd><kbd>
+COMMAND ("ON" | "OFF")</kbd>
+<dt><i>Example</i>
+<dd><kbd>
+ALLBACK ON
+</kbd>
+</dl>
+    
+<h3><a name="quickrows"><kbd>ROWS</kbd> commands</a></h3>
+
+<dl>
+<dt><i>Commands</i>
+<dd><kbd><a href="timereps.html#ROWS">YEARROWS</a>,
+<a href="timereps.html#ROWS">QUARTERLYROWS</a>,
+<a href="timereps.html#ROWS">MONTHROWS</a>,
+<a href="timereps.html#ROWS">WEEKROWS</a>,
+<a href="timereps.html#ROWS">DAYREPROWS</a>,
+<a href="timereps.html#ROWS">HOURREPROWS</a>,
+<a href="timereps.html#ROWS">QUARTERREPROWS</a>,
+<a href="timereps.html#ROWS">FIVEREPROWS</a></kbd>
+<dt><i>Syntax</i>
+<dd><kbd>
+COMMAND number</kbd>
+<dt><i>Example</i>
+<dd><kbd>
+QUARTERREPROWS 192
+</kbd>
+</dl>
+
+<h3><a name="quickcols"><kbd>COLS</kbd> commands</a></h3>
+
+<dl>
+<dt><i>1. Commands (time reports)</i>
+<dd><kbd>
+<a href="timereps.html#timeCOLS">TIMECOLS</a>,
+<a href="timereps.html#timeCOLS">YEARCOLS</a>,
+<a href="timereps.html#timeCOLS">QUARTERLYCOLS</a>,
+<a href="timereps.html#timeCOLS">WEEKCOLS</a>,
+<a href="timereps.html#timeCOLS">MONTHCOLS</a>,
+<a href="timereps.html#timeCOLS">WEEKCOLS</a>,
+<a href="timereps.html#timeCOLS">DAYREPCOLS</a>,
+<a href="timereps.html#timeCOLS">DAYSUMCOLS</a>,
+<a href="timereps.html#timeCOLS">HOURREPCOLS</a>,
+<a href="timereps.html#timeCOLS">HOURSUMCOLS</a>,
+<a href="timereps.html#timeCOLS">WEEKHOURCOLS</a>,
+<a href="timereps.html#timeCOLS">QUARTERREPCOLS</a>,
+<a href="timereps.html#timeCOLS">QUARTERSUMCOLS</a>,
+<a href="timereps.html#timeCOLS">FIVEREPCOLS</a>,
+<a href="timereps.html#timeCOLS">FIVESUMCOLS</a></kbd>
+<dt><i>Syntax</i>
+<dd><kbd>cols1 := subset("RrPpBb")
+<br>COMMAND cols1</kbd>
+<dt><i>Example</i>
+<dd><kbd>
+MONTHCOLS bRP
+</kbd>
+
+<p><dt><i>2. Commands (most success reports)</i>
+<dd><kbd>
+<a href="othreps.html#othCOLS">HOSTCOLS</a>,
+<a href="othreps.html#othCOLS">ORGCOLS</a>,
+<a href="othreps.html#othCOLS">DOMCOLS</a>,
+<a href="othreps.html#othCOLS">DIRCOLS</a>,
+<a href="othreps.html#othCOLS">REFCOLS</a>,
+<a href="othreps.html#othCOLS">REFSITECOLS</a>,
+<a href="othreps.html#othCOLS">SEARCHQUERYCOLS</a>,
+<a href="othreps.html#othCOLS">SEARCHWORDCOLS</a>,
+<a href="othreps.html#othCOLS">INTSEARCHQUERYCOLS</a>,
+<a href="othreps.html#othCOLS">INTSEARCHWORDCOLS</a>,
+<a href="othreps.html#othCOLS">BROWREPCOLS</a>,
+<a href="othreps.html#othCOLS">BROWSUMCOLS</a>,
+<a href="othreps.html#othCOLS">OSCOLS</a>,
+<a href="othreps.html#othCOLS">VHOSTCOLS</a>,
+<a href="othreps.html#othCOLS">USERCOLS</a></kbd>
+<dt><i>Syntax</i>
+<dd><kbd>cols2 := subset("NDdEeRrSsPpQqBbCc")
+<br>COMMAND cols2</kbd>
+<dt><i>Example</i>
+<dd><kbd>
+USERCOLS BD
+</kbd>
+    
+<p><dt><i>3. Syntax (Request and File Type Reports)</i>
+<dd><kbd>
+<a href="othreps.html#othCOLS">REQCOLS</a> subset("NDdEeRrSspqBbCc")
+<br><a href="othreps.html#othCOLS">TYPECOLS</a> subset("NDdEeRrSsBbCc")</kbd>
+<dt><i>Example</i>
+<dd><kbd>
+TYPECOLS NRb
+</kbd>
+
+
+<p><dt><i>4. Commands (failure, redirection and Status Code reports)</i>
+<dd><kbd>
+<a href="othreps.html#othCOLS">REDIRCOLS</a>,
+<a href="othreps.html#othCOLS">FAILCOLS</a>,
+<a href="othreps.html#othCOLS">REDIRHOSTCOLS</a>,
+<a href="othreps.html#othCOLS">FAILHOSTCOLS</a>,
+<a href="othreps.html#othCOLS">REDIRREFCOLS</a>,
+<a href="othreps.html#othCOLS">FAILREFCOLS</a>,
+<a href="othreps.html#othCOLS">REDIRVHOSTCOLS</a>,
+<a href="othreps.html#othCOLS">FAILVHOSTCOLS</a>,
+<a href="othreps.html#othCOLS">REDIRUSERCOLS</a>,
+<a href="othreps.html#othCOLS">FAILUSERCOLS</a>,
+<a href="othreps.html#othCOLS">STATUSCOLS</a></kbd>
+<dt><i>Syntax</i>
+<dd><kbd>cols4 := subset("NDdEeRrSs")
+<br>COMMAND cols4</kbd>
+<dt><i>Example</i>
+<dd><kbd>
+FAILCOLS D
+</kbd>
+
+<p><dt><i>5. Commands (Size and Processing Time Reports)</i>
+<dd><kbd>
+<a href="othreps.html#othCOLS">SIZECOLS</a>,
+<a href="othreps.html#othCOLS">PROCTIMECOLS</a></kbd>
+<dt><i>Syntax</i>
+<dd><kbd>cols5 := subset("DdEeRrSsPpQqBbCc")
+<br>COMMAND cols5</kbd>
+<dt><i>Example</i>
+<dd><kbd>
+SIZECOLS RB
+</kbd>
+
+</dl>
+
+
+<h3><a name="quicksortby"><kbd>SORTBY</kbd> commands</a></h3>
+
+<dl>
+<dt><i>1. Commands (most success reports)</i>
+<dd><kbd>
+<a href="othreps.html#SORTBY">HOSTSORTBY</a>,
+<a href="othreps.html#SORTBY">ORGSORTBY</a>,
+<a href="othreps.html#SORTBY">DOMSORTBY</a>,
+<a href="othreps.html#SORTBY">DIRSORTBY</a>,
+<a href="othreps.html#SORTBY">REFSORTBY</a>,
+<a href="othreps.html#SORTBY">REFSITESORTBY</a>,
+<a href="othreps.html#SORTBY">SEARCHQUERYSORTBY</a>,
+<a href="othreps.html#SORTBY">SEARCHWORDSORTBY</a>,
+<a href="othreps.html#SORTBY">INTSEARCHQUERYSORTBY</a>,
+<a href="othreps.html#SORTBY">INTSEARCHWORDSORTBY</a>,
+<a href="othreps.html#SORTBY">BROWREPSORTBY</a>,
+<a href="othreps.html#SORTBY">BROWSUMSORTBY</a>,
+<a href="othreps.html#SORTBY">OSSORTBY</a>,
+<a href="othreps.html#SORTBY">VHOSTSORTBY</a>,
+<a href="othreps.html#SORTBY">USERSORTBY</a>,
+<a href="hierreps.html#SUBSORTBY">SUBDIRSORTBY</a>,
+<a href="hierreps.html#SUBSORTBY">SUBDOMSORTBY</a>,
+<a href="hierreps.html#SUBSORTBY">SUBORGSORTBY</a>,
+<a href="hierreps.html#SUBSORTBY">SUBBROWSORTBY</a>,
+<a href="hierreps.html#ARGSSORTBY">SUBOSSORTBY</a>,
+<a href="hierreps.html#SUBSORTBY">REFDIRSORTBY</a>,
+<a href="hierreps.html#ARGSSORTBY">REFARGSSORTBY</a></kbd>
+<dt><i>Syntax</i>
+<dd><pre>
+sortby1 := ("REQUESTS" | "REQUESTS7" | "PAGES" | "PAGES7" |
+            "BYTES" | "BYTES7" | "DATE" | "FIRSTDATE" |
+            "ALPHABETICAL" | "RANDOM")
+COMMAND sortby1</pre>
+<dt><i>Example</i>
+<dd><kbd>
+DOMSORTBY ALPHABETICAL
+</kbd>
+    
+<p><dt><i>2. Commands (Request and File Type Reports)</i>
+<dd><kbd>
+<a href="othreps.html#SORTBY">REQSORTBY</a>,
+<a href="othreps.html#SORTBY">TYPESORTBY</a>,
+<a href="hierreps.html#ARGSSORTBY">REQARGSSORTBY</a>,
+<a href="hierreps.html#SUBSORTBY">SUBTYPESORTBY</a></kbd>
+<dt><i>Syntax</i>
+<dd><pre>
+sortby2 := ("REQUESTS" | "REQUESTS7" | "BYTES" | "BYTES7" |
+            "DATE" | "FIRSTDATE" | "ALPHABETICAL" | "RANDOM")
+COMMAND sortby2</pre>
+<dt><i>Example</i>
+<dd><kbd>
+REQSORTBY REQUESTS
+</kbd>
+
+<p><dt><i>3. Commands (failure, redirection and Status Code reports)</i>
+<dd><kbd>
+<a href="othreps.html#SORTBY">REDIRSORTBY</a>,
+<a href="othreps.html#SORTBY">FAILSORTBY</a>,
+<a href="othreps.html#SORTBY">REDIRHOSTSORTBY</a>,
+<a href="othreps.html#SORTBY">FAILHOSTSORTBY</a>,
+<a href="othreps.html#SORTBY">REDIRREFSORTBY</a>,
+<a href="othreps.html#SORTBY">FAILREFSORTBY</a>,
+<a href="othreps.html#SORTBY">REDIRVHOSTSORTBY</a>,
+<a href="othreps.html#SORTBY">FAILVHOSTSORTBY</a>,
+<a href="othreps.html#SORTBY">REDIRUSERSORTBY</a>,
+<a href="othreps.html#SORTBY">FAILUSERSORTBY</a>,
+<a href="othreps.html#SORTBY">STATUSSORTBY</a>,
+<a href="hierreps.html#ARGSSORTBY">REDIRARGSSORTBY</a>,
+<a href="hierreps.html#ARGSSORTBY">FAILARGSSORTBY</a>,
+<a href="hierreps.html#ARGSSORTBY">REDIRREFARGSSORTBY</a>,
+<a href="hierreps.html#ARGSSORTBY">FAILREFARGSSORTBY</a></kbd>
+<dt><i>Syntax</i>
+<dd><pre>
+sortby3 := ("REQUESTS" | "REQUESTS7" | "DATE" | "FIRSTDATE" |
+            "ALPHABETICAL" | "RANDOM")
+COMMAND sortby3</pre>
+<dt><i>Example</i>
+<dd><kbd>
+FAILSORTBY DATE
+</kbd>
+</dl>
+    
+<h3><a name="quickfloor"><kbd>FLOOR</kbd> commands</a></h3>
+
+<dl>
+<dt><i>Commands (top-level)</i>
+<dd><kbd>
+<a href="othreps.html#FLOOR">HOSTFLOOR</a>,
+<a href="othreps.html#FLOOR">REDIRHOSTFLOOR</a>,
+<a href="othreps.html#FLOOR">FAILHOSTFLOOR</a>,
+<a href="othreps.html#FLOOR">ORGFLOOR</a>,
+<a href="othreps.html#FLOOR">DOMFLOOR</a>,
+<a href="othreps.html#FLOOR">REQFLOOR</a>,
+<a href="othreps.html#FLOOR">DIRFLOOR</a>,
+<a href="othreps.html#FLOOR">TYPEFLOOR</a>,
+<a href="othreps.html#FLOOR">REDIRFLOOR</a>,
+<a href="othreps.html#FLOOR">FAILFLOOR</a>,
+<a href="othreps.html#FLOOR">REFFLOOR</a>,
+<a href="othreps.html#FLOOR">REFSITEFLOOR</a>,
+<a href="othreps.html#FLOOR">SEARCHQUERYFLOOR</a>,
+<a href="othreps.html#FLOOR">SEARCHWORDFLOOR</a>,
+<a href="othreps.html#FLOOR">INTSEARCHQUERYFLOOR</a>,
+<a href="othreps.html#FLOOR">INTSEARCHWORDFLOOR</a>,
+<a href="othreps.html#FLOOR">REDIRREFFLOOR</a>,
+<a href="othreps.html#FLOOR">FAILREFFLOOR</a>,
+<a href="othreps.html#FLOOR">BROWREPFLOOR</a>,
+<a href="othreps.html#FLOOR">BROWSUMFLOOR</a>,
+<a href="othreps.html#FLOOR">OSFLOOR</a>,
+<a href="othreps.html#FLOOR">VHOSTFLOOR</a>,
+<a href="othreps.html#FLOOR">REDIRVHOSTFLOOR</a>,
+<a href="othreps.html#FLOOR">FAILVHOSTFLOOR</a>,
+<a href="othreps.html#FLOOR">USERFLOOR</a>,
+<a href="othreps.html#FLOOR">REDIRUSERFLOOR</a>,
+<a href="othreps.html#FLOOR">FAILUSERFLOOR</a>,
+<a href="othreps.html#FLOOR">STATUSFLOOR</a></kbd>
+
+<dt><i>Commands (lower levels)</i>
+<dd><kbd>
+<a href="hierreps.html#ARGSFLOOR">REQARGSFLOOR</a>,
+<a href="hierreps.html#ARGSFLOOR">REDIRARGSFLOOR</a>,
+<a href="hierreps.html#ARGSFLOOR">FAILARGSFLOOR</a>,
+<a href="hierreps.html#ARGSFLOOR">REFARGSFLOOR</a>,
+<a href="hierreps.html#ARGSFLOOR">REDIRREFARGSFLOOR</a>,
+<a href="hierreps.html#ARGSFLOOR">FAILREFARGSFLOOR</a>,
+<a href="hierreps.html#SUBFLOOR">SUBDIRFLOOR</a>,
+<a href="hierreps.html#SUBFLOOR">SUBDOMFLOOR</a>,
+<a href="hierreps.html#SUBFLOOR">SUBORGFLOOR</a>,
+<a href="hierreps.html#SUBFLOOR">SUBTYPEFLOOR</a>,
+<a href="hierreps.html#SUBFLOOR">SUBBROWFLOOR</a>,
+<a href="hierreps.html#ARGSFLOOR">SUBOSFLOOR</a>,
+<a href="hierreps.html#SUBFLOOR">REFDIRFLOOR</a></kbd>
+
+<dt><i>Syntax</i>
+<dd><kbd>
+partdate := ["+" | "-"] digit digit
+<br>date :=  partdate partdate partdate [":" partdate partdate]
+<br>COMMAND number ("r" | "s" | "p" | "q")
+<br>COMMAND number ["k" | "M" | "G" | "T" | "P" | "E" | "Z" | "Y"] ("b" | "c")
+<br>COMMAND real ("%" | ":") ("r" | "s" | "p" | "q" | "b" | "c")
+<br>COMMAND date ("d" | "e")
+<br>COMMAND "-" number ("r" | "s" | "p" | "q" | "b" | "c" | "d" | "e")</kbd>
+
+<dt><i>Notes</i>
+<dd>Actually, this syntax isn't quite correct. <kbd>REQFLOOR</kbd>,
+<kbd>TYPEFLOOR</kbd>, <kbd>REQARGSFLOOR</kbd> and <kbd>SUBTYPEFLOOR</kbd>
+aren't allowed to be of type <kbd>"p"</kbd> or <kbd>"q"</kbd>; and
+<kbd>REDIRFLOOR</kbd>,
+<kbd>FAILFLOOR</kbd>, <kbd>REDIRHOSTFLOOR</kbd>, <kbd>FAILHOSTFLOOR</kbd>,
+<kbd>REDIRREFFLOOR</kbd>, <kbd>FAILREFFLOOR</kbd>, <kbd>REDIRVHOSTFLOOR</kbd>,
+<kbd>FAILVHOSTFLOOR</kbd>, <kbd>REDIRUSERFLOOR</kbd>, <kbd>FAILUSERFLOOR</kbd>,
+<kbd>STATUSFLOOR</kbd>, <kbd>REDIRARGSFLOOR</kbd>, 
+<kbd>FAILARGSFLOOR</kbd>, <kbd>REDIRREFARGSFLOOR</kbd> and
+<kbd>FAILREFARGSFLOOR</kbd> aren't allowed to be of type <kbd>"p"</kbd>,
+<kbd>"q"</kbd>, <kbd>"b"</kbd> or <kbd>"c"</kbd>.
+
+<dt><i>Examples</i>
+<dd><kbd>
+TYPEFLOOR -20r
+<br>REQARGSFLOOR 0.1%b
+</kbd>
+</dl>
+
+<h3><a name="quickchart"><kbd>CHART</kbd> commands</a></h3>
+
+<dl>
+<dt><i>1. Commands (most success reports)</i>
+<dd><kbd>
+<a href="othreps.html#CHART">HOSTCHART</a>,
+<a href="othreps.html#CHART">ORGCHART</a>,
+<a href="othreps.html#CHART">DOMCHART</a>,
+<a href="othreps.html#CHART">REQCHART</a>,
+<a href="othreps.html#CHART">DIRCHART</a>,
+<a href="othreps.html#CHART">REFCHART</a>,
+<a href="othreps.html#CHART">REFSITECHART</a>,
+<a href="othreps.html#CHART">SEARCHQUERYCHART</a>,
+<a href="othreps.html#CHART">SEARCHWORDCHART</a>,
+<a href="othreps.html#CHART">INTSEARCHQUERYCHART</a>,
+<a href="othreps.html#CHART">INTSEARCHWORDCHART</a>,
+<a href="othreps.html#CHART">BROWREPCHART</a>,
+<a href="othreps.html#CHART">BROWSUMCHART</a>,
+<a href="othreps.html#CHART">OSCHART</a>,
+<a href="othreps.html#CHART">VHOSTCHART</a>,
+<a href="othreps.html#CHART">USERCHART</a>,
+<a href="othreps.html#CHART">SIZECHART</a>,
+<a href="othreps.html#CHART">PROCTIMECHART</a></kbd>
+<dt><i>Syntax</i>
+<dd><pre>
+chart1 := ("ON" | "OFF" | "REQUESTS" | "REQUESTS7" | "PAGES" | "PAGES7" |
+            "BYTES" | "BYTES7")
+COMMAND chart1</pre>
+<dt><i>Example</i>
+<dd><kbd>
+DOMCHART BYTES
+</kbd>
+    
+<p><dt><i>2. Commands (failure, redirection and Status Code reports)</i>
+<dd><kbd>
+<a href="othreps.html#CHART">REDIRHOSTCHART</a>,
+<a href="othreps.html#CHART">FAILHOSTCHART</a>,
+<a href="othreps.html#CHART">REDIRCHART</a>,
+<a href="othreps.html#CHART">FAILCHART</a>,
+<a href="othreps.html#CHART">REDIRREFCHART</a>,
+<a href="othreps.html#CHART">FAILREFCHART</a>,
+<a href="othreps.html#CHART">REDIRVHOSTCHART</a>,
+<a href="othreps.html#CHART">FAILVHOSTCHART</a>,
+<a href="othreps.html#CHART">REDIRUSERCHART</a>,
+<a href="othreps.html#CHART">FAILUSERCHART</a>,
+<a href="othreps.html#CHART">STATUSCHART</a></kbd>
+<dt><i>Syntax</i>
+<dd><pre>
+chart2 := ("ON" | "OFF" | "REQUESTS" | "REQUESTS7")
+COMMAND chart2</pre>
+<dt><i>Example</i>
+<dd><kbd>
+FAILCHART ON
+</kbd>
+
+<p><dt><i>3. Syntax (<kbd>TYPECHART</kbd>)</i>
+<dd><kbd>
+<a href="othreps.html#CHART">TYPECHART</a> ("ON" | "OFF" | "REQUESTS" | "REQUESTS7" | "BYTES" | "BYTES7")</kbd>
+    
+<p><dt><i>4. Syntax (<kbd>ALLCHART</kbd>)</i>
+<dd><kbd>
+<a href="othreps.html#CHART">ALLCHART</a> ("ON" | "OFF")</kbd>
+
+<p>
+  <dt><i>5. <kbd>CHARTEXPAND</kbd> commands</i>
+  <dd><kbd>
+      <a href="hierreps.html#CHARTEXPAND">DIRCHARTEXPAND</a>,
+      <a href="hierreps.html#CHARTEXPAND">DOMCHARTEXPAND</a>,
+      <a href="hierreps.html#CHARTEXPAND">ORGCHARTEXPAND</a>,
+      <a href="hierreps.html#CHARTEXPAND">TYPECHARTEXPAND</a>,
+      <a href="hierreps.html#CHARTEXPAND">BROWCHARTEXPAND</a>,
+      <a href="hierreps.html#CHARTEXPAND">OSCHARTEXPAND</a>,
+      <a href="hierreps.html#CHARTEXPAND">REQCHARTEXPAND</a>,
+      <a href="hierreps.html#CHARTEXPAND">REDIRCHARTEXPAND</a>,
+      <a href="hierreps.html#CHARTEXPAND">FAILCHARTEXPAND</a>,
+      <a href="hierreps.html#CHARTEXPAND">REFCHARTEXPAND</a>,
+      <a href="hierreps.html#CHARTEXPAND">REDIRREFCHARTEXPAND</a>,
+      <a href="hierreps.html#CHARTEXPAND">FAILREFCHARTEXPAND</a>,
+      <a href="hierreps.html#CHARTEXPAND">REFSITECHARTEXPAND</a>
+      </kbd>
+<dt><i>Syntax</i>
+<dd><pre>
+COMMAND item[,item...]</pre>
+<dt><i>Example</i>
+<dd><kbd>
+DOMCHARTEXPAND .com,.net
+</kbd>
+</dl>
+
+<h3><a name="quicklinks">Hyperlinks</a></h3>
+
+<dl>
+<dt><i>Syntax</i>
+<dd><kbd>
+<a href="include.html#LINKINCLUDE">REQLINKINCLUDE</a> *file
+<br><a href="include.html#LINKINCLUDE">REQLINKEXCLUDE</a> *file
+<br><a href="include.html#LINKINCLUDE">REDIRLINKINCLUDE</a> *file
+<br><a href="include.html#LINKINCLUDE">REDIRLINKEXCLUDE</a> *file
+<br><a href="include.html#LINKINCLUDE">FAILLINKINCLUDE</a> *file
+<br><a href="include.html#LINKINCLUDE">FAILLINKEXCLUDE</a> *file
+<br><a href="include.html#LINKINCLUDE">REFLINKINCLUDE</a> *referrer
+<br><a href="include.html#LINKINCLUDE">REFLINKEXCLUDE</a> *referrer
+<br><a href="include.html#LINKINCLUDE">REDIRREFLINKINCLUDE</a> *referrer
+<br><a href="include.html#LINKINCLUDE">REDIRREFLINKEXCLUDE</a> *referrer
+<br><a href="include.html#LINKINCLUDE">FAILREFLINKINCLUDE</a> *referrer
+<br><a href="include.html#LINKINCLUDE">FAILREFLINKEXCLUDE</a> *referrer
+<br><a href="othreps.html#BASEURL">BASEURL</a> prefix_string</kbd>
+<dt><i>Notes</i>
+<dd>The <kbd>LINK</kbd> commands can be regular expressions too.
+<dt><i>Examples</i>
+<dd><kbd>
+REQLINKINCLUDE pages
+<br>REFLINKINCLUDE *.cgi,*.cgi?*
+<br>BASEURL http://www.mycompany.com
+</kbd>
+</dl>
+
+<h3><a name="quicklang">Language commands</a></h3>
+<dl>
+  <dt><i>Syntax</i>
+  <dd><pre>
+<a href="output.html#LANGUAGE">LANGUAGE</a> ("ARMENIAN" | "BASQUE" | "BULGARIAN" | "BULGARIAN-MIK" |
+          "CATALAN" | "SIMP-CHINESE" | "TRAD-CHINESE" | "CZECH" |
+          "CZECH-1250" | "DANISH" | "DUTCH" | "ENGLISH" | "US-ENGLISH" |
+          "FINNISH" | "FRENCH" | "GERMAN" | "HUNGARIAN" | "INDONESIAN" |
+          "ITALIAN" | "JAPANESE-EUC" | "JAPANESE-JIS" | "JAPANESE-SJIS" |
+          "JAPANESE-UTF" | "KOREAN" | "LATVIAN" | "NORWEGIAN" | "NYNORSK" |
+          "POLISH" | "PORTUGUESE" | "BR-PORTUGUESE" | "RUSSIAN" |
+          "RUSSIAN-1251" | "SERBIAN" | "SLOVAK" | "SLOVAK-1250" | "SLOVENE" |
+          "SLOVENE-1250" | "SPANISH" | "SWEDISH" | "SWEDISH-ALT" | "TURKISH" |
+          "UKRAINIAN")
+<a href="output.html#LANGUAGE">LANGFILE</a> localfile
+<a href="domfile.html">DOMAINSFILE</a> localfile
+<a href="output.html#DESCRIPTIONS">DESCFILE</a> localfile
+</pre>
+<dt><i>Notes</i>
+<dd>I hope that the other languages which were available in previous versions
+    of analog -- <kbd>BOSNIAN</kbd>, <kbd>SIMP-CHINESE</kbd>,
+    <kbd>TRAD-CHINESE</kbd>, <kbd>CROATIAN</kbd>, <kbd>FINNISH</kbd>,
+    <kbd>GREEK</kbd>, <kbd>ICELANDIC</kbd>, <kbd>LITHUANIAN</kbd>,
+    <kbd>BR-PORTUGUESE</kbd>, <kbd>ROMANIAN</kbd>,
+    <kbd>SLOVAK</kbd> and <kbd>SPANISH</kbd> -- will be available for download
+    from the <a href="http://www.analog.cx/">analog home page</a> soon.
+<dt><i>Examples</i>
+<dd><kbd>
+LANGUAGE ITALIAN
+<br>LANGFILE hindi.lng
+</kbd>
+</dl>
+
+<h3><a name="quickcosmetic">Cosmetic and miscellaneous commands</a></h3>
+
+<dl>
+<dt><i>Syntax</i>
+<dd><kbd>
+<br><a href="output.html#outstyle">OUTPUT</a> ("XHTML" | "HTML" | "PLAIN" | "ASCII" | "LATEX" | "COMPUTER" | "XML" | "NONE")
+<br><a href="output.html#GOTOS">GOTOS</a> ("ON" | "OFF" | "FEW")
+<br><a href="output.html#RUNTIME">RUNTIME</a> ("ON" | "OFF")
+<br><a href="output.html#DESCRIPTIONS">DESCRIPTIONS</a> ("ON" | "OFF")
+<br><a href="othreps.html#REPORTSPAN">REPORTSPAN</a> ("ON" | "OFF")
+<br><a href="othreps.html#REPORTSPAN">REPORTSPANTHRESHOLD</a> number
+<br><a href="output.html#LASTSEVEN">LASTSEVEN</a> ("ON" | "OFF")
+<br><a href="output.html#REPORTORDER">REPORTORDER</a> perm("x1QmWDdHwh4657oZSlLujJkKfsNnBbpvRMcPztiEIYyr")
+<br><a href="output.html#GENSUMLINES">GENSUMLINES</a> ("ALL" | ["+" | "-"] subset("BCDEFGHIJKLMN"))
+<br><a href="output.html#IMAGEDIR">IMAGEDIR</a> URL
+<br><a href="othreps.html#CHARTDIR">CHARTDIR</a> fmtURL
+<br><a href="othreps.html#CHARTDIR">LOCALCHARTDIR</a> localfmtfile
+<br><a href="othreps.html#CHARTDIR">JPEGCHARTS</a> ("ON" | "OFF")
+<br><a href="output.html#PNGIMAGES">PNGIMAGES</a> ("ON" | "OFF")
+<br><a href="output.html#NOROBOTS">NOROBOTS</a> ("ON" | "OFF")
+<br><a href="output.html#LOGO">LOGO</a> (URL | "none")
+<br><a href="output.html#LOGO">LOGOURL</a> (URL | "none")
+<br><a href="output.html#HOSTNAME">HOSTNAME</a> string
+<br><a href="output.html#HOSTNAME">HOSTURL</a> (URL | "none")
+<br><a href="output.html#HEADERFILE">HEADERFILE</a> (localfile | "none")
+<br><a href="output.html#HEADERFILE">FOOTERFILE</a> (localfile | "none")
+<br><a href="output.html#STYLESHEET">STYLESHEET</a> (URL | "none")
+<br><a href="output.html#STYLESHEET">CSSPREFIX</a> (string | "none")
+<br><a href="output.html#SEPCHAR">SEPCHAR</a> (char | "none")
+<br><a href="output.html#SEPCHAR">REPSEPCHAR</a> (char | "none")
+<br><a href="output.html#SEPCHAR">DECPOINT</a> char
+<br><a href="compout.html">COMPSEP</a> string
+<br><a href="output.html#RAWBYTES">RAWBYTES</a> ("ON" | "OFF")
+<br><a href="output.html#RAWBYTES">BYTESDP</a> number
+<br><a href="output.html#PAGEWIDTH">HTMLPAGEWIDTH</a> number
+<br><a href="output.html#PAGEWIDTH">PLAINPAGEWIDTH</a> number
+<br><a href="output.html#PAGEWIDTH">LATEXPAGEWIDTH</a> number
+<br><a href="output.html#outstyle">PDFLATEX</a> ("ON" | "OFF")
+<br><a href="timereps.html#BARSTYLE">BARSTYLE</a> ("a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j")
+<br><a href="timereps.html#MARKCHAR">MARKCHAR</a> char
+<br><a href="timereps.html#MINGRAPHWIDTH">MINGRAPHWIDTH</a> number
+<br><a href="timereps.html#WEEKBEGINSON">WEEKBEGINSON</a> ("SUNDAY" | "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY")
+<br><a href="args.html#SEARCHENGINE">SEARCHENGINE</a> *referrer comma-separated-strings
+<br><a href="args.html#SEARCHENGINE">INTSEARCHENGINE</a> *file comma-separated-strings
+</kbd>
+<dt><i>Examples</i>
+<dd>Too many to list. See the documentation on each individual command.
+</dl>
+    
+<h3><a name="quickdebug">Diagnostics</a></h3>
+
+<dl>
+<dt><i>Syntax</i>
+<dd><kbd>
+<a href="syntax.html#settings">SETTINGS</a> ("ON" | "OFF")
+<br><a href="debug.html#debugs">DEBUG</a> ("ON" | "OFF" | ["+" | "-"] subset("CDFSU"))
+<br><a href="debug.html#WARNINGS">WARNINGS</a> ("ON" | "OFF" | ["+" | "-"] subset("CDEFLMR"))
+<br><a href="debug.html#PROGRESSFREQ">PROGRESSFREQ</a> number
+<br><a href="debug.html#ERRFILE">ERRFILE</a> localfile
+<br><a href="debug.html#ERRLINELENGTH">ERRLINELENGTH</a> number</kbd>
+<dt><i>Examples</i>
+<dd><kbd>
+DEBUG ON
+<br>DEBUG CF
+<br>WARNINGS -DL
+<br>PROGRESSFREQ 50000
+</kbd>
+</dl>
+    
+<hr size=2 noshade>
+Go to the <a href="http://www.analog.cx/">analog home page</a>.
+<p>
+<address>Stephen Turner
+<br>19 December 2004</address>
+<p><em>Need help with analog? <a href="mailing.html">Use the analog-help
+mailing list</a>.</em>
+<p>
+[ <a href="Readme.html">Top</a> | Up | Prev | Next |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>
