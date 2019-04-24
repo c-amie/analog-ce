@@ -1,6 +1,6 @@
 <!--
 
-        Analog Data DTD - version 1.0
+        Analog Data DTD - version 1.0.2
 
         For further information, see: http://timian.jessen.ch
 
@@ -11,51 +11,44 @@
 
 	Copyright (c) 2003 Per Jessen, per@computer.org
 
-	This program is free software. You can redistribute it and/or modify it
-	under the terms of version 2 of the GNU General Public License, which
-	you should have received with it.
-
-	This program is distributed in the hope that it will be useful, but
-	without any warranty, expressed or implied.
+	Distribution, usage and modification of this software is
+	subject to the conditions of the Licence which you should
+	have received with it.
 
 	- - - - - - - - - -
 
 	This DTD describes the syntax of an XML-document produced by
-	analog (http://www.analog.cx) when using OUTPUT XML.
+	analog (http://analog.sourceforge.net) when using OUTPUT XML.
 
 	Please refer to http://timian.jessen.ch for further information.
 
 
 	Changelog:
-	2003/01/21 0.1 per	First version.
-	2003/02/15 0.2 per	At best this may be considered early alpha stage.
-	2003/04/01 0.3 per	Updated for analog 5.90beta2.
-	2003/04/04 0.4 per	now subject to analog license.
-        2003/04/25 1.0 per      updated this header.
-	2004/11/07 1.1 sret     Changed licence to GPL.
+	2003/01/21 0.1   per	First version.
+	2003/02/15 0.2   per	At best this may be considered early alpha stage.
+	2003/04/01 0.3   per	Updated for analog 5.90beta2.
+	2003/04/04 0.4   per	now subject to analog license.
+    2003/04/25 1.0   per    updated this header.
+	2009/04/04 1.0.1 per    bug fixes in DTD to allow MSXML 4.0 to parse it
+	2011/07/27 1.0.2 per    bug fixes in DTD to allow MSXML 6.0 to parse it
 
 -->
 
+<!ENTITY % number "NMTOKEN">
+<!ENTITY % generalsummary "(row+)">
+<!ENTITY % timereport "(rowlimit,sort,row+,busiest)">
+<!ENTITY % timesummary "(sort,row+)">
+<!ENTITY % genericreport "((sort+,floor+)?,row+)">
 
-<!ENTITY % number  "NMTOKEN">
-
-<!ENTITY % generalsummary "(row+)" >
-
-<!ENTITY % timereport	"(rowlimit,sort,row+,busiest)" >
-
-<!ENTITY % timesummary	"(sort,row+)" >
-
-<!ENTITY % genericreport "((sort+,floor+)?,timespan,row+)" >
-
-
-<!ELEMENT analog-data (analog,report+)>
+<!-- report+ Report must occur one or more times -->
+<!ELEMENT analog-data (analog,report+;)>
 
 	<!-- using XML data from newer/updated analog versions might require an update of the DTD -->
 	<!ATTLIST analog-data
-		version CDATA #FIXED "5.90beta2"
+		version CDATA #IMPLIED
 		timestamp CDATA #REQUIRED
 	>
-
+		<!-- property* Property can occur 0 or more times  beneath analog -->
         <!ELEMENT analog (property*, timespan)>
 
 	<!ELEMENT property EMPTY>
@@ -64,10 +57,8 @@
 		content CDATA	#REQUIRED
 	>
 
-
-        <!ELEMENT report ( %timereport; | %timesummary; | %generalsummary; | %genericreport; ) >
-
-        <!ATTLIST report name CDATA #REQUIRED>
+	<!ELEMENT report ( %timereport; | %timesummary; | %generalsummary; | %genericreport; ) >
+	<!ATTLIST report name CDATA #REQUIRED>
 
 
 	<!ELEMENT rowlimit EMPTY>
@@ -131,3 +122,4 @@
 		qual  CDATA	#IMPLIED
 		by    CDATA	#REQUIRED
 	>
+ 
