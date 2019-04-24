@@ -1,4 +1,5 @@
 Analog is copyright (c) Stephen R. E. Turner and other authors 1995 - 2004.
+Analog CE is copyright (c) www.c-amie.co.uk and other authors 2007 - 2019.
 This copyright and licence apply to all source code, compiled code,
 documentation, graphics and auxiliary files, except where otherwise stated.
 
@@ -17,14 +18,13 @@ from FreeBSD. These portions of code are also subject to their own copyrights
 and licensing conditions, which can be found in the analog docs directory in
 files with names beginning with "Lic".
 
-If you like analog, please consider making a donation towards its development
-at http://www.analog.cx/donations/ . Thank you.
+If you like Analog CE, please consider making a donation towards its 
+development at http://www.c-amie.co.uk/software/analog/ . Thank you.
 
-                                        Stephen R. E. Turner
-                                        Cambridge, England
-                                        analog-author@lists.meer.net
-                                        http://www.analog.cx/
-                                        19 December 2004
+        Stephen R. E. Turner           C:Amie
+        Cambridge, England             England
+                                       https://www.c-amie.co.uk/
+        19 December 2004               24 April 2019
 
 ====== GNU GENERAL PUBLIC LICENSE STARTS HERE ======
 
