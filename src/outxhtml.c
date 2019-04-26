@@ -196,7 +196,7 @@ void xhtml_pagebotstart(FILE *outf, Outchoices *od) {
 
 /* The credit line at the bottom of the page */
 void xhtml_credit(FILE *outf, Outchoices *od) {
-  fprintf(outf, "<p class=\"%scredit\">%s <a href=\"%s\">C:Amie Edition %s</a>.\n",
+  fprintf(outf, "<p class=\"%scredit\">%s <a href=\"%s\" rel=\"follow\">CE %s</a>.\n",
 	  od->cssprefix, od->lngstr[credit_], ANALOGURL, VNUMBER);
 }
 
