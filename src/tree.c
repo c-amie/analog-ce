@@ -968,9 +968,12 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 					}
 				}
 
-				/* Windows Phone 6.5 appears as NT 5.1 (dealt with elsewhere), WP 7 has "OS" as the next field, WP 7+ has OS in it */
+				/* Windows Phone 6.5 appears as NT 5.1 (dealt with elsewhere), WP 7 has "OS" as the next field, WP 7+ has OS in it 
+				 * Windows Phone 8, 8.1 and 10.0 likely do not have 'OS'
+				 */
 				if (*c == 'O' && *(c + 1) == 'S') {
 					c += 2; // Skip 'OS'
+				}
 					if (*c == ' ') {
 						c++;
 					}
@@ -992,7 +995,7 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 					} else if  (*c == '8') {
 
 						if (*(c + 1) == '.' && (*(c + 2) == '0')) {
-							*name = "Windows:Windows Phone OS 8.0";
+							*name = "Windows:Windows Phone 8.0";
 						} else if (*(c + 1) == '.' && (*(c + 2) == '1')) {
 							*name = "Windows:Windows Phone 8.1";
 						} else {
@@ -1012,9 +1015,9 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 						*name = "Windows:Windows Phone Unknown";
 					}
 
-				} else {
+/*				} else {
 					*name = "Windows:Windows Phone Unknown";
-				}
+				}*/
 				
 		  /* next three not MSIE, but some other vendor might use them */
 			} else if (*c == 'X' && *(c + 1) == 'P') {
@@ -1024,7 +1027,7 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 			} else if (*c == 'M' && (*(c + 1) == 'E' || (*(c + 1) == 'e') || headmatch(c + 1, "illennium"))) {
 				*name = "Windows:Windows ME";
 			} else if (*c == '3' && *(c + 1) == '.' && *(c + 2) == '1') {
-				*name = "Windows:Windows 3.1x/NT 3.51";
+				*name = "Windows:Windows 3.1x / NT 3.51";
 			} else if ((*c == '1' && *(c + 1) == '6') || strstr(c + 1, "16bit") || strstr(c + 1, "16-bit")) {
 				*name = "Windows:Windows 16-bit";
 			} else if ((*c == '3' && *(c + 1) == '2') || strstr(c + 1, "32bit") || strstr(c + 1, "32-bit")) {

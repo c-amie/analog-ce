@@ -19,7 +19,7 @@
 
 /*** OS specific things ***/
 
-#define VNUMBER "6.0.14"    /* the version number of this program */
+#define VNUMBER "6.0.15"    /* the version number of this program */
 
 #undef VERSION /* If no OS set, compilation will fail by not knowing VERSION */
 
