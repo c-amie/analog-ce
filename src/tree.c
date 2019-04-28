@@ -1001,7 +1001,7 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 
 					} else if  (*c == '1' && (*(c + 1) == '0')) {
 
-						if (*(c + 2) == '.' && (*(c + 2) == '0')) {
+						if (*(c + 2) == '.' && (*(c + 3) == '0')) {
 							*name = "Windows:Windows Phone 10.0";
 						} else {
 							*name = "Windows:Windows Phone Unknown";
