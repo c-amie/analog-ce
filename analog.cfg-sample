@@ -1,0 +1,274 @@
+# Configuration file for Analog CE 6.0.16
+# See https://www.c-amie.co.uk/software/analog/
+#
+# Here are a couple of configuration commands to get you started. Add any more
+# you like from the Readme.
+#
+# Lines starting with # are comments.
+#
+# There is a much more extensive configuration file in examples/big.cfg
+#
+# If you need a LOGFORMAT command (most people don't -- try it without first!),
+# it must go here, above the LOGFILE commands.
+LOGFILE logfile.log
+# LOGFILE /old/logs/access_log.*
+# OUTFILE Report.html
+# HOSTNAME "[my organisation]"
+
+# Reports Enabled/Disabled List
+#ALL		ON
+ALLCHART 	ON
+
+GENERAL		ON	#General Summary
+YEARLY		ON	#Yearly Report
+QUARTERLY	ON	#Quarterly Report
+MONTHLY		ON	#Monthly Report
+WEEKLY		ON	#Weekly Report
+DAILYREP	ON	#Daily Report
+DAILYSUM	ON	#Daily Summary
+HOURLYREP	ON	#Hourly Report
+HOURLYSUM	ON	#Hourly Summary
+WEEKHOUR	ON	#Hour of the Week Summary
+QUARTERREP	ON	#Quarter-Hour Report
+QUARTERSUM	ON	#Quarter-Hour Summary
+FIVEREP		ON	#Five-Minute Report
+FIVESUM		ON	#Five-Minute Summary
+HOST		ON	#Host Report
+REDIRHOST	ON	#Host Redirection Report
+FAILHOST	ON	#Host Failure Report
+ORGANISATION	ON	#Organisation Report
+DOMAIN		ON	#Domain Report
+REQUEST		ON	#Request Report
+DIRECTORY	ON	#Directory Report
+FILETYPE	ON	#File Type Report
+SIZE		ON	#File Size Report
+PROCTIME	ON	#Processing Time Report
+REDIR		ON	#Redirection Report
+FAILURE		ON	#Failure Report
+REFERRER	ON	#Referrer Report
+REFSITE		ON	#Referring Site Report
+SEARCHQUERY	ON	#Search Query Report
+SEARCHWORD	ON	#Search Word Report
+INTSEARCHQUERY	ON	#Internal Search Query Report
+INTSEARCHWORD	ON	#Internal Search Word Report
+REDIRREF	ON	#Redirected Referrer Report
+FAILREF		ON	#Failed Referrer Report
+BROWSERREP	ON	#Browser Report
+BROWSERSUM	ON	#Browser Summary
+OSREP		ON	#Operating System Report
+VHOST		ON	#Virtual Host Report
+REDIRVHOST	ON	#Virtual Host Redirection Report
+FAILVHOST	ON	#Virtual Host Failure Report
+USER		ON	#User Report
+REDIRUSER	ON	#User Redirection Report
+FAILUSER	ON	#User Failure Report
+STATUS		ON	#Status Code Report
+
+#
+# You probably don't need to change anything below this until you are
+# experienced.
+#
+# ERRFILE errors.txt
+# REQINCLUDE pages
+LINKNOFOLLOW ON
+REQLINKINCLUDE pages
+REFLINKINCLUDE *
+REDIRREFLINKINCLUDE *
+FAILREFLINKINCLUDE *
+SUBBROW */*
+# OSCHARTEXPAND Windows
+
+# Add whichever of these types of pages you have on your server, or others.
+# PAGEINCLUDE *.shtml
+# PAGEINCLUDE *.asp
+# PAGEINCLUDE *.jsp
+# PAGEINCLUDE *.cfm
+# PAGEINCLUDE *.pl
+# PAGEINCLUDE *.php
+# PAGEINCLUDE *.aspx
+
+# SEARCHENGINE commands
+SEARCHENGINE http*://*/mamma.*/* query
+SEARCHENGINE http*://*/netfind* query
+SEARCHENGINE http*://*/pursuit query
+SEARCHENGINE http*://*aj.*/* ask
+SEARCHENGINE http*://*alltheweb.*/* query
+SEARCHENGINE http*://*altavista.*/* q
+SEARCHENGINE http*://*aol.*/* query
+SEARCHENGINE http*://*ask.*/* ask,q
+SEARCHENGINE http*://*askjeeves.*/* ask
+SEARCHENGINE http*://*baidu.*/* wd
+SEARCHENGINE http*://*bing.*/* q
+SEARCHENGINE http*://*directhit.*/* qry
+SEARCHENGINE http*://*dmoz.*/* search
+SEARCHENGINE http*://*dogpile.*/* q
+SEARCHENGINE http*://*duckduckgo.*/* q
+SEARCHENGINE http*://*ecosia.*/* q
+SEARCHENGINE http*://*excite.*/* search
+SEARCHENGINE http*://*go2net.*/* general
+SEARCHENGINE http*://*google.*/* q,as_q,as_epq,as_oq
+SEARCHENGINE http*://*goto.*/* Keywords
+SEARCHENGINE http*://*hotbot.com/* MT
+SEARCHENGINE http*://*info.*/* q
+SEARCHENGINE http*://*infoseek.*/* qt
+SEARCHENGINE http*://*ixquick.*/* metasearch.pl
+SEARCHENGINE http*://*looksmart.*/* key
+SEARCHENGINE http*://*lycos.*/* query
+SEARCHENGINE http*://*metacrawler.*/* general
+SEARCHENGINE http*://*mysearch.*/* searchfor
+SEARCHENGINE http*://*naver.*/* query
+SEARCHENGINE http*://*netfind.*/* query,search,s
+SEARCHENGINE http*://*netscape.*/* search
+SEARCHENGINE http*://*newhoo.*/* search
+SEARCHENGINE http*://*nlsearch.*/* qr
+SEARCHENGINE http*://*northernlight.*/* qr
+SEARCHENGINE http*://*search.*/* q
+SEARCHENGINE http*://*snap.*/* keyword
+SEARCHENGINE http*://*vivisimo.*/* search
+SEARCHENGINE http*://*webcrawler.*/* search,searchText,q
+SEARCHENGINE http*://*yahoo.*/* p
+SEARCHENGINE http*://*yandex.*/* text
+
+# Robots
+ROBOTINCLUDE REGEXPI:robot
+ROBOTINCLUDE REGEXPI:spider
+ROBOTINCLUDE REGEXPI:crawler
+
+ROBOTINCLUDE bingbot*
+ROBOTINCLUDE Googlebot*
+ROBOTINCLUDE Infoseek*
+ROBOTINCLUDE msnbot*
+ROBOTINCLUDE Scooter*
+ROBOTINCLUDE *Slurp*
+ROBOTINCLUDE Ultraseek*
+ROBOTINCLUDE *Validator*
+
+
+# Static Internet Documents
+TYPEOUTPUTALIAS .html    ".html   [Hypertext Markup Language]"
+TYPEOUTPUTALIAS .htm     ".htm    [Hypertext Markup Language]"
+TYPEOUTPUTALIAS .shtml   ".shtml  [Server-parsed HTML]"
+TYPEOUTPUTALIAS .ps      ".ps     [PostScript]"
+TYPEOUTPUTALIAS .gz      ".gz     [Gzip compressed files]"
+TYPEOUTPUTALIAS .tar.gz  ".tar.gz [Compressed archives]"
+TYPEOUTPUTALIAS .txt     ".txt    [Plain text Documents]"
+TYPEOUTPUTALIAS .cdf     ".cdf    [Channel Definition File]"
+# Scripting & Dynamic Internet Content Files
+TYPEOUTPUTALIAS .asp     ".asp    [Active Server Pages]"
+TYPEOUTPUTALIAS .aspx    ".aspx   [Active Server Pages .net]"
+TYPEOUTPUTALIAS .cgi     ".cgi    [CGI scripts]"
+TYPEOUTPUTALIAS .pl      ".pl     [Perl scripts]"
+TYPEOUTPUTALIAS .css     ".css    [Cascading Style Sheets]"
+TYPEOUTPUTALIAS .class   ".class  [Java class files]"
+TYPEOUTPUTALIAS .hqx     ".hqx    [Macintosh archives]"
+TYPEOUTPUTALIAS .jsp     ".jsp    [Java Server Pages]"
+TYPEOUTPUTALIAS .cfm     ".cfm    [Cold Fusion]"
+TYPEOUTPUTALIAS .php     ".php    [PHP Hypertext Processor]"
+TYPEOUTPUTALIAS .js      ".js     [JavaScript code]"
+TYPEOUTPUTALIAS .dll     ".dll    [Dynamic Link Library]"
+TYPEOUTPUTALIAS .asa     ".asa    [Web Server Scripting Configuration]"
+TYPEOUTPUTALIAS .url     ".url    [Windows Internet Shortcut]"
+TYPEOUTPUTALIAS .lnk     ".lnk    [Windows Explorer Shortcut]"
+TYPEOUTPUTALIAS .ini     ".ini    [Configuration Settings File]"
+TYPEOUTPUTALIAS .log     ".log    [Log Files]"
+TYPEOUTPUTALIAS .diz     ".diz    [DIZ Text File]"
+TYPEOUTPUTALIAS .inc     ".inc    [SSI Inclusion File]"
+TYPEOUTPUTALIAS .xml     ".xml    [eXtensible Markup Language File]"
+TYPEOUTPUTALIAS .rdf     ".rdf    [Resource Description Framework File]"
+TYPEOUTPUTALIAS .rb      ".rb     [Ruby script file]"
+# Image Files
+TYPEOUTPUTALIAS .jpg     ".jpg    [JPEG graphics]"
+TYPEOUTPUTALIAS .jpeg    ".jpeg   [JPEG graphics]"
+TYPEOUTPUTALIAS .jpe     ".jpe    [JPEG graphics]"
+TYPEOUTPUTALIAS .gif     ".gif    [GIF graphics]"
+TYPEOUTPUTALIAS .gfa     ".gfa    [GIF graphics]"
+TYPEOUTPUTALIAS .png     ".png    [Portable Network Graphics]"
+TYPEOUTPUTALIAS .bmp     ".bmp    [BitMap]"
+TYPEOUTPUTALIAS .bmz     ".bmz    [BitMap]"
+TYPEOUTPUTALIAS .dib     ".dib    [BitMap]"
+TYPEOUTPUTALIAS .rle     ".rle    [BitMap]"
+TYPEOUTPUTALIAS .2bp     ".2bp    [Windows CE 4 Tone BitMap]"
+TYPEOUTPUTALIAS .ico     ".ico    [Icon File]"
+TYPEOUTPUTALIAS .tif     ".tif    [Tag Image File Format]"
+TYPEOUTPUTALIAS .tiff    ".tiff   [Tag Image File Format]"
+TYPEOUTPUTALIAS .wmf     ".wmf    [Windows Metafile (ClipArt)]"
+TYPEOUTPUTALIAS .pct     ".pct    [Macintosh PICT]"
+TYPEOUTPUTALIAS .pict    ".pict   [Macintosh PICT]"
+TYPEOUTPUTALIAS .pcz     ".pcz    [Macintosh PICT Compressed]"
+TYPEOUTPUTALIAS .pcd     ".pcd    [Kodak Photo CD]"
+TYPEOUTPUTALIAS .pcx     ".pcx    [PC Paintbrush]"
+TYPEOUTPUTALIAS .cdr     ".cdr    [Corel Draw]"
+TYPEOUTPUTALIAS .cgm     ".cgm    [COmputer Graphics Metafile]"
+TYPEOUTPUTALIAS .eps     ".eps    [Encapsulated PostScript]"
+TYPEOUTPUTALIAS .fpx     ".fpx    [FPX Format]"
+TYPEOUTPUTALIAS .wpg     ".wpg    [WordPerfect Graphics]"
+TYPEOUTPUTALIAS .mix     ".mix    [Picture IT! Format]"
+TYPEOUTPUTALIAS .psd     ".psd    [Adobe Photoshop Document]"
+# Multimedia Audio, Video & Misc
+TYPEOUTPUTALIAS .wav     ".wav    [WAV sound files]"
+TYPEOUTPUTALIAS .avi     ".avi    [AVI movies]"
+TYPEOUTPUTALIAS .arc     ".arc    [Compressed archives]"
+TYPEOUTPUTALIAS .mid     ".mid    [MIDI sound files]"
+TYPEOUTPUTALIAS .midi    ".midi   [MIDI sound files]"
+TYPEOUTPUTALIAS .rmi     ".rmi    [MIDI sound files]"
+TYPEOUTPUTALIAS .ivf     ".ivf    [Indeo Video Format movie]"
+TYPEOUTPUTALIAS .aif     ".aif    [AIFF sound files]"
+TYPEOUTPUTALIAS .aifc    ".aifc   [AIFF sound files]"
+TYPEOUTPUTALIAS .aiff    ".aiff   [AIFF sound files]"
+TYPEOUTPUTALIAS .au      ".au     [AU sound files]"
+TYPEOUTPUTALIAS .snd     ".snd    [AU sound files]"
+TYPEOUTPUTALIAS .mp3     ".mp3    [MP3 sound files]"
+TYPEOUTPUTALIAS .rtf     ".rtf    [Rich Text Format]"
+TYPEOUTPUTALIAS .mov     ".mov    [Quick Time movie]"
+TYPEOUTPUTALIAS .mpg     ".mpg    [MPEG movie]"
+TYPEOUTPUTALIAS .mpeg    ".mpeg   [MPEG movie]"
+TYPEOUTPUTALIAS .m1v     ".m1v    [MPEG 1 Video]"
+TYPEOUTPUTALIAS .mp2v    ".mp2v   [MPEG 2 Video]"
+TYPEOUTPUTALIAS .mpe     ".mpe    [MPEG movie]"
+TYPEOUTPUTALIAS .wax     ".wax    [Windows Media Audio Extension]"
+TYPEOUTPUTALIAS .wvx     ".wvx    [Windows Media Video Extension]"
+TYPEOUTPUTALIAS .m3u     ".m3u    [MPEG 3 Audio]"
+TYPEOUTPUTALIAS .wma     ".wma    [Windows Media Audio]"
+TYPEOUTPUTALIAS .wmv     ".wmv    [Windows Media Video]"
+TYPEOUTPUTALIAS .ra      ".ra     [Real Audio File]"
+TYPEOUTPUTALIAS .ram     ".ram    [Real Audio Media]"
+TYPEOUTPUTALIAS .asf     ".asf    [Microsoft Advanced Streaming Format]"
+TYPEOUTPUTALIAS .asx     ".asx    [Microsoft Advanced Streaming Extensions]"
+TYPEOUTPUTALIAS .pdf     ".pdf    [Adobe Portable Document Format]"
+TYPEOUTPUTALIAS .swf     ".swf    [Macromedia Flash Object]"
+# Microsoft Office & Pocket Office
+TYPEOUTPUTALIAS .mdb     ".mdb    [Microsoft Access Database]"
+TYPEOUTPUTALIAS .ppv     ".ppv    [PowerPoint Viewer File]"
+TYPEOUTPUTALIAS .ppt     ".ppt    [PowerPoint File]"
+TYPEOUTPUTALIAS .xls     ".xls    [Excel SpreadSheet]"
+TYPEOUTPUTALIAS .doc     ".doc    [Microsoft Word Document]"
+TYPEOUTPUTALIAS .pwd     ".pwd    [Microsoft Pocket Word Document]"
+TYPEOUTPUTALIAS .pwt     ".pwt    [Microsoft Pocket Word Template]"
+TYPEOUTPUTALIAS .pxl     ".pxl    [Microsoft Pocket Excel Document]"
+TYPEOUTPUTALIAS .pxt     ".pxt    [Microsoft Pocket Excel Template]"
+TYPEOUTPUTALIAS .rtf     ".rtf    [Rich Text Format]"
+TYPEOUTPUTALIAS .pub     ".pub    [Publisher File]"
+TYPEOUTPUTALIAS .mps     ".mps    [Microsoft Pocket Streets Map]"
+TYPEOUTPUTALIAS .psm     ".psm    [Microsoft Pocket Automap Streets]"
+# Databases
+TYPEOUTPUTALIAS .db      ".db     [DataBase File]"
+TYPEOUTPUTALIAS .csv     ".csv    [CSV File]"
+TYPEOUTPUTALIAS .dbf     ".dbf    [Database File]"
+# Executables, Installations, Execution & Applications
+TYPEOUTPUTALIAS .msi     ".msi    [Microsoft Installer Package]"
+TYPEOUTPUTALIAS .cab     ".cab    [Cabnet Archive]"
+TYPEOUTPUTALIAS .bat     ".bat    [Batch Files]"
+TYPEOUTPUTALIAS .com     ".com    [Compiled Executable]"
+TYPEOUTPUTALIAS .exe     ".exe    [Executables]"
+TYPEOUTPUTALIAS .zip     ".zip    [Zip archives]"
+TYPEOUTPUTALIAS .hlp     ".hlp    [Windows Help Files]"
+TYPEOUTPUTALIAS .chm     ".chm    [Compiled HTML Help]"
+TYPEOUTPUTALIAS .dat     ".dat    [Internet Explorer Installer Data File]"
+TYPEOUTPUTALIAS .dll     ".dll    [Dynamic Link Library]"
+# Misc
+TYPEOUTPUTALIAS .iso     ".iso    [CD-ROM/DVD-ROM Image file]"
+TYPEOUTPUTALIAS .nrg     ".nrg    [Nero Burning ROM CD-ROM/DVD-ROM Image file]"
+TYPEOUTPUTALIAS .ida     ".ida    [IIS default.ida - Code Red II Attack]"
+TYPEOUTPUTALIAS .reg     ".reg    [Windows Registry META Data]"
+
+SUBTYPE *.gz,*.Z
