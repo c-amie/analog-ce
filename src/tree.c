@@ -1208,6 +1208,10 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 						*name = "iOS (Apple):iPhone (iOS 12)";
 					} else if (*c == '1' && *(c + 1) == '3') {
 						*name = "iOS (Apple):iPhone (iOS 13)";
+					} else if (*c == '1' && *(c + 1) == '4') {
+						*name = "iOS (Apple):iPhone (iOS 14)";
+					} else if (*c == '1' && *(c + 1) == '5') {
+						*name = "iOS (Apple):iPhone (iOS 15)";
 					} else {
 						*name = "iOS (Apple):iPhone Unknown";
 					}
@@ -1246,6 +1250,10 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 						*name = "iOS (Apple):iPad (iOS 12)";
 					} else if (*c == '1' && *(c + 1) == '3') {
 						*name = "iOS (Apple):iPad (iOS 13)";
+					} else if (*c == '1' && *(c + 1) == '4') {
+						*name = "iOS (Apple):iPad (iOS 14)";
+					} else if (*c == '1' && *(c + 1) == '5') {
+						*name = "iOS (Apple):iPad (iOS 15)";
 					} else {
 						*name = "iOS (Apple):iPad Unknown";
 					}
@@ -1296,46 +1304,50 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 				if (*c == '1' && *(c + 1) == '0' && (*(c + 2) == '.' || *(c + 2) == '_')) { // '10.' OR '10_'
 					c += 3;
 					if (*c == '0') {
-						*name = "Apple:Mac OS X 10.0";
+						*name = "Apple:Mac OS X 10.0 (Cheetah)";
 					} else if (*c == '1' && *(c + 1) == '0') {
-						*name = "Apple:Mac OS X 10.10";
+						*name = "Apple:macOS 10.10 (Yosemite)";
 					} else if (*c == '1' && *(c + 1) == '1') {
-						*name = "Apple:Mac OS X 10.11";
+						*name = "Apple:macOS 10.11 (El Capitan)";
 					} else if (*c == '1' && *(c + 1) == '2') {
-						*name = "Apple:Mac OS X 10.12";
+						*name = "Apple:macOS 10.12 (Sierra)";
 					} else if (*c == '1' && *(c + 1) == '3') {
-						*name = "Apple:Mac OS X 10.13";
+						*name = "Apple:macOS 10.13 (High Sierra)";
 					} else if (*c == '1' && *(c + 1) == '4') {
-						*name = "Apple:Mac OS X 10.14";
+						*name = "Apple:macOS 10.14 (Mojave)";
 					} else if (*c == '1' && *(c + 1) == '5') {
-						*name = "Apple:Mac OS X 10.15";
+						*name = "Apple:macOS 10.15";
 					} else if (*c == '1' && *(c + 1) == '6') {
-						*name = "Apple:Mac OS X 10.16";
+						*name = "Apple:macOS 10.16";
 					} else if (*c == '1' && *(c + 1) == '7') {
-						*name = "Apple:Mac OS X 10.17";
+						*name = "Apple:macOS 10.17";
+					} else if (*c == '1' && *(c + 1) == '8') {
+						*name = "Apple:macOS 10.18";
+					} else if (*c == '1' && *(c + 1) == '9') {
+						*name = "Apple:macOS 10.19";
 					} else if (*c == '1') {
-						*name = "Apple:Mac OS X 10.1";
+						*name = "Apple:macOS 10.1 (Puma)";
 					} else if (*c == '2') {
-						*name = "Apple:Mac OS X 10.2";
+						*name = "Apple:macOS 10.2 (Jaguar)";
 					} else if (*c == '3') {
-						*name = "Apple:Mac OS X 10.3";
+						*name = "Apple:macOS 10.3 (Panther)";
 					} else if (*c == '4') {
-						*name = "Apple:Mac OS X 10.4";
+						*name = "Apple:macOS 10.4 (Tiger)";
 					} else if (*c == '5') {
-						*name = "Apple:Mac OS X 10.5";
+						*name = "Apple:macOS 10.5 (Leopard)";
 					} else if (*c == '6') {
-						*name = "Apple:Mac OS X 10.6";
+						*name = "Apple:macOS 10.6 (Snow Leopard)";
 					} else if (*c == '7') {
-						*name = "Apple:Mac OS X 10.7";
+						*name = "Apple:macOS 10.7 (Lion)";
 					} else if (*c == '8') {
-						*name = "Apple:Mac OS X 10.8";
+						*name = "Apple:macOS 10.8 (Mountain Lion)";
 					} else if (*c == '9') {
-						*name = "Apple:Mac OS X 10.9";
+						*name = "Apple:macOS 10.9 (Mavericks)";
 					} else {
-						*name = "Apple:Mac OS X Unknown";
+						*name = "Apple:macOS Unknown";
 					}
 				} else {
-					*name = "Apple:Mac OS X Unknown";
+					*name = "Apple:macOS Unknown";
 				}
 
 		} else if ((c = strstr(whole, "CrOS")) != NULL) {

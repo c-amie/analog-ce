@@ -646,6 +646,7 @@ Configfns cf[] = {
   {"STYLESHEET", &configstr, (void *)&(opts.outopts.stylesheet)},
   {"CSSPREFIX", &configstr, (void *)&(opts.outopts.cssprefix)},
   {"BASEURL", &configstr, (void *)&(opts.outopts.baseurl)},
+  {"ANONYMIZERURL", &configstr, (void *)&(opts.outopts.anonymizerurl)},
   {"LOGFORMAT", &configlogfmt, (void *)&logformat},
   {"DEFAULTLOGFORMAT", &configlogfmt, (void *)&deflogformat},
   {"APACHELOGFORMAT", &configapachelogfmt, (void *)&logformat},
@@ -1914,6 +1915,7 @@ void defaults(Options *op) {
   COPYSTR(op->outopts.hostname, HOSTNAME);
   COPYSTR(op->outopts.xmldtd, XMLDTD);
   COPYSTR(op->outopts.hosturl, HOSTURL);
+  COPYSTR(op->outopts.anonymizerurl, ANONYMIZERURL);
   op->outopts.baseurl = NULL;
   COPYSTR(op->outopts.logo, LOGO);
   COPYSTR(op->outopts.logourl, LOGOURL);

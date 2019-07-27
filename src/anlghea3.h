@@ -19,7 +19,7 @@
 
 /*** OS specific things ***/
 
-#define VNUMBER "6.0.15"    /* the version number of this program */
+#define VNUMBER "6.0.16"    /* the version number of this program */
 
 #undef VERSION /* If no OS set, compilation will fail by not knowing VERSION */
 
@@ -1028,6 +1028,7 @@ typedef struct outchoices {
   Include *link[GENREP_NUMBER];
   Strlist *expandhead[GENREP_NUMBER];
   char *baseurl;
+  char *anonymizerurl;
   choice searchconv;
   unsigned char convfloor;
 } Outchoices;

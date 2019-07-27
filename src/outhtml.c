@@ -515,7 +515,14 @@ void html_namecell(FILE *outf, Outchoices *od, choice rep, char *name,
   if (linked) {
     /* We link to the unaliased name, because the OUTPUTALIAS is usually in
        the nature of an annotation. */
-    fputs("<a href=\"", outf);
+    /* If the config file has a defined anonymization service provider
+	   [ANONYMIZERURL], prefix with the provided string */
+	if (strcaseeq(od->anonymizerurl, "none")) {
+      fputs("<a href=\"", outf);
+	} else {
+      fputs("<a href=\"", outf);
+	  htmlputs(outf, od, od->anonymizerurl, IN_HREF);
+	}
     if (baseurl != NULL)
       htmlputs(outf, od, baseurl, IN_HREF);
     html_escfprintf(outf, name);

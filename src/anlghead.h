@@ -41,6 +41,12 @@
    output; use "none" for no linking. */
 #endif
 
+#ifndef ANONYMIZERURL
+#define ANONYMIZERURL "none"
+/* Optional URL to prefix on the site and URL reports for link anonymity
+   ; use "none" to disable anonymization. */
+#endif
+
 #ifndef LOGFILE
 #define LOGFILE "logfile.log"
 /* The name of the default logfile. Can be a list, separated by commas
@@ -68,7 +74,7 @@
 #endif
 
 #ifndef LOGOURL
-#define LOGOURL "http://www.analog.cx/"
+#define LOGOURL "https://www.c-amie.co.uk/software/analog/"
 /* Where the logo links to, in XHTML output. */
 #endif
 
