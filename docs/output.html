@@ -351,6 +351,27 @@ the pie charts, which are always png's: but see the
 <kbd><a href="othreps.html#CHARTDIR">JPEGCHARTS</a></kbd> command for something
 similar.
 <hr size=1 noshade>
+<a name="ANONYMIZERURL">There is a command called <kbd>ANONYMIZERURL</kbd></a>
+which adds a URL prefix before URLs appearing as hyperlinks on the Referring
+URL report and the Referring Site report.
+<p>
+The <kbd>ANONYMIZERURL</kbd> setting is designed to fix a security issue by
+which access to the statistics page URL is leaked to the outbound server when
+clicked by the user. This can be used as a means to mask your stats pages from
+the public domain.
+<p>
+You can specify your own hyperlink to either your own redirector script or
+to a public anonimzer service. If set, the hyperlink is entered as a prefix
+to the original URL.
+<pre>
+ANONYMIZERURL https://myanonservice.net?url=
+ANONYMIZERURL https://anonymizer.info/?
+</pre>
+Note that the <kbd>ANONYMIZERURL</kbd> settings only works with HTML and XHTML
+<kbd>OUTPUT</kbd> types. It has no impact on XML or COMPUTER (Report Magic) 
+<kdb>OUTPUT</kdb> types.
+
+<hr size=1 noshade>
 <a name="LOGO">There are four commands</a> which affect the top line of the
 output. First,
 the <kbd>LOGO</kbd> and <kbd>LOGOURL</kbd> commands allow you to replace the
@@ -480,6 +501,24 @@ robots if you also put your stats page in your
 <kbd><a href="http://info.webcrawler.com/mak/projects/robots/exclusion.html#robotstxt">robots.txt</a></kbd>
 file; on the other hand, this file has to be kept up to date by the server
 administrator.
+
+<hr size=1 noshade>
+<a name="LINKNOFOLLOW">There is a command</a> called <kbd>LINKNOFOLLOW</kbd> which
+appends <kdb>rel=&quot;nofollow&quot;</kbd> on to external report URLs. The
+<a href="https://en.wikipedia.org/wiki/Nofollow">nofollow</a> attribute
+adds additional protections to Analog output by reducing the liklihood of a public
+stats page from being targeted to produce SEO spam. In such an attack, a malicious 
+user manipulates the HTTP protocol to force their page onto your Referring Site or
+Referring URL report, before submitting it to search engines to be indexed. The 
+ambition is that they can use your public stats report to improve search engine
+rankings for their online activities.
+<p>
+<kbd>LINKNOFOLLOW</kbd> is set to <kbd>LINKNOFOLLOW ON</kbd> by default in Analog CE
+6.0.16 and higher. To disable it set <kbd>LINKNOFOLLOW OFF</kbd> in your
+configuration file.
+<p>
+Note that this setting only impacts HTML and XHTML <kbd>OUTPUT</kbd> types. It has
+no effect on XML or COMPUTER (Report Magic) <kbd>OUTPUT</kbd> modes.
 
 <hr size=1 noshade>
 <a name="TIMEOFFSET">Sometimes</a> your server is not in the same timezone as
