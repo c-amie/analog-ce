@@ -400,6 +400,9 @@
 #define NOROBOTS (TRUE)
 /* Exclude SOME robots from indexing the output page or following its links. */
 
+#define LINKNOFOLLOW (TRUE)
+/* Appends rel="nofollow" to outbound URLs to reduce SEO SPAM targeting */
+
 #define HEADERFILE "none"
 /* an extra file (with HTML markup if desired) placed between the page title
    and the start of the statistics. Use "none" for none. */

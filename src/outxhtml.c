@@ -583,7 +583,12 @@ void xhtml_namecell(FILE *outf, Outchoices *od, choice rep, char *name,
     if (baseurl != NULL)
       xhtmlputs(outf, od, baseurl, IN_HREF);
     xhtml_escfprintf(outf, name);
-    fputs("\">", outf);
+	/* If set, add rel="nofollow" */
+	if (od->linknofollow) {
+      fputs("\" rel=\"nofollow\">", outf);
+	} else {
+      fputs("\">", outf);
+	}
   }
 
   xhtmlputs(outf, od, workspace, source);

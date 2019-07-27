@@ -1012,6 +1012,7 @@ typedef struct outchoices {
   char *xmldtd;
   char markchar;
   logical norobots;
+  logical linknofollow;
   logical rawbytes;
   unsigned int bytesdp;
   choice weekbeginson;

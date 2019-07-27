@@ -1151,6 +1151,7 @@ Configfns cf[] = {
   {"RAWBYTES", &configchoice, (void *)&(opts.outopts.rawbytes)},
   {"BYTESDP", &configuint, (void *)&(opts.outopts.bytesdp)},
   {"NOROBOTS", &configchoice, (void *)&(opts.outopts.norobots)},
+  {"LINKNOFOLLOW", &configchoice, (void *)&(opts.outopts.linknofollow)},
   {"SETTINGS", &configchoice, (void *)&vblesonly},
   {"CGI", &configchoice, (void *)&cgi},
   {"OUTPUT", &configchoice, (void *)&(opts.outopts.outstyle)},
@@ -1912,6 +1913,7 @@ void defaults(Options *op) {
   op->outopts.rawbytes = RAWBYTES;
   op->outopts.bytesdp = BYTESDP;
   op->outopts.norobots = NOROBOTS;
+  op->outopts.linknofollow = LINKNOFOLLOW;
   COPYSTR(op->outopts.hostname, HOSTNAME);
   COPYSTR(op->outopts.xmldtd, XMLDTD);
   COPYSTR(op->outopts.hosturl, HOSTURL);

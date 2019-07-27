@@ -526,7 +526,12 @@ void html_namecell(FILE *outf, Outchoices *od, choice rep, char *name,
     if (baseurl != NULL)
       htmlputs(outf, od, baseurl, IN_HREF);
     html_escfprintf(outf, name);
-    fputs("\">", outf);
+	/* If set, add rel="nofollow" */
+	if (od->linknofollow) {
+      fputs("\" rel=\"nofollow\">", outf);
+	} else {
+      fputs("\">", outf);
+	}
   }
 
   htmlputs(outf, od, workspace, source);
