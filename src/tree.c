@@ -1390,10 +1390,18 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 			*name = "Linux:Mint";
 		} else if (strstr(whole, "Linux") != NULL || strstr(whole, "linux") != NULL) {
 			*name = "Linux:Unknown";
+		} else if (strstr(whole, "DragonFly") != NULL) {
+			*name = "Unix:DragonFly";
 		} else if (strstr(whole, "FreeBSD") != NULL) {
 			*name = "Unix:FreeBSD";
 		} else if (strstr(whole, "OpenBSD") != NULL) {
 			*name = "Unix:OpenBSD";
+		} else if (strstr(whole, "MidnightBSD") != NULL || strstr(whole, "midnightbsd") != NULL) {
+			*name = "Unix:MidnightBSD";
+		} else if (strstr(whole, "MirBSD") != NULL)  {
+			*name = "Unix:MirBSD";
+		} else if (strstr(whole, "NetBSD") != NULL) {
+			*name = "Unix:NetBSD";
 		} else if (strstr(whole, "BSD") != NULL) {
 			*name = "Unix:BSD";
 		} else if (strstr(whole, "SunOS") != NULL || strstr(whole, "sunos") != NULL) {
