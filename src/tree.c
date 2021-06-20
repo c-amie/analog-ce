@@ -942,6 +942,12 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 					} else {
 						*name = "Windows:Unknown Windows";
 					}
+				} else if (*c == '1' && (*(c + 1) == '1')) {
+					if (*(c + 2) == '.' && (*(c + 3) == '0')) {
+						*name = "Windows:Windows 11 / Server 2022";
+					} else {
+						*name = "Windows:Unknown Windows";
+					}
 				} else {
 					*name = "Windows:Windows NT 4.0";
 				}
@@ -1047,12 +1053,12 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 			if (*c == ' ') {
 			c++;
 			if (*c == '0') {
-				if (*(c + 1) == '.' && (*(c + 2) == '5')) {
+				if (*(c + 1) == '.' && (*(c + 2) == '5')) {				// Adroid 0.5
 					*name = "Android:Android 0.5";
 				} else {
 					*name = "Android:Unknown Android";
 				}
-			} else if ((*c == '1') && (*(c + 1) == '0')) {
+			} else if ((*c == '1') && (*(c + 1) == '0')) {				// Android 10
 				if (*(c + 2) == ';') {
 					*name = "Android:Android 10.0";
 				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
@@ -1062,7 +1068,57 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 				} else {
 					*name = "Android:Unknown Android";
 				}
-			} else if (*c == '1') {
+			} else if ((*c == '1') && (*(c + 1) == '1')) {				// Android 11
+				if (*(c + 2) == ';') {
+					*name = "Android:Android 11.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
+					*name = "Android:Android 11.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '1')) {
+					*name = "Android:Android 11.1";
+				} else {
+					*name = "Android:Unknown Android";
+				}
+			} else if ((*c == '1') && (*(c + 1) == '2')) {				// Android 12
+				if (*(c + 2) == ';') {
+					*name = "Android:Android 12.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
+					*name = "Android:Android 12.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '1')) {
+					*name = "Android:Android 12.1";
+				} else {
+					*name = "Android:Unknown Android";
+				}
+			} else if ((*c == '1') && (*(c + 1) == '3')) {				// Android 13
+				if (*(c + 2) == ';') {
+					*name = "Android:Android 13.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
+					*name = "Android:Android 13.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '1')) {
+					*name = "Android:Android 13.1";
+				} else {
+					*name = "Android:Unknown Android";
+				}
+			} else if ((*c == '1') && (*(c + 1) == '4')) {				// Android 14
+				if (*(c + 2) == ';') {
+					*name = "Android:Android 14.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
+					*name = "Android:Android 14.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '1')) {
+					*name = "Android:Android 14.1";
+				} else {
+					*name = "Android:Unknown Android";
+				}
+			} else if ((*c == '1') && (*(c + 1) == '5')) {				// Android 15
+				if (*(c + 2) == ';') {
+					*name = "Android:Android 15.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
+					*name = "Android:Android 15.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '1')) {
+					*name = "Android:Android 15.1";
+				} else {
+					*name = "Android:Unknown Android";
+				}
+			} else if (*c == '1') {										// Android 1
 				if (*(c + 1) == ';') {
 					*name = "Android:Android 1.0";
 				} else if (*(c + 1) == '.' && (*(c + 2) == '0')) {
@@ -1076,7 +1132,7 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 				} else {
 					*name = "Android:Unknown Android";
 				}
-			} else if (*c == '2') {
+			} else if (*c == '2') {										// Android 2
 				if (*(c + 1) == ';') {
 					*name = "Android:Android 2.0 (Eclair)";
 				} else if (*(c + 1) == '.' && (*(c + 2) == '0')) {
@@ -1090,7 +1146,7 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 				} else {
 					*name = "Android:Unknown Android";
 				}
-			} else if (*c == '3') {
+			} else if (*c == '3') {										// Android 3
 				if (*(c + 1) == ';') {
 					*name = "Android:Android 3.0 (Honeycomb)";
 				} else if (*(c + 1) == '.' && (*(c + 2) == '0')) {
@@ -1102,7 +1158,7 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 				} else {
 					*name = "Android:Unknown Android";
 				}
-			} else if (*c == '4') {
+			} else if (*c == '4') {										// Android 4
 				if (*(c + 1) == ';') {
 					*name = "Android:Android 4.0 (Ice Cream Sandwich)";
 				} else if (*(c + 1) == '.' && (*(c + 2) == '0')) {
@@ -1118,7 +1174,7 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 				} else {
 					*name = "Android:Unknown Android";
 				}
-			} else if (*c == '5') {
+			} else if (*c == '5') {										// Android 5
 				if (*(c + 1) == ';') {
 					*name = "Android:Android 5.0 (Lollipop)";
 				} else if (*(c + 1) == '.' && (*(c + 2) == '0')) {
@@ -1128,7 +1184,7 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 				} else {
 					*name = "Android:Unknown Android";
 				}
-			} else if (*c == '6') {
+			} else if (*c == '6') {										// Android 6
 				if (*(c + 1) == ';') {
 					*name = "Android:Android 6.0 (Marshmallow)";
 				} else if (*(c + 1) == '.' && (*(c + 2) == '0')) {
@@ -1136,7 +1192,7 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 				} else {
 					*name = "Android:Unknown Android";
 				}
-			} else if (*c == '7') {
+			} else if (*c == '7') {										// Android 7
 				if (*(c + 1) == ';') {
 					*name = "Android:Android 7.0 (Nougat)";
 				} else if (*(c + 1) == '.' && (*(c + 2) == '0')) {
@@ -1146,7 +1202,7 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 				} else {
 					*name = "Android:Unknown Android";
 				}
-			} else if (*c == '8') {
+			} else if (*c == '8') {										// Android 8
 				if (*(c + 1) == ';') {
 					*name = "Android:Android 8.0 (Oreo)";
 				} else if (*(c + 1) == '.' && (*(c + 2) == '0')) {
@@ -1156,7 +1212,7 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 				} else {
 					*name = "Android:Unknown Android";
 				}
-			} else if (*c == '9') {
+			} else if (*c == '9') {										// Android 9
 				if (*(c + 1) == ';') {
 					*name = "Android:Android 9.0 (Pie)";
 				} else if (*(c + 1) == '.' && (*(c + 2) == '0')) {
@@ -1212,6 +1268,14 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 						*name = "iOS (Apple):iPhone (iOS 14)";
 					} else if (*c == '1' && *(c + 1) == '5') {
 						*name = "iOS (Apple):iPhone (iOS 15)";
+					} else if (*c == '1' && *(c + 1) == '6') {
+						*name = "iOS (Apple):iPhone (iOS 16)";
+					} else if (*c == '1' && *(c + 1) == '7') {
+						*name = "iOS (Apple):iPhone (iOS 17)";
+					} else if (*c == '1' && *(c + 1) == '8') {
+						*name = "iOS (Apple):iPhone (iOS 18)";
+					} else if (*c == '1' && *(c + 1) == '9') {
+						*name = "iOS (Apple):iPhone (iOS 19)";
 					} else {
 						*name = "iOS (Apple):iPhone Unknown";
 					}
@@ -1286,6 +1350,18 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 						*name = "iOS (Apple):iPod (iOS 8)";
 					} else if (*c == '9') {
 						*name = "iOS (Apple):iPod (iOS 9)";
+					} else if (*c == '1' && *(c + 1) == '0') {
+						*name = "iOS (Apple):iPod (iOS 10)";
+					} else if (*c == '1' && *(c + 1) == '1') {
+						*name = "iOS (Apple):iPod (iOS 11)";
+					} else if (*c == '1' && *(c + 1) == '2') {
+						*name = "iOS (Apple):iPod (iOS 12)";
+					} else if (*c == '1' && *(c + 1) == '3') {
+						*name = "iOS (Apple):iPod (iOS 13)";
+					} else if (*c == '1' && *(c + 1) == '4') {
+						*name = "iOS (Apple):iPod (iOS 14)";
+					} else if (*c == '1' && *(c + 1) == '5') {
+						*name = "iOS (Apple):iPod (iOS 15)";
 					} else {
 						*name = "iOS (Apple):iPod Unknown";
 					}
@@ -1316,15 +1392,9 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 					} else if (*c == '1' && *(c + 1) == '4') {
 						*name = "Apple:macOS 10.14 (Mojave)";
 					} else if (*c == '1' && *(c + 1) == '5') {
-						*name = "Apple:macOS 10.15";
+						*name = "Apple:macOS 10.15 (Catalina)";
 					} else if (*c == '1' && *(c + 1) == '6') {
-						*name = "Apple:macOS 10.16";
-					} else if (*c == '1' && *(c + 1) == '7') {
-						*name = "Apple:macOS 10.17";
-					} else if (*c == '1' && *(c + 1) == '8') {
-						*name = "Apple:macOS 10.18";
-					} else if (*c == '1' && *(c + 1) == '9') {
-						*name = "Apple:macOS 10.19";
+						*name = "Apple:macOS 11.0 (Big Sur)";					// macOS 11 alias in some browsers https://stackoverflow.com/questions/64929071/user-agent-string-containing-strange-version-number-under-macos-big-sur
 					} else if (*c == '1') {
 						*name = "Apple:macOS 10.1 (Puma)";
 					} else if (*c == '2') {
@@ -1346,6 +1416,28 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 					} else {
 						*name = "Apple:macOS Unknown";
 					}
+				} else if (*c == '1' && *(c + 1) == '1' && (*(c + 2) == '.' || *(c + 2) == '_')) { // '11.' OR '11_'
+					/* 
+					 * macOS 11 is going through a minor verion number a month according to https://en.wikipedia.org/wiki/MacOS_Big_Sur
+					 * The release paradigm seems to have changed from macOS 10's stationary major version.
+					 */
+					c += 3;
+					*name = "Apple:macOS 11.0 (Big Sur)";
+				} else if (*c == '1' && *(c + 1) == '2' && (*(c + 2) == '.' || *(c + 2) == '_')) { // '12.' OR '12_'
+					c += 3;
+					*name = "Apple:macOS 12.0";
+				} else if (*c == '1' && *(c + 1) == '3' && (*(c + 2) == '.' || *(c + 2) == '_')) { // '13.' OR '13_'
+					c += 3;
+					*name = "Apple:macOS 13.0";
+				} else if (*c == '1' && *(c + 1) == '4' && (*(c + 2) == '.' || *(c + 2) == '_')) { // '14.' OR '14_'
+					c += 3;
+					*name = "Apple:macOS 14.0";
+				} else if (*c == '1' && *(c + 1) == '5' && (*(c + 2) == '.' || *(c + 2) == '_')) { // '15.' OR '15_'
+					c += 3;
+					*name = "Apple:macOS 15.0";
+				} else if (*c == '1' && *(c + 1) == '6' && (*(c + 2) == '.' || *(c + 2) == '_')) { // '16.' OR '16_'
+					c += 3;
+					*name = "Apple:macOS 16.0";
 				} else {
 					*name = "Apple:macOS Unknown";
 				}
@@ -1390,10 +1482,18 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 			*name = "Linux:Mint";
 		} else if (strstr(whole, "Linux") != NULL || strstr(whole, "linux") != NULL) {
 			*name = "Linux:Unknown";
+		} else if (strstr(whole, "DragonFly") != NULL) {
+			*name = "Unix:DragonFly";
 		} else if (strstr(whole, "FreeBSD") != NULL) {
 			*name = "Unix:FreeBSD";
 		} else if (strstr(whole, "OpenBSD") != NULL) {
 			*name = "Unix:OpenBSD";
+		} else if (strstr(whole, "MidnightBSD") != NULL || strstr(whole, "midnightbsd") != NULL) {
+			*name = "Unix:MidnightBSD";
+		} else if (strstr(whole, "MirBSD") != NULL)  {
+			*name = "Unix:MirBSD";
+		} else if (strstr(whole, "NetBSD") != NULL) {
+			*name = "Unix:NetBSD";
 		} else if (strstr(whole, "BSD") != NULL) {
 			*name = "Unix:BSD";
 		} else if (strstr(whole, "SunOS") != NULL || strstr(whole, "sunos") != NULL) {
