@@ -1469,9 +1469,10 @@ void configalias(void *opt, char *cmd, char *arg1, char *arg2, int rc) {
   int maxrightstar;
   char starchar;
   logical is_regex = FALSE;
-  pcre *pattern = NULL;
   char *errstr;
-  int erroffset;
+  pcre2_code *pattern;
+  int err;
+  PCRE2_SIZE erroffset;
 
   if (rc == 0) {
     shortwarn(cmd, arg1, rc);
@@ -1489,15 +1490,15 @@ void configalias(void *opt, char *cmd, char *arg1, char *arg2, int rc) {
 
   if (headcasematch(arg1, "REGEXP:") || headcasematch(arg1, "REGEXPI:")) {
     if ((pattern =
-	 pcre_compile(arg1 + 7 + (arg1[6] != ':'),
-		      PCRE_DOTALL | ((arg1[6] == ':')?0:PCRE_CASELESS),
-		      (const char **)(&errstr), &erroffset, NULL)) == NULL) {
+         pcre2_compile((PCRE2_SPTR) arg1 + 7 + (arg1[6] != ':'), PCRE2_ZERO_TERMINATED,
+                       PCRE2_DOTALL | ((arg1[6] == ':')?0:PCRE2_CASELESS),
+                       &err, &erroffset, NULL)) == NULL) {
       badwarn(cmd, FALSE, arg1, arg2, rc);
       warn('C', CONTINUATION, "  (%s in regular expression)", errstr);
       return;
     }
     starchar = '(';
-    pcre_fullinfo(pattern, NULL, PCRE_INFO_CAPTURECOUNT, (void *)&leftstars);
+    pcre2_pattern_info(pattern, PCRE2_INFO_CAPTURECOUNT, (void *)&leftstars);
     is_regex = TRUE;
   }
   else {
@@ -1617,8 +1618,9 @@ void configinex(void *opt, char *cmd, char *arg1, char *arg2, int rc,
   Include **include = (Include **)opt;
   Include *ip;
   char *errstr;
-  int erroffset;
   char *t;
+  int err;
+  PCRE2_SIZE erroffset;
 
   if (rc == 0) {
     shortwarn(cmd, arg1, rc);
@@ -1652,9 +1654,9 @@ void configinex(void *opt, char *cmd, char *arg1, char *arg2, int rc,
   (*include)->next = ip;   /* save name even for regex: might l.c. */
   if (headcasematch(arg1, "REGEXP:") || headcasematch(arg1, "REGEXPI:")) {
     if (((*include)->pattern =
-	 pcre_compile(arg1 + 7 + (arg1[6] != ':'), 
-		      PCRE_DOTALL | ((arg1[6] == ':')?0:PCRE_CASELESS),
-		      (const char **)(&errstr), &erroffset, NULL)) == NULL) {
+        pcre2_compile((PCRE2_SPTR) arg1 + 7 + (arg1[6] != ':'), PCRE2_ZERO_TERMINATED,
+                      PCRE2_DOTALL | ((arg1[6] == ':')?0:PCRE2_CASELESS),
+                      &err, &erroffset, NULL)) == NULL) {
       *include = ip;
       badwarn(cmd, FALSE, arg1, arg2, rc);
       warn('C', CONTINUATION, "  (%s in regular expression)", errstr);

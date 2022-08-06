@@ -16,6 +16,7 @@
 
 #ifndef ANLGHEA3_H
 #define ANLGHEA3_H
+#define PCRE2_CODE_UNIT_WIDTH 8
 
 /*** OS specific things ***/
 
@@ -261,7 +262,7 @@ extern void Win32Cleanup(void);
 #include "bzip2/bzlib.h"
 #endif
 
-#include "pcre/pcre.h"
+#include <pcre2.h>
 
 #include "libgd/gd.h"
 #include "libgd/gdfontf.h"
@@ -759,7 +760,7 @@ typedef struct aliasto {
 
 typedef struct alias {
   char *from;
-  pcre *pattern;
+  pcre2_code *pattern;
   AliasTo *to;
   logical isregex;
   struct alias *next;
@@ -889,7 +890,7 @@ typedef struct {
 
 typedef struct include {
   char *name;
-  pcre *pattern;
+  pcre2_code *pattern;
   unsigned long minaddr, maxaddr;
   choice type;
   struct include *next;
