@@ -112,13 +112,14 @@ void strtolowerx(char *n) { /* lower-case filename: only used in next 3 fns. */
 
 void toloweralias(Alias *ap, logical both) {
   AliasTo *tp;
-  char *errstr;
-  int erroffset;
+  int err;
+  PCRE2_SIZE erroffset;
 
   for ( ; ap != NULL; TO_NEXT(ap)) {
     if (headcasematch(ap->from, "REGEXP:"))
-      ap->pattern = pcre_compile(ap->from + 7, PCRE_CASELESS | PCRE_DOTALL,
-				 (const char **)(&errstr), &erroffset, NULL);
+      ap->pattern = pcre2_compile((PCRE2_SPTR) ap->from + 7, PCRE2_ZERO_TERMINATED,
+                                  PCRE2_CASELESS | PCRE2_DOTALL,
+                                  &err, &erroffset, NULL);
     /* if original regcomp succeeded, this one should too */
     else if (!headcasematch(ap->from, "REGEXPI:"))
       /* nothing to do for REGEXPI: */
@@ -132,13 +133,14 @@ void toloweralias(Alias *ap, logical both) {
 
 void tolowerinc(Include *ip) {
   /* see comments in previous function */
-  char *errstr;
-  int erroffset;
+  int err;
+  PCRE2_SIZE erroffset;
 
   for ( ; ip != NULL; TO_NEXT(ip)) {
     if (headcasematch(ip->name, "REGEXP:"))
-      ip->pattern = pcre_compile(ip->name + 7, PCRE_CASELESS | PCRE_DOTALL,
-				 (const char **)(&errstr), &erroffset, NULL);
+      ip->pattern = pcre2_compile((PCRE2_SPTR) ip->name + 7, PCRE2_ZERO_TERMINATED,
+                                  PCRE2_CASELESS | PCRE2_DOTALL,
+                                  &err, &erroffset, NULL);
     else if (!headcasematch(ip->name, "REGEXPI:"))
       strtolowerx((char *)(ip->name));
   }
@@ -740,11 +742,23 @@ logical wildmatch(char *s, char *p, char *whole, int nmatch, int *pmatch) {
 }
 
 logical matchq(char *s, void *p, logical is_regex, int *pmatch) {
-  if (is_regex)
-    return(pcre_exec((pcre *)p, NULL, s, (int)strlen(s), 0, 0, pmatch,
-		     (pmatch == NULL)?0:PMATCH_SIZE) >= 0);
-  else
-    return(wildmatch(s, (char *)p, s, (pmatch == NULL)?0:PMATCH_SIZE, pmatch));
+  if (is_regex) {
+    int rc;
+    pcre2_match_data *match_data;
+    match_data = pcre2_match_data_create_from_pattern((pcre2_code *)p, NULL);
+    rc = pcre2_match((pcre2_code *)p, (PCRE2_SPTR)s, (PCRE2_SIZE)strlen((char *)s),
+                    0, 0, match_data, NULL);
+    if (pmatch != NULL) {
+        PCRE2_SIZE *ovector;
+        ovector = pcre2_get_ovector_pointer(match_data);
+        for (int i=0; i <= sizeof(ovector); i++) {
+            *(pmatch+i) = (int) *(ovector+i);
+        }
+    }
+    return (rc >=1);
+  }
+   else
+     return(wildmatch(s, (char *)p, s, (pmatch == NULL)?0:PMATCH_SIZE, pmatch));
 }
 
 logical genwildmatch(char *s, char *s2, char *p) {
