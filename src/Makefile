@@ -11,7 +11,7 @@ CFLAGS = -O2    # options, e.g. for optimisation or ANSI compilation.
 #                 BeOS needs CFLAGS = -O2 -Wl,-L/boot/home/config/lib
 #                 BS2000/OSD needs CFLAGS = -XLLML -XLLMK
 #                 NeXTSTEP needs CFLAGS = -O2 -pipe -no-precomp 
-DEFS = -DHAVE_PCRE         # any combination of -DNOPIPES -DNODNS -DNODIRENT -DNOGLOB ...
+DEFS =          # any combination of -DNOPIPES -DNODNS -DNODIRENT -DNOGLOB ...
 #                 ... -DNOOPEN -DNOFOLLOW -DNOALARM -DNOGRAPHICS -DNOGMTIME ...
 #                 ... -DEBCDIC -DUSE_PLAIN_SETJMP ...
 #                 ... -DHAVE_GD -DHAVE_ZLIB -DHAVE_BZLIB -DHAVE_PCRE ...
@@ -30,7 +30,7 @@ DEFS = -DHAVE_PCRE         # any combination of -DNOPIPES -DNODNS -DNODIRENT -DN
 #
 OS = UNIX         # Operating system: UNIX, DOS, WIN32, MAC, OS2, OSX, VMS
 #                   RISCOS, BEOS, NEXTSTEP, MPEIX, BS2000, AS400, OS390
-LIBS = -lm  -lpcre2-8 # extra libraries needed; most platforms (but not OS X or BeOS)
+LIBS = -lm        # extra libraries needed; most platforms (but not OS X or BeOS)
 #               need -lm LAST
 #             if you defined HAVE_GD above you also need -lgd -lpng -ljpeg -lz
 #             if you defined HAVE_ZLIB above you also need -lz
@@ -54,12 +54,32 @@ OBJS = alias.o analog.o cache.o dates.o globals.o hash.o init.o init2.o \
 	input.o macinput.o macstuff.o output.o output2.o outcro.o outhtml.o \
 	outlatex.o outplain.o outxhtml.o outxml.o process.o settings.o sort.o \
 	tree.o utils.o win32.o
-SUBDIRS = bzip2 libgd libpng unzip zlib
+SUBDIRS = bzip2 libgd libpng pcre2 unzip zlib
 SUBDIROBJS = libgd/gd.o  libgd/gd_io.o libgd/gd_io_file.o libgd/gd_png.o \
 	libgd/gdfontf.o libgd/gdfonts.o libgd/gdtables.o \
 	libpng/png.o libpng/pngerror.o libpng/pngmem.o libpng/pngset.o \
 	libpng/pngtrans.o libpng/pngwio.o libpng/pngwrite.o \
 	libpng/pngwtran.o libpng/pngwutil.o \
+	pcre2/src/libpcre2_8_la-pcre2_auto_possess.o \
+	pcre2/src/libpcre2_8_la-pcre2_chartables.o \
+	pcre2/src/libpcre2_8_la-pcre2_chkdint.o \
+	pcre2/src/libpcre2_8_la-pcre2_compile.o \
+	pcre2/src/libpcre2_8_la-pcre2_context.o \
+	pcre2/src/libpcre2_8_la-pcre2_convert.o \
+	pcre2/src/libpcre2_8_la-pcre2_extuni.o \
+	pcre2/src/libpcre2_8_la-pcre2_find_bracket.o \
+	pcre2/src/libpcre2_8_la-pcre2_match.o \
+	pcre2/src/libpcre2_8_la-pcre2_match_data.o \
+	pcre2/src/libpcre2_8_la-pcre2_newline.o \
+	pcre2/src/libpcre2_8_la-pcre2_ord2utf.o \
+	pcre2/src/libpcre2_8_la-pcre2_pattern_info.o \
+	pcre2/src/libpcre2_8_la-pcre2_script_run.o \
+	pcre2/src/libpcre2_8_la-pcre2_string_utils.o \
+	pcre2/src/libpcre2_8_la-pcre2_study.o \
+	pcre2/src/libpcre2_8_la-pcre2_tables.o \
+	pcre2/src/libpcre2_8_la-pcre2_ucd.o \
+	pcre2/src/libpcre2_8_la-pcre2_valid_utf.o \
+	pcre2/src/libpcre2_8_la-pcre2_xclass.o \
 	zlib/adler32.o zlib/compress.o zlib/crc32.o zlib/deflate.o \
 	zlib/gzio.o zlib/infblock.o zlib/infcodes.o zlib/inffast.o \
 	zlib/inflate.o zlib/inftrees.o zlib/infutil.o zlib/trees.o \
@@ -67,7 +87,7 @@ SUBDIROBJS = libgd/gd.o  libgd/gd_io.o libgd/gd_io_file.o libgd/gd_png.o \
 	bzip2/bzlib.o bzip2/blocksort.o bzip2/compress.o bzip2/crctable.o \
 	bzip2/decompress.o bzip2/huffman.o bzip2/randtable.o
 HEADERS = anlghead.h anlghea2.h anlghea3.h anlghea4.h macdir.h \
-	libgd/gd.h libgd/gdfontf.h libgd/gdfonts.h unzip/unzip.h \
+	pcre2/src/pcre2.h.generic libgd/gd.h libgd/gdfontf.h libgd/gdfonts.h unzip/unzip.h \
 	zlib/zlib.h bzip2/bzlib.h
 ALLCFLAGS = $(CFLAGS) $(DEFS) -D$(OS)
 ALLOBJS = $(OBJS) $(SUBDIROBJS)
@@ -85,6 +105,9 @@ libgd: ALWAYS
 
 libpng: ALWAYS
 	cd libpng && $(MAKE) 'CC=$(CC)' 'ALLCFLAGS=$(ALLCFLAGS)'
+
+pcre2: ALWAYS
+	cd pcre2 && ./configure && $(MAKE) 'CC=$(CC)' 'ALLCFLAGS=$(ALLCFLAGS)'
 
 unzip: ALWAYS
 	cd unzip && $(MAKE) 'CC=$(CC)' 'ALLCFLAGS=$(ALLCFLAGS)'

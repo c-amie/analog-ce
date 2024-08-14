@@ -20,7 +20,7 @@
 
 /*** OS specific things ***/
 
-#define VNUMBER "6.0.17"    /* the version number of this program */
+#define VNUMBER "6.0.18"    /* the version number of this program */
 
 #undef VERSION /* If no OS set, compilation will fail by not knowing VERSION */
 
@@ -262,7 +262,7 @@ extern void Win32Cleanup(void);
 #include "bzip2/bzlib.h"
 #endif
 
-#include <pcre2.h>
+#include "pcre2/src/pcre2.h.generic"
 
 #include "libgd/gd.h"
 #include "libgd/gdfontf.h"

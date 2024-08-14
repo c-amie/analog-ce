@@ -604,7 +604,7 @@ void snextname(char **name, char **nameend, char *whole, logical build) {
     *name = whole;
     for (*nameend = *name; **nameend != ':' && **nameend != '\0'; (*nameend)++)
       ;
-    if (*nameend == '\0') {
+    if (**nameend == '\0') {
       *nameend = *name;
       return;
     }
@@ -938,13 +938,7 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 					*name = "Windows:Unknown Windows";
 				} else if (*c == '1' && (*(c + 1) == '0')) {
 					if (*(c + 2) == '.' && (*(c + 3) == '0')) {
-						*name = "Windows:Windows 10 / Server 2016 / Server 2019";
-					} else {
-						*name = "Windows:Unknown Windows";
-					}
-				} else if (*c == '1' && (*(c + 1) == '1')) {
-					if (*(c + 2) == '.' && (*(c + 3) == '0')) {
-						*name = "Windows:Windows 11 / Server 2022";
+						*name = "Windows:Windows 10, 11 / Server 2016, 2019, 2022";
 					} else {
 						*name = "Windows:Unknown Windows";
 					}
@@ -1060,61 +1054,111 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 				}
 			} else if ((*c == '1') && (*(c + 1) == '0')) {				// Android 10
 				if (*(c + 2) == ';') {
-					*name = "Android:Android 10.0";
+					*name = "Android:Android 10.0 (Quince Tart)";
 				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
-					*name = "Android:Android 10.0";
+					*name = "Android:Android 10.0 (Quince Tart)";
 				} else if (*(c + 2) == '.' && (*(c + 3) == '1')) {
-					*name = "Android:Android 10.1";
+					*name = "Android:Android 10.1 (Quince Tart)";
 				} else {
 					*name = "Android:Unknown Android";
 				}
 			} else if ((*c == '1') && (*(c + 1) == '1')) {				// Android 11
 				if (*(c + 2) == ';') {
-					*name = "Android:Android 11.0";
+					*name = "Android:Android 11.0 (Red Velvet Cake)";
 				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
-					*name = "Android:Android 11.0";
+					*name = "Android:Android 11.0 (Red Velvet Cake)";
 				} else if (*(c + 2) == '.' && (*(c + 3) == '1')) {
-					*name = "Android:Android 11.1";
+					*name = "Android:Android 11.1 (Red Velvet Cake)";
 				} else {
 					*name = "Android:Unknown Android";
 				}
 			} else if ((*c == '1') && (*(c + 1) == '2')) {				// Android 12
 				if (*(c + 2) == ';') {
-					*name = "Android:Android 12.0";
+					*name = "Android:Android 12.0 (Snow Cone)";
 				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
-					*name = "Android:Android 12.0";
+					*name = "Android:Android 12.0 (Snow Cone)";
 				} else if (*(c + 2) == '.' && (*(c + 3) == '1')) {
-					*name = "Android:Android 12.1";
+					*name = "Android:Android 12.1 (Snow Cone v2)";
 				} else {
 					*name = "Android:Unknown Android";
 				}
 			} else if ((*c == '1') && (*(c + 1) == '3')) {				// Android 13
 				if (*(c + 2) == ';') {
-					*name = "Android:Android 13.0";
+					*name = "Android:Android 13.0 (Tiramisu)";
 				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
-					*name = "Android:Android 13.0";
+					*name = "Android:Android 13.0 (Tiramisu)";
 				} else if (*(c + 2) == '.' && (*(c + 3) == '1')) {
-					*name = "Android:Android 13.1";
+					*name = "Android:Android 13.1 (Tiramisu)";
 				} else {
 					*name = "Android:Unknown Android";
 				}
 			} else if ((*c == '1') && (*(c + 1) == '4')) {				// Android 14
 				if (*(c + 2) == ';') {
-					*name = "Android:Android 14.0";
+					*name = "Android:Android 14.0 (Upside Down Cake)";
 				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
-					*name = "Android:Android 14.0";
+					*name = "Android:Android 14.0 (Upside Down Cake)";
 				} else if (*(c + 2) == '.' && (*(c + 3) == '1')) {
-					*name = "Android:Android 14.1";
+					*name = "Android:Android 14.1 (Upside Down Cake)";
 				} else {
 					*name = "Android:Unknown Android";
 				}
 			} else if ((*c == '1') && (*(c + 1) == '5')) {				// Android 15
 				if (*(c + 2) == ';') {
-					*name = "Android:Android 15.0";
+					*name = "Android:Android 15.0 (Vanilla Ice Cream)";
 				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
-					*name = "Android:Android 15.0";
+					*name = "Android:Android 15.0 (Vanilla Ice Cream)";
 				} else if (*(c + 2) == '.' && (*(c + 3) == '1')) {
-					*name = "Android:Android 15.1";
+					*name = "Android:Android 15.1 (Vanilla Ice Cream)";
+				} else {
+					*name = "Android:Unknown Android";
+				}
+			} else if ((*c == '1') && (*(c + 1) == '6')) {				// Android 16
+				if (*(c + 2) == ';') {
+					*name = "Android:Android 16.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
+					*name = "Android:Android 16.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '1')) {
+					*name = "Android:Android 16.1";
+				} else {
+					*name = "Android:Unknown Android";
+				}
+			} else if ((*c == '1') && (*(c + 1) == '7')) {				// Android 17
+				if (*(c + 2) == ';') {
+					*name = "Android:Android 17.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
+					*name = "Android:Android 17.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '1')) {
+					*name = "Android:Android 17.1";
+				} else {
+					*name = "Android:Unknown Android";
+				}
+			} else if ((*c == '1') && (*(c + 1) == '8')) {				// Android 18
+				if (*(c + 2) == ';') {
+					*name = "Android:Android 18.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
+					*name = "Android:Android 18.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '1')) {
+					*name = "Android:Android 18.1";
+				} else {
+					*name = "Android:Unknown Android";
+				}
+			} else if ((*c == '1') && (*(c + 1) == '9')) {				// Android 19
+				if (*(c + 2) == ';') {
+					*name = "Android:Android 19.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
+					*name = "Android:Android 19.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '1')) {
+					*name = "Android:Android 19.1";
+				} else {
+					*name = "Android:Unknown Android";
+				}
+			} else if ((*c == '2') && (*(c + 1) == '0')) {				// Android 20
+				if (*(c + 2) == ';') {
+					*name = "Android:Android 20.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '0')) {
+					*name = "Android:Android 20.0";
+				} else if (*(c + 2) == '.' && (*(c + 3) == '1')) {
+					*name = "Android:Android 20.1";
 				} else {
 					*name = "Android:Unknown Android";
 				}
@@ -1218,7 +1262,7 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 				} else if (*(c + 1) == '.' && (*(c + 2) == '0')) {
 					*name = "Android:Android 9.0 (Pie)";
 				} else if (*(c + 1) == '.' && (*(c + 2) == '1')) {
-					*name = "Android:Android 9.1";
+					*name = "Android:Android 9.1 (Pie)";
 				} else {
 					*name = "Android:Unknown Android";
 				}
@@ -1276,6 +1320,18 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 						*name = "iOS (Apple):iPhone (iOS 18)";
 					} else if (*c == '1' && *(c + 1) == '9') {
 						*name = "iOS (Apple):iPhone (iOS 19)";
+					} else if (*c == '2' && *(c + 1) == '0') {
+						*name = "iOS (Apple):iPhone (iOS 20)";
+					} else if (*c == '2' && *(c + 1) == '1') {
+						*name = "iOS (Apple):iPhone (iOS 21)";
+					} else if (*c == '2' && *(c + 1) == '2') {
+						*name = "iOS (Apple):iPhone (iOS 22)";
+					} else if (*c == '2' && *(c + 1) == '3') {
+						*name = "iOS (Apple):iPhone (iOS 23)";
+					} else if (*c == '2' && *(c + 1) == '4') {
+						*name = "iOS (Apple):iPhone (iOS 24)";
+					} else if (*c == '2' && *(c + 1) == '5') {
+						*name = "iOS (Apple):iPhone (iOS 25)";
 					} else {
 						*name = "iOS (Apple):iPhone Unknown";
 					}
@@ -1318,6 +1374,26 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 						*name = "iOS (Apple):iPad (iOS 14)";
 					} else if (*c == '1' && *(c + 1) == '5') {
 						*name = "iOS (Apple):iPad (iOS 15)";
+					} else if (*c == '1' && *(c + 1) == '6') {
+						*name = "iOS (Apple):iPad (iOS 16)";
+					} else if (*c == '1' && *(c + 1) == '7') {
+						*name = "iOS (Apple):iPad (iOS 17)";
+					} else if (*c == '1' && *(c + 1) == '8') {
+						*name = "iOS (Apple):iPad (iOS 18)";
+					} else if (*c == '1' && *(c + 1) == '9') {
+						*name = "iOS (Apple):iPad (iOS 19)";
+					} else if (*c == '2' && *(c + 1) == '0') {
+						*name = "iOS (Apple):iPad (iOS 20)";
+					} else if (*c == '2' && *(c + 1) == '1') {
+						*name = "iOS (Apple):iPad (iOS 21)";
+					} else if (*c == '2' && *(c + 1) == '2') {
+						*name = "iOS (Apple):iPad (iOS 22)";
+					} else if (*c == '2' && *(c + 1) == '3') {
+						*name = "iOS (Apple):iPad (iOS 23)";
+					} else if (*c == '2' && *(c + 1) == '4') {
+						*name = "iOS (Apple):iPad (iOS 24)";
+					} else if (*c == '2' && *(c + 1) == '5') {
+						*name = "iOS (Apple):iPad (iOS 25)";
 					} else {
 						*name = "iOS (Apple):iPad Unknown";
 					}
@@ -1425,19 +1501,28 @@ void Pnextname(char **name, char **nameend, char *whole, void *arg) {
 					*name = "Apple:macOS 11.0 (Big Sur)";
 				} else if (*c == '1' && *(c + 1) == '2' && (*(c + 2) == '.' || *(c + 2) == '_')) { // '12.' OR '12_'
 					c += 3;
-					*name = "Apple:macOS 12.0";
+					*name = "Apple:macOS 12.0 (Monterey)";
 				} else if (*c == '1' && *(c + 1) == '3' && (*(c + 2) == '.' || *(c + 2) == '_')) { // '13.' OR '13_'
 					c += 3;
-					*name = "Apple:macOS 13.0";
+					*name = "Apple:macOS 13.0 (Ventura)";
 				} else if (*c == '1' && *(c + 1) == '4' && (*(c + 2) == '.' || *(c + 2) == '_')) { // '14.' OR '14_'
 					c += 3;
-					*name = "Apple:macOS 14.0";
+					*name = "Apple:macOS 14.0 (Sonoma)";
 				} else if (*c == '1' && *(c + 1) == '5' && (*(c + 2) == '.' || *(c + 2) == '_')) { // '15.' OR '15_'
 					c += 3;
-					*name = "Apple:macOS 15.0";
+					*name = "Apple:macOS 15.0 (Sequoia)";
 				} else if (*c == '1' && *(c + 1) == '6' && (*(c + 2) == '.' || *(c + 2) == '_')) { // '16.' OR '16_'
 					c += 3;
 					*name = "Apple:macOS 16.0";
+				} else if (*c == '1' && *(c + 1) == '7' && (*(c + 2) == '.' || *(c + 2) == '_')) { // '17.' OR '17_'
+					c += 3;
+					*name = "Apple:macOS 17.0";
+				} else if (*c == '1' && *(c + 1) == '8' && (*(c + 2) == '.' || *(c + 2) == '_')) { // '18.' OR '18_'
+					c += 3;
+					*name = "Apple:macOS 18.0";
+				} else if (*c == '1' && *(c + 1) == '9' && (*(c + 2) == '.' || *(c + 2) == '_')) { // '19.' OR '19_'
+					c += 3;
+					*name = "Apple:macOS 19.0";
 				} else {
 					*name = "Apple:macOS Unknown";
 				}
