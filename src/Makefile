@@ -107,6 +107,9 @@ libpng: ALWAYS
 	cd libpng && $(MAKE) 'CC=$(CC)' 'ALLCFLAGS=$(ALLCFLAGS)'
 
 pcre2: ALWAYS
+	chmod 755 pcre2/132html pcre2/ar-lib pcre2/CheckMan pcre2/CleanTxt pcre2/compile pcre2/config.guess pcre2/config.sub pcre2/configure pcre2/depcomp pcre2/Detrail pcre2/install-sh pcre2/missing pcre2/perltest.sh pcre2/PrepareRelease pcre2/RunGrepTest pcre2/RunTest pcre2/test-driver
+	chmod 755 pcre2/cmake pcre2/doc pcre2/m4 pcre2/src pcre2/testdata pcre2/vms
+	chmod 755 pcre2/src/sljit pcre2/src/sljit/allocator_src/
 	cd pcre2 && ./configure && $(MAKE) 'CC=$(CC)' 'ALLCFLAGS=$(ALLCFLAGS)'
 
 unzip: ALWAYS
