@@ -11,7 +11,7 @@ If you are looking for binary downloads of pre-compiled executabled for Analog C
 
 ## Building
 If you receive the error:
-'''
+```
 WARNING: 'aclocal-1.16' is missing on your system.
          You should only need it if you modified 'acinclude.m4' or
          'configure.ac' or m4 files included by 'configure.ac'.
@@ -21,5 +21,5 @@ WARNING: 'aclocal-1.16' is missing on your system.
          <https://www.gnu.org/software/autoconf>
          <https://www.gnu.org/software/m4/>
          <https://www.perl.org/>
-'''
+```
 Download pcre2-10.44.tar.gz from https://github.com/PCRE2Project/pcre2/releases/tag/pcre2-10.44 and extract over src/pcre2. Something is being lost in the clone to/from GitHub that is causing the error. If you know what and how to solve it, please file it as an issue.
