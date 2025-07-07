@@ -65,7 +65,7 @@ void xml_stylehead(FILE *outf, Outchoices *od)
 	*outfp=outf;
 
 	// KLUDGE!!!!
-	opts=(Options*)((int)od-offsetof(Options,outopts));	
+	opts=(Options*)((char*)od-offsetof(Options,outopts));
 
 	t=time(0); 
 	strftime( buffer, 256, "%Y%m%d%H%M%S", gmtime(&t) );
